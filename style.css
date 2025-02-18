@@ -1,8 +1,35 @@
-/*Intentaré establecer los colores de los fondos (header y body)*/
+/*Pondré comentarios a algunas líneas para explicar que hacen, excepto las más obvias.*/
+
 header{
     background-color: #7890B5;
+    text-align: center; /*Alineación del texto en el encabezado*/
+    padding: 10px; /*Margen interior del encabezado para que el contenido no se junte demasiado.*/
+}
+
+h1 {
+    text-align: left;
 }
 
 body{
+    font-family: Arial, sans-serif;
     background-color: #FCF1D6;
+    margin: 0; /*No sé muy bien como funcionen los margenes en el body, pero con 0 en ambos se apega más
+    a nuestro boceto.*/
+    padding: 0;
 }
+
+.categorias-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav{
+    text-align: center;
+    color: white;
+    background-color: #197F7C;
+}
+
+/*Viendo que onda con que no sale el css*/
