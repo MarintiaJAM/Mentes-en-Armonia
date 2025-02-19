@@ -11,4 +11,7 @@ Pues si esta chido esto eh
 
 OMG alfin me sale
 
-Chicos oigan, ya modifique el html, no sé si ya les salga
+NOTAS:
+
+Dentro de los párrafos en el html se pueden poner las letras en negritas con "<strong>" y "</strong>", y en cuersiva con "<em>" t "</em>".
+No sé como traducirlo tal cual pero se llama "line break tag" con solo "<br>", que sirve para poner un espaciador, como punto y aparte.
