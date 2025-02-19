@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentes en armonía</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <div class="head">
     <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
                          darle estilos por medio de css más delante -->
-        <a href="#">Logo</a>
-        <img src="../img/shadow.webp" width="50px" height="50px">
+        <a href="#Inicio">
+        <img src="img/shadow.webp" alt="Logo" width="60px"></a>
     </div>
 
     <!-- Aquí se encuentra todo lo que estará dentro de la pagina de navegación -->
     <nav class="navbar">
         <!-- Estos enlaces funcionan como botones en nuestra página web, para enlazar a otra pagina web -->
-        <a href="#">Inicio</a>
-        <a href="Creando sitio web.html">Acerca de</a>
+        <a href="#Inicio">Inicio</a>
+        <a href="Acerca de">Acerca de</a>
         <a href="#">Definiciones</a>
         <a href="#">Neurodivergencia</a>
         <a href="#">Footer</a>
@@ -35,14 +35,14 @@
     </p>
     <div class="btn-home">
         <a href="#" class="btn">Saber más</a><!--Este enlace nos servirá como un tipo de botón interactivo -->
-        <a href="#" class="btn">Ejemplo</a>
+        <a href="https://youtu.be/dQw4w9WgXcQ?si=tJrpPvJW8yC0AXrU" class="btn">Ejemplo</a>
     </div>
 
 </header>
 
 <!-- La etiqueta de sección nos permite determinar el contenido que formará parte de un esquema, como en este caso subsecciones -->
 <section class="content sau">
-
+    <section id="Inicio"> <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
     <h2 class="title">Inicio</h2>
     <p>
         La neurodiversidad es un término general no médico que incluye las condiciones de autismo, dislexia, dispraxia,
@@ -80,15 +80,18 @@
         </div>
 
     </p>
+    </section>
 </section>
 
 <section class="content about">
+    <section id="Acerca de">
     <h2 class="title">Nosotros</h2>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis dolorem eos 
         quia molestias velit quisquam sed porro ipsa ea, 
         sit necessitatibus, adipisci ipsam esse soluta aut, nostrum maxime non dolor.
     </p>
     <a href="#" class="btn">Saber más</a>
+    </section>
 </section>
 
 <section class="content price">
@@ -108,7 +111,7 @@
 <section class="content contact">
     <h2 class="title">Contacto</h2>
     <p>032518</p>
-    <img src="../img/descarga (2).jpg" height="220px" width="100%" alt="Shadow">
+    <img src="img/descarga (2).jpg" height="220px" width="100%" alt="Shadow">
 </section>
 
 </body>
