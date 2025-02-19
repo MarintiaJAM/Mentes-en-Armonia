@@ -15,3 +15,9 @@ NOTAS:
 
 Dentro de los párrafos en el html se pueden poner las letras en negritas con "<strong>" y "</strong>", y en cuersiva con "<em>" t "</em>".
 No sé como traducirlo tal cual pero se llama "line break tag" con solo "<br>", que sirve para poner un espaciador, como punto y aparte.
+
+
+Estuve investigando algunas otras líneas, así que también agregaré comentarios en el css original pero no modificaré.
+
+Tenemos que ver cómo podemos poner las ubicaciones de los css y las imágenes para que a todos nos sirvan, tal vez
+utilizando una carpeta con el mismo nombre en donde estemos guardando todo.
