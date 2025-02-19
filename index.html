@@ -1,41 +1,115 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visibilidad Neurodivergente</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mentes en armonía</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Neurodivergencia dos puntos uve</h1>
-        <nav class="categorias-menu">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#about">Acerca de</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="home">
-        <h1>Bienvenido</h1>
-        <p> Esta página tiene como proposito informar sobre los tipos de neurodivergencia, así como también
-            para que las personas puedan interactuar, hablar de sus experiencias y poder crear un ambiente sano
-            entre personas neurotipicas y neurodivergentes.
+<div class="head">
+    <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
+                         darle estilos por medio de css más delante -->
+        <a href="#">Logo</a>
+        <img src="../img/shadow.webp" width="50px" height="50px">
+    </div>
+
+    <!-- Aquí se encuentra todo lo que estará dentro de la pagina de navegación -->
+    <nav class="navbar">
+        <!-- Estos enlaces funcionan como botones en nuestra página web, para enlazar a otra pagina web -->
+        <a href="#">Inicio</a>
+        <a href="Creando sitio web.html">Acerca de</a>
+        <a href="#">Definiciones</a>
+        <a href="#">Neurodivergencia</a>
+        <a href="#">Footer</a>
+    </nav>
+
+</div>
+
+<header class="content header">
+    <h2 class="title">Neurodiversidad</h2>
+    <!-- En el siguiente párrafo se utiliza el lorem que es un tipo de texto predeterminado para dar ejemplo en la página web -->
+    <p>
+       "Una mente distinta no es motivo de discriminación"
+    </p>
+    <div class="btn-home">
+        <a href="#" class="btn">Saber más</a><!--Este enlace nos servirá como un tipo de botón interactivo -->
+        <a href="#" class="btn">Ejemplo</a>
+    </div>
+
+</header>
+
+<!-- La etiqueta de sección nos permite determinar el contenido que formará parte de un esquema, como en este caso subsecciones -->
+<section class="content sau">
+
+    <h2 class="title">Inicio</h2>
+    <p>
+        La neurodiversidad es un término general no médico que incluye las condiciones de autismo, dislexia, dispraxia,
+        discalculia y TDAH. Los equipos con profesionales neurodivergentes pueden ser un 30% más productivos que los que
+        no los tienen.
+
+        <div class="box-container">
+
+            <div class="box">
+                <!-- En este caso la etiqueta i representa el icono, sin embargo no aparecera nada en el codigo pues no se esta usando los elemntos de esa libreria
+                 que en este caso son los angular, apple y android, pero para este código no sirve para nadota -->
+                <i class="fab fa-angular"></i> 
+                <h3>Autismo</h3>
+                <p>El trastorno del espectro autista es una afección relacionada con el desarrollo del cerebro que afecta 
+                    la manera en la que una persona percibe y socializa con otras personas, lo que causa problemas en la 
+                    interacción social y la comunicación.</p>
+            </div>
+
+            <div class="box">
+    
+                <i class="fab fa-apple"></i>
+                <h3>TDAH</h3>
+                <p>Trastorno crónico caracterizado por la dificultad para prestar atención, la hiperactividad y la impulsividad.
+                    El ADHD suele comenzar en la niñez y puede persistir hasta la edad adulta.
+                </p>
+            </div>
+
+            <div class="box">
+                <i class="fab fa-android"></i>
+                <h3>Dislexia</h3>
+                <p>La dislexia es un trastorno del aprendizaje que consiste en la dificultad en la lectura debido a inconvenientes 
+                    para identificar los sonidos del habla y aprender a relacionarlos con las letras y las palabras (decodificación).</p>
+            </div>
+
+        </div>
+
+    </p>
+</section>
+
+<section class="content about">
+    <h2 class="title">Nosotros</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis dolorem eos 
+        quia molestias velit quisquam sed porro ipsa ea, 
+        sit necessitatibus, adipisci ipsam esse soluta aut, nostrum maxime non dolor.
+    </p>
+    <a href="#" class="btn">Saber más</a>
+</section>
+
+<section class="content price">
+    <article class="contain">
+        <h2 class="title">Precio</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis dolorem eos 
+            quia molestias velit quisquam sed porro ipsa ea, 
+            sit necessitatibus, adipisci ipsam esse soluta aut, nostrum maxime non dolor.
         </p>
-    </section>
-    <section id="about">
-        <h2>Acerca de</h2>
-        <p>Información sobre nosotros.</p>
-    </section>
-    <section id="services">
-        <h2>Servicios</h2>
-        <p>Descripción de los servicios ofrecidos.</p>
-    </section>
-    <section id="contact">
-        <h2>Contacto</h2>
-        <p>Cómo ponerse en contacto con nosotros.</p>
-    </section>
+
+    </article>
+
+    <a href="#" class="btn">Conocer precio</a>
+
+</section>
+
+<section class="content contact">
+    <h2 class="title">Contacto</h2>
+    <p>032518</p>
+    <img src="../img/descarga (2).jpg" height="220px" width="100%" alt="Shadow">
+</section>
+
 </body>
 </html>
