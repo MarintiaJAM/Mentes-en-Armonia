@@ -1,35 +1,198 @@
 /*Pondré comentarios a algunas líneas para explicar que hacen, excepto las más obvias.*/
 
-header{
-    background-color: #7890B5;
-    text-align: center; /*Alineación del texto en el encabezado*/
-    padding: 10px; /*Margen interior del encabezado para que el contenido no se junte demasiado.*/
-}
-
-h1 {
-    text-align: left;
+*{
+    /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
+    y que por default se apliquen estos estilos si no se indica lo contrario */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
 }
 
 body{
-    font-family: Arial, sans-serif;
-    background-color: #FCF1D6;
-    margin: 0; /*No sé muy bien como funcionen los margenes en el body, pero con 0 en ambos se apega más
-    a nuestro boceto.*/
-    padding: 0;
-}
-
-.categorias-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav{
     text-align: center;
-    color: white;
-    background-color: #197F7C;
+    font-family: sans-serif;
+    background-color: #3f3f3f;
 }
 
-/*Viendo que onda con que no sale el css*/
+.header{
+    display: flex; /*La pantalla se acomoda según el dispositivo en el que estes*/
+    justify-content: center;
+    align-items: center;
+}
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 63px;
+    background-color: #6aadaf;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar{
+    display: flex;
+    margin: 10px; /*Esta línea nos sirve para separar los botones de enlace a otras páginas*/
+}
+
+.logo{
+    margin-left: 30px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.navbar a{
+    /*En este bloque se le da estilo a los enlaces de la barra de navegación que se encuentra en el encabezado*/
+    display: block;
+    padding: 23px 20px;
+    color: #fff;
+    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
+    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
+    font-size: 20px;
+}
+
+.navbar a:hover{
+    background: #3f3f3f; /*Con esta etiqueta y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
+    cambien a un color más claro cuando coloques el cursor sobre ellos*/
+
+}
+
+.header{
+    height: 60vh !important;
+    background-image: url(../img/triste.webp);
+    background-repeat:no-repeat center;
+    background-size: cover;
+}
+
+.title{
+    /*Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
+    margin-bottom: 40px;
+    font-size: 60px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+p{
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #fff;
+    padding: 0 100px;
+}
+
+/*La clase de btn sirve para darle estilo a los botones que se encuentran dentro de la página*/
+.btn{
+    display: inline-block;
+    margin-top: 15px;  /*Se le da un margen a la parte de arriba del botón*/
+    padding: 10px 50px;
+    border: 2px solid #7ac2cc; /*Aquí se le da un color al borde del botón*/
+    color: #fff;
+    text-decoration: none;
+    background: #7ac2cc;
+}
+
+.btn:hover{ /*El hover nos es de gran ayuda para cambiar el color cuando el cursor se encuentra sobre el boton*/
+    background: none;
+}
+
+.btn-home{
+    display: flex;
+}
+
+.btn-home a{
+    /*En este bloque indicamos la separación de los botones*/
+    margin: 0 10px;
+}
+
+.content{
+    /*En este bloque se da estilo al contenido general del sitio web*/
+    height: 50vh;
+    display: flex;
+    flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
+    justify-content: center;
+    align-items: center;
+}
+
+.sau{
+    padding: 30px;
+    background: #1f1d1d; /*Con estas líneas de estilo creamos un recuadro con color que contiene parte de la información que se encuentra
+    dentro del bloque de clase sau en el archivo html*/
+}
+
+.box-container{
+    display: flex;
+    justify-content: center; /*Se centra la información del bloque de contenido*/
+    flex-wrap: wrap; /*Modifica la vista del sitio web para que al entrar en tableta, celular o pc, se adapte a la pantalla del mismo*/
+    text-align: center;
+}
+
+.box-container .box{ /*Al invocar a dos clases se esta indicando que se va a afectar la clase box container*/
+    height: 11rem;
+    width: 17rem;
+    background: #101010;
+    text-align: center;
+    border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
+    box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
+    margin: 2rem;
+}
+
+.box-container .box i {
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+    color: #171717;
+    background: #1e685c;
+}
+
+.box-container .box h3{
+    font-size: 20px;
+    color: #1e685c;
+}
+
+.box-container .box p{
+    font-size: 16px;
+    padding: 0 15px;
+}
+
+.about {
+    background: #171717;
+}
+
+.price{
+    background-image: url(../img/autism.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+.contact{
+    padding-top: 20px;
+    background: #171717;
+    padding-bottom: 0;
+}
+
+ @media (max-width: 768px) {
+    
+    .title{
+        margin-bottom: 0;
+        font-size: 40px;
+    }
+
+    .sau{
+        height: 120vh;
+    }
+
+    .navbar{
+        display: none;
+    }
+ }
