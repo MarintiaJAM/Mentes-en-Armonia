@@ -53,7 +53,7 @@ body{
 .navbar a{
     /*En este bloque se le da estilo a los enlaces de la barra de navegación que se encuentra en el encabezado*/
     display: block;
-    padding: 23px 20px;
+    padding: 23px 20px; /*Margen interior*/
     color: #fff;
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
@@ -61,7 +61,7 @@ body{
 }
 
 .navbar a:hover{
-    background: #3f3f3f; /*Con esta etiqueta y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
+    background: #3f3f3f; /*Con la especificación hover y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
     cambien a un color más claro cuando coloques el cursor sobre ellos*/
 
 }
@@ -101,7 +101,8 @@ p{
 }
 
 .btn:hover{ /*El hover nos es de gran ayuda para cambiar el color cuando el cursor se encuentra sobre el boton*/
-    background: none;
+    background: none; /*Al indicar como none el background al poner el cursor sobre los botones parte de la clase btn
+    se pondrán del tamaño del fondo que este en ese momento*/
 }
 
 .btn-home{
@@ -114,7 +115,7 @@ p{
 }
 
 .content{
-    /*En este bloque se da estilo al contenido general del sitio web*/
+    /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content*/
     height: 50vh;
     display: flex;
     flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
@@ -122,7 +123,7 @@ p{
     align-items: center;
 }
 
-.sau{
+.encabezado{
     padding: 30px;
     background: #1f1d1d; /*Con estas líneas de estilo creamos un recuadro con color que contiene parte de la información que se encuentra
     dentro del bloque de clase sau en el archivo html*/
@@ -145,22 +146,12 @@ p{
     margin: 2rem;
 }
 
-.box-container .box i {
-    height: 3rem;
-    width: 3rem;
-    line-height: 3rem;
-    text-align: center;
-    border-radius: 50%;
-    color: #171717;
-    background: #1e685c;
-}
-
-.box-container .box h3{
+.box-container .box h3{ /*En esta sección se da estilo a los encabezados tipo h3 dentro de la clase box-container*/
     font-size: 20px;
     color: #1e685c;
 }
 
-.box-container .box p{
+.box-container .box p{ /*Formato a los parrafos dentro del box-container*/
     font-size: 16px;
     padding: 0 15px;
 }
@@ -169,7 +160,7 @@ p{
     background: #171717;
 }
 
-.price{
+.neurodivergencia{
     background-image: url(../img/autism.jpg);
     background-attachment: fixed;
     background-size: cover;
