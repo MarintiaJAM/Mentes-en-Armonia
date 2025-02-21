@@ -7,6 +7,7 @@
     padding: 0;
     border: 0;
     font-size: 100%;
+    justify-content: space-between;
     vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
 }
@@ -14,19 +15,30 @@
 body{
     text-align: center;
     font-family: sans-serif;
-    background-color: #3f3f3f;
+    background-color: #1c558b;
 }
 
 .header{
     display: flex; /*La pantalla se acomoda según el dispositivo en el que estes*/
     justify-content: center;
     align-items: center;
+    color: #171717;
+}
+
+.header h2{
+    color: #11454d;
+}
+
+.header p{
+    color: #11454d;
+    font-size: 25px; /*Tamaño del parrafo dentro del header*/
+    font-weight: 800;/*Darle el formato a negrita*/
 }
 
 .head{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /*Separa los contenidos para evitar que se amontone la información*/
     height: 63px;
     background-color: #6aadaf;
     position: fixed;
@@ -37,6 +49,11 @@ body{
 .navbar{
     display: flex;
     margin: 10px; /*Esta línea nos sirve para separar los botones de enlace a otras páginas*/
+    scroll-behavior: smooth; /*Hace que el efecto de desplazamiento sea suave*/
+}
+
+section{
+    scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
 }
 
 .logo{
@@ -68,7 +85,8 @@ body{
 
 .header{
     height: 60vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
-    background-image: url(img/triste.webp);
+    background-image: url(../img/header.png);
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/
     background-repeat:no-repeat center;
     background-size: cover;
 }
@@ -76,7 +94,7 @@ body{
 .title{
     /*Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
     margin-bottom: 40px;
-    font-size: 60px;
+    font-size: 45px;
     font-weight: 600;
     text-transform: uppercase;
     color: #fff;
@@ -120,6 +138,7 @@ p{
     display: flex;
     flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
     justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -137,23 +156,149 @@ p{
 }
 
 .box-container .box{ /*Al invocar a dos clases se esta indicando que se va a afectar la clase box container*/
-    height: 12rem;
+    height: 15rem;
     width: 17rem;
-    background: #101010;
+    background: #333439;
     text-align: center;
     border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
     box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
     margin: 2rem;
 }
 
-.box-container .box a{
-    color: #1e685c;
+/*Todas estas líneas de código son para darle un estilo a cada cuadro del tipo de neurodivergencia*/
+/*AUTISMO*/
+.box-container .box .autismo{
+    color:#d8d878;
+    background-color: #d8d878;
+    border-radius: 1rem;
 }
 
-.box-container .box h3{ /*En esta sección se da estilo a los encabezados tipo h3 dentro de la clase box-container*/
-    font-size: 20px;
-    color: #1e685c;
+.box-container .box .autismo h3{
+    color: #6b6b21;
 }
+
+.box-container .box .autismo p{
+    color: #6b6b21;
+}
+
+.box-container .box .autismo a{
+    color: #6b6b21;
+}
+
+/*TDAH*/
+.box-container .box .tdah{
+    color:#ebc678;
+    background-color: #ebc678;
+    border-radius: 1rem;
+}
+
+.box-container .box .tdah h3{
+    color: #7c5e1d;
+}
+
+.box-container .box .tdah p{
+    color: #7c5e1d;
+}
+
+.box-container .box .tdah a{
+    color: #7c5e1d;
+}
+
+/*DISLEXIA*/
+.box-container .box .dislexia{
+    color:#99aee2;
+    background-color: #99aee2;
+    border-radius: 1rem;
+}
+
+.box-container .box .dislexia h3{
+    color: #2c3b60;
+}
+
+.box-container .box .dislexia p{
+    color: #2c3b60;
+}
+
+.box-container .box .dislexia a{
+    color: #2c3b60;
+}
+
+/*TOURETE*/
+.box-container .box .tourete{
+    color:#8bd77d;
+    background-color: #8bd77d;
+    border-radius: 1rem;
+}
+
+.box-container .box .touret h3{
+    color: #37642f;
+}
+
+.box-container .box .touret p{
+    color: #37642f;
+}
+
+.box-container .box .tourete a{
+    color: #37642f;
+}
+
+/*DISPRAXIA*/
+.box-container .box .dispraxia{
+    color:#8bd77d;
+    background-color: #8bd77d;
+    border-radius: 1rem;
+}
+
+.box-container .box .dispraxia h3{
+    color: #37642f;
+}
+
+.box-container .box .dispraxia p{
+    color: #37642f;
+}
+
+.box-container .box .dispraxia a{
+    color: #37642f;
+}
+
+/*DISCALCULIA*/
+.box-container .box .discalculia{
+    color:#f57c64;
+    background-color: #f57c64;
+    border-radius: 1rem;
+}
+
+.box-container .box .discalculia h3{
+    color: #7d3628;
+}
+
+.box-container .box .discalculia p{
+    color: #7d3628;
+}
+
+.box-container .box .discalculia a{
+    color: #7d3628;
+}
+
+/*ANSIEDAD*/
+.box-container .box .ansiedad{
+    color:#eeba88;
+    background-color: #eeba88;
+    border-radius: 1rem;
+}
+
+.box-container .box .ansiedad h3{
+    color: #603a16;
+}
+
+.box-container .box .ansiedad p{
+    color: #603a16;
+}
+
+.box-container .box .ansiedad a{
+    color: #603a16;
+}
+
 
 .box-container .box p{ /*Formato a los parrafos dentro del box-container*/
     font-size: 16px;
@@ -165,20 +310,46 @@ p{
 }
 
 .Definiciones{
-        background-image: url(../img/autism.jpg);
+        background-image: url();
         background-attachment: fixed;
         background-size: cover;
         text-align: center;
+        background-color: #428a95;
 }
 
 .neurodivergencia{
     background: #171717;
+    justify-content: space-between;
 }
 
-.contact{
+.contact{ /*Todo este bloque lo puse de manera temporal hasta descubrir que hacer con los cuadros de texto*/
     padding-top: 20px;
     background: #171717;
     padding-bottom: 0;
+    justify-content: space-between;
+}
+
+.contact p{
+    color: #171717;
+}
+
+.Lineap{ /*Aquí le di formato a la sección de línea de apoyo*/
+    justify-content: space-between; /*Espacio entre contenidos*/
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+
+.list ul{  /*Estilo del formato general de la lista de linea de apoyo*/
+    list-style: none; /*No se le asigna ningún tipo de lista*/
+    padding: 0;
+}
+
+.list li{
+    background-color: #428a95;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 }
 
  @media (max-width: 768px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
