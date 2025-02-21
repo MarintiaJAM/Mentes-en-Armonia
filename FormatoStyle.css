@@ -1,5 +1,95 @@
-body {
-    font-family: sans-serif;
+/*Ya son las 12, ya le voy a parar... por ahora. Perdón si fue muy poco.
+Esta carpeta esxtra solo la hice para guardar las diferencias del css original,
+pero la ratón las combinamos en un sola*/
+
+*{
+    /*BORRAR o MODIFICAR*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
 }
 
-/*Ya son las 12, ya le voy a parar... por ahora. Perdón si fue muy poco.*/
+body{ /*BORRAR o MODIFICAR*/
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #3f3f3f;
+}
+
+.head{ /*BORRAR*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 63px;
+    background-color: #6aadaf;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar{ /*BORRAR*/
+    display: flex;
+    margin: 10px; 
+}
+
+.logo{ /*BORRAR*/
+    margin-left: 30px;
+}
+
+.logo a { /*BORRAR*/
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.navbar a{ /*BORRAR*/
+    /*En este bloque se le da estilo a los enlaces de la barra de navegación que se encuentra en el encabezado*/
+    display: block;
+    padding: 23px 20px;
+    color: #fff;
+    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
+    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
+    font-size: 20px;
+}
+
+.navbar a:hover{ /*BORRAR*/
+    background: #3f3f3f; /*Con esta etiqueta y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
+    cambien a un color más claro cuando coloques el cursor sobre ellos*/
+
+}
+
+.header{ /*MODIFICAR*/
+    background: black; /*Aquí se pondrá el color característico de la neurodivergencia de la que se habla*/
+    height: 300px;
+    width: 100%;
+}
+
+.title{ /*BBORRAR o MODIFICAR*/
+    margin-bottom: 40px;
+    font-size: 60px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+p{ /*BBORRAR o MODIFICAR*/
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #fff;
+    padding: 0 100px;
+}
+
+.content{
+    /*En este bloque se da estilo al contenido general del sitio web*/
+    height: 50vh;
+    display: flex;
+    flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
+    justify-content: center;
+    align-items: center;
+}
+
+#seccion1{
+
+}
