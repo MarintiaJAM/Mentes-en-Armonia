@@ -59,3 +59,5 @@ Trastornos del Desarrollo Intelectual, Trastornos de la Comunicación, Trastorno
 Oigan, le cambie varias cositas, ahora ya puedes desplazar por la barra de navegación dentro de la misma página de inicio sin que se tapen los titulos, en el css lo marque en un comentario.
 También implemente en el css una función que evita que el contenido general dentro del content se pueda amontonar, sigo viendo más cosas a añadir.
 Hoy no se duerme vvs 
+
+Le di un color temporal a los cuadros, en tanto a fondo, texto y h3
