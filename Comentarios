@@ -55,3 +55,7 @@ CODIGO DE LAS CAJAS DE INFORMACION (atte, el joto)
         </div>
 
 Trastornos del Desarrollo Intelectual, Trastornos de la Comunicación, Trastorno del Espectro Autista (TEA), Trastorno por Déficit de Atención con Hiperactividad (TDAH), Trastornos del Desarrollo Motor, Trastornos Específicos del Aprendizaje (TAP) y Otros Trastornos del Neurodesarrollo.
+
+Oigan, le cambie varias cositas, ahora ya puedes desplazar por la barra de navegación dentro de la misma página de inicio sin que se tapen los titulos, en el css lo marque en un comentario.
+También implemente en el css una función que evita que el contenido general dentro del content se pueda amontonar, sigo viendo más cosas a añadir.
+Hoy no se duerme vvs 
