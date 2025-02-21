@@ -118,6 +118,8 @@ p{
     /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content*/
     height: 50vh;
     display: flex;
+    margin: 50PX;
+    padding: 50PX;
     flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
     justify-content: center;
     align-items: center;
