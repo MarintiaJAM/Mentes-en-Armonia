@@ -118,8 +118,7 @@ p{
     /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content*/
     height: 50vh;
     display: flex;
-    margin: 50PX;
-    padding: 50PX;
+    word-spacing: 50px;
     flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
     justify-content: center;
     align-items: center;
@@ -146,6 +145,10 @@ p{
     border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
     box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
     margin: 2rem;
+}
+
+.box-container .box a{
+    color: #1e685c;
 }
 
 .box-container .box h3{ /*En esta sección se da estilo a los encabezados tipo h3 dentro de la clase box-container*/
