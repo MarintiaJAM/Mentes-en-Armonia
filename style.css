@@ -118,7 +118,6 @@ p{
     /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content*/
     height: 50vh;
     display: flex;
-    word-spacing: 50px;
     flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
     justify-content: center;
     align-items: center;
@@ -138,8 +137,8 @@ p{
 }
 
 .box-container .box{ /*Al invocar a dos clases se esta indicando que se va a afectar la clase box container*/
-    height: 11rem;
-    width: 17rem;
+    height: 20rem;
+    width: 20rem;
     background: #101010;
     text-align: center;
     border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
