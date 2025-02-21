@@ -165,11 +165,15 @@ p{
     background: #171717;
 }
 
+.Definiciones{
+        background-image: url(../img/autism.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        text-align: center;
+}
+
 .neurodivergencia{
-    background-image: url(../img/autism.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    text-align: center;
+    background: #171717;
 }
 
 .contact{
