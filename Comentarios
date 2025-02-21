@@ -27,3 +27,31 @@ Para lo de las imagenes no nos sirve la carpeta de imagenes que añadí aquí mi
 
 Chicos, también ya borre algunas líneas de codigo que tal cual aunque en el vídeo de ejemplo funcionaba, a nosotros no nos sirve.
 También voy a empezar a hacer unos cambios en un archivo propio y ya mañana se los enseño para que me digan si los incluimos o nel
+
+CODIGO DE LAS CAJAS DE INFORMACION (atte, el joto)
+<div class="box-container">
+
+            <div class="box">
+                <h3>Autismo</h3>
+                <p>El trastorno del espectro autista es una afección relacionada con el desarrollo del cerebro que afecta 
+                    la manera en la que una persona percibe y socializa con otras personas, lo que causa problemas en la 
+                    interacción social y la comunicación.</p>
+            </div>
+
+            <div class="box">
+    
+                <h3>TDAH</h3>
+                <p>Trastorno crónico caracterizado por la dificultad para prestar atención, la hiperactividad y la impulsividad.
+                    El ADHD suele comenzar en la niñez y puede persistir hasta la edad adulta.
+                </p>
+            </div>
+
+            <div class="box">
+                <h3>Dislexia</h3>
+                <p>La dislexia es un trastorno del aprendizaje que consiste en la dificultad en la lectura debido a inconvenientes 
+                    para identificar los sonidos del habla y aprender a relacionarlos con las letras y las palabras (decodificación).</p>
+            </div>
+
+        </div>
+
+Trastornos del Desarrollo Intelectual, Trastornos de la Comunicación, Trastorno del Espectro Autista (TEA), Trastorno por Déficit de Atención con Hiperactividad (TDAH), Trastornos del Desarrollo Motor, Trastornos Específicos del Aprendizaje (TAP) y Otros Trastornos del Neurodesarrollo.
