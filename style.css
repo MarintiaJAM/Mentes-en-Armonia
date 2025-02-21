@@ -12,6 +12,10 @@
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
 }
 
+html {
+    scroll-behavior: smooth; /*Hace que el desplazamiento por a página sea suave en lugar de un salto brusco*/
+}
+
 body{
     text-align: center;
     font-family: sans-serif;
@@ -85,14 +89,15 @@ section{
 
 .header{
     height: 60vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
-    background-image: url(../img/header.png);
-    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/
+    background-image: url(../Sitio\ web/img/header.png);
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
     background-size: cover;
 }
 
 .title{
     /*Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
+    margin-top: 40px;
     margin-bottom: 40px;
     font-size: 45px;
     font-weight: 600;
@@ -336,7 +341,7 @@ p{
 .Lineap{ /*Aquí le di formato a la sección de línea de apoyo*/
     justify-content: space-between; /*Espacio entre contenidos*/
     padding-top: 20px;
-    padding-bottom: 0;
+    padding-bottom: 100px;
 }
 
 .list ul{  /*Estilo del formato general de la lista de linea de apoyo*/
@@ -351,6 +356,63 @@ p{
     margin-bottom: 5px;
     border-radius: 5px;
 }
+
+.recursos{
+    padding-top: 10px;
+    background: #171717;
+}
+
+.recursos h3{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #fff;
+}
+
+.recursos{
+    padding: 80px;
+    text-align: center;
+}
+
+.videos-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px; /*Espacio entre imágenes*/
+}
+
+.video{
+    padding-top: 25px;
+}
+
+.video p{
+    padding-top: 10px;
+    padding: 15px;
+}
+
+.video img{
+    width: 320px;
+    height: auto;
+}
+
+hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
+    border: 1px solid #fff;
+}
+
+.footer-container h3{
+    padding-top: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.socials img{
+    padding-top: 30px;
+    display: inline-block;
+    margin-right: 5px;
+    width: 2%;
+    height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
+}
+
+
 
  @media (max-width: 768px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
     
