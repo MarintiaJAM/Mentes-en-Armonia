@@ -198,6 +198,10 @@ section{
 }
 
 
+.about{
+    background: #ade4b5;
+}
+
 .Definiciones{
     text-align: center;
     background-color: #428a95;
@@ -205,6 +209,10 @@ section{
 
 
 /*Desde aquí inicia la sección de tipos de neurodivergencia*/
+.neurodivegencia{
+    color:#171717 ;
+}
+
 .box-container{
     display: flex;
     justify-content: center; /*Se centra la información del bloque de contenido*/
@@ -363,12 +371,8 @@ section{
     padding: 0 15px;
 }
 
-
-
-.about {
-    background: #ade4b5;
-}
-
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 .about p{
     color: #11454d
@@ -389,6 +393,7 @@ section{
     justify-content: space-between;
 }
 
+>>>>>>> 1144d2c182b69198ab11b6e20ae31e21eb380d3e
 .contact{ /*Todo este bloque lo puse de manera temporal hasta descubrir que hacer con los cuadros de texto*/
     padding-top: 20px;
     background: #171717;
