@@ -7,6 +7,7 @@
     padding: 0;
     border: 0;
     font-size: 100%;
+    text-align: justify;
     justify-content: space-between;
     vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
@@ -16,49 +17,107 @@ html {
     scroll-behavior: smooth; /*Hace que el desplazamiento por a página sea suave en lugar de un salto brusco*/
 }
 
+/*"CUERPO GENERAL" Con este bloque asignamos el estilo predeterminado al cuerpo.*/
 body{
     text-align: center;
     font-family: sans-serif;
     background-color: #1c558b;
 }
 
+
+/*"LETRA GENERAL" Con este bloque asignamos el estilo predeterminado a la letra*/
+p{
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #fff;
+    padding: 0 100px;
+}
+
+
+/*"ESTILO LINKS"*/
+
+/*Cambia el color de los links al poner el cursor SOBRE estos.*/
+a:hover{
+    color: rgb(243, 110, 132);
+}
+
+/*Cambia el color de los links al estar ACTIVOS, es decir, SIN VISITAR.*/
+a:active {
+    color: rgb(0, 153, 255) ; /* Cambia de color cuando haces clic */
+}
+
+/*Cambia el color de los links al ya haber sido VISITADOS.*/
+a:visited {
+    color: purple;
+}
+
+
+/*"HEADER/ENCABEZADO"*/
+
+
 .header{
-    display: flex; /*La pantalla se acomoda según el dispositivo en el que estes*/
+    display: flex;
     justify-content: center;
     align-items: center;
-    color: #171717;
+    padding-bottom: 30px;
 }
 
 .header h2{
     color: #11454d;
-}
+    text-align: center;
+} 
 
 .header p{
     color: #11454d;
     font-size: 25px; /*Tamaño del parrafo dentro del header*/
     font-weight: 800;/*Darle el formato a negrita*/
+    text-align: center;
 }
 
 .head{
     display: flex;
     align-items: center;
     justify-content: space-between; /*Separa los contenidos para evitar que se amontone la información*/
-    height: 63px;
-    background-color: #6aadaf;
+    height: 65px;
+    background-color: #71dbd2;
     position: fixed;
     width: 100%;
     z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
 }
 
+
+/*AQUI COMIENZA "NAVBAR"*/
+
+/*"CUERPO NAVBAR"*/
 .navbar{
     display: flex;
     margin: 10px; /*Esta línea nos sirve para separar los botones de enlace a otras páginas*/
-    scroll-behavior: smooth; /*Hace que el efecto de desplazamiento sea suave*/
 }
+
+.navbar a{
+    /*En este bloque se le da estilo a los enlaces de la barra de navegación que se encuentra en el encabezado*/
+    display: block;
+    padding: 23px; /*Margen interior*/
+    color: #fff;
+    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
+    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
+    font-size: 18px;
+}
+
+.navbar a:hover{
+    background: #45ada8; /*Con la especificación hover y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
+    cambien a un color más claro cuando coloques el cursor sobre ellos*/
+
+}
+
+/*QUE ES ESTO PAPUS?*/
 
 section{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
 }
+
+
+/*AQUI COMIENZA "LOGO"*/
 
 .logo{
     margin-left: 30px;
@@ -71,45 +130,28 @@ section{
     font-size: 20px;
 }
 
-.navbar a{
-    /*En este bloque se le da estilo a los enlaces de la barra de navegación que se encuentra en el encabezado*/
-    display: block;
-    padding: 23px 20px; /*Margen interior*/
-    color: #fff;
-    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
-    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    font-size: 20px;
-}
 
-.navbar a:hover{
-    background: #3f3f3f; /*Con la especificación hover y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
-    cambien a un color más claro cuando coloques el cursor sobre ellos*/
-
-}
+/*AQUI COMIENZA "HEADER"*/
 
 .header{
     height: 60vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
     background-image: url(../Sitio\ web/img/header.png);
+    filter: brightness(90%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
     background-size: cover;
 }
 
+
+/*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-    /*Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
     margin-top: 40px;
     margin-bottom: 40px;
     font-size: 45px;
     font-weight: 600;
     text-transform: uppercase;
+    text-align: center;
     color: #fff;
-}
-
-p{
-    margin-bottom: 40px;
-    font-size: 18px;
-    color: #fff;
-    padding: 0 100px;
 }
 
 /*La clase de btn sirve para darle estilo a los botones que se encuentran dentro de la página*/
@@ -148,9 +190,10 @@ p{
     align-items: center;
 }
 
+
 .encabezado{
     padding: 30px;
-    background: #1f1d1d; /*Con estas líneas de estilo creamos un recuadro con color que contiene parte de la información que se encuentra
+    background: #ade4b5; /*Con estas líneas de estilo creamos un recuadro con color que contiene parte de la información que se encuentra
     dentro del bloque de clase sau en el archivo html*/
 }
 
@@ -172,7 +215,7 @@ p{
 .box-container .box{ /*Al invocar a dos clases se esta indicando que se va a afectar la clase box container*/
     height: 15rem;
     width: 17rem;
-    background: #333439;
+    background: #3b3b3b;
     text-align: center;
     border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
     box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
@@ -323,9 +366,24 @@ p{
 
 
 .about {
-    background: #171717;
+    background: #ade4b5;
 }
 
+<<<<<<< HEAD
+.about p{
+    color: #11454d
+}
+
+.Definiciones{
+        background-image: url();
+        background-attachment: fixed;
+        background-size: cover;
+        text-align: center;
+        background-color: #428a95;
+}
+
+=======
+>>>>>>> b97dbe7dd2a48c80f6b11bb8ce9881055ae0c08f
 .neurodivergencia{
     background: #171717;
     justify-content: space-between;
@@ -362,8 +420,11 @@ p{
 }
 
 .recursos{
+    padding: 80px;
     padding-top: 10px;
     background: #171717;
+    justify-content: baseline;
+
 }
 
 .recursos h3{
@@ -371,10 +432,6 @@ p{
     margin-bottom: 30px;
     font-size: 30px;
     color: #fff;
-}
-
-.recursos{
-    padding: 80px;
     text-align: center;
 }
 
@@ -382,14 +439,15 @@ p{
     display: flex;
     justify-content: center;
     gap: 10px; /*Espacio entre imágenes*/
-}
-
-.video{
     padding-top: 25px;
 }
 
+.video a{
+    text-align: center;
+    padding: 5px;
+}
+
 .video p{
-    padding-top: 10px;
     padding: 15px;
 }
 
@@ -402,20 +460,23 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
     border: 1px solid #fff;
 }
 
-.footer-container h3{
-    padding-top: 10px;
-    text-decoration: none;
-    color: inherit;
+.footer-container{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #71dbd2;
 }
 
 .socials img{
     padding-top: 30px;
     display: inline-block;
-    margin-right: 5px;
-    width: 2%;
+    margin-left: 5px;
+    width: 1.5%;
     height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
 }
 
+.socials img:hover {
+    content: url("nueva-imagen.jpg"); /* Reemplaza la imagen */
+}
 
 
  @media (max-width: 768px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
