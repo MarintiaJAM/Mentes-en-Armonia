@@ -137,8 +137,9 @@ p{
     margin: 0 10px;
 }
 
+
+ /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content*/
 .content{
-    /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content*/
     height: 50vh;
     display: flex;
     flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
@@ -153,6 +154,14 @@ p{
     dentro del bloque de clase sau en el archivo html*/
 }
 
+
+.Definiciones{
+    text-align: center;
+    background-color: #428a95;
+}
+
+
+/*Desde aquí inicia la sección de tipos de neurodivergencia*/
 .box-container{
     display: flex;
     justify-content: center; /*Se centra la información del bloque de contenido*/
@@ -170,7 +179,8 @@ p{
     margin: 2rem;
 }
 
-/*Todas estas líneas de código son para darle un estilo a cada cuadro del tipo de neurodivergencia*/
+
+/*Tipos de neurodivergencia*/
 /*AUTISMO*/
 .box-container .box .autismo{
     color:#d8d878;
@@ -310,16 +320,10 @@ p{
     padding: 0 15px;
 }
 
+
+
 .about {
     background: #171717;
-}
-
-.Definiciones{
-        background-image: url();
-        background-attachment: fixed;
-        background-size: cover;
-        text-align: center;
-        background-color: #428a95;
 }
 
 .neurodivergencia{
