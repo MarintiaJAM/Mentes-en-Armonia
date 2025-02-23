@@ -198,17 +198,24 @@ section{
 }
 
 
+/*SOBRE NOSOTROS*/
 .about{
     background: #ade4b5;
 }
 
+.about p{
+    color: #11454d
+}
+
+
+/*DEFINICIONES*/
 .Definiciones{
     text-align: center;
     background-color: #428a95;
 }
 
 
-/*Desde aquí inicia la sección de tipos de neurodivergencia*/
+/*TIPOS DE NEURODIVERGENCIA*/
 .neurodivegencia{
     color:#171717 ;
 }
@@ -371,9 +378,7 @@ section{
     padding: 0 15px;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 .about p{
     color: #11454d
 }
@@ -386,15 +391,9 @@ section{
         background-color: #428a95;
 }
 
-=======
->>>>>>> b97dbe7dd2a48c80f6b11bb8ce9881055ae0c08f
-.neurodivergencia{
-    background: #171717;
-    justify-content: space-between;
-}
 
->>>>>>> 1144d2c182b69198ab11b6e20ae31e21eb380d3e
-.contact{ /*Todo este bloque lo puse de manera temporal hasta descubrir que hacer con los cuadros de texto*/
+/*Todo este bloque lo puse de manera temporal hasta descubrir que hacer con los cuadros de texto*/
+.contact{ 
     padding-top: 20px;
     background: #171717;
     padding-bottom: 0;
@@ -405,7 +404,9 @@ section{
     color: #171717;
 }
 
-.Lineap{ /*Aquí le di formato a la sección de línea de apoyo*/
+
+/*LINEA DE APOYO*/
+.Lineap{ 
     justify-content: space-between; /*Espacio entre contenidos*/
     padding-top: 20px;
     padding-bottom: 100px;
@@ -423,6 +424,7 @@ section{
     margin-bottom: 5px;
     border-radius: 5px;
 }
+
 
 .recursos{
     padding: 80px;
