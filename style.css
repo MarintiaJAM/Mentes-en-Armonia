@@ -50,41 +50,19 @@ a:visited {
 }
 
 
-/*"HEADER/ENCABEZADO"*/
+/*"NAVBAR DEL ENCABEZADO"*/
 
-
-.header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 30px;
-}
-
-.header h2{
-    color: #11454d;
-    text-align: center;
-} 
-
-.header p{
-    color: #11454d;
-    font-size: 25px; /*Tamaño del parrafo dentro del header*/
-    font-weight: 800;/*Darle el formato a negrita*/
-    text-align: center;
-}
-
+/*CUERPO ENCABEZADO*/
 .head{
     display: flex;
     align-items: center;
     justify-content: space-between; /*Separa los contenidos para evitar que se amontone la información*/
-    height: 65px;
+    height: 80px;
     background-color: #71dbd2;
     position: fixed;
     width: 100%;
     z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
 }
-
-
-/*AQUI COMIENZA "NAVBAR"*/
 
 /*"CUERPO NAVBAR"*/
 .navbar{
@@ -107,6 +85,30 @@ a:visited {
     cambien a un color más claro cuando coloques el cursor sobre ellos*/
 
 }
+
+/*"HEADER/ENCABEZADO"*/
+
+/*"CUERPO HEADER"*/
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+/*"TÍTULO HEADER"*/
+.header h2{
+    color: #11454d;
+    text-align: center;
+} 
+
+.header p{
+    color: #11454d;
+    font-size: 25px; /*Tamaño del parrafo dentro del header*/
+    font-weight: 800;/*Darle el formato a negrita*/
+    text-align: center;
+}
+
 
 /*QUE ES ESTO PAPUS?*/
 
