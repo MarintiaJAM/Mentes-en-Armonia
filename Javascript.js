@@ -66,3 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+let scrollBtn = document.getElementById("scrollTop"); //Busca el de scroll en el html a través del ID, que sería
+//"scroll" y lo guarda dentro de una variable llamda "scrollBtn" (bóton de scroll).
+
+window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el usuario hace scroll  (desliza) por la página.
+    if (window.scrollY > 480) { //Detecta si el usuario ha bajado, utilizando medidas de pixeles
+        scrollBtn.classList.add("show"); // Aparece con animación
+    } else {
+        scrollBtn.classList.remove("show"); // Desaparece suavemente
+    }
+});

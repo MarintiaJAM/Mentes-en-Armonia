@@ -168,6 +168,36 @@ BORRAR EN UN FUTURO*/
 }
 
 
+/*"FLECHA DE SCROLL"*/
+.scroll{
+    position: fixed; /*Hace que mantenga su posición fija en la pantalla*/
+    bottom: 40px; /*Distancia desde la parte inferior*/
+    right: 40px; /*Distancia desde la derecha... Ambos para antenerlo en la esquina inferior derecha*/
+    width: 40px; /*Tamaño = Ancho*/
+    height: 40px; /*Tamaño = Alto*/
+    background: #d33649; /*Color del fondo del círculo*/
+    text-align: center; /*Ya que la flecha cuenta como texto en este caso, esto ayudá a que se mantenga
+    centrada dentro del círculo*/
+    line-height: 40px; /*Centra el ícono de la flecha verticalmente*/
+    font-size: 30px; /*Define el tamaño de la flecha*/
+    border-radius: 50%; /*Hace que tenga forma circular*/
+    cursor: pointer; /*Hace que el cursor cambie a una manita cuando pasa sobre el scroll*/
+    text-decoration: none; /*Quita el subrayado del <a>, que vendría siendo un "link"*/
+    opacity: 0; /*Hace que en un inicio sea invisible*/
+    visibility: hidden; /*Evita que ocupe espacio y obstruya en los demás elementos*/
+    transition: opacity 0.2s ease-in-out, visibility 0.2s; /*Implementa una transición*/
+}
+
+#scrollTop.show {
+    opacity: 1; /*Hace que se haga visible con suavidad (gracias a la transición)*/
+    visibility: visible;
+}
+
+.scroll:hover{
+    background: #f87988; /*Color del fondo del círculo*/
+    color: #fff; /*Color de la flecha*/
+}
+
 /*"HEADER/ENCABEZADO"*/
 
 /*"CUERPO HEADER"*/

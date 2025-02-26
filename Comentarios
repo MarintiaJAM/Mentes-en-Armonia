@@ -67,3 +67,17 @@ También implemente en el css una función que evita que el contenido general de
 Hoy no se duerme vvs 
 
 Le di un color temporal a los cuadros, en tanto a fondo, texto y h3
+
+
+Ignoren esto, les explicaré en persona (Es Java)
+
+let scrollBtn = document.getElementById("scrollTop"); //Busca el de scroll en el html a través del ID, que sería
+//"scroll" y lo guarda dentro de una variable llamda "scrollBtn" (bóton de scroll).
+
+window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el usuario hace scroll  (desliza) por la página.
+    if (window.scrollY > 200) { //Detecta si el usuario ha bajado, utilizando medidas de pixeles
+        scrollBtn.style.display = "block"; //Cambia el "display", que hace que muestre la flecha
+    } else {
+        scrollBtn.style.display = "none"; //Cambia el display, que hace que oculte la flecha
+    }
+});
