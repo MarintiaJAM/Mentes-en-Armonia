@@ -19,7 +19,7 @@ html {
 body{
     text-align: center;
     font-family: sans-serif;
-    background-color: #a7c9e9;
+    background-color: #fffdd1;
 }
 
 
@@ -27,7 +27,7 @@ body{
 p{
     margin-bottom: 40px;
     font-size: 18px;
-    color: #fff;
+    color: #453c5c;
     padding: 0 100px;
 }
 
@@ -50,80 +50,30 @@ a:visited {
 }
 
 
-/*"NAVBAR DEL ENCABEZADO"*/
+/*"ENCABEZADO NAVBAR"*/
 
 /*CUERPO ENCABEZADO*/
 .head{
     display: flex;
-    align-items: center;
-    justify-content: space-between; /*Separa los contenidos para evitar que se amontone la información*/
-    height: 80px;
-    background-color: #71dbd2;
-    position: fixed;
+    align-items: center; /*Centra los elementos verticalmente*/
+    justify-content: space-between; /*Separa el logo y el navbar*/
+    height: 70px;
+    background-color: #2d938e;
     width: 100%;
     z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
-}
-
-/*"CUERPO NAVBAR"*/
-.navbar{
-    display: flex;
-    margin: 10px; /*Esta línea nos sirve para separar los botones de enlace a otras páginas*/
-}
-
-.navbar a{
-    /*En este bloque se le da estilo a los enlaces de la barra de navegación que se encuentra en el encabezado*/
-    display: block;
-    padding: 23px; /*Margen interior*/
-    color: #fff;
-    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
-    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    font-size: 18px;
-}
-
-.navbar a:hover{
-    background: #45ada8; /*Con la especificación hover y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
-    cambien a un color más claro cuando coloques el cursor sobre ellos*/
-
-}
-
-/*"HEADER/ENCABEZADO"*/
-
-/*"CUERPO HEADER"*/
-.header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 30px;
-}
-
-/*"TÍTULO HEADER"*/
-.header h2{
-    color: #11454d;
-    text-align: center;
-} 
-
-.header p{
-    color: #11454d;
-    font-size: 25px; /*Tamaño del parrafo dentro del header*/
-    font-weight: 800;/*Darle el formato a negrita*/
-    text-align: center;
+    padding: 0 25px; /*Agrega espacio a los lados para que no pegue al borde*/
 }
 
 
-/*QUE ES ESTO PAPUS?*/
-
-section{
-    scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
+/*"LOGO"*/
+.logo img{
+    width: 85px;  /*Cambia el tamaño del logo*/
+    height: auto;
 }
 
-
-/*AQUI COMIENZA "LOGO"*/
-
-.logo{
-    margin-left: 30px;
-}
-
-.logo a {
+/*Si llega a suceder algún problema con la imágen del logo, este bloque mostrará un texto
+BORRAR EN UN FUTURO*/
+.logo a{
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
@@ -131,15 +81,63 @@ section{
 }
 
 
-/*AQUI COMIENZA "HEADER"*/
+/*"CUERPO NAVBAR"*/
+.navbar{
+    display: flex;
 
+}
+
+/*"SECCIONES/LINKS" En este bloque se le da estilo a los enlaces de la barra de navegación.*/
+.navbar a{
+    scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
+    display: block;
+    height: 70px; /*Iguala la altura a la del navbar*/
+    line-height: 70px; /*Centra el texto verticalmente*/
+    padding: 0 10px; /*Margen interior*/
+    color: #fff;
+    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
+    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
+    font-size: 16px;
+}
+
+.navbar a:hover{
+    background: #207185; /*Con la especificación hover y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
+    cambien a un color más oscuro cuando coloques el cursor sobre ellos*/
+}
+
+/*MENÚ HAMBURGUESA*/
+.head button{
+    padding-right: 50px; /*Esto solo lo puse para que se alcancé a ver :´v no sé que pasó*/
+}
+
+
+/*"HEADER/ENCABEZADO"*/
+
+/*"CUERPO HEADER"*/
 .header{
     height: 60vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url(../Sitio\ web/img/header.png);
-    filter: brightness(90%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
     background-size: cover;
+    padding: 25px 0px;
+}
+
+/*"TÍTULO HEADER"*/
+.header h2{
+    color: #453c5c;
+    text-align: center;
+} 
+
+/*"LETRA HEADER"*/
+.header p{
+    color: #453c5c;
+    font-size: 23.5px; /*Tamaño del parrafo dentro del header*/
+    font-weight: 800; /*Darle el formato a negrita*/
 }
 
 
@@ -151,10 +149,10 @@ section{
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
-    color: #fff;
+    color:#453c5c;
 }
 
-/*La clase de btn sirve para darle estilo a los botones que se encuentran dentro de la página*/
+/*"BOTÓN" Este bloque sirve para darle estilo a los botones que se encuentran dentro de la página*/
 .btn{
     display: inline-block;
     margin-top: 15px;  /*Se le da un margen a la parte de arriba del botón*/
@@ -165,18 +163,10 @@ section{
     background: #7ac2cc;
 }
 
-.btn:hover{ /*El hover nos es de gran ayuda para cambiar el color cuando el cursor se encuentra sobre el boton*/
-    background: none; /*Al indicar como none el background al poner el cursor sobre los botones parte de la clase btn
+/*Este bloque sirve para cambiar el color cuando el cursor se encuentra sobre el boton*/
+.btn:hover{ 
+    background: none; /*Al indicar como "none" el background al poner el cursor sobre los botones parte de la clase btn
     se pondrán del tamaño del fondo que este en ese momento*/
-}
-
-.btn-home{
-    display: flex;
-}
-
-.btn-home a{
-    /*En este bloque indicamos la separación de los botones*/
-    margin: 0 10px;
 }
 
 
@@ -191,33 +181,26 @@ section{
 }
 
 
-.encabezado{
-    padding: 30px;
-    background: #ade4b5; /*Con estas líneas de estilo creamos un recuadro con color que contiene parte de la información que se encuentra
-    dentro del bloque de clase sau en el archivo html*/
-}
-
-
-/*SOBRE NOSOTROS*/
+/*"SOBRE NOSOTROS"*/
 .about{
-    background: #ade4b5;
+    background: #fffdd1;
 }
 
 .about p{
-    color: #11454d
+    color: #fffdd1
 }
 
 
-/*DEFINICIONES*/
+/*"DEFINICIONES"*/
 .Definiciones{
     text-align: center;
-    background-color: #428a95;
+    background-color: #fffdd1;
 }
 
 
-/*TIPOS DE NEURODIVERGENCIA*/
+/*"TIPOS DE NEURODIVERGENCIA"*/
 .neurodivegencia{
-    color:#171717 ;
+    color: #171717; /*Qué es esto y por qué dice holi? JAHSJAHSA*/ 
 }
 
 .box-container{
@@ -230,7 +213,7 @@ section{
 .box-container .box{ /*Al invocar a dos clases se esta indicando que se va a afectar la clase box container*/
     height: 15rem;
     width: 17rem;
-    background: #3b3b3b;
+    background: #011d13;
     text-align: center;
     border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
     box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
@@ -241,135 +224,135 @@ section{
 /*Tipos de neurodivergencia*/
 /*AUTISMO*/
 .box-container .box .autismo{
-    color:#d8d878;
-    background-color: #d8d878;
+    color:#76b5a0 ;
+    background-color: #76b5a0 ;
     border-radius: 1rem;
 }
 
 .box-container .box .autismo h3{
-    color: #6b6b21;
+    color:  #453c5c;
 }
-
+  
 .box-container .box .autismo p{
-    color: #6b6b21;
+    color:  #453c5c;
 }
 
 .box-container .box .autismo a{
-    color: #6b6b21;
+    color:  #453c5c;
 }
 
 /*TDAH*/
 .box-container .box .tdah{
-    color:#ebc678;
-    background-color: #ebc678;
-    border-radius: 1rem;
+    color: #76b5a0 ;
+    background-color: #76b5a0 ;
+    border-radius:#76b5a0;
 }
 
 .box-container .box .tdah h3{
-    color: #7c5e1d;
+    color: #453c5c;
 }
 
 .box-container .box .tdah p{
-    color: #7c5e1d;
+    color: #453c5c;
 }
 
 .box-container .box .tdah a{
-    color: #7c5e1d;
+    color: #453c5c;
 }
 
 /*DISLEXIA*/
 .box-container .box .dislexia{
-    color:#99aee2;
-    background-color: #99aee2;
+    color:#76b5a0 ;
+    background-color: #76b5a0 ;
     border-radius: 1rem;
 }
 
 .box-container .box .dislexia h3{
-    color: #2c3b60;
+    color: #453c5c;
 }
 
 .box-container .box .dislexia p{
-    color: #2c3b60;
+    color: #453c5c;
 }
 
 .box-container .box .dislexia a{
-    color: #2c3b60;
+    color: #453c5c;
 }
 
 /*TOURETE*/
 .box-container .box .tourete{
-    color:#8bd77d;
-    background-color: #8bd77d;
+    color:#76b5a0 ;
+    background-color: #76b5a0 ;
     border-radius: 1rem;
 }
 
 .box-container .box .touret h3{
-    color: #37642f;
+    color: #453c5c;
 }
 
 .box-container .box .touret p{
-    color: #37642f;
+    color:#453c5c;
 }
 
 .box-container .box .tourete a{
-    color: #37642f;
+    color: #453c5c;
 }
 
 /*DISPRAXIA*/
 .box-container .box .dispraxia{
-    color:#8bd77d;
-    background-color: #8bd77d;
+    color:#76b5a0 ;
+    background-color: #76b5a0 ;
     border-radius: 1rem;
 }
 
 .box-container .box .dispraxia h3{
-    color: #37642f;
+    color: #453c5c;
 }
 
 .box-container .box .dispraxia p{
-    color: #37642f;
+    color: #453c5c;
 }
 
 .box-container .box .dispraxia a{
-    color: #37642f;
+    color: #453c5c;
 }
 
 /*DISCALCULIA*/
 .box-container .box .discalculia{
-    color:#f57c64;
-    background-color: #f57c64;
+    color:#76b5a0 ;
+    background-color: #76b5a0 ;
     border-radius: 1rem;
 }
 
 .box-container .box .discalculia h3{
-    color: #7d3628;
+    color: #453c5c;
 }
 
 .box-container .box .discalculia p{
-    color: #7d3628;
+    color: #453c5c;
 }
 
 .box-container .box .discalculia a{
-    color: #7d3628;
+    color: #453c5c;
 }
 
 /*ANSIEDAD*/
 .box-container .box .ansiedad{
-    color:#eeba88;
-    background-color: #eeba88;
+    color:#76b5a0 ;
+    background-color: #76b5a0 ;
     border-radius: 1rem;
 }
 
 .box-container .box .ansiedad h3{
-    color: #603a16;
+    color: #453c5c;
 }
 
 .box-container .box .ansiedad p{
-    color: #603a16;
+    color: #453c5c;
 }
 
 .box-container .box .ansiedad a{
-    color: #603a16;
+    color: #453c5c;
 }
 
 
@@ -388,14 +371,13 @@ section{
         background-attachment: fixed;
         background-size: cover;
         text-align: center;
-        background-color: #428a95;
+        background-color: #76b5a0 ;
 }
 
 
 /*Todo este bloque lo puse de manera temporal hasta descubrir que hacer con los cuadros de texto*/
 .contact{ 
     padding-top: 20px;
-    background: #a7c9e9;
     padding-bottom: 0;
     justify-content: space-between;
 }
@@ -418,7 +400,7 @@ section{
 }
 
 .list li{
-    background-color: #428a95;
+    background-color: #76b5a0 ;
     color: #fff;
     padding: 10px;
     margin-bottom: 5px;
@@ -470,7 +452,7 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 .footer-container{
     padding-top: 8px;
     padding-bottom: 8px;
-    background-color: #71dbd2;
+    background-color: #0f7d7e;
 }
 
 .socials img{
