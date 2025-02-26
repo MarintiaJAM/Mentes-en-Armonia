@@ -55,17 +55,17 @@ a:visited {
 }
 
 
-/*"ENCABEZADO NAVBAR"*/
+/*"ENCABEZADO MENÚ"*/
 
-/*CUERPO ENCABEZADO*/
-.head{
+/*CUERPO MENÚ*/
+.menu{
     display: flex;
     align-items: center; /*Centra los elementos verticalmente*/
     justify-content: space-between; /*Separa el logo y el navbar*/
     height: 70px;
     background-color: #2d938e;
     width: 100%;
-    z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
+    z-index: 1000; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
     padding: 0 25px; /*Agrega espacio a los lados para que no pegue al borde*/
 }
 
@@ -86,14 +86,14 @@ BORRAR EN UN FUTURO*/
 }
 
 
-/* Barra de búsqueda */
-.navbar .search-bar {
+/*"BARRA DE BÚSQUEDA"*/
+.menu .search-bar {
     display: flex;
     align-items: center;
     margin-left: auto;
 }
 
-.navbar .search-bar input {
+.menu .search-bar input {
     padding: 8px 10px;
     border: none;
     border-radius: 20px 0 0 20px;
@@ -102,11 +102,11 @@ BORRAR EN UN FUTURO*/
     transition: width 0.4s ease-in-out;
 }
 
-.navbar .search-bar input:focus {
+.menu .search-bar input:focus {
     width: 250px;
 }
 
-.navbar .search-bar button {
+.menu .search-bar button {
     padding: 8px 10px;
     border: none;
     background-color: #ff6b6b;
@@ -116,7 +116,7 @@ BORRAR EN UN FUTURO*/
     outline: none;
 }
 
-.navbar .search-bar button:hover {
+.menu .search-bar button:hover {
     background-color: #e55b5b;
 }
 
@@ -127,13 +127,13 @@ BORRAR EN UN FUTURO*/
 
 
 /*"CUERPO NAVBAR"*/
-.navbar{
+.menu{
     display: flex;
 
 }
 
 /*"SECCIONES/LINKS" En este bloque se le da estilo a los enlaces de la barra de navegación.*/
-.navbar a{
+.menu a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block;
     height: 70px; /*Iguala la altura a la del navbar*/
@@ -145,13 +145,13 @@ BORRAR EN UN FUTURO*/
     font-size: 16px;
 }
 
-.navbar a:hover{
+.menu a:hover{
     background: #207185; /*Con la especificación hover y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
     cambien a un color más oscuro cuando coloques el cursor sobre ellos*/
 }
 
 /*MENÚ HAMBURGUESA*/
-.head button{
+.navbar button{
     padding-right: 50px; /*Esto solo lo puse para que se alcancé a ver :´v no sé que pasó*/
 }
 
@@ -185,7 +185,7 @@ BORRAR EN UN FUTURO*/
     text-decoration: none; /*Quita el subrayado del <a>, que vendría siendo un "link"*/
     opacity: 0; /*Hace que en un inicio sea invisible*/
     visibility: hidden; /*Evita que ocupe espacio y obstruya en los demás elementos*/
-    transition: opacity 0.2s ease-in-out, visibility 0.2s; /*Implementa una transición*/
+    transition: opacity 0.2s ease-in-out, visibility 0.2s; /*Implementa una transición de inicio y final*/
 }
 
 #scrollTop.show {
@@ -206,7 +206,7 @@ BORRAR EN UN FUTURO*/
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/header.png);
+    background-image: url(../Sitio\web/img/header.png);
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
@@ -476,6 +476,8 @@ BORRAR EN UN FUTURO*/
 }
 
 
+/*"RECYERSOS"*/
+
 .recursos{
     padding: 80px;
     padding-top: 10px;
@@ -518,8 +520,8 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 }
 
 .footer-container{
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 10px;
+    padding-left: 10px;
     background-color: #0f7d7e;
 }
 
@@ -532,7 +534,7 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 }
 
 .socials img:hover {
-    content: url("nueva-imagen.jpg"); /* Reemplaza la imagen */
+    content: url("nueva-imagen.jpg"); /*Reemplaza la imagen de los íconos de las redes sociales*/
 }
 
 
