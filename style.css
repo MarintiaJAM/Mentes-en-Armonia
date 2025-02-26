@@ -11,6 +11,11 @@
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
 }
 
+
+/* Importar fuente personalizada */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+
+
 html {
     scroll-behavior: smooth; /*Hace que el desplazamiento por a página sea suave en lugar de un salto brusco*/
 }
@@ -18,8 +23,8 @@ html {
 /*"CUERPO GENERAL" Con este bloque asignamos el estilo predeterminado al cuerpo.*/
 body{
     text-align: center;
-    font-family: sans-serif;
-    background-color: #fffdd1;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #faf8e1;
 }
 
 
@@ -81,6 +86,46 @@ BORRAR EN UN FUTURO*/
 }
 
 
+/* Barra de búsqueda */
+.navbar .search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.navbar .search-bar input {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    width: 150px;
+    transition: width 0.4s ease-in-out;
+}
+
+.navbar .search-bar input:focus {
+    width: 250px;
+}
+
+.navbar .search-bar button {
+    padding: 8px 10px;
+    border: none;
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.navbar .search-bar button:hover {
+    background-color: #e55b5b;
+}
+
+/* Resaltado */
+.highlight {
+    background-color: #ff6b6b;
+}
+
+
 /*"CUERPO NAVBAR"*/
 .navbar{
     display: flex;
@@ -110,6 +155,18 @@ BORRAR EN UN FUTURO*/
     padding-right: 50px; /*Esto solo lo puse para que se alcancé a ver :´v no sé que pasó*/
 }
 
+/*CONTENIDO DE PAGINA*/
+/*En este bloque se hace más pequeño la expansión de la página en la pantalla*/
+.container {
+    width: 80%;
+    margin: 20px auto;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    background-color: #fffdd1;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que se vea ligeramente tipo 3D*/
+}
+
 
 /*"HEADER/ENCABEZADO"*/
 
@@ -119,7 +176,7 @@ BORRAR EN UN FUTURO*/
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../Sitio\ web/img/header.png);
+    background-image: url(../img/header.png);
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
@@ -182,12 +239,8 @@ BORRAR EN UN FUTURO*/
 
 
 /*"SOBRE NOSOTROS"*/
-.about{
-    background: #fffdd1;
-}
-
 .about p{
-    color: #fffdd1
+    color: #011d13;
 }
 
 
@@ -205,10 +258,18 @@ BORRAR EN UN FUTURO*/
 
 .box-container{
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
     justify-content: center; /*Se centra la información del bloque de contenido*/
     flex-wrap: wrap; /*Modifica la vista del sitio web para que al entrar en tableta, celular o pc, se adapte a la pantalla del mismo*/
     text-align: center;
 }
+
+.box{
+    position: relative;
+}
+
 
 .box-container .box{ /*Al invocar a dos clases se esta indicando que se va a afectar la clase box container*/
     height: 15rem;
@@ -362,33 +423,10 @@ BORRAR EN UN FUTURO*/
 }
 
 
-.about p{
-    color: #11454d
-}
-
-.Definiciones{
-        background-image: url();
-        background-attachment: fixed;
-        background-size: cover;
-        text-align: center;
-        background-color: #76b5a0 ;
-}
-
-
-/*Todo este bloque lo puse de manera temporal hasta descubrir que hacer con los cuadros de texto*/
-.contact{ 
-    padding-top: 20px;
-    padding-bottom: 0;
-    justify-content: space-between;
-}
-
-.contact p{
-    color: #171717;
-}
-
-
 /*LINEA DE APOYO*/
 .Lineap{ 
+    margin-top: 650px; /*Añade un margen superior para que el contenido que se encuentra en los box no se superponga con 
+    los contenidos dentro de la línea de apoyo*/
     justify-content: space-between; /*Espacio entre contenidos*/
     padding-top: 20px;
     padding-bottom: 100px;
@@ -468,7 +506,8 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 }
 
 
- @media (max-width: 768px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
+ /* Responsividad */
+@media screen and (max-width: 768px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
     
     .title{
         margin-bottom: 0;
@@ -482,4 +521,5 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
     .navbar{
         display: none;
     }
+
  }

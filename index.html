@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentes en armonía</title>
-    <link rel="stylesheet" href="../Sitio web/style.css">
+     <!-- Enlaces a fuentes y estilos -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+     <!-- Enlace a Font Awesome para íconos -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <!-- Enlace al css -->
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -12,11 +17,17 @@
     <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
                          darle estilos por medio de css más delante -->
         <a href="#Inicio">
-        <img src="../Sitio web/img/logo.jpg" alt="Logo"></a>
+        <img src="" alt="Logo"></a>
     </div>
+
+ <!-- Botón de menú para móviles -->
+ <div class="menu-toggle">
+    <i class="fas fa-bars"></i>
+</div>
 
     <!-- Aquí se encuentra todo lo que estará dentro de la pagina de navegación -->
     <nav class="navbar">
+
         <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
          página de inicio -->
         <a href="#Inicio">Inicio</a>
@@ -26,214 +37,213 @@
         <a href="#Lineap">Líneas de apoyo</a>
         <a href="#Recursos">Centro de recursos</a>
         <a href="#Footer">Footer</a>
-    </nav>
 
-    <!-- Aquí nada más voy a poner esto de decoración del menú -->
-    <button id="botonHamburguesa">
-        <span>&#9776;</span>
-    </button>
+             <!-- Barra de búsqueda en la esquina superior izquierda -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+    </nav>
 
 </div>
 
+<div class="container" id="content">
+    <!-- La etiqueta de sección nos permite determinar el contenido que formará parte de un esquema, como en este caso subsecciones -->
+    <section class="content header" id="content">
+        <section id="Inicio"> <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
+            <div class="pheader">
+                <br><br><br>
+            <h2 class="title">Mentes en armonia</h2>
+            <p><em>"Una mente distinta no es motivo de discriminacion"</em></p>
+                <p>
+                    Buscamos visibilizar las acciones que se pueden cometer como sociedad para favorecer la interaccion
+                    entre personas, facilitando a quienes sean neurodivergentes una interacción sana en un ambiente de
+                    inclusión.
+                </p>
+            </div>
+            </section>
+        </section>
 
-<!-- La etiqueta de sección nos permite determinar el contenido que formará parte de un esquema, como en este caso subsecciones -->
-<section class="content header">
-    <section id="Inicio"> <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
-        <div class="pheader">
-            <br><br><br>
-        <h2 class="title">Mentes en armonia</h2>
-        <p><em>"Una mente distinta no es motivo de discriminacion"</em></p>
-            <p>
-                Buscamos visibilizar las acciones que se pueden cometer como sociedad para favorecer la interaccion
-                entre personas, facilitando a quienes sean neurodivergentes una interacción sana en un ambiente de
-                inclusión.
+    <section class="content about">
+        <section id="Acerca de">
+        <h2 class="title">Nosotros</h2>
+        <p>Esta pagina busca generar consiencia sobre las dificultades experimentadas por las personas que tienen
+            una forma distinta de procesar su entorno, como aun hace falta visibilizar que la inclusion no es favor,
+            si no un derecho que todas las personas se merecen, neurodivergentes o no, cualquiera merece respeto y 
+            oportunidades para explorar su potencial.
+        </p>
+        <a href="#Inicio" class="btn">Saber más</a>
+        </section>
+    </section>
+
+    <section class="content Definiciones">
+        <article class="contain">
+            <section id="Definiciones">
+            <h2 class="title">Definiciones</h2>
+            <p>La neurodiversidad es un término general no médico que incluye las condiciones de Trastornos del Desarrollo Intelectual,
+                Trastornos de la Comunicación, Trastorno del Espectro Autista (TEA), Trastorno por Déficit de Atención con Hiperactividad 
+                (TDAH),Trastornos del Desarrollo Motor, Trastornos Específicos del Aprendizaje (TAP) y Otros Trastornos del Neurodesarrollo. 
+                En esta diversidad existen en mayor cantidad los neurotipicos, personas se ajustan a los patrones neurológicos típicos o 
+                estándaLr de la sociedad. 
+                Así, a pesar del creciente interés por la neurodiversidad, muchas personas neurodivergentes experimentan todavía gran cantidad
+                de obstáculos y barreras en la sociedad, muchas de ellas por prejuicios, ideas arraigadas en la vida diaria, que también explican
+                la percepción social y el acceso a las posibilidades educativas, laborales y sociales de la personas neurodivergente. 
             </p>
+            </section>
+        </article>
+    </section>
+
+    <section class="content neurodivergencia">
+        <section id="Neurodivergencia">
+            <h2 class="title">Tipos de neurodivergencia</h2>
+        <div class="box-container">
+
+            <div class="box">
+                <div class="autismo">
+                    <h3>Autismo</h3>
+                    <p>El trastorno del espectro autista es una afección relacionada con el desarrollo del cerebro que afecta 
+                    la manera en la que una persona percibe y socializa con otras personas, lo que causa problemas en la 
+                    interacción social y la comunicación.</p>
+                    <a href="Formato.html">Leer más</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="tdah">
+                    <h3>TDAH</h3>
+                    <p>Trastorno crónico caracterizado por la dificultad para prestar atención, la hiperactividad y la impulsividad.
+                    El ADHD suele comenzar en la niñez y puede persistir hasta la edad adulta.
+                    </p>
+                    <a href="Formato.html">Leer más</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="dislexia">
+                    <h3>Dislexia</h3>
+                    <p>La dislexia es un trastorno del aprendizaje que consiste en la dificultad en la lectura debido a inconvenientes 
+                    para identificar los sonidos del habla y aprender a relacionarlos con las letras y las palabras (decodificación).
+                    </p>
+                    <a href="Formato.html">Leer más</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="tourete">
+                    <h3>Síndrome de Tourete</h3>
+                    <p>Es un trastorno caracterizado por movimientos repetitivos o sonidos indeseados (tics) que no se pueden 
+                    controlar con facilidad.</p>
+                    <a href="Formato.html">Leer más</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="dispraxia">
+                    <h3>Dispraxia</h3>
+                    <p>La dispraxia es un trastorno neuromotor que afecta la coordinación y planificación de movimientos voluntarios,
+                    como escribir o vestirse, y otras tareas diarias. Requiere de apoyo terapéutico.</p>
+                    <a href="Formato.html">Leer más</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="discalculia">
+                    <h3>Discalculia</h3>
+                    <p>La discalculia es un trastorno del desarrollo que se caracteriza por una alteración en la capacidad del cálculo
+                    (y en general de manejar los números) que afecta al aprendizaje.</p>
+                    <a href="Formato.html">Leer más</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="ansiedad">
+                    <h3>Transtornos de ansiedad</h3>
+                    <p>se caracteriza por un miedo excesivo y una respuesta desproporcional al estímulo. Estos trastornos alteran la forma 
+                    en que una persona procesa las emociones y se comporta, causando también síntomas físicos.</p>
+                    <a href="Formato.html">Leer más</a>
+                </div>
+            </div>
+
         </div>
         </section>
     </section>
 
-<section class="content about">
-    <section id="Acerca de">
-    <h2 class="title">Nosotros</h2>
-    <p>Esta pagina busca generar consiencia sobre las dificultades experimentadas por las personas que tienen
-        una forma distinta de procesar su entorno, como aun hace falta visibilizar que la inclusion no es favor,
-        si no un derecho que todas las personas se merecen, neurodivergentes o no, cualquiera merece respeto y 
-        oportunidades para explorar su potencial.
-    </p>
-    <a href="#Inicio" class="btn">Saber más</a>
-    </section>
-</section>
+    <section class="content Lineap">
+        <section id="Lineap">
+            <h2 class="title">Líneas de apoyo</h2>
+            <p>A lo largo del tiempo se han presentado casos de bullying hacia personas neurodivergentes por su conción. <br>
+                Si tú eres una de estas no dudes en llamar a algúnas de estas líneas de apoyo. <br>
+            </p>
 
-<section class="content Definiciones">
-    <article class="contain">
-        <section id="Definiciones">
-        <h2 class="title">Definiciones</h2>
-        <p>La neurodiversidad es un término general no médico que incluye las condiciones de Trastornos del Desarrollo Intelectual,
-            Trastornos de la Comunicación, Trastorno del Espectro Autista (TEA), Trastorno por Déficit de Atención con Hiperactividad 
-            (TDAH),Trastornos del Desarrollo Motor, Trastornos Específicos del Aprendizaje (TAP) y Otros Trastornos del Neurodesarrollo. 
-            En esta diversidad existen en mayor cantidad los neurotipicos, personas se ajustan a los patrones neurológicos típicos o 
-            estándaLr de la sociedad. 
-            Así, a pesar del creciente interés por la neurodiversidad, muchas personas neurodivergentes experimentan todavía gran cantidad
-            de obstáculos y barreras en la sociedad, muchas de ellas por prejuicios, ideas arraigadas en la vida diaria, que también explican
-            la percepción social y el acceso a las posibilidades educativas, laborales y sociales de la personas neurodivergente. 
-        </p>
+            <div class="list">
+                <ul>
+                    <li><a href="https://www.gob.mx/sep/acciones-y-programas/educatel-acoso-escolar">SEP 800 11 22676 </a></li>
+                    <li>900 018 018: Teléfono gratuito contra el acoso escolar </li>
+                    <li>911: Para emergencias relacionadas con bullying en cualquier contexto.</li>
+                    <li>089: Para denuncias anónimas sobre situaciones pasadas de acoso.</li>
+                    </ul>
+            </div>
         </section>
-    </article>
-</section>
-
-<section class="content neurodivergencia">
-    <section id="Neurodivergencia">
-        <h2 class="title">Tipos de neurodivergencia</h2>
-    <div class="box-container">
-
-        <div class="box">
-            <div class="autismo">
-                <h3>Autismo</h3>
-                <p>El trastorno del espectro autista es una afección relacionada con el desarrollo del cerebro que afecta 
-                la manera en la que una persona percibe y socializa con otras personas, lo que causa problemas en la 
-                interacción social y la comunicación.</p>
-                <a href="Formato.html">Leer más</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="tdah">
-                <h3>TDAH</h3>
-                <p>Trastorno crónico caracterizado por la dificultad para prestar atención, la hiperactividad y la impulsividad.
-                El ADHD suele comenzar en la niñez y puede persistir hasta la edad adulta.
-                </p>
-                <a href="Formato.html">Leer más</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="dislexia">
-                <h3>Dislexia</h3>
-                <p>La dislexia es un trastorno del aprendizaje que consiste en la dificultad en la lectura debido a inconvenientes 
-                para identificar los sonidos del habla y aprender a relacionarlos con las letras y las palabras (decodificación).
-                </p>
-                <a href="Formato.html">Leer más</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="tourete">
-                <h3>Síndrome de Tourete</h3>
-                <p>Es un trastorno caracterizado por movimientos repetitivos o sonidos indeseados (tics) que no se pueden 
-                controlar con facilidad.</p>
-                <a href="Formato.html">Leer más</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="dispraxia">
-                <h3>Dispraxia</h3>
-                <p>La dispraxia es un trastorno neuromotor que afecta la coordinación y planificación de movimientos voluntarios,
-                como escribir o vestirse, y otras tareas diarias. Requiere de apoyo terapéutico.</p>
-                <a href="Formato.html">Leer más</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="discalculia">
-                <h3>Discalculia</h3>
-                <p>La discalculia es un trastorno del desarrollo que se caracteriza por una alteración en la capacidad del cálculo
-                 (y en general de manejar los números) que afecta al aprendizaje.</p>
-                <a href="Formato.html">Leer más</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="ansiedad">
-                <h3>Transtornos de ansiedad</h3>
-                <p>se caracteriza por un miedo excesivo y una respuesta desproporcional al estímulo. Estos trastornos alteran la forma 
-                en que una persona procesa las emociones y se comporta, causando también síntomas físicos.</p>
-                <a href="Formato.html">Leer más</a>
-            </div>
-        </div>
-
-    </div>
     </section>
-</section>
 
-<!-- Realmente esta sección de contacto no sirve para nada, la use como un cuadro extra para que cupieran los cuadros de la neurodivergencia -->
-<section class="content contact">
-    <section id="contact">
+    <section class="recursos">
+        <section id="Recursos">
+            <h2 class="title">Recursos Recomendados</h2>
+            <p>En esta sección encontrarás una selección de videos, documentales y sitios web confiables que exploran
+                la neurodivergencia desde una perspectiva profesional y científica. Estos materiales han sido elegidos
+                para proporcionar información clara, accesible y basada en evidencia sobre el autismo, el TDAH, la dislexia
+                y otras formas de neurodivergencia.</p>
 
-    </section>
-</section>
+            <h3>Videos</h3>
+        <div class="videos-container">
+                <div class="video">
+                    <img src="../video/Video1.jpg" alt="Video1">
+                    <h4> <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">Neurodivergencia: construyendo un concepto</a></h3>
+                    <p>Explora el concepto de neurodivergencia, explicando su importancia y 
+                        cómo afecta a las personas.</p>
+                </div>
 
-<section class="content Lineap">
-    <section id="Lineap">
-        <h2 class="title">Líneas de apoyo</h2>
-        <p>A lo largo del tiempo se han presentado casos de bullying hacia personas neurodivergentes por su conción. <br>
-            Si tú eres una de estas no dudes en llamar a algúnas de estas líneas de apoyo. <br>
-        </p>
+                <div class="video">
+                    <img src="../video/Video2.jpg" alt="Video1">
+                    <h4> <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">¿Qué es la neurodivergencia?</a></h3>
+                    <p>Carmen Amezcua, psiquiatra enfocada en psiquiatría integrativa,
+                        habla sobre la neurodivergencia y los diferentes tipos que existen.</p>
+                </div>
 
-        <div class="list">
-            <ul>
-                <li><a href="https://www.gob.mx/sep/acciones-y-programas/educatel-acoso-escolar">SEP 800 11 22676 </a></li>
-                <li>900 018 018: Teléfono gratuito contra el acoso escolar </li>
-                <li>911: Para emergencias relacionadas con bullying en cualquier contexto.</li>
-                <li>089: Para denuncias anónimas sobre situaciones pasadas de acoso.</li>
-                </ul>
+                <div class="video">
+                    <img src="../video/Video3.jpg" alt="Video1">
+                    <h4> <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">Los distintos tipos de neurodivergencia | Sana Mente</a></h3>
+                    <p>Explora el concepto de neurodivergencia, explicando su importancia y 
+                        cómo afecta a las personas.</p>
+                </div>
         </div>
+
+            <h3>Sitios web</h3>
+
+            <h3>Documentales</h3>
+        </section>
     </section>
-</section>
 
-<section class="recursos">
-    <section id="Recursos">
-        <h2 class="title">Recursos Recomendados</h2>
-        <p>En esta sección encontrarás una selección de videos, documentales y sitios web confiables que exploran
-            la neurodivergencia desde una perspectiva profesional y científica. Estos materiales han sido elegidos
-            para proporcionar información clara, accesible y basada en evidencia sobre el autismo, el TDAH, la dislexia
-            y otras formas de neurodivergencia.</p>
+</div>
 
-        <h3>Videos</h3>
-    <div class="videos-container">
-            <div class="video">
-                <img src="../Sitio web/img/Video1.jpg" alt="Video1">
-                <h4> <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">Neurodivergencia: construyendo un concepto</a></h3>
-                <p>Explora el concepto de neurodivergencia, explicando su importancia y 
-                    cómo afecta a las personas.</p>
-            </div>
+    <footer class="footer-container">
+        <section id="Footer">
+            <h3>Mentes en armonía©</h3>
+                <div class="socials">
+                    <a href="https://www.youtube.com/">
+                    <img src="../img/youtube.png" alt="Youtube"></a>
+                    <a href="https://www.facebook.com/?locale=es_LA">
+                    <img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/">
+                    <img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/?lang=es&mx=2">
+                    <img src="../img/twitter.png" alt="Twitter/X"></a>
+                </div>
+        </section>
+    </footer>
 
-            <div class="video">
-                <img src="../Sitio web/img/Video2.jpg" alt="Video1">
-                <h4> <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">¿Qué es la neurodivergencia?</a></h3>
-                <p>Carmen Amezcua, psiquiatra enfocada en psiquiatría integrativa,
-                    habla sobre la neurodivergencia y los diferentes tipos que existen.</p>
-            </div>
-
-            <div class="video">
-                <img src="../Sitio web/img/Video3.jpg" alt="Video1">
-                <h4> <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">Los distintos tipos de neurodivergencia | Sana Mente</a></h3>
-                <p>Explora el concepto de neurodivergencia, explicando su importancia y 
-                    cómo afecta a las personas.</p>
-            </div>
-    </div>
-
-        <h3>Sitios web</h3>
-
-        <h3>Documentales</h3>
-    </section>
-</section>
-
-<footer class="footer-container">
-    <section id="Footer">
-        <h3>Mentes en armonía©</h3>
-            <div class="socials">
-                <a href="https://www.youtube.com/">
-                <img src="../Sitio web/img/youtube.png" alt="Youtube"></a>
-                <a href="https://www.facebook.com/?locale=es_LA">
-                <img src="../Sitio web/img/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/">
-                <img src="../Sitio web/img/instagram.png" alt="Instagram"></a>
-                <a href="https://x.com/?lang=es&mx=2">
-                <img src="../Sitio web/img/twitter.png" alt="Twitter/X"></a>
-            </div>
-    </section>
-</footer>
+    <!-- Enlace a tu archivo JavaScript -->
+    <script src="../javascript/buscador.js"></script>
 
 </body>
 </html>
