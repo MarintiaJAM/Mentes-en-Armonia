@@ -1,19 +1,18 @@
 *{
     /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
     y que por default se apliquen estos estilos si no se indica lo contrario */
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    text-align: justify;
-    justify-content: space-between;
+    margin: 0; /*Le da una configuración de 0 al margen*/
+    padding: 0; /*Le da una configuración de 0 demargen interior*/
+    border: 0; /*Le da un valor de 0 al borde de la página*/
+    font-size: 100%; /*Indica que el tamaño de la letra será igual al "padre" de la fuente asignada*/
+    text-align: justify; /*Hace que todo el texto este justificado, dandole una apariencia profesional*/
     vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
 }
 
 
 /* Importar fuente personalizada */
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente tipo Ubuntu*/
 
 
 html {
@@ -22,18 +21,19 @@ html {
 
 /*"CUERPO GENERAL" Con este bloque asignamos el estilo predeterminado al cuerpo.*/
 body{
-    text-align: justify;
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #faf8e1;
+    text-align: justify; /*Hace que todo el texto este justificado, dandole una apariencia profesional*/
+    font-family: 'Ubuntu', sans-serif; /*Indica que la fuente del body será tipo "Ubuntu" en primera instancia, o tipo "sans-serif
+    si no encuentra la primer fuente*/
+    background-color: #faf8e1; /*Le asigna un color al fondo general de la página*/
 }
 
 
 /*"LETRA GENERAL" Con este bloque asignamos el estilo predeterminado a la letra*/
 p{
-    margin-bottom: 40px;
-    font-size: 18px;
-    color: #453c5c;
-    padding: 0 100px;
+    margin-bottom: 40px; /*Este da un margen de 40 pixeles creando un espacio entre cada letra*/
+    font-size: 18px; /*Indica que el tamaño de la letra será de 18 pixeles*/
+    color: #453c5c; /*Le da a la letra un colo oscuro para resaltar de el fondo*/
+    padding: 0 100px; /*Crea un margen interno en los lados sin afectar la parte superior e inferior de la fuente*/
 }
 
 
@@ -63,30 +63,31 @@ flex-wrap: wrap; Permite que los elementos se envuelvan en múltiples líneas en
 
 /*CUERPO MENÚ*/
 .menu{
-    display: flex;
+    display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; /*Centra los elementos verticalmente*/
-    width: 97%;
-    background-color: #2d938e;
+    width: 97%; /*Es la anchura que toma en la pantalla, la pusimos de 97% porque no sabemos como hacer que no ocupe más espacio que
+    el footer*/
+    background-color: #2d938e; /*Le da a toda el área del menú un color azul verdoso*/
     z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
     padding: 0px 20px; /*Agrega espacio a los lados para que no pegue al borde*/
-    flex-wrap: wrap;
+    flex-wrap: wrap;  /*Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
 }
 
 
 /*"LOGO"*/
 .logo img{
     width: 85px;  /*Cambia el tamaño del logo*/
-    height: auto;
-    margin-right: 30px;
+    height: auto; /*El valor automático permite que el logo se adapte automáticamente al contenido que hay dentro*/
+    margin-right: 30px; /*Le da un margen derecho de 30px al logo*/
 }
 
 /*Si llega a suceder algún problema con la imágen del logo, este bloque mostrará un texto
 BORRAR EN UN FUTURO*/
 .logo a{
-    text-decoration: none;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 20px;
+    text-decoration: none; /*Quita cualquier decoración del texto o directamente no se le asigna ninguno*/
+    color: #fff; /*El color de la letra que se mostrará será blanco*/
+    text-transform: uppercase; /*Mostrará el texto en máyusculas*/
+    font-size: 20px; /*El tamaño de la fuente será de 20 pixeles*/
 }
 
 
@@ -142,51 +143,54 @@ BORRAR EN UN FUTURO*/
 
 /*"BARRA DE BÚSQUEDA"*/
 .menu .search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+    display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
+    align-items: center; 
+    margin-left: auto; /*el margen izquierdo al ser declarado como automático hará que la barra de búsqueda ocupe todo el espacio 
+    disponible empujando a este mismo hacia la derecha*/
 }
 
 /*    border: none; no sirve :v no cheto: no cambio nada*/
 
-.menu .search-bar input {
-    padding: 8px 10px;
-    border-radius: 20px 0 0 20px;
+.menu .search-bar input { /*El input es el campo de búsqueda que se expande al enfocarlo.*/
+    padding: 8px 10px; /*Le asigna un padding de 40 pixeles a la parte superior e inferior de 10 pixeles a los lados */
+    border-radius: 20px 0 0 20px; /*Crea esquinas redondeadas para un diseño más amigable.*/
     outline: none; /*Linea de link: Al seleccionar la barra de búsqueda, desaparece la línea exterior*/
-    width: 150px;
-    transition: width 0.4s ease-in-out;
+    width: 150px; /*Le asigna al buscador un ancho de 150 pixeles*/
+    transition: width 0.4s ease-in-out; /*Esta transición permite que al darle click a la barra de búsqueda esta se amplie hacia la derecha
+    en un ancho asignado de 0.4 segundos*/
+    /*Por su lado el ease-in-out permite que la animación sea suave y más fluida dandole un comienzo y un final lentos*/
 }
 
-.menu .search-bar input:focus {
-    width: 250px;
+.menu .search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
+    width: 250px; /*Al hacer click en la barra de búsqueda esta se expandirá en un ancho de 250 pixeles*/
 }
 
 
 /*Otro:     border: none;*/
 
-.menu .search-bar button {
-    padding: 8px 10px;
-    background-color: #ff6b6b;
-    color: white;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-    outline: none;
+.menu .search-bar button { 
+    padding: 8px 10px; /*Le asigna un padding de 40 pixeles a la parte superior e inferior de 10 pixeles a los lados */
+    background-color: #ff6b6b; /*Le da un color coral al recuadro donde se encuentra el icono de búsqueda*/
+    color: white; /*Le da un color blanco al icono de búsqueda*/
+    border-radius: 0 20px 20px 0; /*Crea esquinas redondeadas para un diseño más amigable.*/
+    cursor: pointer; /*Convierte el cursor en un pointer para selecionar, copiar o pegar texto*/
+    outline: none; /*Elimina la línea exterior que se presenta al expandir el buscador*/
 }
 
 .menu .search-bar button:hover {
-    background-color: #e55b5b;
+    background-color: #e55b5b; /*Le da una ligera sombra al botón del buscador al momento de colocar el cursor sobre este mismo*/
 }
 
 /* Resaltado */
-.highlight {
-    background-color: #ff6b6b;
+.highlight { /*El resltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
+    background-color: #ff6b6b; /*Aplica un color coral al resaltado*/
 }
 
 
 /*CONTENIDO DE PÁGINA*/
 /*En este bloque se hace más pequeño la expansión de la página en la pantalla*/
 .container {
-    width: 80%;
+    width: 80%; 
     margin: 20px auto;
     margin-top: 0%;
     margin-bottom: 0%;
@@ -235,7 +239,7 @@ BORRAR EN UN FUTURO*/
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../Sitio\web/img/header.png);
+    background-image: url(../img/header.png);
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
@@ -505,12 +509,12 @@ BORRAR EN UN FUTURO*/
 }
 
 
-/*"RECYERSOS"*/
+/*"RECURSOS"*/
 
 .recursos{
     padding: 80px;
     padding-top: 10px;
-    background: #171717;
+    background: #76b5a0;
     justify-content: baseline;
 
 }
