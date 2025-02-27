@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const menu = document.querySelector('.navbar');
+    const menu = document.querySelector('.menu');
     const menuToggle = menu.querySelector('.menu-toggle');
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
-    const content = document.getElementById('content');
+    const content = document.body;
 
     // Mostrar/ocultar menú en dispositivos móviles
     menuToggle.addEventListener('click', function () {
