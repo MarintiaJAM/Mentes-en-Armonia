@@ -356,175 +356,75 @@ BORRAR EN UN FUTURO*/
 
 
 /*"TIPOS DE NEURODIVERGENCIA"*/
-.neurodivegencia{
+/*.neurodivegencia{
     color: #171717; /*Qué es esto y por qué dice holi? JAHSJAHSA*/ 
-}
 
-.box-container{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
-    justify-content: center; /*Se centra la información del bloque de contenido*/
-    flex-wrap: wrap; /*Modifica la vista del sitio web para que al entrar en tableta, celular o pc, se adapte a la pantalla del mismo*/
-    text-align: center;
-}
-
-.box{
-    position: relative;
-}
-
-
-.box-container .box{ /*Al invocar a dos clases se esta indicando que se va a afectar la clase box container*/
-    height: 15rem;
-    width: 17rem;
-    background: #011d13;
-    text-align: center;
-    border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
-    box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
-    margin: 2rem;
-}
-
-
-/*Tipos de neurodivergencia*/
-/*AUTISMO*/
-.box-container .box .autismo{
-    color:#76b5a0 ;
-    background-color: #76b5a0 ;
-    border-radius: 1rem;
-}
-
-.box-container .box .autismo h3{
-    color:  #453c5c;
-}
-  
-.box-container .box .autismo p{
-    color:  #453c5c;
-}
-
-.box-container .box .autismo a{
-    color:  #453c5c;
-}
-
-/*TDAH*/
-.box-container .box .tdah{
-    color: #76b5a0 ;
-    background-color: #76b5a0 ;
-    border-radius:#76b5a0;
-}
-
-.box-container .box .tdah h3{
-    color: #453c5c;
-}
-
-.box-container .box .tdah p{
-    color: #453c5c;
-}
-
-.box-container .box .tdah a{
-    color: #453c5c;
-}
-
-/*DISLEXIA*/
-.box-container .box .dislexia{
-    color:#76b5a0 ;
-    background-color: #76b5a0 ;
-    border-radius: 1rem;
-}
-
-.box-container .box .dislexia h3{
-    color: #453c5c;
-}
-
-.box-container .box .dislexia p{
-    color: #453c5c;
-}
-
-.box-container .box .dislexia a{
-    color: #453c5c;
-}
-
-/*TOURETE*/
-.box-container .box .tourete{
-    color:#76b5a0 ;
-    background-color: #76b5a0 ;
-    border-radius: 1rem;
-}
-
-.box-container .box .touret h3{
-    color: #453c5c;
-}
-
-.box-container .box .touret p{
-    color:#453c5c;
-}
-
-.box-container .box .tourete a{
-    color: #453c5c;
-}
-
-/*DISPRAXIA*/
-.box-container .box .dispraxia{
-    color:#76b5a0 ;
-    background-color: #76b5a0 ;
-    border-radius: 1rem;
-}
-
-.box-container .box .dispraxia h3{
-    color: #453c5c;
-}
-
-.box-container .box .dispraxia p{
-    color: #453c5c;
-}
-
-.box-container .box .dispraxia a{
-    color: #453c5c;
-}
-
-/*DISCALCULIA*/
-.box-container .box .discalculia{
-    color:#76b5a0 ;
-    background-color: #76b5a0 ;
-    border-radius: 1rem;
-}
-
-.box-container .box .discalculia h3{
-    color: #453c5c;
-}
-
-.box-container .box .discalculia p{
-    color: #453c5c;
-}
-
-.box-container .box .discalculia a{
-    color: #453c5c;
-}
-
-/*ANSIEDAD*/
-.box-container .box .ansiedad{
-    color:#76b5a0 ;
-    background-color: #76b5a0 ;
-    border-radius: 1rem;
-}
-
-.box-container .box .ansiedad h3{
-    color: #453c5c;
-}
-
-.box-container .box .ansiedad p{
-    color: #453c5c;
-}
-
-.box-container .box .ansiedad a{
-    color: #453c5c;
-}
-
-
-.box-container .box p{ /*Formato a los parrafos dentro del box-container*/
-    font-size: 16px;
-    padding: 0 15px;
-}
+    .box-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        justify-content: center; /*Se centra la información del bloque de contenido*/
+        flex-wrap: wrap; /*Modifica la vista del sitio web para que al entrar en tableta, celular o pc, se adapte a la pantalla del mismo*/
+        text-align: center;
+        perspective: 1000px; /*Le da un efecto en 3D*/
+    }
+    
+    .box{
+        height: 15rem;
+        width: 17rem;
+        background-color: #76b5a0;
+        border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
+        cursor: pointer;
+        transform-style: preserve-3d;/* Mantiene la perspectiva 3D */
+        transition: transform 0.6s ease;/* Animación de rotación */
+        box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
+        margin: 2rem;
+        position: relative;
+    }
+    
+    .box-container .box h3{
+        color: #453c5c;
+    }
+    
+    
+    .box-container .box p{ /*Formato a los parrafos dentro del box-container*/
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    .box-container .box a{
+        color: #453c5c;
+    }
+    
+    .box .front , .box .back{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility:hidden; /*Evita que el contenido trasero se vea en espejo */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+    
+    .box .front{
+        background: #ff6b6b;
+    }
+    
+    
+    .box .back{
+        background: #76b5a0;
+        transform: rotateY(180deg); /* Rota la parte trasera 180 grados */ 
+    }
+    
+    .box:hover{
+        transform: rotateY(180deg); /* Al pasar el ratón, la caja gira */
+    }
+    
+/*Tipos de neurodivergencia, banne esta parte porque descubrí que eso era parte del problema de las cajas de texto*/
 
 
 /*LINEA DE APOYO*/
