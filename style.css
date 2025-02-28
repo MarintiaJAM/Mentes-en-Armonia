@@ -6,6 +6,7 @@
     border: 0; /*Le da un valor de 0 al borde de la página*/
     font-size: 100%; /*Indica que el tamaño de la letra será igual al "padre" de la fuente asignada*/
     text-align: justify; /*Hace que todo el texto este justificado, dandole una apariencia profesional*/
+    color: #453c5c; /*Le da a la letra un colo oscuro como predeterminado*/
     vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
 }
@@ -65,20 +66,25 @@ flex-wrap: wrap; Permite que los elementos se envuelvan en múltiples líneas en
 .menu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; /*Centra los elementos verticalmente*/
-    width: 97%; /*Es la anchura que toma en la pantalla, la pusimos de 97% porque no sabemos como hacer que no ocupe más espacio que
-    el footer*/
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
     background-color: #2d938e; /*Le da a toda el área del menú un color azul verdoso*/
-    z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
     padding: 0px 20px; /*Agrega espacio a los lados para que no pegue al borde*/
+    box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
+    z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
     flex-wrap: wrap;  /*Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
 }
 
 
 /*"LOGO"*/
+.logo{
+    margin-right: auto;
+}
+
 .logo img{
     width: 85px;  /*Cambia el tamaño del logo*/
     height: auto; /*El valor automático permite que el logo se adapte automáticamente al contenido que hay dentro*/
-    margin-right: 30px; /*Le da un margen derecho de 30px al logo*/
 }
 
 /*Si llega a suceder algún problema con la imágen del logo, este bloque mostrará un texto
@@ -96,16 +102,16 @@ BORRAR EN UN FUTURO*/
 /*"SECCIONES/LINKS" En este bloque se le da estilo a los enlaces de la barra de navegación.*/
 .navbar{
     display: flex;
+    margin-right: 20px;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
-    align-items: center;
-    /*margin-right: 50px;*/
     height: 70px;
 }
 
 .navbar li{
-    margin-right: 15px; /*Separación entre secciones*/
+    margin-right: 13px; /*Separación entre secciones*/
 }
 
 .navbar li a{
@@ -142,16 +148,16 @@ BORRAR EN UN FUTURO*/
 
 
 /*"BARRA DE BÚSQUEDA"*/
-.menu .search-bar {
+.search-bar {
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; 
-    margin-left: auto; /*el margen izquierdo al ser declarado como automático hará que la barra de búsqueda ocupe todo el espacio 
-    disponible empujando a este mismo hacia la derecha*/
+    margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
+    flex-shrink: 0; /* Evita que la barra se reduzca en pantallas pequeñas */
 }
 
 /*    border: none; no sirve :v no cheto: no cambio nada*/
 
-.menu .search-bar input { /*El input es el campo de búsqueda que se expande al enfocarlo.*/
+.search-bar input { /*El input es el campo de búsqueda que se expande al enfocarlo.*/
     padding: 8px 10px; /*Le asigna un padding de 40 pixeles a la parte superior e inferior de 10 pixeles a los lados */
     border-radius: 20px 0 0 20px; /*Crea esquinas redondeadas para un diseño más amigable.*/
     outline: none; /*Linea de link: Al seleccionar la barra de búsqueda, desaparece la línea exterior*/
@@ -161,14 +167,14 @@ BORRAR EN UN FUTURO*/
     /*Por su lado el ease-in-out permite que la animación sea suave y más fluida dandole un comienzo y un final lentos*/
 }
 
-.menu .search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
+.search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
     width: 250px; /*Al hacer click en la barra de búsqueda esta se expandirá en un ancho de 250 pixeles*/
 }
 
 
 /*Otro:     border: none;*/
 
-.menu .search-bar button { 
+.search-bar button { 
     padding: 8px 10px; /*Le asigna un padding de 40 pixeles a la parte superior e inferior de 10 pixeles a los lados */
     background-color: #ff6b6b; /*Le da un color coral al recuadro donde se encuentra el icono de búsqueda*/
     color: white; /*Le da un color blanco al icono de búsqueda*/
@@ -177,7 +183,7 @@ BORRAR EN UN FUTURO*/
     outline: none; /*Elimina la línea exterior que se presenta al expandir el buscador*/
 }
 
-.menu .search-bar button:hover {
+.search-bar button:hover {
     background-color: #e55b5b; /*Le da una ligera sombra al botón del buscador al momento de colocar el cursor sobre este mismo*/
 }
 
@@ -235,7 +241,7 @@ BORRAR EN UN FUTURO*/
 
 /*"CUERPO HEADER"*/
 .header{
-    height: 60vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
+    height: 50vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -302,6 +308,10 @@ BORRAR EN UN FUTURO*/
 
 
 /*"SOBRE NOSOTROS"*/
+.about{
+    margin-bottom: 80px;
+}
+
 .about p{
     color: #011d13;
 }
@@ -310,7 +320,38 @@ BORRAR EN UN FUTURO*/
 /*"DEFINICIONES"*/
 .Definiciones{
     text-align: center;
-    background-color: #fffdd1;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.neuro {
+    display: flex;
+    align-items: center; /*Alinea verticalmente*/
+    justify-content: space-between; /*Separa el texto y la imagen*/
+    gap: 0px;
+    padding: 25px 40px;
+}
+
+.defText {
+    text-align: left;
+}
+
+.defText h3{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.defImg{
+    display: flex;
+}
+
+.defImg img{
+    width: 180px;
+    height: auto;
+    border-radius: 5px; /* Bordes redondeados opcionales */
 }
 
 
