@@ -9,6 +9,7 @@
     color: #453c5c; /*Le da a la letra un colo oscuro como predeterminado*/
     vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
+    box-sizing: border-box; /*uwu*/
 }
 
 
@@ -47,7 +48,7 @@ a:hover{
 
 /*Cambia el color de los links al estar ACTIVOS, es decir, SIN VISITAR.*/
 a:active {
-    color: rgb(0, 153, 255) ; /* Cambia de color cuando haces clic */
+    color: rgb(0, 153, 255); 
 }
 
 /*Cambia el color de los links al ya haber sido VISITADOS.*/
@@ -245,7 +246,7 @@ BORRAR EN UN FUTURO*/
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/header.png);
+    background-image: url(../Sitio\ web/img/header.png);
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
@@ -312,36 +313,24 @@ BORRAR EN UN FUTURO*/
     margin-bottom: 80px;
 }
 
-.about p{
-    color: #011d13;
-}
-
 
 /*"DEFINICIONES"*/
 .Definiciones{
-    text-align: center;
     justify-content: center;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 100px 5px;
+    padding-bottom: 50px;
 }
 
 .neuro {
     display: flex;
     align-items: center; /*Alinea verticalmente*/
-    justify-content: space-between; /*Separa el texto y la imagen*/
-    gap: 0px;
-    padding: 25px 40px;
-}
-
-.defText {
-    text-align: left;
+    padding: 20px;
 }
 
 .defText h3{
     text-align: center;
     font-size: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .defImg{
@@ -349,9 +338,9 @@ BORRAR EN UN FUTURO*/
 }
 
 .defImg img{
-    width: 180px;
+    width: 225px;
     height: auto;
-    border-radius: 5px; /* Bordes redondeados opcionales */
+    border-radius: 5px; /*Redondea los bordes de las imágenes*/
 }
 
 
@@ -432,8 +421,8 @@ BORRAR EN UN FUTURO*/
     margin-top: 650px; /*Añade un margen superior para que el contenido que se encuentra en los box no se superponga con 
     los contenidos dentro de la línea de apoyo*/
     justify-content: space-between; /*Espacio entre contenidos*/
-    padding-top: 20px;
-    padding-bottom: 100px;
+    padding: 80px;
+    margin-bottom: 125px;
 }
 
 .list ul{  /*Estilo del formato general de la lista de linea de apoyo*/
@@ -453,8 +442,8 @@ BORRAR EN UN FUTURO*/
 /*"RECURSOS"*/
 
 .recursos{
+    padding-top: 80px;
     padding: 80px;
-    padding-top: 10px;
     background: #76b5a0;
     justify-content: baseline;
 
@@ -475,7 +464,7 @@ BORRAR EN UN FUTURO*/
     padding-top: 25px;
 }
 
-.video a{
+.video h4{
     text-align: center;
     padding: 5px;
 }
@@ -487,28 +476,93 @@ BORRAR EN UN FUTURO*/
 .video img{
     width: 320px;
     height: auto;
+    justify-content: center;
 }
 
 hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
     border: 1px solid #fff;
 }
 
+
+/*FOOTER*/
+
+/*"FOOTER SUPERIOR"*/
 .footer-container{
-    padding: 10px;
-    padding-left: 10px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-top{
     background-color: #0f7d7e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding-bottom: 15px;
+    margin: 0 auto;
+}
+
+.footer-logo img{
+    width: 100px;
+    height: auto;
+}  
+
+.footer-navbar{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-navbar li{
+    margin: 0 10px;
+}
+
+.footer-navbar li a{
+    color: #fff;
+    padding: 0 10px; /*Margen interior*/
+    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
+    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
+    font-size: 13px;
+}
+
+.footer-navbar li a:hover {
+    color: #fffb00;
+}
+
+
+/*"FOOTER INFERIOR"*/
+.footer-bottom{
+    background-color: #075f61;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+
+.footer-bottom p {
+    padding-left: 13px;
+    color: #fff;
 }
 
 .socials img{
-    padding-top: 30px;
+    padding: 0px 5px 5px 0px;
     display: inline-block;
-    margin-left: 5px;
-    width: 1.5%;
+    margin-left: 10px;
+    width: 25px;
     height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
 }
 
 .socials img:hover {
     content: url("nueva-imagen.jpg"); /*Reemplaza la imagen de los íconos de las redes sociales*/
+    transform: scale(1.2);
 }
 
 

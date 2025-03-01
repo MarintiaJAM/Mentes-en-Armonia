@@ -81,3 +81,5 @@ window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el
         scrollBtn.style.display = "none"; //Cambia el display, que hace que oculte la flecha
     }
 });
+
+Oi oi oi, me hand dicho que tengo la voz de Bakugo
