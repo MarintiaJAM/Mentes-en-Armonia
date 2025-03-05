@@ -619,4 +619,79 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
         display: none;
     }
 
+
+
+    
+
+    .menu {
+        flex-wrap: wrap;
+    }
+
+    /* Centrar logo en móviles */
+    .menu .logo {
+        flex: 1 1 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Mostrar el botón de menú hamburguesa */
+    .menu .menu-toggle {
+        display: block;
+    }
+
+    /* Ocultar enlaces del menú en móviles y mostrarlos solo cuando el menú está activo */
+    .menu .menu-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu.active .menu-links {
+        display: flex;
+    }
+
+    /* Hacer que cada elemento del menú ocupe todo el ancho */
+    .menu .menu-links li {
+        width: 100%;
+    }
+
+    /* Centrar enlaces */
+    .menu .menu-links a {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Ajustes para el submenú en móviles */
+    .submenu {
+        position: static;
+        background-color: #1b1b1b; /* Mantiene el fondo oscuro */
+        box-shadow: none;
+    }
+
+    /* Aumentar la sangría de los elementos del submenú */
+    .submenu a {
+        padding-left: 30px;
+    }
+
+    /* Centrar la barra de búsqueda */
+    .menu .search-bar {
+        flex: 1 1 100%;
+        margin: 10px 0;
+        justify-content: center;
+    }
+
+
+    body {
+        font-size: 14px;
+        padding: 10px;
+      }
+    
+
+      .container{
+        width: 100%; 
+        margin: auto;
+        margin-top: 0%;
+        margin-bottom: 0%;
+      }
+
  }
