@@ -59,10 +59,6 @@ a:visited {
 
 /*"ENCABEZADO MENÚ"*/
 
-/*Aquí falleció:     justify-content: space-between;r*/
-/*Algo de los celukares, aquí lo guardo
-flex-wrap: wrap; Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
-
 /*CUERPO MENÚ*/
 .menu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
@@ -71,7 +67,7 @@ flex-wrap: wrap; Permite que los elementos se envuelvan en múltiples líneas en
     width: 100%;
     max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
     background-color: #2d938e; /*Le da a toda el área del menú un color azul verdoso*/
-    padding: 0px 20px; /*Agrega espacio a los lados para que no pegue al borde*/
+    padding: 0px 20px 0px 20px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
     z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
     flex-wrap: wrap;  /*Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
@@ -116,7 +112,7 @@ BORRAR EN UN FUTURO*/
 }
 
 .navbar li a{
-    scroll-margin-top: 60 px; /*Evita que el navbar tape los titulos*/
+    scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
     height: 70px; /*Iguala la altura a la del navbar*/
     width: 100%;
@@ -153,13 +149,13 @@ BORRAR EN UN FUTURO*/
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; 
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
-    flex-shrink: 0; /* Evita que la barra se reduzca en pantallas pequeñas */
+    flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
 }
 
 /*    border: none; no sirve :v no cheto: no cambio nada*/
 
 .search-bar input { /*El input es el campo de búsqueda que se expande al enfocarlo.*/
-    padding: 8px 10px; /*Le asigna un padding de 40 pixeles a la parte superior e inferior de 10 pixeles a los lados */
+    padding: 8px 10px; /*Acomoda el "buscar..." dentro de la barra de búsqueda para que no toque los bordes*/
     border-radius: 20px 0 0 20px; /*Crea esquinas redondeadas para un diseño más amigable.*/
     outline: none; /*Linea de link: Al seleccionar la barra de búsqueda, desaparece la línea exterior*/
     width: 150px; /*Le asigna al buscador un ancho de 150 pixeles*/
@@ -176,7 +172,7 @@ BORRAR EN UN FUTURO*/
 /*Otro:     border: none;*/
 
 .search-bar button { 
-    padding: 8px 10px; /*Le asigna un padding de 40 pixeles a la parte superior e inferior de 10 pixeles a los lados */
+    padding: 8px 10px; /*Le asigna un a la parte en donde se encuentra la lupa dentro de la barra de búsqueda*/
     background-color: #ff6b6b; /*Le da un color coral al recuadro donde se encuentra el icono de búsqueda*/
     color: white; /*Le da un color blanco al icono de búsqueda*/
     border-radius: 0 20px 20px 0; /*Crea esquinas redondeadas para un diseño más amigable.*/
@@ -188,7 +184,7 @@ BORRAR EN UN FUTURO*/
     background-color: #e55b5b; /*Le da una ligera sombra al botón del buscador al momento de colocar el cursor sobre este mismo*/
 }
 
-/* Resaltado */
+/*Resaltado de búsqueda*/
 .highlight { /*El resltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
     background-color: #f68f9b; /*Aplica un color coral al resaltado*/
 }
@@ -242,7 +238,7 @@ BORRAR EN UN FUTURO*/
 
 /*"CUERPO HEADER"*/
 .header{
-    height: 50vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
+    height: 60vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,7 +247,7 @@ BORRAR EN UN FUTURO*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
     background-size: cover;
-    padding: 30px 0px;
+    padding-top: 20px;
 }
 
 /*"TÍTULO HEADER"*/
@@ -279,9 +275,40 @@ BORRAR EN UN FUTURO*/
     color:#453c5c;
 }
 
+
+ /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content
+ .content{
+    height: 50vh;
+    display: flex;
+    flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}*/
+
+
+/*"SOBRE NOSOTROS"*/
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #76b5a0;
+    padding: 20px 0 30px 0;
+}
+
+.about a {
+    display: block;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
 /*"BOTÓN" Este bloque sirve para darle estilo a los botones que se encuentran dentro de la página*/
 .btn{
     display: inline-block;
+    text-align: center;
     margin-top: 15px;  /*Se le da un margen a la parte de arriba del botón*/
     padding: 10px 50px;
     border: 2px solid #7ac2cc; /*Aquí se le da un color al borde del botón*/
@@ -297,40 +324,22 @@ BORRAR EN UN FUTURO*/
 }
 
 
- /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content*/
-.content{
-    height: 50vh;
-    display: flex;
-    flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto*/
-    justify-content: center;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-/*"SOBRE NOSOTROS"*/
-.about{
-    margin-bottom: 80px;
-}
-
-
 /*"DEFINICIONES"*/
 .Definiciones{
     justify-content: center;
-    padding: 100px 5px;
-    padding-bottom: 50px;
+    margin: 60px 10px 80px 10px;
 }
 
 .neuro {
     display: flex;
     align-items: center; /*Alinea verticalmente*/
-    padding: 20px;
+    margin: 20px;
 }
 
 .defText h3{
     text-align: center;
     font-size: 30px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .defImg{
@@ -345,13 +354,11 @@ BORRAR EN UN FUTURO*/
 
 
 /*"TIPOS DE NEURODIVERGENCIA"*/
-/*.neurodivegencia{
-    color: #171717; /*Qué es esto y por qué dice holi? JAHSJAHSA*/ 
 
     .box-container{
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 5px;
         width: 100%;
         justify-content: center; /*Se centra la información del bloque de contenido*/
         flex-wrap: wrap; /*Modifica la vista del sitio web para que al entrar en tableta, celular o pc, se adapte a la pantalla del mismo*/
@@ -370,6 +377,7 @@ BORRAR EN UN FUTURO*/
         box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
         margin: 2rem;
         position: relative;
+     
     }
     
     .box-container .box h3{
@@ -418,11 +426,9 @@ BORRAR EN UN FUTURO*/
 
 /*LINEA DE APOYO*/
 .Lineap{ 
-    margin-top: 650px; /*Añade un margen superior para que el contenido que se encuentra en los box no se superponga con 
+    margin: 60px 0 70px 0; /*Añade un margen superior para que el contenido que se encuentra en los box no se superponga con 
     los contenidos dentro de la línea de apoyo*/
     justify-content: space-between; /*Espacio entre contenidos*/
-    padding: 80px;
-    margin-bottom: 125px;
 }
 
 .list ul{  /*Estilo del formato general de la lista de linea de apoyo*/
@@ -442,11 +448,10 @@ BORRAR EN UN FUTURO*/
 /*"RECURSOS"*/
 
 .recursos{
-    padding-top: 80px;
-    padding: 80px;
+    padding-top: 20px;
+    margin-top: 30px;
     background: #76b5a0;
-    justify-content: baseline;
-
+    text-align: center;
 }
 
 .recursos h3{
@@ -457,11 +462,27 @@ BORRAR EN UN FUTURO*/
     text-align: center;
 }
 
-.videos-container{
+.scrolling-videos{
     display: flex;
-    justify-content: center;
-    gap: 10px; /*Espacio entre imágenes*/
-    padding-top: 25px;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+
+.video{
+    flex: 0 0 auto;
+    border: solid 1px black;
+    margin: 10px;
+    width: 250px;
+    height: 440px;
+    /*height: auto;*/
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
 }
 
 .video h4{
@@ -474,10 +495,28 @@ BORRAR EN UN FUTURO*/
 }
 
 .video img{
-    width: 320px;
+    width: 100%;
     height: auto;
-    justify-content: center;
+    border-radius: 5px;
 }
+
+.scrolling-videos::-webkit-scrollbar{
+    display: none;
+}
+
+.scroll-btns{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 10px auto;
+    font-size: 25px;
+    position: relative;
+}
+
+.scroll-btns:hover{
+    cursor: pointer;
+}
+
 
 hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
     border: 1px solid #fff;

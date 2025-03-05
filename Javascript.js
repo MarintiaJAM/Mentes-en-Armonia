@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+//"SCROLL"
 
 let scrollBtn = document.getElementById("scrollTop"); //Busca el de scroll en el html a través del ID, que sería
 //"scroll" y lo guarda dentro de una variable llamda "scrollBtn" (bóton de scroll).
@@ -77,4 +78,32 @@ window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el
     } else {
         scrollBtn.classList.remove("show"); // Desaparece suavemente
     }
+});
+
+
+//"ADAPTADOR DE PANTALLAS"
+
+function checkScreenSize() {
+    const content = document.getElementById('body')
+}
+
+window.onload = checkScreenSize;
+
+window.onresize = checkScreenSize;
+
+//"SCROLLING DE VIDEOS"
+const rightBtn = document.querySelector("#btn-right");
+const leftBtn = document.querySelector("#btn-left");
+const content = document.querySelector(".scrolling-videos");
+
+// Cantidad a desplazar (ancho de un video + margen)
+const scrollAmount = document.querySelector(".video").offsetWidth + 20;
+
+// Función para desplazarse
+rightBtn.addEventListener("click", () => {
+    content.scrollLeft += scrollAmount;
+});
+
+leftBtn.addEventListener("click", () => {
+    content.scrollLeft -= scrollAmount;
 });
