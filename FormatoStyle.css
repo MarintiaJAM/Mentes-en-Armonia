@@ -16,12 +16,12 @@ body{ /*BORRAR o MODIFICAR*/
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-    /* margin-top: 40px;
-    margin-bottom: 40px; */
-    font-size: 40px; /*Le asigna un tamaño de fuente de 40px*/
-    font-weight: 600; 
-    text-transform: uppercase; /*Convierte el texto en mayúsculas*/
-    text-align: center; /*Centra el texto*/
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 45px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
     color:#453c5c;
 }
 
@@ -196,24 +196,17 @@ BORRAR EN UN FUTURO*/
 }
 
 
-.head{ /*BORRAR*/
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 63px;
-    background-color: #6aadaf;
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-}
-
 
 .header{ /*MODIFICAR*/
-    background-image: url(../img/formato\ graa.jpeg); /*Aquí se pondrá el color característico de la neurodivergencia de la que se habla*/
+    height: 30vh; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/formato\ graa.jpeg);
+    filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
-    background-repeat:no-repeat center; /*Se le indica que no se deberá de repetir el fondo*/
-    height: 300px;
-    width: 100%;
+    background-repeat:no-repeat center;
+    background-size: cover;
+    padding-top: 20px;
 }
 
 
@@ -231,20 +224,45 @@ BORRAR EN UN FUTURO*/
 }
 
 
-.table{
-    align-items:center;
-    margin:35px 0 35px 0;
-    text-align: center;
+/*Tabla de contenidos*/
+.table {
+    position: -webkit-sticky; /* Para compatibilidad con navegadores WebKit como Safari */
+    background-color: #207185; /* Color de fondo oscuro */
+    padding: 10px 0; /* Añade un relleno superior e inferior de 10px */
+    width: 100%; /* Hace que el menú ocupe todo el ancho de la pantalla */
+    z-index: 1000; /* Asegura que el menú se mantenga por encima de otros elementos */
 }
 
-.table li{
-    list-style:none ;
-    background-color: #76b5a0 ;
+.table h3{
     color: #fff;
-    padding: 10px;
-    margin:10px;
-    border-radius: 5px;
 }
+
+/*Estilos para la lista del menú*/
+.table ul {
+    list-style-type: none; /* Elimina los estilos de viñetas de la lista */
+    margin: 0; /* Elimina el margen externo de la lista */
+    padding: 0; /* Elimina el relleno interno de la lista */
+    display: flex; /* Utiliza flexbox para organizar los elementos de la lista */
+    justify-content: center; /* Centra los elementos horizontalmente dentro del menú */
+}
+
+/*Estilos para los elementos de la lista (li) */
+.table ul li {
+    margin: 0 15px; /* Espaciado horizontal entre los elementos del menú */
+}
+
+/* Estilos para los enlaces del menú*/
+.table ul li a {
+    color: white; /* Cambia el color del texto a blanco */
+    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+    font-size: 18px; /* Define el tamaño de la fuente en 16px */
+}
+
+/* Efecto hover en los enlaces del menú */
+.table ul li a:hover {
+    color: #e55b5b; /* Cambia el color del texto a dorado (#FFD700) cuando el usuario pasa el cursor */
+}
+
 
 /*FOOTER*/
 
