@@ -1,39 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título</title>
-    <link rel="stylesheet" href="FormatoStyle.css">
+
+     <!-- Logo y título que se verá en la pestaña -->
+    <title>Mentes en armonía</title>
+    <link rel="icon" type="image/jpg" href="../img/logo.jpg">
+
+     <!-- Enlaces a fuentes y estilos -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+     <!-- Enlace a Font Awesome para íconos -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <!-- Enlace al css -->
+    <link rel="stylesheet" href="../css/FormatoStyle.css">
 </head>
+
+
 <body>
-    <div class="head">
-        <div class="logo">
-            <a href="index.html"> <!-- Con este link podemos acceder a la pagina principal desde el logo -->
-                <!-- Por medio del link de abajo se añade la imagen del logo -->
-                <img src="../VB Code Proyecto/img/shadow.webp" alt="Logo" width="60px">
-            </a>
+    <nav class="menu" id="Menu">
+
+    <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
+                         darle estilos por medio de css más delante -->
+        <a href="index.html">
+        <img src="../img/logo.jpg" alt="Logo"></a>
+    </div>
+
+
+        <!-- Botón de menú para móviles -->
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
         </div>
 
-        <nav class="navbar">
-            <a href="index.html#Inicio">Inicio</a>
-            <a href="index.html#Acerca de">Acerca de</a>
-            <a href="#">Definiciones</a>
-            <a href="#">Neurodivergencia</a>
-            <a href="#">Footer</a>
-        </nav>
-    </div>
+
+    <!-- Aquí se encuentra todo lo que estará dentro de la página de navegación -->
+    <ul class="navbar">
+
+        <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+         página de inicio -->
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#Acerca de">Acerca de</a></li>
+        <li><a href="#Definiciones">Definiciones</a></li>
+        <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
+        <li><a href="#Lineap">Líneas de apoyo</a></li>
+        <li><a href="#Recursos">Centro de recursos</a></li>
+        <li><a href="#Footer">Footer</a></li>
+    </ul>
+
+        <!-- Barra de búsqueda en la esquina superior izquierda -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button type="button" id="searchButton"><i class="fas fa-search"></i>
+            </button>
+        </div>
+</nav>
+
+<!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
+<a href="#Menu" class="scroll" id="scrollTop">
+    &#8679; <!-- Para ráido agregaré este comando/código, el cual es un simbolo de flecha -->
+</a>
     
-
-    <div class="header content">
+<div class="container">
+    <div class="content header">
         <h1 class="title">(Neurodivergencia)</h1>
-        
+        <!-- Añadir una breve información de cada tipo deneurotipicidad -->
     </div>
-
-    <div class="table content">
+        <div class="content table">
         <h3 class="title">Tabla de contenido</h3>
         <nav>
-            <ul>
+            <ul class="tabla">
                 <li><a href="#seccion1">Introducción al tema</a></li>
                 <li><a href="#seccion2">Diagnóstico y características principales</a></li>
                 <li><a href="#seccion3">Desafíos y fortalezas</a></li>
@@ -45,27 +81,34 @@
         </nav>
     </div>
 
+
     <section id="seccion1">
-        <h2 class="title"> ¿Qué es ...?</h2>
+        <div class="content about">
+            <h2 class="title">¿Qué es?</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Ad cum xd:v illo perspiciatis, blanditiis tempora nihil 
                 ipsum quisquam architecto optio voluptatem sapiente ipsam 
                 id obcaecati eius ipsa culpa, numquam suscipit ab.
             </p>
+        </div>
 
-        <h2 class="title">Breve historia o evolución del concepto</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        <div class="content history">
+            <h2 class="title">Historia o evolución del concepto</h2>
+            <p>Lorem ipsum door sit amet consectetur adipisicing elit. 
                 Repellat eos assumenda aut nihil, quae nisi ipsam minima
                 minus ea similique, voluptatibus enim voluptas architecto
                 totam officia tenetur sint veniam quibusdam!
             </p>
-
-        <h2 class="title">Extra o algo así</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Facere quidem in exercitationem natus sint id quam nihil
-                 amet inventore placeat voluptatibus, error architecto 
-                 tenetur doloremque. Tenetur fuga voluptatibus consequuntur tempora.
-            </p>
+        </div>
+        
+        <div class="content extra">
+            <h2 class="title">Extra o algo así</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Facere quidem in exercitationem natus sint id quam nihil
+                    amet inventore placeat voluptatibus, error architecto 
+                    tenetur doloremque. Tenetur fuga voluptatibus consequuntur tempora.
+                </p>
+        </div>
     </section>
 
     <section id="seccion2">
@@ -113,6 +156,51 @@
     <section id="seccion5">
         <h2 class="title">Testimonios o historias</h2>
     </section>
+
+<script src="../javascript/formato.js"></script>
+
+</div>
+
+<footer class="footer-container">
+    <section id="Footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <a href="index.html">
+                <img src="../img/logo.jpg" alt="Logo"></a>
+            </div> 
+                  
+
+            <!-- Esta es la barra de navegación inferior -->
+                <ul class="footer-navbar">
+
+                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                    página de inicio -->
+                    <li><a href="#Menu">Inicio</a></li>
+                    <li><a href="#Acerca de">Acerca de</a></li>
+                    <li><a href="#Definiciones">Definiciones</a></li>
+                    <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
+                    <li><a href="#Lineap">Líneas de apoyo</a></li>
+                    <li><a href="#Recursos">Centro de recursos</a></li>
+                    <li><a href="#Footer">Footer</a></li>
+                </ul>               
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Mentes en armonía</p>
+
+            <div class="socials">
+                <a href="https://www.youtube.com/">
+                    <img src="../img/youtube.png" alt="Youtube"></a>
+                <a href="https://www.facebook.com/?locale=es_LA">
+                    <img src="../img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/">
+                    <img src="../img/instagram.png" alt="Instagram"></a>
+                <a href="https://x.com/?lang=es&mx=2">
+                    <img src="../img/twitter.png" alt="Twitter/X"></a>
+            </div>  
+        </div>
+    </section>
+</footer>
 
 </body>
 </html>
