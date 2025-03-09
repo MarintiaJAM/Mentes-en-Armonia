@@ -14,7 +14,7 @@
      <!-- Enlace a Font Awesome para íconos -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
      <!-- Enlace al css -->
-    <link rel="stylesheet" href="../css/FormatoStyle.css">
+    <link rel="stylesheet" href="../css/Autismo.css">
 </head>
 
 
@@ -39,15 +39,24 @@
 
         <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
          página de inicio -->
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#Acerca de">Acerca de</a></li>
-        <li><a href="#Definiciones">Definiciones</a></li>
-        <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
-        <li><a href="#Lineap">Líneas de apoyo</a></li>
-        <li><a href="#Recursos">Centro de recursos</a></li>
-        <li><a href="#Footer">Footer</a></li>
-    </ul>
-
+         <li><a href="index.html">Inicio</a></li>
+         <li><a href="Acerca de.html">Sobre nosotros</a></li>
+         <li class="dropdown">
+         <a href="#Neurodivergencia">Neurodivergencia <i class="fas fa-chevron-down chevron"></i> </a>
+         <ul class="dropdown-content">
+             <li><a href="Autismo.html">Autismo</a></li>
+             <li><a href="Tdah.html">TDAH</a></li>
+             <li><a href="Dislexia.html">Dislexia</a></li>
+             <li><a href="Tourette.html">ST</a></li>
+             <li><a href="Dispraxia.html">Dispraxia</a></li>
+             <li><a href="Discalculia.html">Discalculia</a></li>
+             <li><a href="Ansiedad.html">TA</a></li>
+           </ul>
+         </li>
+         <li><a href="#Lineap">Líneas de apoyo</a></li>
+         <li><a href="#Recursos">Centro de recursos</a></li>
+     </ul>
+ 
         <!-- Barra de búsqueda en la esquina superior izquierda -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Buscar...">
@@ -63,8 +72,9 @@
     
 <div class="container">
     <div class="content header">
-        <h1 class="title">(Neurodivergencia)</h1>
+        <h1 class="title">Autismo</h1>
         <!-- Añadir una breve información de cada tipo deneurotipicidad -->
+         <p><em>-El mundo necesita todo tipo de mentes.<br> - Dr. Temple Grandin.</em></p>
     </div>
         <div class="content table">
         <h3 class="title">Tabla de contenido</h3>
@@ -85,11 +95,16 @@
     <section id="seccion1">
         <div class="content about">
             <h2 class="title">¿Qué es?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ad cum xd:v illo perspiciatis, blanditiis tempora nihil 
-                ipsum quisquam architecto optio voluptatem sapiente ipsam 
-                id obcaecati eius ipsa culpa, numquam suscipit ab.
-            </p>
+            <div class="aboutimg">
+            <img src="../img/autism.jpg" alt="que es">
+            </div>
+            <div class="aboutext">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Ad cum xd:v illo perspiciatis, blanditiis tempora nihil 
+                    ipsum quisquam architecto optio voluptatem sapiente ipsam 
+                    id obcaecati eius ipsa culpa, numquam suscipit ab    
+                </p>
+            </div>
         </div>
 
         <div class="content history">
@@ -100,15 +115,8 @@
                 totam officia tenetur sint veniam quibusdam!
             </p>
         </div>
-        
-        <div class="content extra">
-            <h2 class="title">Extra o algo así</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Facere quidem in exercitationem natus sint id quam nihil
-                    amet inventore placeat voluptatibus, error architecto 
-                    tenetur doloremque. Tenetur fuga voluptatibus consequuntur tempora.
-                </p>
-        </div>
+       
+
     </section>
 
     <section id="seccion2">
@@ -119,14 +127,12 @@
                 id obcaecati eius ipsa culpa, numquam suscipit ab.
             </p>
 
+
         <h2 class="title"> Síntomas o rasgos más comunes</h2>
             <p> etc. (lorem)</p>
 
-        <h2 class="title"> Extra</h2>
-            <p> Ohayo, me han dicho que tengo la voz de Bakugo...
-                ¿será que puedo hacer el "Baka"?
-            </p>
     </section>
+
 
     <section id="seccion3">
         <h2 class="title">Dificultades sensoriales, sociales o cognitivas </h2>
