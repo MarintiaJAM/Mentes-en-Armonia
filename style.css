@@ -107,9 +107,30 @@ BORRAR EN UN FUTURO*/
     height: 70px;
 }
 
+
+/* Chevron */
+.chevron {
+    margin-left: 8px;
+    transition: transform 0.3s ease; /* Animación suave */
+  }
+  
+  /* Animación al pasar el ratón sobre el contenedor */
+  .dropdown:hover .chevron {
+    transform: rotate(180deg); /* Rota el icono 180 grados cuando el submenú se muestra */
+  }
+
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+
+
 .navbar li{
-    margin-right: 13px; /*Separación entre secciones*/
+    position: relative;
 }
+
 
 .navbar li a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
@@ -131,6 +152,39 @@ BORRAR EN UN FUTURO*/
 }
 
 
+/* Dropdown - Hacia abajo y en lista vertical */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2d938e;
+    min-width: 160px;
+    z-index: 1;
+    top: 100%; /* Coloca el submenú directamente debajo del elemento principal */
+    left: 0; /* Alinea el submenú con el borde izquierdo del ítem */
+    opacity: 0; /* Empieza oculto */
+    visibility: hidden; /* No es visible */
+    
+  }
+  
+  /* Al pasar el ratón sobre el ítem, el submenú se hace visible */
+  .dropdown:hover .dropdown-content {
+   display: block;
+   opacity: 1; /* Lo hace visible */
+   visibility: visible; /* Cambia a visible */
+   transition: opacity 0.3s
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* Hacer que los elementos de la lista se alineen verticalmente */
+  }
+
+  .dropdown-content a:hover {
+    background-color: #207185;
+  }
+  
 /*"ADAPTADOR DEL MENÚ PARA CELULARES*/
 .menu-toggle {
     display: none;
@@ -238,11 +292,11 @@ BORRAR EN UN FUTURO*/
 
 /*"CUERPO HEADER"*/
 .header{
-    height: 60vh !important; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
+    height: 60vh; /*El !important fuerza esta regla, incluso si hay otras reglas que intentan cambiarla.*/
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../Sitio\ web/img/header.png);
+    background-image: url(../img/header.png);
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
@@ -250,11 +304,7 @@ BORRAR EN UN FUTURO*/
     padding-top: 20px;
 }
 
-/*"TÍTULO HEADER"*/
-.header h2{
-    color: #453c5c;
-    text-align: center;
-} 
+
 
 /*"LETRA HEADER"*/
 .header p{
@@ -274,17 +324,6 @@ BORRAR EN UN FUTURO*/
     text-align: center;
     color:#453c5c;
 }
-
-
- /*En este bloque se da estilo al contenido general de todas las secciones que estan dentro de la clase content
- .content{
-    height: 50vh;
-    display: flex;
-    flex-direction: column; /*Convierte los distintos parrafos en columnas a la hora de verse en un movil distinto
-    justify-content: center;
-    justify-content: space-between;
-    align-items: center;
-}*/
 
 
 /*"SOBRE NOSOTROS"*/
@@ -356,7 +395,7 @@ BORRAR EN UN FUTURO*/
 /*"TIPOS DE NEURODIVERGENCIA"*/
 
     .box-container{
-        display: flex;
+        display: flex; 
         flex-wrap: wrap;
         gap: 5px;
         width: 100%;
@@ -608,20 +647,14 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 
 
  /* Responsividad */
-@media screen and (max-width: 768px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
+@media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
     
     .title{
         margin-bottom: 0;
-        font-size: 40px;
-    }
-
-    .menu{
-        display: none;
+        font-size: 20px;
     }
 
 
-
-    
 
     .menu {
         flex-wrap: wrap;
@@ -680,6 +713,9 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
         justify-content: center;
     }
 
+    .header p{
+        font-size: 15px;
+    }
 
     body {
         font-size: 14px;
@@ -688,10 +724,11 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
     
 
       .container{
-        width: 100%; 
+        width: 100%; /* 100% del ancho de la ventana */
         margin: auto;
         margin-top: 0%;
         margin-bottom: 0%;
+        background-color: #fffdd1;
       }
 
  }
