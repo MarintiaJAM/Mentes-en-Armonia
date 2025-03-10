@@ -28,6 +28,7 @@ body{
 
 /*"LETRA GENERAL" Con este bloque asignamos el estilo predeterminado a la letra*/
 p{
+    margin-top: 15px;
     margin-bottom: 40px; /*Este da un margen de 40 pixeles creando un espacio entre cada letra*/
     font-size: 18px; /*Indica que el tamaño de la letra será de 18 pixeles*/
     color: #453c5c; /*Le da a la letra un colo oscuro para resaltar de el fondo*/
@@ -47,6 +48,15 @@ p{
     color:#453c5c;
 }
 
+
+.subtitle{
+    margin: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color:#453c5c;
+}
 
 /*"ENCABEZADO MENÚ"*/
 
@@ -127,10 +137,17 @@ BORRAR EN UN FUTURO*/
 .navbar li a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
+<<<<<<< HEAD
+    height: 70px; /*Iguala la altura a la del navbar*/
+    height: 100%; /*Iguala la altura a la del menú*/
+    line-height: 75px; /*Centra el texto verticalmente*/
+    padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
+=======
     height: 100%; /*Iguala la altura a la del menú*/
     width: 100%;
     line-height: 75px; /*Centra el texto verticalmente*/
     padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
+>>>>>>> 4da9612c49752fd061fbdf07ef334d168115304e
     color: #fff;
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
@@ -305,7 +322,7 @@ BORRAR EN UN FUTURO*/
 /*Tabla de contenidos*/
 .table {
     position: -webkit-sticky; /* Para compatibilidad con navegadores WebKit como Safari */
-    background-color: #207185; /* Color de fondo oscuro */
+    background-color: rgb(32, 113, 133); /* Color de fondo oscuro */
     padding: 10px 0; /* Añade un relleno superior e inferior de 10px */
     width: 100%; /* Hace que el menú ocupe todo el ancho de la pantalla */
     z-index: 1000; /* Asegura que el menú se mantenga por encima de otros elementos */
@@ -343,6 +360,7 @@ BORRAR EN UN FUTURO*/
 }
 
 
+/*INTRODUCCIÓN*/
 .about {
     display: flex;
     align-items: center; /*Alinea verticalmente*/
@@ -365,6 +383,107 @@ BORRAR EN UN FUTURO*/
     border-radius: 5px;
 }
 
+
+/*HISTORIA Y EVOLUCIÓN*/
+.history{
+    display: flex;
+    flex-direction: column; /*Permite que el orden del contenido vaya hacia abajo tipo columnas*/
+    align-items: center; /*Centra el texto*/
+    padding: 20px 0 30px 0;
+    margin:30px 10px 30px 10px;
+    border-radius: 5px;
+}
+
+/*Ajusta las imagenes que se encuentran dentro de la clase de hisrory*/
+.history img{
+    width: 300px; /*Le asigna un ancho de 300px*/
+    height:300px; /*Le asigna una altura de 300px*/
+    align-items: center; /*Centra las imagenes*/
+    margin: 10px 0 10px 20px; /*Le da un margen inferior y superior para darle una mejor estética*/
+    border-radius: 5px; /*Le otorga un margen a la imagen*/
+}
+
+
+/*IDENTIFICADORES*/
+.identificadores{
+    background-color: #76b5a0;
+    margin:30px 10px 30px 10px;
+    padding: 20px 0 30px 0;
+    border-radius: 5px;
+}
+
+.kids{
+    background-color: #fffdd1;
+    margin:30px 20px 30px 20px;
+    padding: 20px 0 30px 0;
+    border-radius: 5px;
+}
+
+.adults{
+    background-color: #fffdd1;
+    margin:30px 20px 30px 20px;
+    padding: 20px 0 30px 0;
+    border-radius: 5px;
+}
+
+.adults li{
+    margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+}
+
+
+/*SUBTIPOS*/
+.types{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #5fb5b1;
+    padding: 10px 0 30px 0;
+    margin:10px;
+    border-radius: 5px;
+}
+
+/*Le da estilo a la clase general al contenedor que almacenará los cuadros de texto de esta sección*/
+.contenedor {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los cuadros se acomoden automáticamente */
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 10px 40px 20px 80px;
+}
+
+/*Define el estilo de los cuadros de texto de los subtipos*/
+.chart{
+    background-color: rgba(32, 113, 133, 0.8);
+    color: white;
+    width: 300px; /* Tamaño fijo para pantallas grandes */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/*Acomoda la imagen dentro de los cuadros de texto*/
+.chart img {
+    width: 100%;
+    height: 225px;
+    border-radius: 5px;
+}
+
+/*Le da estilo a los titulos de la sección de cuadros en los subtipos*/
+.titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/*Se le da tamaño a la fuente dentro de los cuadros de texto en los subtipos*/
+.desc {
+    font-size: 13.5px;
+}
+
+
 /*FOOTER*/
 
 /*"FOOTER SUPERIOR"*/
@@ -386,9 +505,14 @@ BORRAR EN UN FUTURO*/
 }
 
 .footer-logo img{
+<<<<<<< HEAD
+    margin: 5px 0 0 15px;
+    width: 80px;
+=======
     margin: 5px 0 0 15px;
     width: 80px;
     height: auto;
+>>>>>>> 4da9612c49752fd061fbdf07ef334d168115304e
 }  
 
 .footer-navbar{
@@ -430,9 +554,15 @@ BORRAR EN UN FUTURO*/
 }
 
 .footer-bottom p {
+<<<<<<< HEAD
+    padding-left: 15px;
+     color: #fff;
+     font-size: 16.5px;
+=======
     padding-left: 15px;
     color: #fff;
     font-size: 16.5px;
+>>>>>>> 4da9612c49752fd061fbdf07ef334d168115304e
 }
 
 .socials img{
