@@ -332,8 +332,10 @@ BORRAR EN UN FUTURO*/
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #76b5a0;
+    background-color: #5fb5b1;
     padding: 20px 0 30px 0;
+    margin:10px;
+    border-radius: 5px;
 }
 
 .about a {
@@ -348,12 +350,12 @@ BORRAR EN UN FUTURO*/
 .btn{
     display: inline-block;
     text-align: center;
-    margin-top: 15px;  /*Se le da un margen a la parte de arriba del botón*/
+    margin: 20px 500px 20px 500px;
     padding: 10px 50px;
-    border: 2px solid #7ac2cc; /*Aquí se le da un color al borde del botón*/
+    border: 2px solid #207185; /*Aquí se le da un color al borde del botón*/
     color: #fff;
     text-decoration: none;
-    background: #7ac2cc;
+    background: #207185;
 }
 
 /*Este bloque sirve para cambiar el color cuando el cursor se encuentra sobre el boton*/
@@ -372,7 +374,9 @@ BORRAR EN UN FUTURO*/
 .neuro {
     display: flex;
     align-items: center; /*Alinea verticalmente*/
-    margin: 20px;
+    margin:20px;
+    background-color: #76b5a0;
+    border-radius: 10px;
 }
 
 .defText h3{
@@ -389,6 +393,7 @@ BORRAR EN UN FUTURO*/
     width: 225px;
     height: auto;
     border-radius: 5px; /*Redondea los bordes de las imágenes*/
+    margin: 20px;
 }
 
 
@@ -465,7 +470,7 @@ BORRAR EN UN FUTURO*/
 
 /*LINEA DE APOYO*/
 .Lineap{ 
-    margin: 60px 0 70px 0; /*Añade un margen superior para que el contenido que se encuentra en los box no se superponga con 
+    margin: 60px 40px 70px 40px; /*Añade un margen superior para que el contenido que se encuentra en los box no se superponga con 
     los contenidos dentro de la línea de apoyo*/
     justify-content: space-between; /*Espacio entre contenidos*/
 }

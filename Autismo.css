@@ -39,8 +39,7 @@ p{
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-    margin-top: 40px;
-    margin-bottom: 40px;
+   margin: 40px;
     font-size: 45px;
     font-weight: 600;
     text-transform: uppercase;
@@ -268,11 +267,11 @@ BORRAR EN UN FUTURO*/
 
 
 .header{ 
-    height: 30vh; 
+    height: 45vh; 
     justify-content: center;
     align-items: center;
     background-image: url(../img/autismo.jpg); /*Imagen que se encuentra de fondo en el header*/
-    filter: brightness(50%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
     background-size: cover;
@@ -343,30 +342,27 @@ BORRAR EN UN FUTURO*/
 }
 
 
-.about{
+.about {
     display: flex;
     align-items: center; /*Alinea verticalmente*/
-    margin: 20px;
+    margin: 10px;
+    background-color: #5fb5b1;
+    border-radius: 5px;
 }
 
-.about title{
-    border-radius: 0 20px 20px 0;
-    background-color: #ff6b6b;
-}
-
-.aboutimg {
-    width: 225px;
-    height: auto;
-    border-radius: 5px; /*Redondea los bordes de las imágenes*/
-}
-
-
-.aboutext{
+.aboutext h2{
     text-align: center;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
+.aboutimg img{
+    width: 400px;
+    height: auto;
+    align-items: center;
+    margin: 10px 0 10px 20px;
+    border-radius: 5px;
+}
 
 /*FOOTER*/
 
