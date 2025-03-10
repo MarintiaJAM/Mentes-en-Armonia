@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 *{
     /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
     y que por default se apliquen estos estilos si no se indica lo contrario */
@@ -35,12 +37,20 @@ p{
 }
 
 
-
-
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
    margin: 40px;
     font-size: 45px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color:#453c5c;
+}
+
+
+.subtitle{
+    margin: 20px;
+    font-size: 25px;
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
@@ -282,11 +292,12 @@ BORRAR EN UN FUTURO*/
 
 /*"LETRA HEADER"*/
 .header p{
-    color: #453c5c;
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    text-align: center;
     font-size: 23.5px; /*Tamaño del parrafo dentro del header*/
     font-weight: 800; /*Darle el formato a negrita*/
 }
-
 
 
 /*CONTENIDO DE PÁGINA*/
@@ -364,6 +375,106 @@ BORRAR EN UN FUTURO*/
     margin: 10px 0 10px 20px;
     border-radius: 5px;
 }
+
+/*HISTORIA Y EVOLUCIÓN*/
+.history{
+    display: flex;
+    flex-direction: column; /*Permite que el orden del contenido vaya hacia abajo tipo columnas*/
+    align-items: center; /*Centra el texto*/
+    padding: 20px 0 30px 0;
+    margin:30px 10px 30px 10px;
+    border-radius: 5px;
+}
+
+/*Ajusta las imagenes que se encuentran dentro de la clase de hisrory*/
+.history img{
+    width: 270px; /*Le asigna un ancho de 300px*/
+    height:auto; /*Le asigna una altura proporcional al ancho*/
+    align-items: center; /*Centra las imagenes*/
+    margin: 10px 0 30px 0; /*Le da un margen inferior y superior para darle una mejor estética*/
+    border-radius: 5px; /*Le otorga un margen a la imagen*/
+}
+
+
+/*IDENTIFICADORES*/
+.identificadores{
+    background-color: #5fb5b1;
+    margin:30px 10px 30px 10px;
+    padding: 20px 0 30px 0;
+    border-radius: 5px;
+}
+
+.kids{
+    background-color: #fffdd1;
+    margin:30px 20px 30px 20px;
+    padding: 20px 0 30px 0;
+    border-radius: 5px;
+}
+
+.adults{
+    background-color: #fffdd1;
+    margin:30px 20px 30px 20px;
+    padding: 20px 0 30px 0;
+    border-radius: 5px;
+}
+
+.adults li{
+    margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+}
+
+
+/*SUBTIPOS*/
+.types{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #207185;
+    padding: 10px 0 30px 0;
+    margin:10px;
+    border-radius: 5px;
+}
+
+/*Le da estilo a la clase general al contenedor que almacenará los cuadros de texto de esta sección*/
+.contenedor {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los cuadros se acomoden automáticamente */
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 10px 40px 20px 80px;
+}
+
+/*Define el estilo de los cuadros de texto de los subtipos*/
+.chart{
+    background-color: rgba(95, 171, 187, 0.8);
+    color: white;
+    width: 300px; /* Tamaño fijo para pantallas grandes */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/*Acomoda la imagen dentro de los cuadros de texto*/
+.chart img {
+    width: 100%;
+    height: 225px;
+    border-radius: 5px;
+}
+
+/*Le da estilo a los titulos de la sección de cuadros en los subtipos*/
+.titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/*Se le da tamaño a la fuente dentro de los cuadros de texto en los subtipos*/
+.desc {
+    font-size: 14px;
+}
+
 
 /*FOOTER*/
 
@@ -447,4 +558,3 @@ BORRAR EN UN FUTURO*/
     content: url("nueva-imagen.jpg"); /*Reemplaza la imagen de los íconos de las redes sociales*/
     transform: scale(1.2); /**/
 }
-

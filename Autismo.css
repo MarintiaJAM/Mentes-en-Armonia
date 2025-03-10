@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 *{
     /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
     y que por default se apliquen estos estilos si no se indica lo contrario */
@@ -293,11 +295,12 @@ BORRAR EN UN FUTURO*/
 
 /*"LETRA HEADER"*/
 .header p{
-    color: #453c5c;
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    text-align: center;
     font-size: 23.5px; /*Tamaño del parrafo dentro del header*/
     font-weight: 800; /*Darle el formato a negrita*/
 }
-
 
 
 /*CONTENIDO DE PÁGINA*/
@@ -391,9 +394,9 @@ BORRAR EN UN FUTURO*/
 /*Ajusta las imagenes que se encuentran dentro de la clase de hisrory*/
 .history img{
     width: 300px; /*Le asigna un ancho de 300px*/
-    height:300px; /*Le asigna una altura de 300px*/
+    height:auto; /*Le asigna una altura proporcional al ancho*/
     align-items: center; /*Centra las imagenes*/
-    margin: 10px 0 10px 20px; /*Le da un margen inferior y superior para darle una mejor estética*/
+    margin: 10px 0 20px 0; /*Le da un margen inferior y superior para darle una mejor estética*/
     border-radius: 5px; /*Le otorga un margen a la imagen*/
 }
 
