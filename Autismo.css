@@ -137,17 +137,10 @@ BORRAR EN UN FUTURO*/
 .navbar li a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
-<<<<<<< HEAD
-    height: 70px; /*Iguala la altura a la del navbar*/
-    height: 100%; /*Iguala la altura a la del menú*/
-    line-height: 75px; /*Centra el texto verticalmente*/
-    padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
-=======
     height: 100%; /*Iguala la altura a la del menú*/
     width: 100%;
     line-height: 75px; /*Centra el texto verticalmente*/
     padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
->>>>>>> 4da9612c49752fd061fbdf07ef334d168115304e
     color: #fff;
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
@@ -505,14 +498,9 @@ BORRAR EN UN FUTURO*/
 }
 
 .footer-logo img{
-<<<<<<< HEAD
-    margin: 5px 0 0 15px;
-    width: 80px;
-=======
     margin: 5px 0 0 15px;
     width: 80px;
     height: auto;
->>>>>>> 4da9612c49752fd061fbdf07ef334d168115304e
 }  
 
 .footer-navbar{
@@ -554,15 +542,9 @@ BORRAR EN UN FUTURO*/
 }
 
 .footer-bottom p {
-<<<<<<< HEAD
-    padding-left: 15px;
-     color: #fff;
-     font-size: 16.5px;
-=======
     padding-left: 15px;
     color: #fff;
     font-size: 16.5px;
->>>>>>> 4da9612c49752fd061fbdf07ef334d168115304e
 }
 
 .socials img{
