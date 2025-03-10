@@ -58,7 +58,7 @@ p{
     width: 100%;
     max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
     background-color: #2d938e; /*Le da a toda el área del menú un color azul verdoso*/
-    padding: 0px 20px 0px 20px; /*Agrega espacio a los lados para que no pegue al borde*/
+    padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
     z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
     flex-wrap: wrap;  /*Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
@@ -68,10 +68,12 @@ p{
 /*"LOGO"*/
 .logo{
     margin-right: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .logo img{
-    width: 85px;  /*Cambia el tamaño del logo*/
+    width: 75px;  /*Le asigna el tamaño al logo*/
     height: auto; /*El valor automático permite que el logo se adapte automáticamente al contenido que hay dentro*/
 }
 
@@ -95,19 +97,18 @@ BORRAR EN UN FUTURO*/
     list-style: none;
     margin: 0;
     padding: 0;
-    height: 70px;
 }
 
 
-/* Chevron */
+/*Chevron*/
 .chevron {
     margin-left: 8px;
-    transition: transform 0.3s ease; /* Animación suave */
+    transition: transform 0.3s ease; /*Animación suave*/
   }
   
-  /* Animación al pasar el ratón sobre el contenedor */
+  /*Animación al pasar el ratón sobre el contenedor*/
   .dropdown:hover .chevron {
-    transform: rotate(180deg); /* Rota el icono 180 grados cuando el submenú se muestra */
+    transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
   }
 
 
@@ -126,15 +127,15 @@ BORRAR EN UN FUTURO*/
 .navbar li a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
-    height: 70px; /*Iguala la altura a la del navbar*/
+    height: 100%; /*Iguala la altura a la del menú*/
     width: 100%;
-    line-height: 70px; /*Centra el texto verticalmente*/
-    padding: 0 10px; /*Margen interior*/
+    line-height: 75px; /*Centra el texto verticalmente*/
+    padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
     color: #fff;
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
     text-align: center;
-    font-size: 14px;
+    font-size: 13.5px;
 }
 
 .navbar a:hover, a:focus{
@@ -385,7 +386,8 @@ BORRAR EN UN FUTURO*/
 }
 
 .footer-logo img{
-    width: 100px;
+    margin: 5px 0 0 15px;
+    width: 80px;
     height: auto;
 }  
 
@@ -428,8 +430,9 @@ BORRAR EN UN FUTURO*/
 }
 
 .footer-bottom p {
-    padding-left: 13px;
+    padding-left: 15px;
     color: #fff;
+    font-size: 16.5px;
 }
 
 .socials img{
