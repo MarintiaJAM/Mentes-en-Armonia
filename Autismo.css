@@ -107,18 +107,19 @@ BORRAR EN UN FUTURO*/
     list-style: none;
     margin: 0;
     padding: 0;
+    height: 70px;
 }
 
 
-/*Chevron*/
+/* Chevron */
 .chevron {
     margin-left: 8px;
-    transition: transform 0.3s ease; /*Animación suave*/
+    transition: transform 0.3s ease; /* Animación suave */
   }
   
-  /*Animación al pasar el ratón sobre el contenedor*/
+  /* Animación al pasar el ratón sobre el contenedor */
   .dropdown:hover .chevron {
-    transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
+    transform: rotate(180deg); /* Rota el icono 180 grados cuando el submenú se muestra */
   }
 
 
@@ -137,8 +138,8 @@ BORRAR EN UN FUTURO*/
 .navbar li a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
+    height: 70px; /*Iguala la altura a la del navbar*/
     height: 100%; /*Iguala la altura a la del menú*/
-    width: 100%;
     line-height: 75px; /*Centra el texto verticalmente*/
     padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
     color: #fff;
@@ -315,7 +316,7 @@ BORRAR EN UN FUTURO*/
 /*Tabla de contenidos*/
 .table {
     position: -webkit-sticky; /* Para compatibilidad con navegadores WebKit como Safari */
-    background-color: rgb(32, 113, 133); /* Color de fondo oscuro */
+    background-color: #207185; /* Color de fondo oscuro */
     padding: 10px 0; /* Añade un relleno superior e inferior de 10px */
     width: 100%; /* Hace que el menú ocupe todo el ancho de la pantalla */
     z-index: 1000; /* Asegura que el menú se mantenga por encima de otros elementos */
@@ -337,7 +338,7 @@ BORRAR EN UN FUTURO*/
 /*Estilos para los elementos de la lista (li) */
 .table ul li {
     text-align: center;
-    margin: 5px 20px; /* Espaciado horizontal entre los elementos del menú */
+    margin: 0 20px; /* Espaciado horizontal entre los elementos del menú */
 }
 
 /* Estilos para los enlaces del menú*/
@@ -399,7 +400,7 @@ BORRAR EN UN FUTURO*/
 
 /*IDENTIFICADORES*/
 .identificadores{
-    background-color: #76b5a0;
+    background-color: #5fb5b1;
     margin:30px 10px 30px 10px;
     padding: 20px 0 30px 0;
     border-radius: 5px;
@@ -429,7 +430,7 @@ BORRAR EN UN FUTURO*/
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #5fb5b1;
+    background-color: #207185;
     padding: 10px 0 30px 0;
     margin:10px;
     border-radius: 5px;
@@ -447,7 +448,7 @@ BORRAR EN UN FUTURO*/
 
 /*Define el estilo de los cuadros de texto de los subtipos*/
 .chart{
-    background-color: rgba(32, 113, 133, 0.8);
+    background-color: rgba(95, 171, 187, 0.8);
     color: white;
     width: 300px; /* Tamaño fijo para pantallas grandes */
     padding: 20px;
@@ -473,7 +474,7 @@ BORRAR EN UN FUTURO*/
 
 /*Se le da tamaño a la fuente dentro de los cuadros de texto en los subtipos*/
 .desc {
-    font-size: 13.5px;
+    font-size: 14px;
 }
 
 
@@ -500,7 +501,6 @@ BORRAR EN UN FUTURO*/
 .footer-logo img{
     margin: 5px 0 0 15px;
     width: 80px;
-    height: auto;
 }  
 
 .footer-navbar{
@@ -543,8 +543,8 @@ BORRAR EN UN FUTURO*/
 
 .footer-bottom p {
     padding-left: 15px;
-    color: #fff;
-    font-size: 16.5px;
+     color: #fff;
+     font-size: 16.5px;
 }
 
 .socials img{
