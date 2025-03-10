@@ -155,7 +155,6 @@ BORRAR EN UN FUTURO*/
     left: 0; /* Alinea el submenú con el borde izquierdo del ítem */
     opacity: 0; /* Empieza oculto */
     visibility: hidden; /* No es visible */
-    
   }
   
   /* Al pasar el ratón sobre el ítem, el submenú se hace visible */
@@ -168,14 +167,15 @@ BORRAR EN UN FUTURO*/
   
   .dropdown-content a {
     color: white;
-    padding: 12px 16px;
+    padding: 6px 10px;
     text-decoration: none;
-    display: block; /* Hacer que los elementos de la lista se alineen verticalmente */
+    display: block; /*Hace que los elementos de la lista se alineen verticalmente*/
   }
 
   .dropdown-content a:hover {
     background-color: #207185;
   }
+
   
 /*"ADAPTADOR DEL MENÚ PARA CELULARES*/
 .menu-toggle {
@@ -327,19 +327,19 @@ BORRAR EN UN FUTURO*/
 /*Estilos para los elementos de la lista (li) */
 .table ul li {
     text-align: center;
-    margin: 5px 20px; /* Espaciado horizontal entre los elementos del menú */
+    margin: 5px 20px; /*Espaciado horizontal entre los elementos del menú*/
 }
 
 /* Estilos para los enlaces del menú*/
 .table ul li a {
     color: white; /* Cambia el color del texto a blanco */
     text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
-    font-size: 18px; /* Define el tamaño de la fuente en 16px */
+    font-size: 17px; /* Define el tamaño de la fuente en 16px */
 }
 
 /* Efecto hover en los enlaces del menú */
 .table ul li a:hover {
-    color: #e55b5b; /* Cambia el color del texto a dorado (#FFD700) cuando el usuario pasa el cursor */
+    color: #FFD700; /* Cambia el color del texto a dorado (#FFD700) cuando el usuario pasa el cursor */
 }
 
 
