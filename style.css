@@ -106,20 +106,8 @@ BORRAR EN UN FUTURO*/
     list-style: none;
     margin: 0;
     padding: 0;
+    height: 70px;
 }
-
-
-/*Chevron*/
-.chevron {
-    margin-left: 8px;
-    transition: transform 0.3s ease; /*Animación suave*/
-  }
-  
-  /*Animación al pasar el ratón sobre el contenedor*/
-  .dropdown:hover .chevron {
-    transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
-  }
-
 
 .navbar ul {
     list-style-type: none;
@@ -127,18 +115,16 @@ BORRAR EN UN FUTURO*/
     justify-content: center;
   }
 
-
 .navbar li{
     position: relative;
 }
 
-
 .navbar li a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
-    height: 100%; /*Iguala la altura a la del menú*/
+    height: 85px; /*Iguala la altura de los cuadros de las secciones a la del menú*/
     width: 100%;
-    line-height: 75px; /*Centra el texto verticalmente*/
+    line-height: 85px; /*Centra el texto verticalmente*/
     padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
     color: #fff;
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
@@ -185,13 +171,19 @@ BORRAR EN UN FUTURO*/
   .dropdown-content a:hover {
     background-color: #207185;
   }
+
+
+  /* Chevron */
+.chevron {
+    margin-left: 8px;
+    transition: transform 0.3s ease; /* Animación suave */
+  }
   
-/*"ADAPTADOR DEL MENÚ PARA CELULARES*/
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    margin-left: auto;
-}
+  /* Animación al pasar el ratón sobre el contenedor */
+  .dropdown:hover .chevron {
+    transform: rotate(180deg); /* Rota el icono 180 grados cuando el submenú se muestra */
+  }
+  
 
 .menu-toggle i {
     font-size: 24px;
