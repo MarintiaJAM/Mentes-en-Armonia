@@ -1,3 +1,7 @@
+/* Importar fuente personalizada */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente tipo Ubuntu*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva*/
+
 *{
     /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
     y que por default se apliquen estos estilos si no se indica lo contrario */
@@ -11,10 +15,6 @@
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
     box-sizing: border-box; /*uwu*/
 }
-
-
-/* Importar fuente personalizada */
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente tipo Ubuntu*/
 
 
 html {
@@ -106,8 +106,8 @@ BORRAR EN UN FUTURO*/
     list-style: none;
     margin: 0;
     padding: 0;
-    height: 70px;
 }
+
 
 .navbar ul {
     list-style-type: none;
@@ -115,9 +115,11 @@ BORRAR EN UN FUTURO*/
     justify-content: center;
   }
 
+
 .navbar li{
     position: relative;
 }
+
 
 .navbar li a{
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
@@ -139,31 +141,32 @@ BORRAR EN UN FUTURO*/
 }
 
 
-/* Dropdown - Hacia abajo y en lista vertical */
+/*Dropdown - Hacia abajo y en lista vertical*/
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #2d938e;
     min-width: 160px;
     z-index: 1;
-    top: 100%; /* Coloca el submenú directamente debajo del elemento principal */
+    top: 100%; /*Coloca el submenú directamente debajo del elemento principal */
     left: 0; /* Alinea el submenú con el borde izquierdo del ítem */
     opacity: 0; /* Empieza oculto */
     visibility: hidden; /* No es visible */
-    
   }
   
-  /* Al pasar el ratón sobre el ítem, el submenú se hace visible */
+  /*Al pasar el ratón sobre el ítem, el submenú se hace visible*/
   .dropdown:hover .dropdown-content {
    display: block;
-   opacity: 1; /* Lo hace visible */
-   visibility: visible; /* Cambia a visible */
+   opacity: 1; /*Lo hace visible*/
+   visibility: visible; /*Cambia a visible*/
    transition: opacity 0.3s
   }
   
   .dropdown-content a {
     color: white;
-    padding: 12px 16px;
+    padding: 6px 12px;
+    line-height: 1.2;
+    height: 20px;
     text-decoration: none;
     display: block; /* Hacer que los elementos de la lista se alineen verticalmente */
   }
@@ -173,17 +176,24 @@ BORRAR EN UN FUTURO*/
   }
 
 
-  /* Chevron */
+  /*Chevron*/
 .chevron {
     margin-left: 8px;
-    transition: transform 0.3s ease; /* Animación suave */
+    transition: transform 0.3s ease; /*Animación suave*/
   }
   
-  /* Animación al pasar el ratón sobre el contenedor */
+  /*Animación al pasar el ratón sobre el contenedor*/
   .dropdown:hover .chevron {
-    transform: rotate(180deg); /* Rota el icono 180 grados cuando el submenú se muestra */
+    transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
   }
   
+
+/*"ADAPTADOR DEL MENÚ PARA CELULARES*/
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    margin-left: auto;
+}
 
 .menu-toggle i {
     font-size: 24px;
@@ -199,7 +209,6 @@ BORRAR EN UN FUTURO*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
 }
 
-/*    border: none; no sirve :v no cheto: no cambio nada*/
 
 .search-bar input { /*El input es el campo de búsqueda que se expande al enfocarlo.*/
     padding: 8px 10px; /*Acomoda el "buscar..." dentro de la barra de búsqueda para que no toque los bordes*/
@@ -298,11 +307,20 @@ BORRAR EN UN FUTURO*/
 }
 
 
+/*"FRASE HEADER¨*/
+.header h6{
+    margin: 10px 0 20px 0;
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    text-align: center;
+    font-size: 28px; /*Tamaño del parrafo dentro del header*/
+}
+
 
 /*"LETRA HEADER"*/
 .header p{
     color: #453c5c;
-    font-size: 23.5px; /*Tamaño del parrafo dentro del header*/
+    font-size: 20px; /*Tamaño del parrafo dentro del header*/
     font-weight: 800; /*Darle el formato a negrita*/
 }
 
@@ -499,14 +517,29 @@ BORRAR EN UN FUTURO*/
     text-align: center;
 }
 
+.scroll-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 85%;
+    margin: auto;
+}
+
 .scrolling-videos{
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
+    overflow-x: auto;
     scroll-behavior: smooth;
-    width: 80%;
-    margin: auto;
+    width: 88%;
+    padding: 20px 0;
     position: relative;
+
+    overflow-x: hidden; /*Oculta la barra de scroll horizontal*/
+    overflow-y: hidden; /*Oculta la barra de scroll vertical*/
+}
+
+.scrolling-videos::-webkit-scrollbar {
+    display: none;
 }
 
 .video{
@@ -520,6 +553,11 @@ BORRAR EN UN FUTURO*/
     padding: 10px;
     background: #fff;
     border-radius: 10px;
+    transition: transform 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+}
+
+.video:hover{
+    transform: scale(1.1); /*Cambia el tamaño del video al poner el cursor sobre este*/
 }
 
 .video h4{
@@ -539,21 +577,28 @@ BORRAR EN UN FUTURO*/
     border: 1px solid black;
 }
 
-.scrolling-videos::-webkit-scrollbar{
-    display: none;
-}
-
-.scroll-btns{
-    display: flex;
-    justify-content: space-between;
-    width: 85%;
-    margin: 10px auto;
-    font-size: 25px;
-    position: relative;
-}
-
-.scroll-btns:hover{
+.scroll-container span{
+    position: absolute;
+    color: white;
+    font-size: 70px;
+    padding: 10px;
     cursor: pointer;
+    z-index: 10;
+    filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); /*Crea una sombra igual a la flecha*/
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+}
+
+.scroll-container span:hover{
+    transform: scale(1.2); /*Cambia el tamaño de las flechas al poner el cursor sobre estas*/
+    filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7)); /*Aumenta el efecto al pasar el cursor*/
+}
+
+#btn-left {
+    left: -30px; /*Ajusta la posición de la flecha izquierda*/
+}
+
+#btn-right {
+    right: -30px; /*Ajusta la posición de la flecha derecha*/
 }
 
 
