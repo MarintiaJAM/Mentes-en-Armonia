@@ -25,6 +25,7 @@ body{
     font-family: 'Ubuntu', sans-serif; /*Indica que la fuente del body será tipo "Ubuntu" en primera instancia, o tipo "sans-serif
     si no encuentra la primer fuente*/
     background-color: #faf8e1; /*Le asigna un color al fondo general de la página*/
+    margin: 0;
 }
 
 
@@ -36,8 +37,6 @@ p{
     color: #453c5c; /*Le da a la letra un colo oscuro para resaltar de el fondo*/
     padding: 0 100px; /*Crea un margen interno en los lados sin afectar la parte superior e inferior de la fuente*/
 }
-
-
 
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
@@ -294,17 +293,15 @@ BORRAR EN UN FUTURO*/
 
 
 /*"LETRA HEADER"*/
-.header p{
+.header h6{
     font-family: 'Dancing Script', cursive;
     color: #fff;
     text-align: center;
-    font-size: 23.5px; /*Tamaño del parrafo dentro del header*/
-    font-weight: 800; /*Darle el formato a negrita*/
+    font-size: 24px; /*Tamaño del parrafo dentro del header*/
 }
 
 
-/*CONTENIDO DE PÁGINA*/
-/*En este bloque se hace más pequeño la expansión de la página en la pantalla*/
+/*"CONTENIDO PRINCIPAL"*/
 .container {
     width: 80%; 
     margin: 0px auto;
@@ -316,7 +313,7 @@ BORRAR EN UN FUTURO*/
 }
 
 
-/*Tabla de contenidos*/
+/*"TABLA DE CONTENIDOS"*/
 .table {
     position: -webkit-sticky; /* Para compatibilidad con navegadores WebKit como Safari */
     background-color: #207185; /* Color de fondo oscuro */
