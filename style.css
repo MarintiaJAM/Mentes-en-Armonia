@@ -13,7 +13,7 @@
     color: #453c5c; /*Le da a la letra un colo oscuro como predeterminado*/
     vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
-    box-sizing: border-box; /*uwu*/
+    box-sizing: border-box;
 }
 
 
@@ -319,9 +319,10 @@ BORRAR EN UN FUTURO*/
 
 /*"LETRA HEADER"*/
 .header p{
-    color: #453c5c;
+    color: #fff;
     font-size: 20px; /*Tamaño del parrafo dentro del header*/
     font-weight: 800; /*Darle el formato a negrita*/
+    text-align: center;
 }
 
 
@@ -530,8 +531,8 @@ BORRAR EN UN FUTURO*/
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    width: 88%;
-    padding: 20px 0;
+    width: 90%;
+    padding: 20px 10px;
     position: relative;
 
     overflow-x: hidden; /*Oculta la barra de scroll horizontal*/
@@ -547,7 +548,7 @@ BORRAR EN UN FUTURO*/
     border: solid 1px black;
     margin: 10px;
     width: 250px;
-    height: 440px;
+    height: 410px;
     /*height: auto;*/
     text-align: center;
     padding: 10px;
@@ -567,7 +568,7 @@ BORRAR EN UN FUTURO*/
 
 .video p{
     padding: 15px;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .video img{
