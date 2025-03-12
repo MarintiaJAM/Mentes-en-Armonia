@@ -251,7 +251,7 @@ BORRAR EN UN FUTURO*/
 .container {
     width: 80%; 
     margin: 0 auto;
-    padding: 0px; 
+    padding: 5px 0 0 0;
     background-color: #faf8e1;
     min-height: 100%; 
     /*box-sizing: border-box;*/
@@ -303,7 +303,6 @@ BORRAR EN UN FUTURO*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
     background-size: cover;
-    padding-top: 20px;
 }
 
 
@@ -345,8 +344,8 @@ BORRAR EN UN FUTURO*/
     align-items: center;
     text-align: center;
     background-color: #5fb5b1;
-    padding: 20px 0 30px 0;
-    margin:10px;
+    padding: 15px 0 30px 0;
+    margin: 15px;
     border-radius: 5px;
 }
 
