@@ -339,7 +339,7 @@ BORRAR EN UN FUTURO*/
     height: 45vh; 
     justify-content: center;
     align-items: center;
-    background-image: url(../img/tdah.jpg); /*Imagen que se encuentra de fondo en el header*/
+    background-image: url(../img/TDAH.jpeg); /*Imagen que se encuentra de fondo en el header*/
     filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro */
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
