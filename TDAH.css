@@ -277,6 +277,7 @@ BORRAR EN UN FUTURO*/
 
 
 
+
 /*"SUB MENÚ"*/
 .submenu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
@@ -310,7 +311,7 @@ BORRAR EN UN FUTURO*/
 /*Estilos para los elementos de la lista (li) */
 .table li {
     text-align: center; /*Centra el texto de las listas*/
-   padding: 0 15px; /*Permite que entre cada elemento de la lista se encuentre una separación*/
+   padding: 0 13px; /*Permite que entre cada elemento de la lista se encuentre una separación*/
 }
 
 /* Estilos para los enlaces del menú*/
@@ -328,19 +329,18 @@ BORRAR EN UN FUTURO*/
 
 /*"ICONO TRADUCTOR"*/
 .lenguajes{
-   /* margin-left: 45px; Separa al icono de traductor del contenido de la lista del submenú*/
-   font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
-   margin-left: 575px;
+    margin-left: 70px;
+    margin-right: 0; /*Separa al icono de traductor del contenido de la lista del submenú*/
+    font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
 }
-
 
 
 .header{ 
     height: 45vh; 
     justify-content: center;
     align-items: center;
-    background-image: url(../img/autismo.jpg); /*Imagen que se encuentra de fondo en el header*/
-    filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    background-image: url(../img/tdah.jpg); /*Imagen que se encuentra de fondo en el header*/
+    filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro */
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center;
     background-size: cover;
@@ -349,7 +349,7 @@ BORRAR EN UN FUTURO*/
 
 
 /*"LETRA HEADER"*/
-.header p{
+.header h6{
     font-family: 'Dancing Script', cursive;
     color: #fff;
     text-align: center;
@@ -428,6 +428,11 @@ BORRAR EN UN FUTURO*/
     border-radius: 5px;
 }
 
+.kids li{
+    margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+    font-size: 18px;/*Hace que el tamaño de la fuente dentro de la lista de esta clase sea del mismo tamaño que se utilizan en todo el body*/
+}
+
 .adults{
     background-color: #fffdd1;
     margin:30px 20px 30px 20px;
@@ -437,6 +442,7 @@ BORRAR EN UN FUTURO*/
 
 .adults li{
     margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+    font-size: 18px; /*Hace que el tamaño de la fuente dentro de la lista de esta clase sea del mismo tamaño que se utilizan en todo el body*/
 }
 
 
