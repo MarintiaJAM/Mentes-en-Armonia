@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- Logo y título que se verá en la pestaña -->
+    <title>Mentes en armonía</title>
+    <link rel="icon" type="image/png" href="../img/Logo.png">
+
+     <!-- Enlaces a fuentes y estilos -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+     <!-- Enlace a Font Awesome para íconos -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <!-- Enlace al css -->
+    <link rel="stylesheet" href="../css/Dislexia.css">
+</head>
+
+<body>
+<nav class="menu" id="Menu">
+
+    <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
+                         darle estilos por medio de css más delante -->
+        <a href="index.html">
+        <img src="../img/Logo.png" alt="Logo"></a>
+    </div>
+
+
+        <!-- Botón de menú para móviles -->
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+
+    <!-- Aquí se encuentra todo lo que estará dentro de la página de navegación -->
+    <ul class="navbar">
+        <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+         página de inicio -->
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#Acerca de">Sobre nosotros</a></li>
+        <li class="dropdown">
+        <a href="#Neurodivergencia">Neurodivergencia <i class="fas fa-chevron-down chevron"></i> </a>
+        <ul class="dropdown-content">
+            <li><a href="Autismo.html">Autismo</a></li>
+            <li><a href="TDAH.html">TDAH</a></li>
+            <li><a href="Dislexia.html">Dislexia</a></li>
+            <li><a href="Tourette.html">ST</a></li>
+            <li><a href="Dispraxia.html">Dispraxia</a></li>
+            <li><a href="Discalculia.html">Discalculia</a></li>
+            <li><a href="Ansiedad.html">TA</a></li>
+          </ul>
+        </li>
+        <li><a href="#Lineap">Líneas de apoyo</a></li>
+        <li><a href="#Recursos">Centro de recursos</a></li>
+    </ul>
+
+        <!-- Barra de búsqueda en la esquina superior izquierda -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button type="button" id="searchButton"><i class="fas fa-search"></i>
+            </button>
+        </div>
+</nav>
+
+
+<nav class="submenu">
+    <!-- <h3 class="title">Tabla de contenido</h3> -->
+        <ul class="table">
+            <li><a href="#Menu">Inicio</a></li>
+            <li><a href="#Acerca de">Acerca de</a></li>
+            <li><a href="#Definiciones">Definiciones</a></li>
+            <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
+            <li><a href="#Lineap">Líneas de apoyo</a></li>
+            <li><a href="#Recursos">Centro de recursos</a></li>
+            <li><a href="#Footer">Footer</a></li>
+        </ul>
+        
+    <div class="lenguajes">
+        <i class="fas fa-language"></i>
+    </div>
+</nav>
+
+
+<!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
+<a href="#Menu" class="scroll" id="scrollTop">
+    &#8679; <!-- Para ráido agregaré este comando/código, el cual es un simbolo de flecha -->
+</a>
+
+
+<body>
+  
+        <div class="content header">
+            <h1 class="title">Dislexia</h1>
+            <!-- Añadir una breve información de cada tipo deneurotipicidad -->
+            <p><em>"Cada cerebro es diferente, y esa diferencia es lo que hace única a la humanidad."<br> - Dr. Steve Silberman</em></p>
+        </div>
+
+        <div class="container">
+        <section id="Introduction">
+            <div class="content about">
+                <div class="aboutimg">
+                    <img src="../img/TDAH.jpeg" alt="que es">
+                </div>
+                <div class="aboutext">
+                    <h2 class="title">¿Qué es la dislexia?</h2>
+                    <p>
+                        La dislexia es un trastorno del aprendizaje que afecta la capacidad de una persona para leer, escribir y, 
+                        a menudo, para comprender textos escritos. No está relacionada con la inteligencia general, sino con algunas
+                        dificultades específicas en el procesamiento del lenguaje. Las personas con dislexia suelen tener problemas 
+                        para reconocer palabras de manera fluida, lo que puede llevar a una lectura lenta y con errores. También 
+                        pueden presentar dificultades en la ortografía y en la escritura coherente.
+                    </p>
+                </div>
+            </div>
+
+<!-- Sección sobre la historia de la dislexia -->
+            <div class="content history">
+                <h2 class="title">Historia y evolución</h2>
+                <p>
+                    La dislexia es un trastorno del aprendizaje identificado por primera vez en 1881 por el médico alemán
+                    Oswald Berkhan. Durante finales del siglo XIX y principios del XX, el oftalmólogo escocés James 
+                    Hinshelwood publicó estudios sobre la condición, ayudando a su reconocimiento. Más tarde, en 1925, el 
+                    neurólogo estadounidense Samuel T. Orton propuso que la dislexia podía deberse a una falta de dominancia
+                    hemisférica en el cerebro, aportando nuevas perspectivas al estudio del trastorno.
+                </p>
+
+                <h2 class="subtitle">Samuel T. Orton</h2>
+                <img src="../img/GeorgeStill.jpeg" alt="George Still">
+                <p> 
+                    Fue un neuropsiquiatra estadounidense que, en la década de 1920, investigó las dificultades de lectura 
+                    en niños, centrándose en lo que hoy conocemos como dislexia. Observó que algunos niños con inteligencia
+                    normal presentaban problemas significativos para aprender a leer y escribir. Orton propuso que estas 
+                    dificultades se debían a una falta de dominancia hemisférica en el cerebro, lo que causaba confusión 
+                    en la percepción y reproducción de símbolos escritos
+                </p>
+
+                <h2 class="subtitle">Errores cometidos en su investigación</h2>
+                <p>
+                    Aunque la hipótesis de Samuel T. Orton sobre la falta de dominancia hemisférica como causa de la dislexia 
+                    no fue respaldada por investigaciones posteriores, su enfoque multisensorial en la enseñanza de la lectura 
+                    ha perdurado y se ha convertido en una práctica efectiva para abordar las dificultades lectoras. 
+                </p>
+
+                <h2 class="subtitle">Anna Gillingham</h2>
+                <img src="../img/MauriceLaufer.jpg" alt="Maurice Laufer">
+                <h2 class="subtitle">Virginia Douglas</h2>
+                <img src="../img/VirginiaDouglas.jpeg" alt="Virginia Douglas">
+                <p> 
+                    Orton, junto con la educadora Anna Gillingham, desarrolló el método Orton-Gillingham, que integra estrategias
+                    visuales, auditivas y kinestésicas para mejorar las habilidades lectoras en personas con dislexia
+                </p>
+                
+                <h2 class="subtitle">¿Cuándo se utilizó el término de dislexia por primera vez?</h2>
+                <p> En la historia del autismo, se debe destacar cuándo fue usado por primera vez esta palabra, para
+                    determinar los avances que se han logrado en su estudio hasta la época actual.
+                    El término “Trastorno por Déficit de Atención con Hiperactividad” (TDAH) comenzó a utilizarse
+                    oficialmente en la década de 1980, cuando la Asociación Americana de Psiquiatría lo incluyó en el
+                    DSM-III. Antes de eso, se le conocía con términos como “disfunción cerebral mínima” o “síndrome
+                    hipercinético”.
+                </p>
+            </div>
+        </section>
+
+<!-- Sección sobre la identificación de dislexia en distintas edades -->
+        <section id="Identification">
+            <div class="identificadores">
+                <h2 class="title"> Cómo se identifica en niños, adolescentes y adultos</h2>
+                <div class="kids">
+                    <h2 class="subtitle">En niños</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ad cum xd:v illo perspiciatis, blanditiis tempora nihil
+                        ipsum quisquam architecto optio voluptatem sapiente ipsam
+                        id obcaecati eius ipsa culpa, numquam suscipit ab.
+                    </p>
+                </div>
+
+                <div class="adults">
+                <h2 class="subtitle">En adultos</h2>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección sobre síntomas comunes -->
+        <h2 class="title"> Síntomas o rasgos más comunes</h2>
+        <p> etc. (lorem)</p>
+
+<!-- Sección sobre dificultades e impacto en la vida cotidiana -->
+        <section id="seccion3">
+            <h2 class="title">Dificultades sensoriales, sociales o cognitivas </h2>
+            <p>Escuchen The crane wives</p>
+
+            <h2 class="title">Impacto en la vida cotidiana</h2>
+            <p>When, haces tus momos en video
+                el futuro es hoy, ¿oíste viejo?
+            </p>
+
+            <h2 class="title">Mitos y prejuicios</h2>
+            <p>But, te terminan baneando
+                ¡Oh, mi lente de contacto :'v!
+            </p>
+        </section>
+
+        <!-- Sección sobre terapias y estrategias -->
+        <section id="seccion4">
+            <h2 class="title">Terapias y acompañamiento profesional</h2>
+            <p>Cuando se te moja la tarea xdxdxddd</p>
+
+            <h2 class="title">Estrategias educativas y laborales</h2>
+            <p>Hola pndejos, les habla el Anticristo. Hoy vamos a hablar de
+            </p>
+
+        </section>
+
+        <!-- Sección de testimonios -->
+        <section id="seccion5">
+            <h2 class="title">Testimonios o historias</h2>
+        </section>
+
+        <script src="../javascript/javascript.js"></script>
+
+    </div>
+
+    <footer class="footer-container">
+        <section id="Footer">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <div class="logo">
+                            <img src="../img/Logo.png" alt="Logo">
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Esta es la barra de navegación inferior -->
+            <ul class="footer-navbar">
+
+                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                    página de inicio -->
+                <li><a href="#Menu">Inicio</a></li>
+                <li><a href="#Acerca de">Acerca de</a></li>
+                <li><a href="#Definiciones">Definiciones</a></li>
+                <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
+                <li><a href="#Lineap">Líneas de apoyo</a></li>
+                <li><a href="#Recursos">Centro de recursos</a></li>
+                <li><a href="#Footer">Footer</a></li>
+            </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Mentes en armonía</p>
+
+                <div class="socials">
+                    <a href="https://www.youtube.com/">
+                        <img src="../img/youtube.png" alt="Youtube"></a>
+                    <a href="https://www.facebook.com/?locale=es_LA">
+                        <img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/">
+                        <img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/?lang=es&mx=2">
+                        <img src="../img/twitter.png" alt="Twitter/X"></a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+
+</html>
