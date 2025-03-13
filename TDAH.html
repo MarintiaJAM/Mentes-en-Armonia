@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Logo y título que se verá en la pestaña -->
+     <!-- Logo y título que se verá en la pestaña -->
     <title>Mentes en armonía</title>
-    <link rel="icon" type="image/jpg" href="../img/Logo.png">
+    <link rel="icon" type="image/png" href="../img/Logo.png">
 
-    <!-- Enlaces a fuentes y estilos -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
-    <!-- Enlace a Font Awesome para íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Enlace al css -->
+     <!-- Enlaces a fuentes y estilos -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+     <!-- Enlace a Font Awesome para íconos -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <!-- Enlace al css -->
     <link rel="stylesheet" href="../css/TDAH.css">
 </head>
 
-
 <body>
-    <nav class="menu" id="Menu">
+<nav class="menu" id="Menu">
 
-        <div class="logo"> <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
+    <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
                          darle estilos por medio de css más delante -->
-            <a href="index.html">
-                <img src="../img/Logo.png" alt="Logo"></a>
-        </div>
+        <a href="index.html">
+        <img src="../img/Logo.png" alt="Logo"></a>
+    </div>
 
 
         <!-- Botón de menú para móviles -->
@@ -34,28 +32,27 @@
         </div>
 
 
-        <!-- Aquí se encuentra todo lo que estará dentro de la página de navegación -->
-        <ul class="navbar">
-
-            <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+    <!-- Aquí se encuentra todo lo que estará dentro de la página de navegación -->
+    <ul class="navbar">
+        <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
          página de inicio -->
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Acerca de.html">Sobre nosotros</a></li>
-            <li class="dropdown">
-                <a href="#Neurodivergencia">Neurodivergencia <i class="fas fa-chevron-down chevron"></i> </a>
-                <ul class="dropdown-content">
-                    <li><a href="Autismo.html">Autismo</a></li>
-                    <li><a href="Tdah.html">TDAH</a></li>
-                    <li><a href="Dislexia.html">Dislexia</a></li>
-                    <li><a href="Tourette.html">ST</a></li>
-                    <li><a href="Dispraxia.html">Dispraxia</a></li>
-                    <li><a href="Discalculia.html">Discalculia</a></li>
-                    <li><a href="Ansiedad.html">TA</a></li>
-                </ul>
-            </li>
-            <li><a href="Apoyo.html">Apoyo</a></li>
-            <li><a href="Comunidad.html">Experiencias y comunidad</a></li>
-        </ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#Acerca de">Sobre nosotros</a></li>
+        <li class="dropdown">
+        <a href="#Neurodivergencia">Neurodivergencia <i class="fas fa-chevron-down chevron"></i> </a>
+        <ul class="dropdown-content">
+            <li><a href="Autismo.html">Autismo</a></li>
+            <li><a href="TDAH.html">TDAH</a></li>
+            <li><a href="Dislexia.html">Dislexia</a></li>
+            <li><a href="Tourette.html">ST</a></li>
+            <li><a href="Dispraxia.html">Dispraxia</a></li>
+            <li><a href="Discalculia.html">Discalculia</a></li>
+            <li><a href="Ansiedad.html">TA</a></li>
+          </ul>
+        </li>
+        <li><a href="#Lineap">Líneas de apoyo</a></li>
+        <li><a href="#Recursos">Centro de recursos</a></li>
+    </ul>
 
         <!-- Barra de búsqueda en la esquina superior izquierda -->
         <div class="search-bar">
@@ -63,34 +60,42 @@
             <button type="button" id="searchButton"><i class="fas fa-search"></i>
             </button>
         </div>
-    </nav>
+</nav>
 
-    <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
-    <a href="#Menu" class="scroll" id="scrollTop">
-        &#8679; <!-- Para ráido agregaré este comando/código, el cual es un simbolo de flecha -->
-    </a>
 
-    <div class="container">
+<nav class="submenu">
+    <!-- <h3 class="title">Tabla de contenido</h3> -->
+        <ul class="table">
+            <li><a href="#Menu">Inicio</a></li>
+            <li><a href="#Acerca de">Acerca de</a></li>
+            <li><a href="#Definiciones">Definiciones</a></li>
+            <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
+            <li><a href="#Lineap">Líneas de apoyo</a></li>
+            <li><a href="#Recursos">Centro de recursos</a></li>
+            <li><a href="#Footer">Footer</a></li>
+        </ul>
+        
+    <div class="lenguajes">
+        <i class="fas fa-language"></i>
+    </div>
+</nav>
+
+
+<!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
+<a href="#Menu" class="scroll" id="scrollTop">
+    &#8679; <!-- Para ráido agregaré este comando/código, el cual es un simbolo de flecha -->
+</a>
+
+
+<body>
+  
         <div class="content header">
             <h1 class="title">TDAH</h1>
             <!-- Añadir una breve información de cada tipo deneurotipicidad -->
             <p><em>"Cada cerebro es diferente, y esa diferencia es lo que hace única a la humanidad."<br> - Dr. Steve Silberman</em></p>
         </div>
-        <div class="content table">
-            <!-- <h3 class="title">Tabla de contenido</h3> -->
-            <nav>
-                <ul class="tabla">
-                    <li><a href="#Introduction">Introducción al tema</a></li>
-                    <li><a href="#Identification">Diagnóstico y características principales</a></li>
-                    <li><a href="#seccion3">Desafíos y fortalezas</a></li>
-                    <li><a href="#seccion4">Estrategias de apoyo y tratamiento</a></li>
-                    <li><a href="#seccion5">Tips para neurotípicos</li></a>
-                    <li><a href="#seccion7">Recursos adicionales</a></li>
-                </ul>
-            </nav>
-        </div>
 
-
+        <div class="container">
         <section id="Introduction">
             <div class="content about">
                 <div class="aboutimg">
