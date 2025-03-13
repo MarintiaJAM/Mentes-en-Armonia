@@ -290,6 +290,63 @@ BORRAR EN UN FUTURO*/
 }
 
 
+/*"SUB MENÚ"*/
+.submenu{
+    display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    width: 100%;
+    max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
+    background-color: #075f61; /*Le da a toda el área del menú un color verdoso*/
+    padding: 20px 25px 20px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
+    box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
+    z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
+    flex-wrap: wrap;  /*Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
+}
+
+.table{
+    display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
+    align-items: center;/*Centra los elementos verticalmente*/
+    list-style: none; /*Elimina el estilo de lista para poder manipularlo*/
+    margin-right: 30px; /*Separa los elementos del submenú del icono de traductor*/
+}
+
+
+/*Estilos para la lista del menú*/
+.table ul {
+    list-style-type: none; /* Elimina los estilos de viñetas de la lista */
+    margin: 0; /* Elimina el margen externo de la lista */
+    padding: 0; /* Elimina el relleno interno de la lista */
+    display: flex; /* Utiliza flexbox para organizar los elementos de la lista */
+    justify-content: center; /* Centra los elementos horizontalmente dentro del menú */
+}
+
+/*Estilos para los elementos de la lista (li) */
+.table li {
+    text-align: center; /*Centra el texto de las listas*/
+   padding: 0 15px; /*Permite que entre cada elemento de la lista se encuentre una separación*/
+}
+
+/* Estilos para los enlaces del menú*/
+.table li a {
+    color: white; /* Cambia el color del texto a blanco */
+    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+    font-size: 15px; /* Define el tamaño de la fuente en 16px */
+}
+
+/* Efecto hover en los enlaces del menú */
+.table li a:hover {
+    color: #e55b5b; /* Cambia el color del texto a dorado (#FFD700) cuando el usuario pasa el cursor */
+}
+
+
+/*"ICONO TRADUCTOR"*/
+.lenguajes{
+   /* margin-left: 45px; Separa al icono de traductor del contenido de la lista del submenú*/
+    font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
+    margin-left: 575px;
+}
+
+
 /*"HEADER/ENCABEZADO"*/
 
 /*"CUERPO HEADER"*/
