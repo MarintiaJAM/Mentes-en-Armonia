@@ -299,6 +299,8 @@ a:visited {
     /*flex-wrap: wrap;  Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
 }
 
+/*Revisar, agregar y corregir cometarios a partir de este punto*/
+
 .table{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center;/*Centra los elementos verticalmente*/
