@@ -61,12 +61,13 @@ a:visited {
 .menu{
     display: flex; /*Usa flexbox para organizar y alinear elementos de manera dinámica*/
     align-items: center; /*Centra los elementos verticalmente*/
-    justify-content: space-between; /*Distribuye los elementos con espacio entre ellos*/
+    justify-content: flex-start; /*Distribuye los elementos con espacio entre ellos*/
     width: 100%; /*Ocupa todo el ancho disponible*/
     max-width: 100%; /*Evita que el menú supere el ancho de la pantalla*/
     background-color: #2d938e; /*Color de fondo azul verdoso*/
     padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
+    flex-wrap: nowrap; /*Evita que los elementos se desborden en otra línea*/
     z-index: 100; /*Asegura que el menú permanezca por encima de otros elementos*/
     flex-wrap: wrap; /*Permite que los elementos se distribuyan en varias líneas si es necesario*/
 }
@@ -153,14 +154,14 @@ a:visited {
   }
   
   /*Al pasar el ratón sobre el ítem, el submenú se hace visible*/
-  .dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
    display: block;
    opacity: 1; /*Lo hace visible*/
    visibility: visible; /*Cambia a visible*/
    transition: opacity 0.3s ease-in-out; /* Transición suave para la aparición */
   }
   
-  .dropdown-content a {
+.dropdown-content a {
     color: white; /*Color del texto de los enlaces del submenú*/
     padding: 6px 12px; /*Espaciado interno para mejorar la apariencia*/
     line-height: 1.2;  /*Ajusta la altura de línea para mejor lectura*/
@@ -169,7 +170,7 @@ a:visited {
     display: block; /*Hace que los enlaces del submenú se alineen verticalmente*/
   }
 
-  .dropdown-content a:hover {
+.dropdown-content a:hover {
     background-color: #207185; /*Cambia el color de fondo cuando el cursor pasa sobre el enlace*/
   }
 
@@ -181,7 +182,7 @@ a:visited {
   }
   
   /*Rotación del Chevron al mostrar el submenú cuando el cursor se pone sobre este*/
-  .dropdown:hover .chevron {
+.dropdown:hover .chevron {
     transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
   }
   
@@ -212,18 +213,15 @@ a:visited {
     padding: 8px 10px; /*Acomoda el "buscar..." para que no toque los bordes*/
     border-radius: 20px 0 0 20px; /*Esquinas redondeadas solo en el lado izquierdo*/
     outline: none; /*Elimina el contorno azul predeterminado en algunos navegadores*/
-    width: 150px; /*Ancho inicial del campo de búsqueda*/
+    width: 200px; /*Ancho inicial del campo de búsqueda*/
     transition: width 0.4s ease-in-out; /*Transición suave al expandir el input (buscar...)*/
     /*Por su lado, el ease-in-out permite que la animación sea suave y más fluida, dándole un comienzo y un final lentos*/
 }
 
 .search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
-    width: 250px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
-    en un ancho de 250px*/
+    width: 275px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
+    en un ancho de 300px*/
 }
-
-
-/*Otro:     border: none;*/
 
 .search-bar button { 
     padding: 8px 10px; /*Espaciado interno del botón de búsqueda*/
@@ -244,7 +242,36 @@ a:visited {
 }
 
 
-/*CONTENIDO PRINCIPAL DE PÁGINA*/
+/*"LOGIN/INICIO DE SESIÓN"*/
+.Login {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/*Botón de Inicio de Sesión*/
+.login-button {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #ff6b6b;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: background 0.2s ease-in-out;
+}
+
+.login-button i {
+    margin-right: 8px;
+}
+
+.login-button:hover {
+    background-color: #e55b5b;
+}
+
+
+/*"CONTENIDO PRINCIPAL DE PÁGINA"*/
 .container {
     width: 80%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
     margin: 0 auto; /*Centra el contenedor*/
@@ -299,7 +326,9 @@ a:visited {
     /*flex-wrap: wrap;  Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
 }
 
+
 /*Revisar, agregar y corregir cometarios a partir de este punto*/
+
 
 .table{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
