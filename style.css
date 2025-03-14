@@ -1,41 +1,39 @@
-/* Importar fuente personalizada */
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente tipo Ubuntu*/
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva*/
+/*Importar fuentes personalizadas*/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente "Ubuntu"*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
 
 *{
     /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
     y que por default se apliquen estos estilos si no se indica lo contrario */
-    margin: 0; /*Le da una configuración de 0 al margen*/
-    padding: 0; /*Le da una configuración de 0 demargen interior*/
-    border: 0; /*Le da un valor de 0 al borde de la página*/
+    margin: 0; /*Elimina márgenes predeterminados */
+    padding: 0; /*Elimina el relleno interno predeterminado*/
+    border: 0; /*Elimina cualquier borde predeterminado*/
     font-size: 100%; /*Indica que el tamaño de la letra será igual al "padre" de la fuente asignada*/
-    text-align: justify; /*Hace que todo el texto este justificado, dandole una apariencia profesional*/
-    color: #453c5c; /*Le da a la letra un colo oscuro como predeterminado*/
-    vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
-    ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
-    box-sizing: border-box;
+    text-align: justify; /*Justifica el texto para darle una apariencia alineada a ambos lados*/
+    color: #453c5c; /*Color de texto predeterminado en tono morado oscuro*/
+    vertical-align: baseline; /*Asegura la alineación vertical de los elementos en línea con la línea base del texto*/
+    box-sizing: border-box; /*Hace que el padding y border no afecten el tamaño total del elemento*/
 }
 
 
 html {
-    scroll-behavior: smooth; /*Hace que el desplazamiento por a página sea suave en lugar de un salto brusco*/
+    scroll-behavior: smooth; /*Hace que el desplazamiento con los enlaces internos sea suave*/
 }
 
-/*"CUERPO GENERAL" Con este bloque asignamos el estilo predeterminado al cuerpo.*/
+/*"CUERPO GENERAL" Estilos base del body*/
 body{
-    text-align: justify; /*Hace que todo el texto este justificado, dandole una apariencia profesional*/
-    font-family: 'Ubuntu', sans-serif; /*Indica que la fuente del body será tipo "Ubuntu" en primera instancia, o tipo "sans-serif
-    si no encuentra la primer fuente*/
-    background: url('../img/Background.jpg') repeat; /*Le asigna una imagen con patrón al fondo en los laterales de la página*/
+    text-align: justify; /*Justifica el texto en todo el cuerpo del documento*/
+    font-family: 'Ubuntu', sans-serif; /*Usa la fuente Ubuntu y, en caso de no estar disponible, una fuente genérica sans-serif*/
+    background: url('../img/Background.jpg') repeat; /*Aplica una imagen con patrón al fondo en los laterales (10%) de la página*/
 }
 
 
-/*"LETRA GENERAL" Con este bloque asignamos el estilo predeterminado a la letra*/
+/*"LETRA GENERAL" Estilos predeterminados para la letra y los párrafos*/
 p{
-    margin-bottom: 40px; /*Este da un margen de 40 pixeles creando un espacio entre cada letra*/
+    margin-bottom: 40px; /*Agrega un espacio de 40px entre párrafos*/
     font-size: 18px; /*Indica que el tamaño de la letra será de 18 pixeles*/
-    color: #453c5c; /*Le da a la letra un colo oscuro para resaltar de el fondo*/
-    padding: 0 100px; /*Crea un margen interno en los lados sin afectar la parte superior e inferior de la fuente*/
+    color: #453c5c; /*Le da a la letra un color oscuro para resaltar de el fondo*/
+    padding: 0 100px; /*Agrega un relleno de 100px a los lados sin afectar la parte superior e inferior*/
 }
 
 
@@ -46,7 +44,7 @@ a:hover{
     color: rgb(243, 110, 132);
 }
 
-/*Cambia el color de los links al estar ACTIVOS, es decir, SIN VISITAR.*/
+/*Cambia el color de los links al estar ACTIVOS (es decir, SIN VISITAR).*/
 a:active {
     color: rgb(0, 153, 255); 
 }
@@ -57,100 +55,101 @@ a:visited {
 }
 
 
-/*"ENCABEZADO MENÚ"*/
+/*"ENCABEZADO MENÚ" Estilos del menú principal.*/
 
-/*CUERPO MENÚ*/
+/*"CUERPO MENÚ" Contenedor principal del menú.*/
 .menu{
-    display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
+    display: flex; /*Usa flexbox para organizar y alinear elementos de manera dinámica*/
     align-items: center; /*Centra los elementos verticalmente*/
-    justify-content: space-between;
-    width: 100%;
-    max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
-    background-color: #2d938e; /*Le da a toda el área del menú un color azul verdoso*/
+    justify-content: space-between; /*Distribuye los elementos con espacio entre ellos*/
+    width: 100%; /*Ocupa todo el ancho disponible*/
+    max-width: 100%; /*Evita que el menú supere el ancho de la pantalla*/
+    background-color: #2d938e; /*Color de fondo azul verdoso*/
     padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
-    box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
-    z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
-    flex-wrap: wrap;  /*Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
+    box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
+    z-index: 100; /*Asegura que el menú permanezca por encima de otros elementos*/
+    flex-wrap: wrap; /*Permite que los elementos se distribuyan en varias líneas si es necesario*/
 }
 
 
 /*"LOGO"*/
 .logo{
-    margin-right: auto;
+    margin-right: auto; /*Empuja el logo hacia la izquierda*/
     margin-top: 3px;
     margin-bottom: 3px;
 }
 
+/*Ajustes de la imagen del logo*/
 .logo img{
-    width: 75px;  /*Le asigna el tamaño al logo*/
-    height: auto; /*El valor automático permite que el logo se adapte automáticamente al contenido que hay dentro*/
+    width: 75px;  /*Define un ancho fijo para la imagen del logo*/
+    height: auto; /*Mantiene la proporción original de la imagen*/
 }
 
-/*Si llega a suceder algún problema con la imágen del logo, este bloque mostrará un texto "LOGO"*/
+/*Si la imagen del logo no carga, se mostrará un texto "LOGO"*/
 .logo a{
-    text-decoration: none; /*Quita cualquier decoración del texto o directamente no se le asigna ninguno*/
-    color: #fff; /*El color de la letra que se mostrará será blanco*/
-    text-transform: uppercase; /*Mostrará el texto en máyusculas*/
-    font-size: 20px; /*El tamaño de la fuente será de 20 pixeles*/
+    text-decoration: none; /*Elimina la subrayado predeterminado en los enlaces*/
+    color: #fff; /*Color blanco para el texto*/
+    text-transform: uppercase; /*Convierte el texto en máyusculas*/
+    font-size: 20px; /*Tamaño del texto del logo*/
 }
 
 
-/*"CUERPO NAVBAR"*/
+/*"CUERPO NAVBAR" Estilos de la barra de navegación*/
 
-/*"SECCIONES/LINKS" En este bloque se le da estilo a los enlaces de la barra de navegación.*/
+/*"SECCIONES/LINKS" Contenedor de los elementos de navegación*/
 .navbar{
-    display: flex;
+    display: flex; /*Usa flexbox para organizar los elementos*/
     margin-right: 20px;
-    align-items: center;
-    list-style: none;
+    align-items: center; /*Centra los elementos verticalmente*/
+    list-style: none; /*Elimina los estilos de lista predeterminados*/
     margin: 0;
     padding: 0;
 }
 
-
+/*Contenedor de la lista de navegación*/
 .navbar ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
+    list-style-type: none; /*Elimina los estilos de viñetas en la lista*/
+    display: flex; /*Organiza los elementos en línea horizontalmente*/
+    justify-content: center; /*Centra los elementos horizontalmente*/
   }
 
-
+/*Cada elemento de la lista de navegación*/
 .navbar li{
-    position: relative;
+    position: relative; /*Permite posicionar elementos secundarios de manera absoluta dentro de este*/
 }
 
-
+/*Estilos de los enlaces de la barra de navegación*/
 .navbar li a{
-    scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
+    scroll-margin-top: 60px; /*Evita que el título quede oculto por el menú fijo al hacer scroll*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
-    height: 85px; /*Iguala la altura de los cuadros de las secciones a la del menú*/
+    height: 85px; /*Ajusta la altura de los enlaces para igualarla al menú*/
     width: 100%;
     line-height: 85px; /*Centra el texto verticalmente*/
-    padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
-    color: #fff;
-    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
-    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    text-align: center;
-    font-size: 13.5px;
+    padding: 0 16px; /*Agrega un relleno interno a los lados para separar las secciones*/
+    color: #fff; /*Color blanco para los enlaces*/
+    text-decoration: none; /*Elimina el subrayado común en los enlaces*/
+    text-transform: uppercase; /*Convierte el texto a mayúsculas*/
+    text-align: center; /*Centra el texto horizontalmente*/
+    font-size: 13.5px; /*Tamaño del texto*/
 }
 
+/*Efecto de hover y focus en los enlaces de la barra de navegación*/
 .navbar a:hover, a:focus{
-    background: #207185; /*Con la especificación hover y esta clase podemos hacer que los enlaces que aparecen en la barra de navegación
-    cambien a un color más oscuro cuando coloques el cursor sobre ellos*/
+    background: #207185; /*Cambia el color de fondo al pasar el cursor sobre los enlaces*/
 }
 
 
-/*Dropdown - Hacia abajo y en lista vertical*/
+/*"Dropdown - Hacia abajo y en lista vertical" Menú desplegable*/
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #2d938e;
-    min-width: 160px;
-    z-index: 1;
-    top: 100%; /*Coloca el submenú directamente debajo del elemento principal */
-    left: 0; /* Alinea el submenú con el borde izquierdo del ítem */
-    opacity: 0; /* Empieza oculto */
-    visibility: hidden; /* No es visible */
+    display: none; /*Oculta el submenú por defecto*/
+    position: absolute; /*Posiciona el submenú en relación con el elemento padre*/
+    background-color: #2d938e; /*Color de fondo igual al del menú*/
+    min-width: 160px; /*Ancho mínimo del submenú*/
+    z-index: 1; /*Asegura que el submenú esté por encima de otros elementos*/
+    top: 100%; /*Coloca el submenú directamente debajo del elemento principal*/
+    left: 0; /*Alinea el submenú con el borde izquierdo del ítem*/
+    opacity: 0; /*Empieza oculto*/
+    visibility: hidden; /*No es visible*/
   }
   
   /*Al pasar el ratón sobre el ítem, el submenú se hace visible*/
@@ -158,38 +157,38 @@ a:visited {
    display: block;
    opacity: 1; /*Lo hace visible*/
    visibility: visible; /*Cambia a visible*/
-   transition: opacity 0.3s
+   transition: opacity 0.3s ease-in-out; /* Transición suave para la aparición */
   }
   
   .dropdown-content a {
-    color: white;
-    padding: 6px 12px;
-    line-height: 1.2;
-    height: 20px;
-    text-decoration: none;
-    display: block; /* Hacer que los elementos de la lista se alineen verticalmente */
+    color: white; /*Color del texto de los enlaces del submenú*/
+    padding: 6px 12px; /*Espaciado interno para mejorar la apariencia*/
+    line-height: 1.2;  /*Ajusta la altura de línea para mejor lectura*/
+    height: 20px; /*Define una altura fija*/
+    text-decoration: none; /*Elimina el subrayado predeterminado*/
+    display: block; /*Hace que los enlaces del submenú se alineen verticalmente*/
   }
 
   .dropdown-content a:hover {
-    background-color: #207185;
+    background-color: #207185; /*Cambia el color de fondo cuando el cursor pasa sobre el enlace*/
   }
 
 
-  /*Chevron*/
+  /*"CHEVRON" Flecha indicadora en el menú desplegable*/
 .chevron {
-    margin-left: 8px;
-    transition: transform 0.3s ease; /*Animación suave*/
+    margin-left: 8px; /*Espacio entre el texto y la flecha*/
+    transition: transform 0.3s ease; /*Animación suave al girar*/
   }
   
-  /*Animación al pasar el ratón sobre el contenedor*/
+  /*Rotación del Chevron al mostrar el submenú cuando el cursor se pone sobre este*/
   .dropdown:hover .chevron {
     transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
   }
   
 
-/*"ADAPTADOR DEL MENÚ PARA CELULARES*/
+/*"ADAPTADOR DEL MENÚ PARA CELULARES"*/
 .menu-toggle {
-    display: none;
+    display: none; /*Oculto por defecto en pantallas grandes*/
     cursor: pointer;
     margin-left: auto;
 }
@@ -202,104 +201,102 @@ a:visited {
 
 /*"BARRA DE BÚSQUEDA"*/
 .search-bar {
-    display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
-    align-items: center; 
+    display: flex; /*Alinea los elementos en una fila*/
+    align-items: center; /*Centra los elementos verticalmente*/
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
 }
 
 
 .search-bar input { /*El input es el campo de búsqueda que se expande al enfocarlo.*/
-    padding: 8px 10px; /*Acomoda el "buscar..." dentro de la barra de búsqueda para que no toque los bordes*/
-    border-radius: 20px 0 0 20px; /*Crea esquinas redondeadas para un diseño más amigable.*/
-    outline: none; /*Linea de link: Al seleccionar la barra de búsqueda, desaparece la línea exterior*/
-    width: 150px; /*Le asigna al buscador un ancho de 150 pixeles*/
-    transition: width 0.4s ease-in-out; /*Esta transición permite que al darle click a la barra de búsqueda esta se amplie hacia la derecha
-    en un ancho asignado de 0.4 segundos*/
-    /*Por su lado el ease-in-out permite que la animación sea suave y más fluida dandole un comienzo y un final lentos*/
+    padding: 8px 10px; /*Acomoda el "buscar..." para que no toque los bordes*/
+    border-radius: 20px 0 0 20px; /*Esquinas redondeadas solo en el lado izquierdo*/
+    outline: none; /*Elimina el contorno azul predeterminado en algunos navegadores*/
+    width: 150px; /*Ancho inicial del campo de búsqueda*/
+    transition: width 0.4s ease-in-out; /*Transición suave al expandir el input (buscar...)*/
+    /*Por su lado, el ease-in-out permite que la animación sea suave y más fluida, dándole un comienzo y un final lentos*/
 }
 
 .search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
-    width: 250px; /*Al hacer click en la barra de búsqueda esta se expandirá en un ancho de 250 pixeles*/
+    width: 250px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
+    en un ancho de 250px*/
 }
 
 
 /*Otro:     border: none;*/
 
 .search-bar button { 
-    padding: 8px 10px; /*Le asigna un a la parte en donde se encuentra la lupa dentro de la barra de búsqueda*/
+    padding: 8px 10px; /*Espaciado interno del botón de búsqueda*/
     background-color: #ff6b6b; /*Le da un color coral al recuadro donde se encuentra el icono de búsqueda*/
-    color: white; /*Le da un color blanco al icono de búsqueda*/
-    border-radius: 0 20px 20px 0; /*Crea esquinas redondeadas para un diseño más amigable.*/
-    cursor: pointer; /*Convierte el cursor en un pointer para selecionar, copiar o pegar texto*/
+    color: white; /*Color blanco al icono de búsqueda*/
+    border-radius: 0 20px 20px 0; /*Esquinas redondeadas en el lado derecho*/
+    cursor: pointer; /*Convierte el cursor en un pointer indicar que es un elemento clickeable*/
     outline: none; /*Elimina la línea exterior que se presenta al expandir el buscador*/
 }
 
 .search-bar button:hover {
-    background-color: #e55b5b; /*Le da una ligera sombra al botón del buscador al momento de colocar el cursor sobre este mismo*/
+    background-color: #e55b5b; /*Le da una ligera sombra al botón del buscador al pasar el cursor sobre este*/
 }
 
 /*Resaltado de búsqueda*/
-.highlight { /*El resltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
-    background-color: #f68f9b; /*Aplica un color coral al resaltado*/
+.highlight { /*El resaltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
+    background-color: #f68f9b; /*Fondo resaltado cuando se encuentra un término de búsqueda*/
 }
 
 
-/*CONTENIDO DE PÁGINA*/
-/*En este bloque se hace más pequeño la expansión de la página en la pantalla*/
+/*CONTENIDO PRINCIPAL DE PÁGINA*/
 .container {
-    width: 80%; 
-    margin: 0 auto;
+    width: 80%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
+    margin: 0 auto; /*Centra el contenedor*/
     padding: 5px 0 0 0;
-    background-color: #faf8e1;
-    min-height: 100%; 
-    /*box-sizing: border-box;*/
+    background-color: #faf8e1; /*Color de fondo*/
+    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
 }
 
 
 /*"FLECHA DE SCROLL"*/
 .scroll{
-    position: fixed; /*Hace que mantenga su posición fija en la pantalla*/
+    position: fixed; /*Mantiene la flecha fija en pantalla*/
     bottom: 40px; /*Distancia desde la parte inferior*/
-    right: 40px; /*Distancia desde la derecha... Ambos para antenerlo en la esquina inferior derecha*/
-    width: 40px; /*Tamaño = Ancho*/
-    height: 40px; /*Tamaño = Alto*/
-    background: #d33649; /*Color del fondo del círculo*/
-    text-align: center; /*Ya que la flecha cuenta como texto en este caso, esto ayudá a que se mantenga
+    right: 40px; /*Distancia desde la derecha para mantenerlo en la esquina*/
+    width: 40px; /*Ancho del botón*/
+    height: 40px; /*Alto del botón*/
+    background: #d33649; /*Color del fondo del botón*/
+    text-align: center; /*Ya que la flecha cuenta como texto en este caso, esto ayuda a que se mantenga
     centrada dentro del círculo*/
     line-height: 40px; /*Centra el ícono de la flecha verticalmente*/
-    font-size: 30px; /*Define el tamaño de la flecha*/
-    border-radius: 50%; /*Hace que tenga forma circular*/
-    cursor: pointer; /*Hace que el cursor cambie a una manita cuando pasa sobre el scroll*/
-    text-decoration: none; /*Quita el subrayado del <a>, que vendría siendo un "link"*/
+    font-size: 30px; /*Tamaño del ícono de la flecha*/
+    border-radius: 50%; /*Hace que el botón tenga forma circular*/
+    cursor: pointer; /*Cambia el cursor a una manita*/
+    text-decoration: none; /*Elimina cualquier subrayado del enlace*/
     opacity: 0; /*Hace que en un inicio sea invisible*/
-    visibility: hidden; /*Evita que ocupe espacio y obstruya en los demás elementos*/
-    transition: opacity 0.2s ease-in-out, visibility 0.2s; /*Implementa una transición de inicio y final*/
+    visibility: hidden; /*Oculta el elemento sin afectar el diseño*/
+    transition: opacity 0.2s ease-in-out, visibility 0.2s; /*Transición para la aparición y desaparición del botón*/
 }
 
 #scrollTop.show {
-    opacity: 1; /*Hace que se haga visible con suavidad (gracias a la transición)*/
+    opacity: 1; /*Hace visible la flecha cuando se hace scroll*/
     visibility: visible;
 }
 
 .scroll:hover{
-    background: #f87988; /*Color del fondo del círculo*/
-    color: #fff; /*Color de la flecha*/
+    background: #f87988; /*Cambia el color del fondo al pasar el cursor*/
+    color: #fff; /*Cambia el color de la flecha*/
 }
 
 
-/*"SUB MENÚ"*/
+/*"SUBMENÚ"*/
 .submenu{
-    display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
-    align-items: center; /*Centra los elementos verticalmente*/
-    width: 100%;
-    max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
-    background-color: #075f61; /*Le da a toda el área del menú un color verdoso*/
+    display: flex; /*Alinea los elementos en una fila*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    width: 100%; /*Ocupa todo el ancho disponible*/
+    max-width: 100%; /*Evita que sobrepase el ancho del viewport*/
+    background-color: #075f61; /*Color del fondo*/
     padding: 20px 25px 20px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
     z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
-    flex-wrap: wrap;  /*Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
+    /*flex-wrap: wrap;  Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
 }
 
 .table{
