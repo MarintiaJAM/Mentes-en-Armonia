@@ -276,7 +276,6 @@ BORRAR EN UN FUTURO*/
 }
 
 
-
 /*"SUB MENÚ"*/
 .submenu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
@@ -310,7 +309,7 @@ BORRAR EN UN FUTURO*/
 /*Estilos para los elementos de la lista (li) */
 .table li {
     text-align: center; /*Centra el texto de las listas*/
-   padding: 0 15px; /*Permite que entre cada elemento de la lista se encuentre una separación*/
+   padding: 0 13px; /*Permite que entre cada elemento de la lista se encuentre una separación*/
 }
 
 /* Estilos para los enlaces del menú*/
@@ -328,9 +327,9 @@ BORRAR EN UN FUTURO*/
 
 /*"ICONO TRADUCTOR"*/
 .lenguajes{
-   /* margin-left: 45px; Separa al icono de traductor del contenido de la lista del submenú*/
-   font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
-   margin-left: 575px;
+    margin-left: 70px;
+    margin-right: 0; /*Separa al icono de traductor del contenido de la lista del submenú*/
+    font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
 }
 
 

@@ -276,8 +276,6 @@ BORRAR EN UN FUTURO*/
 }
 
 
-
-
 /*"SUB MENÚ"*/
 .submenu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
@@ -333,6 +331,7 @@ BORRAR EN UN FUTURO*/
     margin-right: 0; /*Separa al icono de traductor del contenido de la lista del submenú*/
     font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
 }
+
 
 
 .header{ 
