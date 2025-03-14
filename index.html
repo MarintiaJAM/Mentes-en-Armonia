@@ -17,10 +17,10 @@
 </head>
 
 <body>
-<nav class="menu" id="Menu">
 
-    <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
-                         darle estilos por medio de css más delante -->
+    <!-- Ménu de navegación principal-->
+<nav class="menu" id="Menu">
+    <div class="logo">  <!-- Contenedor del logo -->
         <a href="index.html">
         <img src="../img/Logo.png" alt="Logo"></a>
     </div>
@@ -32,7 +32,7 @@
         </div>
 
 
-    <!-- Aquí se encuentra todo lo que estará dentro de la página de navegación -->
+    <!-- Barra de navegación principal-->
     <ul class="navbar">
         <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
          página de inicio -->
@@ -63,8 +63,8 @@
 </nav>
 
 
+<!-- Submenú de mavegación -->
 <nav class="submenu">
-    <!-- <h3 class="title">Tabla de contenido</h3> -->
         <ul class="table">
             <li><a href="#Menu">Inicio</a></li>
             <li><a href="#Acerca de">Acerca de</a></li>
@@ -83,11 +83,13 @@
 
 <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
 <a href="#Menu" class="scroll" id="scrollTop">
-    &#8679; <!-- Para ráido agregaré este comando/código, el cual es un simbolo de flecha -->
+    &#8679; <!-- Este código asigna un simbolo de flecha que servirá como e cuerpo del scroll-->
 </a>
 
 
 <!-- La etiqueta de sección nos permite determinar el contenido que formará parte de un esquema, como en este caso subsecciones -->
+
+<!-- Sección de bienvenida/header -->
 <section class="content header">
     <section id="Inicio"> <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
         <h2 class="title">Mentes en armonia</h2>
@@ -100,8 +102,11 @@
         </section>
     </section>
 
+<!-- CLase que selacciona parte del contenido de la página para ajustar su tamaño a un 80% -->
 <div class="container">
 
+
+<!-- Sección sobre nosotros -->
     <section class="content about">
         <section id="Acerca de">
         <h2 class="title">Nosotros</h2>
@@ -114,11 +119,13 @@
         </section>
     </section>
 
+
+    <!-- Sección de definiciones -->
     <section class="content Definiciones">
         <article class="contain">
             <section id="Definiciones">
 
-                <!-- Sección Neurotipicidad-->
+                <!-- Neurotipicidad-->
                 <section class="neuro">
                     <div class="defImg"> <!-- Imágen Neurotipicidad-->
                         <img src="../img/Neurotipicidad.jpg" alt="Neurotipicidad">
@@ -132,7 +139,7 @@
                         </div>
                 </section>
                 
-                 <!--Sección Neurodivergencia -->
+                 <!-- Neurodivergencia -->
                 <section class="neuro">
                     <div class="defText"> <!-- Definición Neurodivergencia-->
                         <h3>¿Qué es la Neurodivergencia?</h3>
@@ -148,7 +155,7 @@
         </article>
     </section>
 
-<!-- En este bloque de código comienzo el bloque de tipos de neurodivergencia -->
+<!-- Sección de tipos de neurodivergencia -->
     <section class="content neurodivergencia">
         <section id="Neurodivergencia">
             <h2 class="title">Tipos de neurodivergencia</h2>
@@ -255,6 +262,7 @@
     </section>
 
 
+    <!-- Sección de líneas de apoyo -->
     <section class="content Lineap">
         <section id="Lineap">
             <h2 class="title">Líneas de apoyo</h2>
@@ -274,9 +282,10 @@
         </section>
     </section>
 
+
+    <!-- Sección de recursos recomendados -->
     <section class="recursos">
         <section id="Recursos">
-
             <h2 class="title">Recursos Recomendados</h2>
             <p>En esta sección encontrarás una selección de videos, documentales y sitios web confiables que
                 exploran
@@ -289,10 +298,11 @@
             <h3>Videos</h3>
 
             <div class="scroll-container">
-                <!-- Bóton de scrolling izquierdo -->
+                <!-- Bóton de scrolling/desplazamiento izquierdo -->
                 <span id="btn-left" class="scroll-btn">&#10094;</span>
 
                 <div class="scrolling-videos">
+                    <!-- Cada "video" representa un recurso multimedia -->
                     <div class="video">
                         <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">
                             <img src="../img/Video1.jpg" alt="Video1"></a>
@@ -381,7 +391,7 @@
                     </div>
                 </div>
 
-                <!-- Bóton de scrolling derecho -->
+                <!-- Bóton de scrolling/desplazamiento derecho -->
                 <span id="btn-right" class="scroll-btn">&#10095;</span>
 
             </div>
@@ -390,50 +400,53 @@
 </div>
 
 
-    <footer class="footer-container">
-        <section id="Footer">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <a href="index.html">
-                    <img src="../img/Logo.png" alt="Logo"></a>
-                </div> 
+<!-- Sección del Footer -->
+<footer class="footer-container">
+    <section id="Footer">
+
+        <!-- Sección superior con navegación inferior y logo-->
+        <div class="footer-top">
+            <div class="footer-logo">
+                <a href="index.html">
+                <img src="../img/Logo.png" alt="Logo"></a>
+            </div> 
                       
+                <!-- Barra de navegación inferior -->
+                <ul class="footer-navbar">
 
-                <!-- Esta es la barra de navegación inferior -->
-                    <ul class="footer-navbar">
+                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                    página de inicio -->
+                    <li><a href="#Menu">Inicio</a></li>
+                    <li><a href="#Acerca de">Acerca de</a></li>
+                    <li><a href="#Definiciones">Definiciones</a></li>
+                    <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
+                    <li><a href="#Lineap">Líneas de apoyo</a></li>
+                    <li><a href="#Recursos">Centro de recursos</a></li>
+                    <li><a href="#Footer">Footer</a></li>
+                </ul>               
+        </div>
 
-                        <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                        página de inicio -->
-                        <li><a href="#Menu">Inicio</a></li>
-                        <li><a href="#Acerca de">Acerca de</a></li>
-                        <li><a href="#Definiciones">Definiciones</a></li>
-                        <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
-                        <li><a href="#Lineap">Líneas de apoyo</a></li>
-                        <li><a href="#Recursos">Centro de recursos</a></li>
-                        <li><a href="#Footer">Footer</a></li>
-                    </ul>               
-            </div>
+        <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+        <div class="footer-bottom">
+            <p>© 2025 Mentes en armonía</p>
 
-            <div class="footer-bottom">
-                <p>© 2025 Mentes en armonía</p>
-
-                <div class="socials">
-                    <a href="https://www.youtube.com/">
-                        <img src="../img/youtube.png" alt="Youtube"></a>
-                    <a href="https://www.facebook.com/?locale=es_LA">
-                        <img src="../img/facebook.png" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/">
-                        <img src="../img/instagram.png" alt="Instagram"></a>
-                    <a href="https://x.com/?lang=es&mx=2">
-                        <img src="../img/twitter.png" alt="Twitter/X"></a>
-                </div>  
-            </div>
-        </section>
-    </footer>
+            <div class="socials">
+                <a href="https://www.youtube.com/">
+                    <img src="../img/youtube.png" alt="Youtube"></a>
+                <a href="https://www.facebook.com/?locale=es_LA">                    
+                    <img src="../img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/">
+                    <img src="../img/instagram.png" alt="Instagram"></a>                    
+                <a href="https://x.com/?lang=es&mx=2">
+                    <img src="../img/twitter.png" alt="Twitter/X"></a>
+            </div>  
+        </div>
+    </section>
+</footer>
 
 
-    <!-- Enlace al archivo JavaScript -->
-    <script src="../javascript/javascript.js"></script>
+<!-- Enlace al archivo JavaScript -->
+<script src="../javascript/javascript.js"></script>
 
 </body>
 </html>
