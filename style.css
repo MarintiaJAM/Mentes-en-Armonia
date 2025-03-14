@@ -220,7 +220,7 @@ a:visited {
 
 .search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
     width: 275px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
-    en un ancho de 300px*/
+    en un ancho de 275px*/
 }
 
 .search-bar button { 
@@ -369,8 +369,12 @@ a:visited {
 /*"ICONO TRADUCTOR"*/
 .lenguajes{
    /* margin-left: 45px; Separa al icono de traductor del contenido de la lista del submenú*/
-    font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
+    font-size: 40px; /*Le asigna un tamaño de 40px al ícono de traductor*/
     margin-left: 575px;
+}
+
+.lenguajes i{
+    color: #93ebf7;
 }
 
 
@@ -631,8 +635,7 @@ a:visited {
     border: solid 1px black;
     margin: 10px;
     width: 250px;
-    height: 410px;
-    /*height: auto;*/
+    height: auto;
     text-align: center;
     padding: 10px;
     background: #fff;
