@@ -746,33 +746,33 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 
 /*"FOOTER INFERIOR"*/
 .footer-bottom{
-    background-color: #075f61;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    padding-top: 15px;
-    margin: 0 auto;
+    background-color: #075f61; /*El color del footer inferior será de uno más oscuro que el superior*/
+    font-size: 14px; /*El tamaño de la fuente que no este dentro de las etiquetas p dentro del footer-bottom tendrá un tamaño de 14px*/
+    display: flex; /*Permite que el contenido dentro de el footer-bottom sea modificado a gusto*/
+    justify-content: space-between; /*Establece un espacio entre el contenido dentro del footer inferior*/
+    align-items: center; /*Centra los elementos de manera vertical en la pantalla*/
+    max-width: 100%; /*Su máxima anchura abarcará el tamaño del 100% de la pantalla del dispositico donde se este viendo*/
+    padding-top: 15px; /*Asigna un margen interior superior de 15px, de modo que añadira un espacio entre el contenido de este y el footer superior*/
+    margin: 0 auto; /*Permite centrar los elemnetos de manera horizontal dentro del footer inferior*/
 }
 
 .footer-bottom p {
-    padding-left: 15px;
-    color: #fff;
-    font-size: 16.5px;
+    padding-left: 15px; /*Los parrafos del footer inferior tendrás un margen interior izqierdo de 15 px, brindando un espaciado entre ellos*/
+    color: #fff; /*Le da un color blanco a la fuente*/
+    font-size: 16.5px; /*Le asigna un tamaño de fuente de 16.5px*/
 }
 
 .socials img{
-    padding: 0px 5px 5px 0px;
-    display: inline-block;
-    margin-left: 10px;
-    width: 25px;
+    padding: 0px 5px 5px 0px; /*Añade un margen interior de 0px superior e inferior y 5px en lado izquierdo y derecho*/
+    display: inline-block; /*Permite modificar la anchura y altura de la imagen y que su contenido se modifique únicamente en el espacio utilizado por este mismo*/
+    margin-left: 10px; /*El margen izquierdo es el que brinda una separación entre cada imagen*/
+    width: 25px; /*Les da una anchura de 25px para que se vean pequeños*/
     height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
 }
 
 .socials img:hover {
     content: url("nueva-imagen.jpg"); /*Reemplaza la imagen de los íconos de las redes sociales*/
-    transform: scale(1.2);
+    transform: scale(1.2); /*Permite que al posicionar el cursor sobre la imagen, esta modifique su tamaño sin cambiar de lugar*/
 }
 
 
