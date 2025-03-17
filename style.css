@@ -605,11 +605,11 @@ a:visited {
 
 /* Estilos para el título dentro de la sección "recursos" */
 .recursos h3{
-    margin-top: 50px;
-    margin-bottom: 30px;
-    font-size: 30px;
-    color: #fff;
-    text-align: center;
+    margin-top: 50px; /*Le asigna un margen superior de 50px de modo que le da un espacio al titulo del contenedor*/
+    margin-bottom: 30px; /*Le asigna un matgen inferior de 30pxx para serparar el titulo de los demás elementos del contenedor*/
+    font-size: 30px; /*El tamaño del h3 será de 30px*/
+    color: #fff; /*El color de la fuente será blanco*/
+    text-align: center; /*Centra el texto*/
 }
 
 /* Contenedor principal de los videos con desplazamiento */
