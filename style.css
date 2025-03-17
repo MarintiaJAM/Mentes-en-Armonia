@@ -614,12 +614,12 @@ a:visited {
 
 /* Contenedor principal de los videos con desplazamiento */
 .scroll-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; /*Permite que el contenido sea modificado de una manera más flexible, permitiendo adaptarlo según las especificaciones que se le indiquen*/
+    align-items: center; /*Aline el contenido hacia el centro de manera vertical*/
+    justify-content: center; /*Alinea los elementos del contenedor en el centro a lo largo del eje principal (horizontalmente por defecto) */
     position: relative;  /* Permite posicionamiento absoluto dentro de este contenedor */
-    width: 85%;
-    margin: auto;
+    width: 85%; /*Un ancho del 85% dentro de su contenedor en el body de la página*/
+    margin: auto; /*El margen se adapta a la anchura asignada*/
 }
 
 /* Contenedor de videos con desplazamiento */
@@ -643,12 +643,12 @@ a:visited {
 .video{
     flex: 0 0 auto; /* Evita que los videos cambien de tamaño dentro del contenedor flex */
     border: solid 1px black; /* Borde negro alrededor del video */
-    margin: 10px;
-    width: 250px;
+    margin: 10px; /*Le asigna un margen externo de 10px para manetener separado cada contenedor*/
+    width: 250px; /*Asigna una anchura de 250px para cada cuadro contenedor*/
     height: auto; /* Mantiene la proporción */
-    text-align: center;
-    padding: 10px;
-    background: #fff;
+    text-align: center; /*Alinea el texto hacia el centro*/
+    padding: 10px; /*Añade un margen interno de 10px para que el contenido interior de estos no choque con los bordes de los recuadros*/
+    background: #fff; /*Pone el colo de fondo de los contenedores de los vídeos en un tono blanco*/
     border-radius: 10px; /* Bordes redondeados para un diseño más suave */
     transition: transform 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
 }
@@ -658,8 +658,8 @@ a:visited {
 }
 
 .video h4{
-    text-align: center;
-    padding: 5px;
+    text-align: center; /*Centra los elementros en el centro de manera vertical*/
+    padding: 5px; /*Le asigna un margen interno de 5px*/
 }
 
 /* Estilos para los párrafos dentro del video */
