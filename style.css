@@ -687,8 +687,8 @@ a:visited {
 }
 
 
-hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
-    border: 1px solid #fff;
+hr{ 
+    border: 1px solid #fff; /*Sirve para dejar un espacio en blanco antes del footer*/
 }
 
 
@@ -696,9 +696,9 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 
 /*"FOOTER SUPERIOR"*/
 .footer-container{
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
+    margin: 0; /*Margen externo de 0px*/
+    width: 100%; /*Anchura que abarcará el 100% de la pantalla*/
+    box-sizing: border-box; /*Define cómo se calculan el ancho (width) y la altura (height)*/ 
 }
 
 .footer-top{
