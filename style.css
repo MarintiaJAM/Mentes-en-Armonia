@@ -702,20 +702,20 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 }
 
 .footer-top{
-    background-color: #0f7d7e;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 100%;
-    padding-bottom: 15px;
-    margin: 0 auto;
+    background-color: #0f7d7e; /*Establece un color azul verdoso claro*/
+    display: flex; /*Permite que el contenido dentro de el footer superior sea modificado a gusto*/
+    justify-content: space-between;/*Establece un espacio entre el contenido dentro del footer superiorr*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    flex-wrap: wrap;/*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
+    max-width: 100%; /*Su máxima anchura abarcará el tamaño del 100% de la pantalla del dispositico donde se este viendo*/
+    padding-bottom: 15px; /*Asigna un margen interior inferior de 15px, de modo que añadira un espacio entre el contenido de este y el footer inferior*/
+    margin: 0 auto;/*Permite centrar los elemnetos de manera horizontal dentro del footer superior*/
 }
 
 .footer-logo img{
-    margin: 5px 0 0 15px;
-    width: 80px;
-    height: auto;
+    margin: 5px 0 0 15px; /*Asigna un margen externo superior de 5px, uno inferior y lateral derecho de 0px y uno inferior de 15px*/
+    width: 80px; /*Le asigna una anchura de 80px a la imagen del logo*/
+    height: auto; /*Permite que la altura se modifique de manera automatica según se el tamaño de la anchura para no distorcionar la imagen y simplemento modificar su tamaño*/
 }  
 
 .footer-navbar{
