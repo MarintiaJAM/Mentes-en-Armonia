@@ -357,9 +357,13 @@ BORRAR EN UN FUTURO*/
 
 /*"ICONO TRADUCTOR"*/
 .lenguajes{
-    margin-left: 50px; /* Separa el icono de traductor 50px del borde izquierdo del contenedor */
-    margin-right: 0; /*Separa al icono de traductor del contenido de la lista del submenú*/
-    font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
+    margin-left: auto; /*Separa al icono de traductor del contenido de la lista del submenú*/
+    font-size: 40px; /*Tamaño del icono*/
+}
+
+/*Estilo del icono de traducción*/
+.lenguajes i{
+    color: #93ebf7; /*Color azul claro para el ícono de traductor*/
 }
 
 
