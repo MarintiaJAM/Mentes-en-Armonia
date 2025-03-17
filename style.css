@@ -367,7 +367,7 @@ a:visited {
 .lenguajes{
    /* margin-left: 45px; Separa al icono de traductor del contenido de la lista del submenú*/
     font-size: 40px; /*Tamaño del icono*/
-    margin-left: 575px;
+    margin-left: 575px; /*La cantidad de pixeles es de 575 para poder separar el icono de traducción de los elementos del sub-menú*/
 }
 
 .lenguajes i{
@@ -382,7 +382,7 @@ a:visited {
 /*"CUERPO HEADER" Estilos generales del encabezado*/
 .header{
     height: 60vh; /*Define la altura al 60% de la pantalla*/
-    display: flex; 
+    display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
     justify-content: center; /*Centra los elementos horizontalmente*/
     align-items: center; /*Centra los elementos verticalmente*/
     background-image: url(../img/header.png); /*Imagen de fondo para el header*/
@@ -394,7 +394,7 @@ a:visited {
 
 /*"FRASE HEADER¨*/
 .header h6{
-    margin: 10px 0 20px 0;
+    margin: 10px 0 20px 0; /*Margen superior de 10px, lateral izquierdo y derecho de 0px e inferior de 20px*/
     font-family: 'Dancing Script', cursive; /*Fuente personalizada en cursiva*/
     color: #fff; /*Color del texto en blanco*/
     text-align: center; /*Centra el texto*/
@@ -424,7 +424,7 @@ a:visited {
 
 /*"SOBRE NOSOTROS"*/
 .about{
-    display: flex;
+    display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
     flex-direction: column; /*Organiza los elementos en columna*/
     align-items: center; /*Centra los elementos horizontalmente*/
     text-align: center; /*Centra el texto*/
@@ -436,9 +436,9 @@ a:visited {
 
 /*Estilos para los enlaces dentro de la sección*/
 .about a {
-    display: block; 
-    justify-content: center;
-    text-align: center;
+    display: block; /*Este impide que se pueden modificar multiples de los atributos dentro de esta sección*/
+    justify-content: center; /*Alinea los elementos de un contenedor en el centro a lo largo del eje principal (horizontalmente por defecto)*/
+    text-align: center; /*Centra el texto*/
 
 }
 
@@ -499,69 +499,69 @@ a:visited {
  
 /* Contenedor principal de los tipos de neurodivergencia */
     .box-container{
-        display: flex; 
-        flex-wrap: wrap;
+        display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
+        flex-wrap: wrap;/*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
         gap: 5px; /* Espaciado entre cajas */
-        width: 100%;
+        width: 100%; /*Su anchura abarca el 100% del contenedor en el que se encuentran*/
         justify-content: center; /*Se centra la información del bloque de contenido*/
         flex-wrap: wrap; /*Modifica la vista del sitio web para que al entrar en tableta, celular o pc, se adapte a la pantalla del mismo*/
-        text-align: center;
+        text-align: center; /*Centra el texto que se encuentre dentro de este contenedor*/
         perspective: 1000px; /*Le da un efecto en 3D*/
     }
      
     /* Estilos generales para las cajas */
     .box{
-        height: 15rem;
-        width: 17rem;
-        background-color: #76b5a0;
+        height: 15rem; /*Le asigna una altura de 15rem a cada cuadro de texto*/
+        width: 17rem;/*Le asigna una anchura de 17rem a cada cuadro de texto*/
+        background-color: #76b5a0; /*Le da un color azul verdoso muy claro a la parte del fondo general de las cajas de texto*/
         border-radius: 1rem; /*Esto nos sirve para que el borde de la caja de contenido tenga un ligero borde*/
-        cursor: pointer;
+        cursor: pointer; /*Al poner el cursor sobre estos cambia su icono a una mano, indicando que es cliqueable*/
         transform-style: preserve-3d;/* Mantiene la perspectiva 3D */
         transition: transform 0.6s ease;/* Animación de rotación */
         box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Con este le damos una sombra a la caja de contenido*/
-        margin: 2rem;
-        position: relative;
+        margin: 2rem; /*Le asigna un margen externo de 2rem*/
+        position: relative;/*El elemento puede ser movido de su ubicación normal usando las propiedades necesarias */
      
     }
     
     /* Estiliza los títulos dentro de cada caja */
     .box-container .box h3{
-        color: #453c5c;
+        color: #453c5c; /*Indica que el color de los titulos h3 serán un negro grisaseo*/
     }
     
     
     .box-container .box p{ /*Formato a los parrafos dentro del box-container*/
-        font-size: 16px;
-        padding: 0 15px;
+        font-size: 16px; /*El tamaño de la letra será de 16px*/
+        padding: 0 15px; /*Le asigna un margen interior superior e inferior de 0px y uno lateral izqierdo y derecho de 15px*/
     }
 
     /* Estiliza los enlaces dentro de las cajas */
     .box-container .box a{
-        color: #453c5c;
+        color: #453c5c; /*Los enlaces que se encuentren dentro de esta página serásn del mismo color que los titulos h3*/
     }
     
     /* Configuración de la parte delantera y trasera de las cajas */
     .box .front , .box .back{
         position: absolute;/* Posiciona las caras superpuestas una sobre la otra */
-        width: 100%;
-        height: 100%;
+        width: 100%; /*Le indica que deberá de tomar una anchura del 100% de la pantalla o contenedor en el que se encuentre*/
+        height: 100%; /*Le indica que deberá de tomar una altura del 100% de la pantalla o contenedor en el que se encuentre*/
         backface-visibility: hidden; /*Evita que el contenido trasero se vea en espejo*/
         display: flex;/* Usa flexbox para centrar el contenido */
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 18px;
+        justify-content: center; /*Se centra la información del bloque de contenido*/
+        align-items: center;/*Centra los elementos de manera vertical*/
+        text-align: center;/*Centra el texto que se encuentre dentro de este contenedor*/
+        font-size: 18px;/*Le da un tamaño de fuente de 18px*/
         border-radius: 8px; /* Bordes ligeramente redondeados para un diseño más suave */
     }
    
     /* Configuración de la parte delantera de la caja */
     .box .front{
-        background: #ff6b6b;
+        background: #ff6b6b; /*Le asigna un color coral a la parte delantera de los cuadros de texto giratorios*/
     }
     
     /* Configuración de la parte trasera de la caja */
     .box .back{
-        background: #76b5a0;
+        background: #76b5a0; /*Le añade un color azul verdoso a la parte trasera de los cuadros texto giratorios*/
         transform: rotateY(180deg); /* Rota la parte trasera 180 grados */ 
     }
     
@@ -586,21 +586,21 @@ a:visited {
 }
 
 .list li{
-    background-color: #76b5a0 ;
-    color: #fff;
+    background-color: #76b5a0 ; /*El fondo de esta sección será un azul verdoso*/
+    color: #fff; /*Asiga un tono blanco al texto de las listas*/
     padding: 10px; /* Espaciado interno para mejor presentación */
     margin-bottom: 5px; /* Espaciado entre elementos de la lista */
-    border-radius: 5px;
+    border-radius: 5px; /*Le da un borde redondeado de 5px*/
 }
 
 
 /*"RECURSOS"*/
 
 .recursos{
-    padding-top: 20px;
+    padding-top: 20px; /*Le asigna un margen superior de 20px para separar ligeramente esta sección de la anterior*/
     margin-top: 30px; /* Ajusta el margen superior */
-    background: #76b5a0;
-    text-align: center;
+    background: #76b5a0; /*Le asigna un color azul verdoso de fondo*/
+    text-align: center; /*Alinea el texto hacia el centro*/
 }
 
 /* Estilos para el título dentro de la sección "recursos" */
