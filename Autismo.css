@@ -125,14 +125,14 @@ BORRAR EN UN FUTURO*/
     scroll-margin-top: 60px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
     height: 85px; /*Iguala la altura de los cuadros de las secciones a la del menú*/
-    width: 100%;
+    width: 100%; /* Ocupa todo el ancho disponible del contenedor */
     line-height: 85px; /*Centra el texto verticalmente*/
     padding: 0 16px; /*Margen interior en los lados que separa las secciones*/
-    color: #fff;
+    color: #fff;/* Establece el color del texto en blanco para contraste */
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    text-align: center;
-    font-size: 13.5px;
+    text-align: center; /* Alinea el texto horizontalmente en el centro */
+    font-size: 13.5px; /* Define el tamaño del texto en 13.5px para legibilidad */
 }
 
 .navbar a:hover, a:focus{
@@ -144,40 +144,40 @@ BORRAR EN UN FUTURO*/
 /* Dropdown - Hacia abajo y en lista vertical */
 .dropdown-content {
     display: none;
-    position: absolute;
-    background-color: #2d938e;
-    min-width: 160px;
-    z-index: 1;
+    position: absolute; /* Permite posicionar el submenú de manera precisa */
+    background-color: #2d938e; /* Establece el color de fondo del submenú */
+    min-width: 160px; /* Define un ancho mínimo para el submenú */
+    z-index: 1; /* Asegura que el submenú aparezca por encima de otros elementos */
     top: 100%; /* Coloca el submenú directamente debajo del elemento principal */
     left: 0; /* Alinea el submenú con el borde izquierdo del ítem */
     opacity: 0; /* Empieza oculto */
     visibility: hidden; /* No es visible */
     
   }
-  
+
   /* Al pasar el ratón sobre el ítem, el submenú se hace visible */
   .dropdown:hover .dropdown-content {
-   display: block;
+   display: block; /* Hace que el submenú se muestre como un bloque, ocupando su espacio */
    opacity: 1; /* Lo hace visible */
    visibility: visible; /* Cambia a visible */
-   transition: opacity 0.3s
+   transition: opacity 0.3s /* Añade una transición suave en la opacidad al aparecer */
   }
   
   .dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
+    color: white; /* Establece el color del texto en blanco */
+    padding: 12px 16px; /* Agrega un relleno interno para mejorar la apariencia */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
     display: block; /* Hacer que los elementos de la lista se alineen verticalmente */
   }
 
   .dropdown-content a:hover {
-    background-color: #207185;
+    background-color: #207185; /* Cambia el color de fondo del enlace al pasar el ratón sobre él */
   }
 
 
   /* Chevron */
 .chevron {
-    margin-left: 8px;
+    margin-left: 8px; /* Agrega un margen izquierdo para separar el ícono */
     transition: transform 0.3s ease; /* Animación suave */
   }
   
@@ -189,14 +189,14 @@ BORRAR EN UN FUTURO*/
   
 /*"ADAPTADOR DEL MENÚ PARA CELULARES*/
 .menu-toggle {
-    display: none;
-    cursor: pointer;
-    margin-left: auto;
+    display: none; /* Esconde el botón en pantallas grandes */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-left: auto; /* Alinea el botón a la derecha */
 }
 
 .menu-toggle i {
-    font-size: 24px;
-    color: #fff;
+    font-size: 24px; /* Define el tamaño del ícono */
+    color: #fff;  /* Establece el color del ícono a blanco */
 }
 
 
