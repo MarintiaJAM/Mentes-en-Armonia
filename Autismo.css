@@ -203,7 +203,7 @@ BORRAR EN UN FUTURO*/
 /*"BARRA DE BÚSQUEDA"*/
 .search-bar {
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
-    align-items: center; 
+    align-items: center; /* Alinea los elementos verticalmente en el centro del contenedor */
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
 }
@@ -268,7 +268,7 @@ BORRAR EN UN FUTURO*/
 
 #scrollTop.show {
     opacity: 1; /*Hace que se haga visible con suavidad (gracias a la transición)*/
-    visibility: visible;
+    visibility: visible; /* Hace que el elemento sea visible en el diseño */
 }
 
 .scroll:hover{
@@ -281,7 +281,7 @@ BORRAR EN UN FUTURO*/
 .submenu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; /*Centra los elementos verticalmente*/
-    width: 100%;
+    width: 100%; /* Hace que el elemento ocupe el 100% del ancho de su contenedor */
     max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
     background-color: #075f61; /*Le da a toda el área del menú un color verdoso*/
     padding: 20px 25px 20px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
@@ -328,7 +328,7 @@ BORRAR EN UN FUTURO*/
 
 /*"ICONO TRADUCTOR"*/
 .lenguajes{
-    margin-left: 50px;
+    margin-left: 50px; /* Separa el icono de traductor 50px del borde izquierdo del contenedor */
     margin-right: 0; /*Separa al icono de traductor del contenido de la lista del submenú*/
     font-size: 40px; /*Le asigna un tamaño de 40px al icono de traductor*/
 }
@@ -336,71 +336,71 @@ BORRAR EN UN FUTURO*/
 
 /*"HEADER"*/
 .header{ 
-    height: 45vh; 
-    justify-content: center;
-    align-items: center;
+    height: 45vh; /* Define la altura del header como el 45% de la altura de la ventana del navegador */
+    justify-content: center; /* Centra el contenido del header horizontalmente */
+    align-items: center; /* Centra el contenido del header verticalmente */
     background-image: url(../img/autismo.jpg); /*Imagen que se encuentra de fondo en el header*/
     filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
-    background-repeat:no-repeat center;
-    background-size: cover;
-    padding-top: 20px;
+    background-repeat:no-repeat center; /* Evita que la imagen de fondo se repita y la centra */
+    background-size: cover; /* Hace que la imagen de fondo cubra toda el área del header */
+    padding-top: 20px;  /* Agrega un margen superior de 20px para el contenido dentro del header */
 }
 
 
 /*"LETRA HEADER"*/
 .header h6{
-    font-family: 'Dancing Script', cursive;
-    color: #fff;
-    text-align: center;
+    font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
+    color: #fff; /* Establece el color del texto en blanco */
+    text-align: center; /* Alinea el texto al centro */
     font-size: 24px; /*Tamaño del parrafo dentro del header*/
 }
 
 
 /*"CONTENIDO PRINCIPAL"*/
 .container {
-    width: 80%; 
-    margin: 0px auto;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    background-color: #fffdd1;
-    box-sizing: border-box;
+    width: 80%; /* Establece el ancho del contenedor al 80% del contenedor principal */
+    margin: 0px auto; /* Centra el contenedor en la página agregando un margen automático a los lados */
+    margin-top: 0%;/* Elimina el márgen superior del contenedor */
+    margin-bottom: 0%; /* Elimina el márgen inferior del contenedor */
+    background-color: #fffdd1; /* Establece un color de fondo suave para el contenedor */
+    box-sizing: border-box; /* Incluye los bordes en el cálculo del tamaño total del contenedor */
     box-shadow: 0 4px 6px rgba(233, 229, 229, 0.1); /*Añadé sombra al fonod haciendo que se vea ligeramente tipo 3D*/
 }
 
 
 /*INTRODUCCIÓN*/
 .about {
-    display: flex;
+    display: flex; /* Organiza los elementos en fila utilizando flexbox */
     align-items: center; /*Alinea verticalmente*/
-    margin: 10px;
-    background-color: #5fb5b1;
-    border-radius: 5px;
+    margin: 10px; /* Agrega un margen de 10px alrededor de la sección */
+    background-color: #5fb5b1; /* Establece un color de fondo verde-azulado para la sección */
+    border-radius: 5px; /* Agrega bordes redondeados a la sección */
 }
 
 .aboutext h2{
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 20px;
+    text-align: center; /* Centra el texto del encabezado */
+    font-size: 30px; /* Establece un tamaño de fuente de 30px para el encabezado */
+    margin-bottom: 20px; /* Agrega un margen inferior de 20px para separar el encabezado del contenido siguiente */
 }
 
 .aboutimg img{
-    width: 400px;
-    height: auto;
-    align-items: center;
-    margin: 10px 0 10px 20px;
-    border-radius: 5px;
+    width: 400px;  /* Establece un ancho fijo de 400px para la imagen */
+    height: auto;  /* Mantiene la proporción original de la imagen */
+    align-items: center; /* Alinea la imagen verticalmente en el centro de su contenedor */
+    margin: 10px 0 10px 20px; /* Agrega un margen de 10px arriba y abajo y 20px a la izquierda */
+    border-radius: 5px; /* Redondea las esquinas de la imagen */
 }
 
 
 /*HISTORIA Y EVOLUCIÓN*/
 .history{
-    display: flex;
+    display: flex; /* Usa flexbox para organizar los elementos */
     flex-direction: column; /*Permite que el orden del contenido vaya hacia abajo tipo columnas*/
     align-items: center; /*Centra el texto*/
-    padding: 20px 0 30px 0;
-    margin:30px 10px 30px 10px;
-    border-radius: 5px;
+    padding: 20px 0 30px 0;  /* Agrega un relleno de 20px arriba y abajo y 30px en la parte inferior */
+    margin:30px 10px 30px 10px; /* Agrega márgenes de 30px arriba y abajo y 10px a los lados */
+    border-radius: 5px; /* Redondea las esquinas del contenedor */
 }
 
 /*Ajusta las imagenes que se encuentran dentro de la clase de hisrory*/
