@@ -245,6 +245,35 @@ BORRAR EN UN FUTURO*/
     background-color: #f68f9b; /*Aplica un color coral al resaltado*/
 }
 
+/*"LOGIN/INICIO DE SESIÓN"*/
+.Login {
+    margin-left: 20px; /*Separación entre la barra de búsqueda y el botón de inicio de sesión*/
+    display: flex; /*Organiza los elementos en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+}
+
+/*Botón de Inicio de Sesión*/
+.login-button {
+    display: flex; /*Alinea el ícono y el texto en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+    color: white; /*Color blanco para el texto*/
+    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
+    font-size: 14px; /*Tamaño de fuente*/
+    background-color: #ff6b6b; /*Color rosa coral para el fondo*/
+    padding: 8px 14px; /*Margen interno para definir la extensión del fondo*/
+    border-radius: 20px; /*Bordes redondeados*/ 
+    transition: background 0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
+}
+
+/*Estilos del ícono del búsqueda*/
+.login-button i {
+    margin-right: 8px; /*Margen exterior derecho para separar el ícono y el texto del botón*/
+}
+
+/*Efecto al pasar el cursor sobre el botón*/
+.login-button:hover {
+    background-color: #e55b5b; /*Cambio de color de fondo al pasar el cursor*/
+}
 
 /*"FLECHA DE SCROLL"*/
 .scroll{
