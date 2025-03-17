@@ -698,12 +698,21 @@ a:visited {
 
 /* Botones de desplazamiento para los videos */
 .scroll-container span{
+<<<<<<< HEAD
+    position: absolute; /*Permite que su posisión sea independiente a la de los demás elementos del sitio*/
+    color: white; /*Incica que el color del simbolo de scroll será blanco */
+    font-size: 70px; /*El tamaño del simbolo de scroll será de 70px*/
+    padding: 10px; /*Le ofrece un margen interior de 10px*/
+    cursor: pointer; /*cambia el cursor del mouse a una mano cuando el usuario pasa sobre un elemento, indicando que es clickeable. */
+    z-index: 10; /*Permite que el elemento se superponga a los demás dentro del sitio web*/
+=======
     position: absolute; /* Permite colocar las flechas sobre los videos */
     color: white;
     font-size: 70px;
     padding: 10px; /* Espaciado interno */
     cursor: pointer; /* Indica que es un botón clickeable */
     z-index: 10; /* Asegura que las flechas estén por encima de otros elementos */
+>>>>>>> ef62b70843e667f5ef973760a15419033db3c90d
     filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); /*Crea una sombra igual a la flecha*/
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
 }
