@@ -415,24 +415,24 @@ BORRAR EN UN FUTURO*/
 
 /*IDENTIFICADORES*/
 .identificadores{
-    background-color: #5fb5b1;
-    margin:30px 10px 30px 10px;
-    padding: 20px 0 30px 0;
-    border-radius: 5px;
+    background-color: #5fb5b1;/* Color de fondo verde-azulado */
+    margin:30px 10px 30px 10px; /* Márgenes alrededor de la sección */
+    padding: 20px 0 30px 0; /* Relleno interior, 20px arriba y 30px abajo */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
 .kids{
-    background-color: #fffdd1;
-    margin:30px 20px 30px 20px;
-    padding: 20px 0 30px 0;
-    border-radius: 5px;
+    background-color: #fffdd1; /* Color de fondo suave */
+    margin:30px 20px 30px 20px; /* Márgenes alrededor de la sección */
+    padding: 20px 0 30px 0; /* Relleno interior, 20px arriba y 30px abajo */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
 .adults{
-    background-color: #fffdd1;
-    margin:30px 20px 30px 20px;
-    padding: 20px 0 30px 0;
-    border-radius: 5px;
+    background-color: #fffdd1; /* Color de fondo suave */
+    margin:30px 20px 30px 20px; /* Márgenes alrededor de la sección */
+    padding: 20px 0 30px 0; /* Relleno interior, 20px arriba y 30px abajo */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
 .adults li{
@@ -442,64 +442,64 @@ BORRAR EN UN FUTURO*/
 
 /*SUBTIPOS*/
 .types{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #207185;
-    padding: 10px 0 30px 0;
-    margin:10px;
-    border-radius: 5px;
+    display: flex; /* Usa flexbox para organizar los elementos */
+    flex-direction: column; /* Organiza los elementos en columnas */
+    align-items: center; /* Centra los elementos */
+    background-color: #207185; /* Color de fondo azul oscuro */
+    padding: 10px 0 30px 0; /* Relleno interior */
+    margin:10px; /* Márgenes alrededor */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
 /*Le da estilo a la clase general al contenedor que almacenará los cuadros de texto de esta sección*/
 .contenedor {
-    display: flex;
+    display: flex; /* Usa flexbox para organizar los elementos */
     flex-wrap: wrap; /* Permite que los cuadros se acomoden automáticamente */
-    gap: 20px;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 10px 40px 20px 80px;
+    gap: 20px; /* Espacio entre los cuadros */
+    justify-content: center; /* Centra los cuadros en el contenedor */
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    margin: 10px 40px 20px 80px; /* Márgenes alrededor del contenedor */
 }
 
 /*Define el estilo de los cuadros de texto de los subtipos*/
 .chart{
-    background-color: rgba(95, 171, 187, 0.8);
-    color: white;
+    background-color: rgba(95, 171, 187, 0.8); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
     width: 300px; /* Tamaño fijo para pantallas grandes */
-    padding: 20px;
-    text-align: center;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Relleno interior */
+    text-align: center; /* Centra el texto dentro del cuadro */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor del cuadro */
 }
 
 /*Acomoda la imagen dentro de los cuadros de texto*/
 .chart img {
-    width: 100%;
-    height: 225px;
-    border-radius: 5px;
+    width: 100%; /* Hace que la imagen ocupe todo el ancho del cuadro */
+    height: 225px; /* Altura fija para las imágenes */
+    border-radius: 5px; /* Bordes redondeados para las imágenes */
 }
 
 /*Le da estilo a los titulos de la sección de cuadros en los subtipos*/
 .titulo {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-    text-transform: uppercase;
-    text-align: center;
+    font-size: 18px; /* Tamaño de fuente para los títulos */
+    font-weight: bold; /* Hace que el título sea negrita */
+    margin: 10px 0; /* Márgenes arriba y abajo */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    text-align: center; /* Centra el título */
 }
 
 /*Se le da tamaño a la fuente dentro de los cuadros de texto en los subtipos*/
 .desc {
-    font-size: 16px;
+    font-size: 16px; /* Tamaño de fuente para la descripción */
 }
 
 
 .ayuda{
-    display: flex;
+    display: flex; /* Usa flexbox para organizar los elementos */
     flex-direction: column; /*Permite que el orden del contenido vaya hacia abajo tipo columnas*/
     align-items: center; /*Centra el texto*/
-    padding: 20px 0 30px 0;
-    margin:30px 10px 30px 10px;
-    border-radius: 5px;
+    padding: 20px 0 30px 0; /* Relleno interior */
+    margin:30px 10px 30px 10px; /* Márgenes alrededor */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
 
@@ -507,81 +507,81 @@ BORRAR EN UN FUTURO*/
 
 /*"FOOTER SUPERIOR"*/
 .footer-container{
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
+    margin: 0; /* Elimina los márgenes */
+    width: 100%; /* Ancho completo del contenedor */
+    box-sizing: border-box; /* Incluye el padding y los bordes en el cálculo del tamaño total */
 }
 
 .footer-top{
-    background-color: #0f7d7e;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 100%;
-    padding-bottom: 15px;
-    margin: 0 auto;
+    background-color: #0f7d7e; /* Color de fondo verde oscuro */
+    display: flex; /* Usa flexbox para organizar los elementos */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centra los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+    max-width: 100%; /* Ancho máximo del contenedor */
+    padding-bottom: 15px; /* Relleno en la parte inferior */
+    margin: 0 auto; /* Centra el contenedor */
 }
 
 .footer-logo img{
-    margin: 5px 0 0 15px;
-    width: 80px;
+    margin: 5px 0 0 15px; /* Márgenes alrededor del logo */
+    width: 80px; /* Ancho del logo */
 }  
 
 .footer-navbar{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    display: flex; /* Usa flexbox para organizar los elementos */
+    align-items: center; /* Centra los elementos verticalmente */
+    list-style: none; /* Elimina los estilos de lista */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten si es necesario */
+    margin: 0;  /* Elimina los márgenes */
+    padding: 0; /* Elimina el relleno */
 }
 
 .footer-navbar li{
-    margin: 0 10px;
+    margin: 0 10px; /* Espacio entre los elementos de la lista */
 }
 
 .footer-navbar li a{
-    color: #fff;
+    color: #fff; /* Color blanco para los enlaces */
     padding: 0 10px; /*Margen interior*/
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    font-size: 13px;
+    font-size: 13px; /* Tamaño de fuente para los enlaces */
 }
 
 .footer-navbar li a:hover {
-    color: #fffb00;
+    color: #fffb00; /* Cambia el color a amarillo al pasar el ratón */
 }
 
 
 /*"FOOTER INFERIOR"*/
 .footer-bottom{
-    background-color: #075f61;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    padding-top: 15px;
-    margin: 0 auto;
+    background-color: #075f61; /* Color de fondo verde oscuro */
+    font-size: 14px; /* Tamaño de fuente para los elementos del footer inferior */
+    display: flex; /* Usa flexbox para organizar los elementos */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centra los elementos */
+    max-width: 100%; /* Ancho máximo del contenedor */
+    padding-top: 15px; /* Relleno en la parte superior */
+    margin: 0 auto; /* Centra el contenedor */
 }
 
 .footer-bottom p {
-    padding-left: 15px;
-     color: #fff;
-     font-size: 16.5px;
+    padding-left: 15px; /* Relleno a la izquierda */
+     color: #fff; /* Color blanco para el texto */
+     font-size: 16.5px;/* Tamaño de fuente para el texto */
 }
 
 .socials img{
-    padding: 0px 5px 5px 0px;
-    display: inline-block;
-    margin-left: 10px;
-    width: 25px;
+    padding: 0px 5px 5px 0px; /* Relleno alrededor de las imágenes */
+    display: inline-block; /* Hace que las imágenes estén en línea */
+    margin-left: 10px; /* Márgenes a la izquierda */
+    width: 25px; /* Ancho de las imágenes */
     height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
 }
 
 .socials img:hover {
     content: url("nueva-imagen.jpg"); /*Reemplaza la imagen de los íconos de las redes sociales*/
-    transform: scale(1.2); /**/
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen */
 }
 
