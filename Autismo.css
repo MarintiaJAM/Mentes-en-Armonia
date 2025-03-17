@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /* Importa la fuente "Dancing Script" desde Google Fonts para usarla en el diseño */
 
 *{
     /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
@@ -25,13 +25,13 @@ body{
     font-family: 'Ubuntu', sans-serif; /*Indica que la fuente del body será tipo "Ubuntu" en primera instancia, o tipo "sans-serif
     si no encuentra la primer fuente*/
     background-color: #faf8e1; /*Le asigna un color al fondo general de la página*/
-    margin: 0;
+    margin: 0; /* Elimina los márgenes predeterminados para evitar espacios inesperados */
 }
 
 
 /*"LETRA GENERAL" Con este bloque asignamos el estilo predeterminado a la letra*/
 p{
-    margin-top: 15px;
+    margin-top: 15px; /* Agrega un espacio de 15px en la parte superior para separar este elemento del anterior */
     margin-bottom: 40px; /*Este da un margen de 40 pixeles creando un espacio entre cada letra*/
     font-size: 18px; /*Indica que el tamaño de la letra será de 18 pixeles*/
     color: #453c5c; /*Le da a la letra un colo oscuro para resaltar de el fondo*/
@@ -41,22 +41,22 @@ p{
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-   margin: 40px;
-    font-size: 45px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    color:#453c5c;
+   margin: 40px; /* Aplica un margen de 40px alrededor del elemento para dar espacio */
+    font-size: 45px; /* Establece el tamaño de la fuente en 45px para que el texto sea bien visible */
+    font-weight: 600; /* Define un grosor de fuente de 600 (semi-negrita) para resaltar el texto */
+    text-transform: uppercase; /* Convierte todo el texto a mayúsculas para darle un estilo llamativo */
+    text-align: center; /* Centra el texto horizontalmente dentro de su contenedor */
+    color:#453c5c; /* Aplica un color morado oscuro (#453c5c) al texto para darle personalidad */
 }
 
 
 .subtitle{
-    margin: 20px;
-    font-size: 25px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    color:#453c5c;
+    margin: 20px; /* Agrega un margen de 20px alrededor para dar espacio */
+    font-size: 25px; /* Define un tamaño de fuente de 25px, más pequeño que un título principal pero aún llamativo */
+    font-weight: 600; /* Establece un grosor de fuente de 600 (semi-negrita) para que resalte */
+    text-transform: uppercase;  /* Convierte el texto a mayúsculas para mantener coherencia con el título */
+    text-align: center; /* Centra el texto dentro de su contenedor */
+    color:#453c5c;  /* Usa el mismo color morado oscuro (#453c5c) para mantener el estilo visual */
 }
 
 /*"ENCABEZADO MENÚ"*/
@@ -65,8 +65,8 @@ p{
 .menu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; /*Centra los elementos verticalmente*/
-    justify-content: space-between;
-    width: 100%;
+    justify-content: space-between; /* Distribuye los elementos con el máximo espacio posible entre ellos */
+    width: 100%; /* Establece el ancho del elemento al 100% de su contenedor */
     max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
     background-color: #2d938e; /*Le da a toda el área del menú un color azul verdoso*/
     padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
@@ -78,9 +78,9 @@ p{
 
 /*"LOGO"*/
 .logo{
-    margin-right: auto;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-right: auto; /* Empuja el elemento hacia la izquierda ocupando todo el espacio disponible */
+    margin-top: 3px; /* Agrega un pequeño margen superior de 3px para separar el elemento del de arriba */
+    margin-bottom: 3px; /* Agrega un pequeño margen inferior de 3px para separar el elemento del de abajo */
 }
 
 .logo img{
@@ -102,23 +102,23 @@ BORRAR EN UN FUTURO*/
 
 /*"SECCIONES/LINKS" En este bloque se le da estilo a los enlaces de la barra de navegación.*/
 .navbar{
-    display: flex;
-    margin-right: 20px;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 70px;
+    display: flex; /* Usa flexbox para organizar los elementos*/
+    margin-right: 20px; /* Agrega un margen derecho de 20px para separar el elemento del siguiente */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    list-style: none; /* Elimina los estilos predeterminados de lista*/
+    margin: 0; /* Elimina el margen predeterminado*/
+    padding: 0; /* Elimina el padding predeterminado*/
+    height: 70px; /* Define una altura fija de 70px para el elemento */
 }
 
 .navbar ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
+    list-style-type: none;  /* Elimina los estilos predeterminados de la lista */
+    display: flex; /* Usa flexbox para organizar los elementos de la lista horizontalmente */
+    justify-content: center; /* Centra los elementos de la lista dentro del navbar */
   }
 
 .navbar li{
-    position: relative;
+    position: relative; /* Permite posicionar elementos de forma absoluta o relativa */
 }
 
 .navbar li a{
