@@ -436,7 +436,7 @@ a:visited {
 
 /*Estilos para los enlaces dentro de la sección*/
 .about a {
-    display: block;
+    display: block; 
     justify-content: center;
     text-align: center;
 
@@ -445,8 +445,8 @@ a:visited {
 
 /*"BOTÓN" Este bloque sirve para darle estilo a los botones que se encuentran dentro de la página*/
 .btn{
-    display: inline-block;
-    text-align: center;
+    display: inline-block; /*Permite modificar la anchura y altura del btón y que su contenido se modifique únicamente en el espacio necesario*/
+    text-align: center; /*Permite posicionar el botón al centro de la pantalla*/
     margin: 20px 500px; /*Margen exterior en los lados*/
     padding: 10px 50px; /*Espaciado interno*/
     border: 2px solid #207185; /*Medida y color al borde del botón*/
