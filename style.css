@@ -244,30 +244,30 @@ a:visited {
 
 /*"LOGIN/INICIO DE SESIÓN"*/
 .Login {
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
+    margin-left: 20px; /*Separación entre la barra de búsqueda*/
+    display: flex; /*Alinea los elementos en una fila*/
+    align-items: center; 
 }
 
 /*Botón de Inicio de Sesión*/
 .login-button {
-    display: flex;
+    display: flex; /*Alinea los elementos en una fila*/
     align-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #ff6b6b;
-    padding: 8px 14px;
-    border-radius: 20px;
-    transition: background 0.2s ease-in-out;
+    color: white; /*Color de texto*/
+    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
+    font-size: 14px; /*Tamaño de fuente*/
+    background-color: #ff6b6b; /*Color de fondo*/
+    padding: 8px 14px; /*Margen interno para definir la extensión del fondo*/
+    border-radius: 20px; /*Bordes redondeados*/
+    transition: background 0.2s ease-in-out; /*Transición suave para el fondo de inicio y final*/
 }
 
 .login-button i {
-    margin-right: 8px;
+    margin-right: 8px; /*Separación derecha para el ícono*/
 }
 
 .login-button:hover {
-    background-color: #e55b5b;
+    background-color: #e55b5b; /*Cambio de color de fondo al pasar el cursor*/
 }
 
 
@@ -477,18 +477,18 @@ a:visited {
 }
 
 .defText h3{
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 20px;
+    text-align: center; /*Centra el texto*/
+    font-size: 30px; /*Tamaño del título*/
+    margin-bottom: 20px; /*Margen externo inferior para separarse del texto*/
 }
 
 .defImg{
-    display: flex;
+    display: flex; /*Organiza las imágenes en una fila*/
 }
 
 .defImg img{
-    width: 225px;
-    height: auto;
+    width: 225px; /*Medida fija del ancho*/
+    height: auto; /*Ajusta la altura automáticamente conforme al ancho*/
     border-radius: 5px; /*Redondea los bordes de las imágenes*/
     margin: 20px;
 }
@@ -860,4 +860,5 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
         margin-bottom: 0%;
         background-color: #fffdd1;
       }
+
  }
