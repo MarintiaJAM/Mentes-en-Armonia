@@ -719,28 +719,28 @@ hr{ /*Sirve para dejar un espacio en blanco antes del footer*/
 }  
 
 .footer-navbar{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    display: flex; /*Permite que el contenido dentro de el footer-navbar sea modificado a gusto*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    list-style: none; /*Elimina el tipo de lista con el que puede aparecer el texto dentro de nuestro navbar*/
+    flex-wrap: wrap; /*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
+    margin: 0; /*No asigna ningún tamaño de margen exterior*/
+    padding: 0; /*No asigna ningún tipo de margen interior*/
 }
 
 .footer-navbar li{
-    margin: 0 10px;
+    margin: 0 10px; /*Establece un margen lateral izquierdo y derecho de 10px para mantener separados los elementos dentro de li*/
 }
 
 .footer-navbar li a{
-    color: #fff;
+    color: #fff; /*Cambia el color de los enlaces de la lista a uno de color blanco*/
     padding: 0 10px; /*Margen interior*/
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    font-size: 13px;
+    font-size: 13px; /*Asigan el tamaño de su fuente a una de 13px*/
 }
 
 .footer-navbar li a:hover {
-    color: #fffb00;
+    color: #fffb00; /*Al poner colocar el cursor sobre el texto dentro del elemnto lista, este va a cambiar su color inical blanco, a uno amarillo*/
 }
 
 
