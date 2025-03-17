@@ -445,13 +445,8 @@ a:visited {
 
 /*"BOTÓN" Este bloque sirve para darle estilo a los botones que se encuentran dentro de la página*/
 .btn{
-<<<<<<< HEAD
-    display: inline-block; /*el elemento se comporta como un inline pero de define ancho y alto como un block */
-    text-align: center;
-=======
     display: inline-block; /*Permite modificar la anchura y altura del btón y que su contenido se modifique únicamente en el espacio necesario*/
     text-align: center; /*Permite posicionar el botón al centro de la pantalla*/
->>>>>>> 829032c357b1a51c7ef781aa23eec07738ebd43e
     margin: 20px 500px; /*Margen exterior en los lados*/
     padding: 10px 50px; /*Espaciado interno*/
     border: 2px solid #207185; /*Medida y color al borde del botón*/
@@ -483,33 +478,18 @@ a:visited {
 
 /* Estilos para los títulos dentro de elementos con la clase .defText */
 .defText h3{
-<<<<<<< HEAD
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 20px; /* Espacio debajo del título */
-=======
     text-align: center; /*Centra el texto*/
     font-size: 30px; /*Tamaño del título*/
     margin-bottom: 20px; /*Margen externo inferior para separarse del texto*/
->>>>>>> 829032c357b1a51c7ef781aa23eec07738ebd43e
 }
 
 .defImg{
-<<<<<<< HEAD
     display: flex; /* Usa flexbox para organizar las imágenes */
-=======
-    display: flex; /*Organiza las imágenes en una fila*/
->>>>>>> 829032c357b1a51c7ef781aa23eec07738ebd43e
 }
 
 .defImg img{
-<<<<<<< HEAD
     width: 225px; /* Ancho fijo para las imágenes */
     height: auto; /* Mantiene la proporción */
-=======
-    width: 225px; /*Medida fija del ancho*/
-    height: auto; /*Ajusta la altura automáticamente conforme al ancho*/
->>>>>>> 829032c357b1a51c7ef781aa23eec07738ebd43e
     border-radius: 5px; /*Redondea los bordes de las imágenes*/
     margin: 20px; /* Espaciado entre imágenes */
 }
@@ -698,21 +678,12 @@ a:visited {
 
 /* Botones de desplazamiento para los videos */
 .scroll-container span{
-<<<<<<< HEAD
     position: absolute; /*Permite que su posisión sea independiente a la de los demás elementos del sitio*/
     color: white; /*Incica que el color del simbolo de scroll será blanco */
     font-size: 70px; /*El tamaño del simbolo de scroll será de 70px*/
     padding: 10px; /*Le ofrece un margen interior de 10px*/
     cursor: pointer; /*cambia el cursor del mouse a una mano cuando el usuario pasa sobre un elemento, indicando que es clickeable. */
     z-index: 10; /*Permite que el elemento se superponga a los demás dentro del sitio web*/
-=======
-    position: absolute; /* Permite colocar las flechas sobre los videos */
-    color: white;
-    font-size: 70px;
-    padding: 10px; /* Espaciado interno */
-    cursor: pointer; /* Indica que es un botón clickeable */
-    z-index: 10; /* Asegura que las flechas estén por encima de otros elementos */
->>>>>>> ef62b70843e667f5ef973760a15419033db3c90d
     filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); /*Crea una sombra igual a la flecha*/
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
 }
