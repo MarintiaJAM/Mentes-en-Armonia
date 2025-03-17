@@ -664,15 +664,15 @@ a:visited {
 
 /* Estilos para los párrafos dentro del video */
 .video p{
-    padding: 15px;
-    font-size: 15px;
+    padding: 15px; /*Asiga un margen interno de 15px al texto*/
+    font-size: 15px; /*Asiga un tamaño de fuente de 15px*/
 }
 
 /* Estilos para las imágenes dentro del video */
 .video img{
-    width: 100%;
+    width: 100%; /*Las imagenes del área de vídeos abarcan el 100% de espacio de su contenedor*/
     height: auto; /* Mantiene la proporción */
-    border-radius: 5px;
+    border-radius: 5px; /*Le asigna un borde */
     border: 1px solid black; /* Borde negro para destacar la imagen */
 }
 
