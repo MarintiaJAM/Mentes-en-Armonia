@@ -3,26 +3,26 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
+    font-size: 100%; /* Normaliza el tamaño de fuente para mantener coherencia */
+    vertical-align: baseline; /* Asegura alineación base uniforme en todos los elementos */
 }
 
 body{ /*BORRAR o MODIFICAR*/
-    text-align: justify;
-    font-family: sans-serif;
-    background-color: #efe9e9;
+    text-align: justify; /* Justifica el texto en toda la página */
+    font-family: sans-serif; /* Usa una fuente sans-serif para mejorar la legibilidad */
+    background-color: #efe9e9; /* Establece un fondo de color crema claro */
 }
 
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-size: 45px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    color:#453c5c;
+    margin-top: 40px; /* Agrega espacio antes y después del título */
+    margin-bottom: 40px; /*Este da un margen de 40 pixeles creando un espacio entre cada letra*/
+    font-size: 45px; /* Tamaño de la fuente grande para destacar el título */
+    font-weight: 600; /* Hace que el texto sea más grueso */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas automáticamente */
+    text-align: center; /* Centra el título en la página */
+    color:#453c5c; /* Color morado oscuro para destacar el título */
 }
 
 
