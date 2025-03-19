@@ -38,8 +38,8 @@ p{
 .menu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; /*Centra los elementos verticalmente*/
-    justify-content: space-between;
-    width: 100%;
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme dentro del contendedor*/
+    width: 100%; /* Hace que el elemento ocupe el 100% del ancho disponible*/
     max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
     background-color: #0f7d7e; /*Le da a toda el área del menú un color azul verdoso*/
     padding: 0px 20px; /*Agrega espacio a los lados para que no pegue al borde*/
@@ -51,7 +51,7 @@ p{
 
 /*"LOGO"*/
 .logo{
-    margin-right: auto;
+    margin-right: auto; /* Empuja el elemento hacia la izquierda automáticamente */
 }
 
 .logo img{
@@ -73,13 +73,13 @@ BORRAR EN UN FUTURO*/
 
 /*"SECCIONES/LINKS" En este bloque se le da estilo a los enlaces de la barra de navegación.*/
 .navbar{
-    display: flex;
-    margin-right: 20px;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 70px;
+    display: flex; /* Usa flexbox para organizar los elementos en línea */
+    margin-right: 20px; /* Agrega un margen a la derecha */
+    align-items: center; /* Centra los elementos verticalmente */
+    list-style: none; /* Elimina los estilos de lista (puntos, números, etc.) */
+    margin: 0; /* Elimina márgenes externos */
+    padding: 0; /* Elimina relleno interno */
+    height: 70px; /* Establece una altura fija */
 }
 
 .navbar li{
@@ -90,14 +90,14 @@ BORRAR EN UN FUTURO*/
     scroll-margin-top: 60 px; /*Evita que el navbar tape los titulos*/
     display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
     height: 70px; /*Iguala la altura a la del navbar*/
-    width: 100%;
+    width: 100%; /* Ocupa todo el ancho del contenedor padre */
     line-height: 70px; /*Centra el texto verticalmente*/
     padding: 0 10px; /*Margen interior*/
-    color: #fff;
+    color: #fff; /* Establece el color del texto en blanco */
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    text-align: center;
-    font-size: 14px;
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 14px; /* Establece el tamaño de fuente en 14px */
 }
 
 .navbar a:hover, a:focus{
@@ -108,21 +108,21 @@ BORRAR EN UN FUTURO*/
 
 /*"ADAPTADOR DEL MENÚ PARA CELULARES*/
 .menu-toggle {
-    display: none;
-    cursor: pointer;
-    margin-left: auto;
+    display: none; /* Esconde el botón de menú por defecto */
+    cursor: pointer; /* Cambia el cursor a "puntero" cuando pasas por encima */
+    margin-left: auto; /* Empuja el botón de menú hacia la derecha */
 }
 
 .menu-toggle i {
-    font-size: 24px;
-    color: #fff;
+    font-size: 24px; /* Establece el tamaño del ícono dentro del botón */
+    color: #fff; /* Pone el color del ícono en blanco */
 }
 
 
 /*"BARRA DE BÚSQUEDA"*/
 .search-bar {
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
-    align-items: center; 
+    align-items: center; /* Centra los elementos verticalmente en el contenedor */
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /* Evita que la barra se reduzca en pantallas pequeñas */
 }
@@ -198,15 +198,15 @@ BORRAR EN UN FUTURO*/
 
 
 .header{ /*MODIFICAR*/
-    height: 30vh; 
-    justify-content: center;
-    align-items: center;
-    background-image: url(../img/formato\ graa.jpeg);
+    height: 30vh; /* Establece la altura del contenedor en el 30% de la altura de la ventana */
+    justify-content: center; /* Centra los elementos horizontalmente dentro del contenedor */
+    align-items: center; /* Centra los elementos verticalmente dentro del contenedor */
+    background-image: url(../img/formato\ graa.jpeg); /* Establece la imagen de fondo del contenedor */
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
-    background-repeat:no-repeat center;
-    background-size: cover;
-    padding-top: 20px;
+    background-repeat:no-repeat center; /* La imagen no se repite y se centra en el contenedor */
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor, manteniendo su proporción */
+    padding-top: 20px; /* Añade espacio en la parte superior del contenedor */
 }
 
 
@@ -214,12 +214,12 @@ BORRAR EN UN FUTURO*/
 /*CONTENIDO DE PÁGINA*/
 /*En este bloque se hace más pequeño la expansión de la página en la pantalla*/
 .container {
-    width: 80%; 
-    margin: 0px auto;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    background-color: #fffdd1;
-    box-sizing: border-box;
+    width: 80%; /* Establece el ancho del contenedor al 80% del ancho total de la página */
+    margin: 0px auto; /* Centra el contenedor horizontalmente */
+    margin-top: 0%; /* No añade margen superior */
+    margin-bottom: 0%; /* No añade margen inferior */
+    background-color: #fffdd1; /* Establece el color de fondo del contenedor */
+    box-sizing: border-box;  /* Asegura que el padding y el borde se incluyan en el cálculo del tamaño total */
     box-shadow: 0 4px 6px rgba(233, 229, 229, 0.1); /*Añadé sombra al fonod haciendo que se vea ligeramente tipo 3D*/
 }
 
@@ -234,7 +234,7 @@ BORRAR EN UN FUTURO*/
 }
 
 .table h3{
-    color: #fff;
+    color: #fff; /* Establece el color del texto en blanco */
 }
 
 /*Estilos para la lista del menú*/
@@ -268,42 +268,42 @@ BORRAR EN UN FUTURO*/
 
 /*"FOOTER SUPERIOR"*/
 .footer-container{
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
+    margin: 0; /* Elimina los márgenes externos del contenedor */
+    width: 100%; /* Hace que el contenedor ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Asegura que el padding y borde se incluyan en el cálculo del tamaño total */
 }
 
 .footer-top{
-    background-color: #0f7d7e;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 100%;
-    padding-bottom: 15px;
-    margin: 0 auto;
+    background-color: #0f7d7e; /* Establece un color de fondo verde azulado*/
+    display: flex; /* Utiliza flexbox para organizar los elementos en línea */
+    justify-content: space-between; /* Distribuye los elementos con el máximo espacio entre ellos */
+    align-items: center; /* Centra los elementos verticalmente */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+    max-width: 100%;  /* Asegura que el ancho no exceda el 100% */
+    padding-bottom: 15px; /* Añade un poco de espacio en la parte inferior */
+    margin: 0 auto; /* Centra el bloque horizontalmente */
 }
 
 .footer-logo img{
-    width: 100px;
-    height: auto;
+    width: 100px; /* Establece un tamaño fijo para la imagen del logo */
+    height: auto; /* Ajusta la altura de manera proporcional al ancho */
 }  
 
 .footer-navbar{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    display: flex; /* Utiliza flexbox para organizar los elementos de la barra de navegación */
+    align-items: center; /* Centra verticalmente los elementos dentro del navbar */
+    list-style: none; /* Elimina los puntos o números de la lista */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+    margin: 0; /* Elimina los márgenes externos */
+    padding: 0; /* Elimina el relleno interno */
 }
 
 .footer-navbar li{
-    margin: 0 10px;
+    margin: 0 10px; /* Añade márgenes laterales entre los elementos de la lista */
 }
 
 .footer-navbar li a{
-    color: #fff;
+    color: #fff; /* Establece el color del texto en blanco */
     padding: 0 10px; /*Margen interior*/
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
@@ -317,31 +317,31 @@ BORRAR EN UN FUTURO*/
 
 /*"FOOTER INFERIOR"*/
 .footer-bottom{
-    background-color: #075f61;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    padding-top: 15px;
-    margin: 0 auto;
+    background-color: #075f61; /* Establece un fondo verde oscuro*/
+    font-size: 14px; /* Establece el tamaño de fuente en 14px */
+    display: flex; /* Utiliza flexbox para organizar los elementos en línea */
+    justify-content: space-between; /* Distribuye los elementos con el máximo espacio entre ellos */
+    align-items: center; /* Centra los elementos verticalmente */
+    max-width: 100%; /* Asegura que el ancho no exceda el 100% */
+    padding-top: 15px; /* Añade espacio en la parte superior */
+    margin: 0 auto; /* Centra el bloque horizontalmente */
 }
 
 .footer-bottom p {
-    padding-left: 13px;
-    color: #fff;
+    padding-left: 13px; /* Añade espacio a la izquierda del texto */
+    color: #fff; /* Establece el color del texto en blanco */
 }
 
 .socials img{
-    padding: 0px 5px 5px 0px;
-    display: inline-block;
-    margin-left: 10px;
-    width: 25px;
+    padding: 0px 5px 5px 0px; /* Añade espacio alrededor de las imágenes de los íconos sociales */
+    display: inline-block; /* Hace que las imágenes se alineen en línea */
+    margin-left: 10px; /* Añade espacio a la izquierda de las imágenes */
+    width: 25px; /* Establece el tamaño de las imágenes a 25px */
     height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
 }
 
 .socials img:hover {
     content: url("nueva-imagen.jpg"); /*Reemplaza la imagen de los íconos de las redes sociales*/
-    transform: scale(1.2); /**/
+    transform: scale(1.2); /**/ /* Escala el elemento al 120% de su tamaño original */
 }
 
