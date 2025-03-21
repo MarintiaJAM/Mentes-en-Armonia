@@ -11,7 +11,7 @@
     color: #453c5c; /*Le da a la letra un colo oscuro como predeterminado*/
     vertical-align: baseline; /*Ajusta la alineación vertical de un elemento en relación con otros elementos en línea.
     ej. Si tienes texto y una imagen en la misma línea, los alinea en la "línea base" del texto.*/
-    box-sizing: border-box; /*uwu*/
+    box-sizing: border-box; /*uwu*/ /* Incluye padding y borde en el tamaño total. */
 }
 
 
@@ -39,22 +39,22 @@ p{
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-   margin: 40px;
-    font-size: 45px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    color:#453c5c;
+   margin: 40px; /* Espaciado externo alrededor del título */
+    font-size: 45px; /* Tamaño grande para destacar */
+    font-weight: 600; /* Texto semi-negrita */
+    text-transform: uppercase; /* Convertir todo a mayúsculas */
+    text-align: center; /* Centrar el texto */
+    color:#453c5c;/* Color morado oscuro */
 }
 
 
 .subtitle{
-    margin: 20px;
-    font-size: 25px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    color:#453c5c;
+    margin: 20px; /* Espaciado externo más pequeño */
+    font-size: 25px; /* Tamaño más discreto que el título */
+    font-weight: 600;  /* Semi-negrita */
+    text-transform: uppercase; /* Todo en mayúsculas */
+    text-align: center; /* Texto centrado */
+    color:#453c5c; /* Mismo color que el título */
 }
 
 
@@ -64,8 +64,8 @@ p{
 .menu{
     display: flex; /*Permite organizar y alinear elementos dentro del contenedor haciendo que el diseño sea más flexible y dinámico*/
     align-items: center; /*Centra los elementos verticalmente*/
-    justify-content: space-between;
-    width: 100%;
+    justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+    width: 100%; /* Ocupa todo el ancho disponible */
     max-width: 100%; /*Asegura que no sobrepase el ancho del viewport*/
     background-color: #2d938e; /*Le da a toda el área del menú un color azul verdoso*/
     padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
@@ -77,9 +77,9 @@ p{
 
 /*"LOGO"*/
 .logo{
-    margin-right: auto;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-right: auto; /* Empuja el logo hacia la izquierda */
+    margin-top: 3px; /* Espacio arriba */
+    margin-bottom: 3px; /* Espacio abajo */
 }
 
 .logo img{
