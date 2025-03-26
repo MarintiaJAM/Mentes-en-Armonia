@@ -533,19 +533,28 @@ a:visited {
     /*Estiliza los títulos dentro de cada caja*/
     .box-container .box h3{
         color: #453c5c; /*Color de los títulos en las cajas*/
+        position: absolute;
+        text-align: center;
     }
     
-    /*Formato a los párrafos dentro del box-container*/
-    .box-container .box p{ 
-        font-size: 16px; /*Tamaño del texto*/
-        padding: 0 15px; /*Margen interior superior e inferior de 0px y laterales de 15px*/
+   /*Formato a los párrafos dentro del box-container*/
+   .box-container .box p{ 
+    font-size: 16px; /*Tamaño del texto*/
+    padding: 0 15px; /*Margen interior superior e inferior de 0px y laterales de 15px*/
+    margin-bottom: 10px; /* Espaciado entre el texto y el enlace */
     }
 
-    /*Estiliza los enlaces dentro de las cajas*/
-    .box-container .box a{
-        color: #453c5c; /*Los enlaces que se encuentren dentro de esta página serán del mismo color que los titulos h3*/
+    .enlace {
+        display: block; /* Asegura que el enlace aparezca en una nueva línea */
+        margin-top: 10px; /* Agrega espacio entre el texto y el enlace */
+        text-decoration: none;
+        font-weight: bold;
     }
     
+    .box a{
+        color: #075f61;
+    }
+
     /*Configuración de la parte delantera y trasera de las cajas*/
     .box .front , .box .back{
         position: absolute; /*Posiciona las caras superpuestas una sobre la otra*/
@@ -558,19 +567,28 @@ a:visited {
         text-align: center; /*Centra el texto horizontalmente*/
         font-size: 18px; /*Tamaño de fuente*/
         border-radius: 8px; /*Bordes ligeramente redondeados*/
+        flex-direction: column;
     }
    
+    .box img{
+        position: absolute; /*Posiciona las caras superpuestas una sobre la otra*/
+        width: 100%; /*Le indica que deberá de tomar una anchura del 100% de la pantalla o contenedor en el que se encuentre*/
+        height: 100%; /*Le indica que deberá de tomar una altura del 100% de la pantalla o contenedor en el que se encuentre*/
+        border-radius: 8px; /*Bordes ligeramente redondeados*/
+    }
+
+
     /*Configuración de la parte delantera de la caja*/
     .box .front{
         background: #ff6b6b; /*Color coral para la parte delantera de los cuadros*/
     }
-    
+
     /*Configuración de la parte trasera de la caja*/
     .box .back{
         background: #76b5a0; /*Color azul verdoso para la parte trasera de los cuadros*/
         transform: rotateY(180deg); /*Rota los cuadros hacia la parte trasera con 180 grados*/ 
     }
-    
+
     /*Efecto de giro al pasar el ratón*/
     .box:hover{
         transform: rotateY(180deg); /*Al pasar el ratón, la caja gira*/
