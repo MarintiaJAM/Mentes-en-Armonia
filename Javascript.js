@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchButton = document.getElementById('searchButton');
     const content = document.body;
 
-    // Mostrar/ocultar menú en dispositivos móviles
+    //Mostrar/ocultar menú en dispositivos móviles
     menuToggle.addEventListener('click', function () {
         menu.classList.toggle('active');
     });
 
-    // Función para resaltar texto dentro del contenido
+    //Función para resaltar texto dentro del contenido
     function highlightText(text) {
-        // Eliminar resaltados previos
+        //Eliminar resaltados previos
         const highlightedElements = content.querySelectorAll('.highlight');
         highlightedElements.forEach(function (element) {
             const parent = element.parentNode;
@@ -46,19 +46,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Manejar la búsqueda
+    //Manejar la búsqueda
     function handleSearch() {
         const searchTerm = searchInput.value.trim();
         highlightText(searchTerm);
 
-        // Desplazarse al primer resultado
+        //Desplazarse al primer resultado
         const firstMatch = content.querySelector('.highlight');
         if (firstMatch) {
             firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 
-    // Eventos del buscador
+    //Eventos del buscador
     searchButton.addEventListener('click', handleSearch);
     searchInput.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 
 //"SCROLL"
 
@@ -91,15 +92,16 @@ window.onload = checkScreenSize;
 
 window.onresize = checkScreenSize;
 
+
 //"SCROLLING DE VIDEOS"
 const rightBtn = document.querySelector("#btn-right");
 const leftBtn = document.querySelector("#btn-left");
 const content = document.querySelector(".scrolling-videos");
 
-// Cantidad a desplazar (ancho de un video + margen)
+//Cantidad a desplazar (ancho de un video + margen)
 const scrollAmount = document.querySelector(".video").offsetWidth + 20;
 
-// Función para desplazarse
+//Función para desplazarse
 rightBtn.addEventListener("click", () => {
     content.scrollLeft += scrollAmount;
 });
