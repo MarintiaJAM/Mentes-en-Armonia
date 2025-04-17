@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Logo y título que se verá en la pestaña -->
+    <title>Noticias</title>
+    <link rel="icon" type="image/png" href="../img/Logo.png">
+
+    <!-- Enlaces a fuentes y estilos -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+    <!-- Enlace a Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Enlace al css -->
+    <link rel="stylesheet" href="../css/Noticias.css">
+</head>
+
+<body>
+
+    <header>
+    <!-- Ménu de navegación principal-->
+    <nav class="menu" id="Menu">
+        <div class="logo"> <!-- Contenedor del logo -->
+            <a href="index.html">
+                <img src="../img/Logo.png" alt="Logo"></a>
+        </div>
+
+
+        <!-- Botón de menú para móviles -->
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+
+        <!-- Barra de navegación principal-->
+        <ul class="navbar">
+            <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+         página de inicio -->
+         <li><a href="index.html">Inicio</a></li>
+            <li><a href="#Acerca de">Sobre nosotros</a></li>
+            <li class="dropdown">
+                <a href="#Neurodivergencia">Neurodivergencia <i class="fas fa-chevron-down chevron"></i> </a>
+                <ul class="dropdown-content">
+                    <li><a href="Autismo.html">Autismo</a></li>
+                    <li><a href="TDAH.html">TDAH</a></li>
+                    <li><a href="Dislexia.html">Dislexia</a></li>
+                    <li><a href="Tourette.html">Tourette</a></li>
+                    <li><a href="Dispraxia.html">Dispraxia</a></li>
+                    <li><a href="Discalculia.html">Discalculia</a></li>
+                    <li><a href="Ansiedad.html">Ansiedad</a></li>
+                </ul>
+            </li>
+            <li><a href="#Lineap">Experiencias y comunidad</a></li>
+            <li><a href="Noticias.html">Noticias</a></li>
+        </ul>
+
+        <!-- Barra de búsqueda en la esquina superior izquierda -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button type="button" id="searchButton"><i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <div class="Login">
+            <a href="#" class="login-button"><i class="fas fa-user"></i> Iniciar sesión</a>
+        </div>
+    </nav>
+</header>
+
+    <!-- Submenú de mavegación -->
+    <nav id="subMenu" class="submenu">
+        <ul class="table">
+            <li><a href="#Destacadas">Destacadas</a></li>
+            <li><a href="#Importantes">Importantes</a></li>
+            <li><a href="#Recomendación">Podría interesarte</a></li>
+            <li><a href="#Recientes">Noticias recientes</a></li>
+            <li><a href="#Otras">Otras noticias</a></li>
+        </ul>
+
+        <div class="traductor">
+            <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
+            <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
+            <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
+        </div>
+    </nav>
+
+
+    <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
+    <a href="#Menu" class="scroll" id="scrollTop">
+        &#8679; <!-- Este código asigna un simbolo de flecha que servirá como el cuerpo del scroll-->
+    </a>
+
+
+    <section class="header">
+       <h2 class="title"><marquee>NOTICIAS</marquee></h2>
+    </section>
+
+
+    <div class="container">
+        <h6 class="subtitle">NOTICIAS DESTACADAS</h6>
+        <section class="scroll-container" id="Destacadas">
+            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+            <div class="scrolling-noticias">
+                <div class="cuadroNot">
+                    <a href="https://www.msn.com/es-mx/salud/other/neurodivergencia-en-el-trabajo-el-reto-de-pensar-diferente/ar-AA1xNfJG?ocid=BingNewsVerp">
+                    <img src="../img/noticia1.jpg" alt="Noticia1"></a>
+                </div>
+        
+                <div class="cuadroNot">
+                    <a href="https://codiceinformativo.com/2025/04/encabeza-felifer-macias-encendido-de-los-arcos-para-concientizar-sobre-la-neurodivergencia/">
+                    <img src="../img/noticia 2.jpg" alt="Noticia2"></a>
+                </div>
+
+                <div class="cuadroNot">
+                    <a href="https://www.uniradioinforma.com/sociedad/comparte-dif-ensenada-estrategias-atencion-ninez-neurodivergente-n811096">
+                    <img src="../img/dif.jpg" alt="Noticia3"></a>
+                </div>
+        
+                <div class="cuadroNot">
+                    <a href="https://www.hoytamaulipas.net/notas/587392/Matamoros-se-une-a-la-neurodiversidad-en-el-Dia-Mundial-del-Autismo.html">
+                        <img src="../img/matamorosneurodiversidad.jpg" alt="Noticia4"></a>
+                </div>
+            </div>
+
+
+             <!-- Bóton de scrolling/desplazamiento derecho -->
+             <span id="btn-right" class="scroll-btn">&#10095;</span>
+        </section>
+
+
+        <h6 class="subtitle">SUCESOS IMPORTANTES</h6>
+        <section class="ImportNoti" id="Importantes">
+            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+            <span id="btn-lft" class="scroll-btn">&#10094;</span>
+
+            <div class="importcontainer">
+                <div class="cuadroimport">
+                    <a href="https://www.launion.com.mx/blogs/vida-y-estilo/noticias/268436-dia-mundial-de-concienciacion-sobre-el-autismo.html">
+                    <img src="../img/2abril.png" alt="Noticia1"></a>
+                </div>
+        
+                <div class="cuadroimport">
+                    <a href="https://www.msn.com/es-mx/noticias/other/realizan-caminata-por-el-d%C3%ADa-mundial-de-concienciaci%C3%B3n-sobre-el-autismo-en-paseo-col%C3%B3n/ar-AA1CpfmM?ocid=BingNewsVerp">
+                    <img src="../img/marchaautismo.jpg" alt="Noticia2"></a>
+                </div>
+
+                <div class="cuadroimport">
+                    <a href="https://www.diariosur.es/universidad/uma-visibiliza-ninas-mujeres-autismo-20250314140411-nt.html?ref=https%3A%2F%2Fwww.diariosur.es%2Funiversidad%2Fuma-visibiliza-ninas-mujeres-autismo-20250314140411-nt.html">
+                    <img src="../img/UMA.jpg" alt="Noticia3"></a>
+                </div>
+        
+                <div class="cuadroimport">
+                    <a href="https://www.infobae.com/mexico/2025/03/14/tec-milenio-esto-es-lo-que-se-sabe-de-la-denuncia-de-presunto-abuso-sexual-en-monterrey/">
+                    <img src="../img/tecMilenio.jpg" alt="Noticia4"></a>
+                </div>
+    
+            </div>
+
+             <!-- Bóton de scrolling/desplazamiento derecho -->
+             <span id="btn-rght" class="scroll-btn">&#10095;</span>
+        </section>
+
+
+        <h6 class="subtitle">TAMBIÉN PODRÍAS VER..</h6>
+        <section class="Otrasnoti" id="recomendación">
+            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+            <span id="btn-l" class="scroll-btn">&#10094;</span>
+
+            <div class="otrascontainer">
+                <div class="cuadroOther">
+                    <a href="https://www.adnradio.cl/2025/03/23/lollapalooza-chile-2025-asi-es-pausa-sensorial-el-espacio-idoneo-para-personas-que-sufran-crisis-de-neurodivergencia/">
+                    <img src="../img/lolapalooza.jpg" alt="Noticia1"></a>
+                </div>
+        
+                <div class="cuadroOther">
+                    <a href="https://eltiempomx.com/noticia/2025/ateams-atiende-a-60-ninos-con-autismo-en-monclova-y-zonas-aledanas.html">
+                    <img src="../img/ateams.jpg" alt="Noticia2"></a>
+                </div>
+
+                <div class="cuadroOther">
+                    <a href="https://www.msn.com/es-mx/salud/other/anuncian-recorte-para-investigaci%C3%B3n-m%C3%A9dica-en-eu-afectar%C3%A1-a-investigaci%C3%B3n-de-c%C3%A1ncer-y-neurodivergencia/ar-AA1yFm55?ocid=BingNewsVerp">
+                    <img src="../img/investigaciónMédica.jpg" alt="Noticia3"></a>
+                </div>
+        
+                <div class="cuadroOther">
+                    <a href="https://www.msn.com/es-mx/autos/general/as%C3%AD-es-el-burnout-autista-cuando-tu-cerebro-dice-hasta-aqu%C3%AD/ar-AA1BRHKY?ocid=BingNewsVerp#">
+                    <img src="../img/burnout.jpg" alt="Noticia4"></a>
+                </div>
+
+                <div class="cuadroOther">
+                    <a href="https://www.msn.com/es-es/salud/other/dra-elena-ben%C3%ADtez-psiquiatra-tener-dos-hijos-neurodivergentes-me-cambi%C3%B3-la-vida/ar-AA1AYNrD?ocid=BingNewsVerp">
+                    <img src="../img/hijosneuro.jpg" alt="Noticia3"></a>
+                </div>
+        
+                <div class="cuadroOther">
+                    <a href="https://www.msn.com/es-mx/autos/general/as%C3%AD-es-el-burnout-autista-cuando-tu-cerebro-dice-hasta-aqu%C3%AD/ar-AA1BRHKY?ocid=BingNewsVerp#">
+                    <img src="../img/cerebro.jpg" alt="Noticia4"></a>
+                </div>
+
+            </div>
+
+             <!-- Bóton de scrolling/desplazamiento derecho -->
+             <span id="btn-r" class="scroll-btn">&#10095;</span>
+        </section>
+
+        <section id="Notirecurr">
+        </section>
+  
+
+
+
+        <section id="Recientes">
+            <div class="types">
+                <h2 class="title">Noticias recientes</h2>
+                <div class="contenedor">
+                    <div class="chart">
+                        <a href="https://eltiempomx.com/noticia/2025/neurodivergencia-sin-etiquetas-congreso-en-monclova-busca-fortalecer-la-inclusion-por-ateams.html">
+                        <img src="../img/congreso.jpg" alt="Imagen 1"></a>
+                        <div class="titulo">'Neurodivergencia sin Etiquetas': Congreso en Monclova busca fortalecer la inclusión por ATEAMS
+                        </div>
+                        <div class="desc">En el arranque del Congreso “Neurodivergencia sin Etiquetas” por parte de ATEAMS, encabezado por la fundadora de la asociación,
+                            Esmeralda Costilla, y su equipo, se contó con la presencia del alcalde Carlos Villarreal y el presidente de la Comisión de Derechos Humanos en 
+                            Coahuila, José Ángel Rodríguez Canales.
+                        </div>
+                    </div>
+            
+                    <div class="chart">
+                        <a href="https://elpopular.mx/ciudadania-y-gobierno/2025/04/03/pepe-chedraui-refuerza-su-compromiso-con-la-inclusion-en-evento-sobre-neurodivergencia">
+                            <img src="../img/Chedraui.webp" alt="Imagen 2"></a>
+                        <div class="titulo">Pepe Chedraui refuerza su compromiso con la inclusión en evento sobre neurodivergencia
+                        </div>
+                        <div class="desc">Con el objetivo de sensibilizar y visibilizar a las personas neurodivergentes, también conocida como trastorno del espectro autista
+                            (TEA) el presidente municipal de Puebla, Pepe Chedraui Budib, acudió al evento "Concientización sobre el Autismo: La Empatía Más Allá de la Discapacidad”.
+                        </div>
+                    </div>
+
+                    <div class="chart">
+                        <a href="https://www.msn.com/es-mx/noticias/other/un-futuro-independiente-la-importancia-de-la-detecci%C3%B3n-temprana-del-autismo/ar-AA1C6CNc?ocid=BingNewsVerp#">
+                            <img src="../img/impas.jpg" alt="Imagen 3"></a>
+                        <div class="titulo">Invitan a caminata “Sumate por la Neurodiversidad y Neurodivergencia
+                        </div>
+                        <div class="desc">Luis Arrieta, director del Instituto Municipal de Prevención y Atención a la Salud, (IMPAS), invitó a la caminata “Súmate por la neurodiversidad 
+                            y neurodivergencia”. Durante su discurso, Arrieta destacó la importancia de concienciar a la sociedad sobre la diversidad presente en las personas con autismo 
+                            y síndrome de Down.
+                        </div>
+                    </div>
+            
+                    <div class="chart">
+                        <a href="https://www.alcontacto.com.mx/2025/03/31/invitan-a-caminata-sumate-por-la-neurodiversidad-y-neurodivergencia/">
+                            <img src="../img/Detección_autismo.jpg" alt="Imagen 4"></a>
+                        <div class="titulo">Un futuro independiente: La importancia de la detección temprana del autismo
+                        </div>
+                        <div class="desc">En el Centro de Atención al Niño Autista de Mexicali (Canam) tienen más de 30 años atendiendo a menores con espectro autista, de los cuales 
+                            muchos llegan a tener una vida adulta de manera independiente.
+
+                            La directora de Canam, Liliana Plumero Aguilar, dio a conocer que cuando los menores son atendidos dentro de los primeros cuatro años de vida, tienen hasta 
+                            un 50% de probabilidad de lograr una vida independiente.
+                        </div>
+                    </div>
+
+                    <div class="chart">
+                        <a href="https://queretaro.quadratin.com.mx/felifer-macias-encendio-los-arcos-en-apoyo-a-la-neurodivergencia/">
+                            <img src="../img/Felipe Macías.jpg" alt="Imagen 5"></a>
+                        <div class="titulo">Felifer Macías encendió Los Arcos en apoyo a la neurodivergencia
+                        </div>
+                        <div class="desc">QUERÉTARO, Qro., 2 de abril de 2025.- En el marco del Día Mundial de Concienciación sobre el Autismo, el Municipio de Querétaro iluminó 
+                            Los Arcos con los colores del arcoíris como un mensaje de inclusión y respeto hacia las personas con esta condición. La iniciativa busca sensibilizar a 
+                            la sociedad sobre la neurodivergencia y promover una mayor empatía.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <h6 class="subtitle">Otras noticias</h6>
+        <section id="Otras">
+            <section class="otrasNoti">
+                <div class="noticiaImg"> 
+                    <a href="https://www.murcia.com/empresas/noticias/2025/04/10-el-instituto-de-neurociencia-avanzada-de-barcelona-inab-se-inaugura-y-apuesta-por-investigar-la-ment.asp">
+                        <img src="../img/neurociencia.jpg" alt="Imagen 1"></a>
+                </div>
+
+                <div class="noticiaText"> 
+                    <h3>El Instituto de Neurociencia Avanzada de Barcelona (INAB) se inaugura y apuesta por investigar la mente y la consciencia humana desde la neurociencia</h3>
+                    <p>El Instituto de Neurociencia Avanzada de Barcelona (INAB) celebró ayer su acto inaugural en el espacio Norrsken Barcelona, reuniendo a referentes del mundo 
+                        de la neurociencia, la consciencia y la innovación. La inauguración, titulada 'La neurociencia de lo posible y lo imposible', marca el inicio oficial de las 
+                        investigaciones de un instituto que nace con el propósito de explorar nuevos paradigmas en la comprensión de la mente humana y la consciencia para trasladarlos 
+                        al día a día de las personas.</p>
+                </div>
+            </section>
+
+            <section class="otrasNoti">
+                <div class="noticiaImg"> 
+                    <a href="https://www.udg.mx/es/noticia/asperger-neurodivergencia-poco-conocida">
+                        <img src="../img/asperger_noticia.jpg" alt="Imagen 2"></a>
+                </div>
+
+                <div class="noticiaText"> 
+                    <h3>Asperger, neurodivergencia poco conocida</h3>
+                    <p>El 18 de febrero se conmemora el Día Internacional del Síndrome de Asperger, del cual, en 2013, fue eliminado su carácter de síndrome como parte de las 
+                        actualizaciones a los manuales de definiciones de enfermedades neuropsiquiátricas y se incluyó como parte del Trastorno del Espectro Autista, nivel 1. </p>
+                </div>
+            </section>
+
+            <section class="otrasNoti">
+                <div class="noticiaImg"> 
+                    <a href="https://uchile.cl/noticias/203037/nueva-ley-tea-avance-trascendental-para-la-poblacion-neurodivergente">
+                        <img src="../img/TEA.jpg" alt="Imagen 3"></a>
+                </div>
+
+                <div class="noticiaText"> 
+                    <h3>Nueva Ley TEA: Un avance trascendental para quienes viven en la neurodivergencia</h3>
+                    <p>Este viernes 10 de marzo entró en vigencia la nueva normativa que establece la promoción de la inclusión, la atención integral y 
+                        la protección de los derechos de las personas que viven en la neurodiversidad (Trastorno del Espectro autista, TEA). Especialistas 
+                        de la Universidad de Chile, de las áreas de la salud mental y educación, valoran esta ley tan esperada por miles de familias chilenas y abordan sus alcances.</p>
+                </div>
+            </section>
+
+            <section class="otrasNoti">
+                <div class="noticiaImg"> 
+                    <a href="https://www.tiempo.com.mx/noticia/invitan_a_caminata_por_la_neurodiversidad_y_neurodivergencia/">
+                        <img src="../img/caminata.jpg" alt="Imagen 4"></a>
+                </div>
+
+                <div class="noticiaText"> 
+                    <h3>Invitan a +Súmate por la neurodiversidad y divergencia</h3>
+                    <p>La marcha +Súmate por la neurodiversidad y divergencia se llevará a cabo el próximo 6 de abril, en la Pascual Orozco, Av. Tecnológico, División 
+                        del Norte, llegando a Domingo Feliz
+
+                        Según Arrieta, la prevalencia del autismo en la población infantil es de aproximadamente uno de cada 100 niños, mientras que el síndrome de 
+                        Down afecta a uno de cada 10.000 niños. Esta amplia diferencia en cifras resalta la necesidad de comprender y apoyar a las personas con estas 
+                        condiciones.
+                        </p>
+                </div>
+            </section>
+
+        </section>
+
+</div>
+
+
+    <!-- Sección del Footer -->
+    <footer class="footer-container">
+        <section id="Footer">
+
+            <!-- Sección superior con navegación inferior y logo-->
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="../img/Logo.png" alt="Logo"></a>
+                </div>
+
+                <!-- Barra de navegación inferior -->
+                <ul class="footer-navbar">
+
+                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma -->
+                    <li><a href="#Destacadas">Destacadas</a></li>
+                    <li><a href="#Importantes">Importantes</a></li>
+                    <li><a href="#Recomendación">Podría interesarte</a></li>
+                    <li><a href="#Recientes">Noticias recientes</a></li>
+                    <li><a href="#Otras">Otras noticias</a></li>
+                </ul>
+            </div>
+
+            <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+            <div class="footer-bottom">
+                <p>© 2025 Mentes en armonía</p>
+
+                <div class="socials">
+                    <a href="https://www.youtube.com/">
+                        <img src="../img/youtube.png" alt="Youtube"></a>
+                    <a href="https://www.facebook.com/?locale=es_LA">
+                        <img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/">
+                        <img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/?lang=es&mx=2">
+                        <img src="../img/twitter.png" alt="Twitter/X"></a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="../javascript/Noticias.js"></script>
+</body>
+</html>
+
+

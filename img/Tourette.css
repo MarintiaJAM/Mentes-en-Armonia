@@ -16,48 +16,45 @@
 
 
 html {
-    scroll-behavior: smooth; /*Hace que el desplazamiento por a página sea suave en lugar de un salto brusco*/
+    scroll-behavior: smooth; /*Desplazamiento suave al hacer clic en enlaces internos*/
 }
 
-/*"CUERPO GENERAL" Con este bloque asignamos el estilo predeterminado al cuerpo.*/
+/*"CUERPO GENERAL" Estilos base del body*/
 body{
-    text-align: justify; /*Hace que todo el texto este justificado, dandole una apariencia profesional*/
-    font-family: 'Ubuntu', sans-serif; /*Indica que la fuente del body será tipo "Ubuntu" en primera instancia, o tipo "sans-serif
-    si no encuentra la primer fuente*/
-    background-color: #faf8e1; /*Le asigna un color al fondo general de la página*/
-    margin: 0;
+    text-align: justify; /*Justifica el texto en todo el cuerpo del documento*/
+    font-family: 'Ubuntu', sans-serif; /*Usa la fuente Ubuntu y, en caso de no estar disponible, una fuente genérica sans-serif*/
+    background: url('../img/fondobody.jpg') repeat; /*Aplica una imagen con patrón al fondo en los laterales (10%) de la página*/
 }
 
 
-/*"LETRA GENERAL" Con este bloque asignamos el estilo predeterminado a la letra*/
+/*"LETRA GENERAL" Estilos predeterminados para la letra y los párrafos*/
 p{
-    margin-top: 15px;
-    margin-bottom: 40px; /*Este da un margen de 40 pixeles creando un espacio entre cada letra*/
-    font-size: 18px; /*Indica que el tamaño de la letra será de 18 pixeles*/
-    color: #453c5c; /*Le da a la letra un colo oscuro para resaltar de el fondo*/
-    padding: 0 100px; /*Crea un margen interno en los lados sin afectar la parte superior e inferior de la fuente*/
+    margin-bottom: 40px; /*Agrega un espacio de 40 píxeles entre párrafos*/
+    font-size: 20px; /*Indica que el tamaño de la letra será de 18 pixeles*/
+    color: #453c5c; /*Usa el color de texto predeterminado en tono morado oscuro*/
+    padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
 }
 
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-   margin: 40px;
-    font-size: 45px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    color:#453c5c;
-}
-
-
-.subtitle{
-    margin: 20px;
-    font-size: 25px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    color:#453c5c;
-}
+    margin: 40px;
+     font-size: 45px;
+     font-weight: 600;
+     text-transform: uppercase;
+     text-align: center;
+     color:#453c5c;
+ }
+ 
+ 
+ .subtitle{
+     margin: 20px;
+     font-size: 25px;
+     font-weight: 600;
+     text-transform: uppercase;
+     text-align: center;
+     color:#453c5c;
+ }
 
 
 /*"ENCABEZADO MENÚ" Estilos del menú principal.*/
@@ -73,7 +70,7 @@ p{
     padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
     flex-wrap: nowrap; /*Evita que los elementos se desborden en otra línea*/
-    z-index: 100; /*Asegura que el menú permanezca por encima de otros elementos*/
+    z-index: 1000; /*Asegura que el menú permanezca por encima de otros elementos*/
     flex-wrap: wrap; /*Permite que los elementos se distribuyan en varias líneas si es necesario*/
 }
 
@@ -134,7 +131,7 @@ p{
     text-decoration: none; /*Elimina el subrayado predeterminado los enlaces*/
     text-transform: uppercase; /*Convierte el texto a mayúsculas*/
     text-align: center; /*Centra el texto horizontalmente*/
-    font-size: 13.5px; /*Tamaño del texto*/
+    font-size: 14px; /*Tamaño del texto*/
     transition: transform 0.25s ease-in-out;
 }
 
@@ -152,7 +149,7 @@ p{
     position: absolute; /*Posiciona el submenú en relación con el elemento padre*/
     background-color: #2d938e; /*Color de fondo igual al del menú*/
     min-width: 160px; /*Ancho mínimo del submenú*/
-    z-index: 1; /*Asegura que el submenú esté por encima de otros elementos*/
+    z-index: 1000; /*Asegura que el submenú esté por encima de otros elementos*/
     top: 100%; /*Ubica el submenú justo debajo del elemento principal*/
     left: 0; /*Alinea el submenú con el borde izquierdo del ítem*/
     opacity: 0; /*Inicicalmente invisible*/
@@ -268,7 +265,7 @@ p{
     background-color: #ff6b6b; /*Color rosa coral para el fondo*/
     padding: 8px 14px; /*Margen interno para definir la extensión del fondo*/
     border-radius: 20px; /*Bordes redondeados*/
-    transition: background 0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
+    transition:0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
 }
 
 /*Estilos del ícono del búsqueda*/
@@ -279,17 +276,6 @@ p{
 /*Efecto al pasar el cursor sobre el botón*/
 .login-button:hover {
     background-color: #e55b5b; /*Cambio de color de fondo al pasar el cursor*/
-}
-
-
-/*"CONTENIDO PRINCIPAL DE PÁGINA"*/
-.container {
-    width: 80%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
-    margin: 0 auto; /*Centra el contenedo horizontalmente*/
-    padding: 5px 0 0 0; /*Agrega un margen interior superior*/
-    background-color: #faf8e1; /*Color amarillo muy claro para el fondo general*/
-    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
 }
 
 
@@ -327,6 +313,8 @@ p{
 
 /*"SUBMENÚ"*/
 .submenu{
+    position: sticky; /* Hace que el elemento se fije en la parte superior del viewport cuando se hace scroll */   
+    top: 0;      /* Hace que el elemento se fije en la parte superior del viewport cuando se hace scroll */
     display: flex; /*Alinea los elementos en una fila*/
     align-items: center; /*Centra verticalmente los elementos*/
     width: 100%; /*Ocupa todo el ancho disponible*/
@@ -336,9 +324,10 @@ p{
     /*padding: 20px 25px; Agrega espacio a los lados para que no pegue al borde*/
     padding: 5px 25px 5px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
-    z-index: 100; /*Controla qué elemento está "encima" de otro cuando se superponen.*/
-    /*flex-wrap: wrap;  Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
+    /*Controla qué elemento está "encima" de otro cuando se superponen.*/
+    z-index: 100;/*flex-wrap: wrap;  Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
 }
+
 
 .table{
     display: flex; /*Usa flexbox para organizar los elementos en fila*/
@@ -371,7 +360,7 @@ p{
     line-height: 60px; /* Centra el texto verticalmente */
     color: white; /*Cambia el color del texto a blanco*/
     text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
-    font-size: 15px; /*Define el tamaño de fuente*/
+    font-size: 16px; /*Define el tamaño de fuente*/
     transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
@@ -384,15 +373,24 @@ p{
 
 
 /*"ICONO TRADUCTOR"*/
-.lenguajes{
+.traductor{
     margin-left: auto; /*Separa al icono de traductor del contenido de la lista del submenú*/
     font-size: 35px; /*Tamaño del icono*/
 }
 
+.traductor:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7));
+}
+
 /*Estilo del icono de traducción*/
-.lenguajes i{
+.traductor i{
     color: #93ebf7; /*Color azul claro para el ícono de traductor*/
     cursor: pointer;
+}
+
+#translateBtn {
+    background-color: transparent;  /* Quita el fondo blanco que se le coloca al icono del traductor */
 }
 
 
@@ -419,15 +417,14 @@ p{
 }
 
 
-/*"CONTENIDO PRINCIPAL"*/
+/*"CONTENIDO PRINCIPAL DE PÁGINA"*/
 .container {
-    width: 80%; 
-    margin: 0px auto;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    background-color: #fffdd1;
-    box-sizing: border-box;
-    box-shadow: 0 4px 6px rgba(233, 229, 229, 0.1); /*Añadé sombra al fonod haciendo que se vea ligeramente tipo 3D*/
+    width: 90%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
+    margin: 0 auto; /*Centra el contenedo horizontalmente*/
+    padding: 5px 0 0 0; /*Agrega un margen interior superior*/
+    background-color: #faf8e1; /*Color amarillo muy claro para el fondo general*/
+    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
 }
 
 

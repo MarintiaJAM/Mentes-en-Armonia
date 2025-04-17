@@ -19,6 +19,8 @@
 
 <body>
 
+
+<header>
     <!-- Ménu de navegación principal-->
     <nav class="menu" id="Menu">
         <div class="logo"> <!-- Contenedor del logo -->
@@ -45,14 +47,14 @@
                     <li><a href="Autismo.html">Autismo</a></li>
                     <li><a href="TDAH.html">TDAH</a></li>
                     <li><a href="Dislexia.html">Dislexia</a></li>
-                    <li><a href="Tourette.html">ST</a></li>
+                    <li><a href="Tourette.html">Tourette</a></li>
                     <li><a href="Dispraxia.html">Dispraxia</a></li>
                     <li><a href="Discalculia.html">Discalculia</a></li>
-                    <li><a href="Ansiedad.html">TA</a></li>
+                    <li><a href="Ansiedad.html">Ansiedad</a></li>
                 </ul>
             </li>
-            <li><a href="#Lineap">Líneas de apoyo</a></li>
-            <li><a href="#Recursos">Centro de recursos</a></li>
+            <li><a href="#Lineap">Experiencias y comunidad</a></li>
+            <li><a href="Noticias.html">Noticias</a></li>
         </ul>
 
         <!-- Barra de búsqueda en la esquina superior izquierda -->
@@ -66,10 +68,11 @@
             <a href="#" class="login-button"><i class="fas fa-user"></i> Iniciar sesión</a>
         </div>
     </nav>
+</header>
 
 
-    <!-- Submenú de mavegación -->
-    <nav class="submenu">
+    <!-- Submenú de navegación -->
+    <nav id="subMenu" class="submenu">
         <ul class="table">
             <li><a href="#Menu">Inicio</a></li>
             <li><a href="#Acerca de">Acerca de</a></li>
@@ -80,8 +83,10 @@
             <li><a href="#Footer">Footer</a></li>
         </ul>
 
-        <div class="lenguajes">
-            <i class="fas fa-language"></i>
+        <div class="traductor">
+            <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
+            <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
+            <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
         </div>
     </nav>
 
@@ -101,7 +106,7 @@
             <h2 class="title">Mentes en armonía</h2>
 
             <h6>"Una mente distinta no es motivo de discriminación"</h6>
-            <p>Buscamos visibilizar las acciones que se pueden cometer como sociedad para favorecer la interaccion
+            <p data-translate="saludo">Buscamos visibilizar las acciones que se pueden cometer como sociedad para favorecer la interaccion
                 entre personas, facilitando a quienes sean neurodivergentes una interacción sana en un ambiente de
                 inclusión.
             </p>
@@ -121,7 +126,7 @@
                     favor, si no un derecho que todas las personas se merecen, neurodivergentes o no, cualquiera merece respeto
                     y oportunidades para explorar su potencial.
                 </p>
-                <a href="Acerca de.html" class="btn">Saber más</a>
+                <a href="Nosotros.html" class="btn">Saber más</a>
             </section>
         </section>
 
@@ -274,25 +279,51 @@
 
 
         <!-- Sección de líneas de apoyo -->
-        <section class="content Lineap">
-            <section id="Lineap">
-                <h2 class="title">Líneas de apoyo</h2>
+        <section id="Lineap">
+            <h2 class="title">Líneas de apoyo</h2>
                 <p>A lo largo del tiempo se han presentado casos de bullying hacia personas neurodivergentes por su
                     conción. <br>
                     Si tú eres una de estas no dudes en llamar a algúnas de estas líneas de apoyo. <br>
                 </p>
+            <div class="contenedor-lineap">
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
 
-                <div class="list">
-                    <ul>
-                        <!-- Lista de líneas de apoyo con enlaces y números de contacto -->
-                        <li><a href="https://www.gob.mx/sep/acciones-y-programas/educatel-acoso-escolar">SEP 800 11
-                                22676 </a></li>
-                        <li>900 018 018: Teléfono gratuito contra el acoso escolar </li>
-                        <li>911: Para emergencias relacionadas con bullying en cualquier contexto.</li>
-                        <li>089: Para denuncias anónimas sobre situaciones pasadas de acoso.</li>
-                    </ul>
-                </div>
-            </section>
+                        <label for="btn-acordeon1">
+                            <p>911: Para emergencias relacionadas con bullying en cualquier contexto <i class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                    <div class="contenido-acordeon">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
+                                     inventore voluptate. Accusamus delectus at asperiores totam? Laudantium
+                                     enim unde porro, possimus debitis pariatur at, iure animi nobis eum consequatur! Dolorem!</p>
+                            </div>
+                        </div>
+                
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
+
+                            <label for="btn-acordeon2">
+                                <p>911: Para emergencias relacionadas con bullying en cualquier contexto <i class="fas fa-chevron-down chevron"></i></p>
+                            </label>
+                        <div class="contenido-acordeon">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quos dolores, culpa eligendi et at cum eum debitis, 
+                                deserunt ut exercitationem provident dolorum quia atque delectus repudiandae! Eum, in illum.</p>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon3" class="btn-acordeon">
+
+                            <label for="btn-acordeon3">
+                                <p>SEP 800 1122676 <i class="fas fa-chevron-down chevron"></i></p>
+                            </label>
+                        <div class="contenido-acordeon">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia error autem numquam reprehenderit 
+                                aperiam perspiciatis officiis maiores nisi doloremque? Nemo numquam mollitia reiciendis eius odit 
+                                explicabo sed vel nihil voluptate!</p>
+                        </div>
+                    </div>
+            </div>
         </section>
 
 
@@ -308,105 +339,524 @@
                     dislexia
                     y otras formas de neurodivergencia.</p>
 
-                <h3>Videos</h3>
+                <h3>----- Videos -----</h3>
 
-                <div class="scroll-container">
-                    <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                    <span id="btn-left" class="scroll-btn">&#10094;</span>
+                <ul id="tabs">
+                    <li><a href="#tab1" class="active">Neurodivergencia</a></li> <!-- Pestaña activa por defecto -->
+                    <li><a href="#tab2">Autismo</a></li>
+                    <li><a href="#tab3">TDAH</a></li>
+                    <li><a href="#tab4">Dislexia</a></li>
+                    <li><a href="#tab5">Tourette</a></li>
+                    <li><a href="#tab6">Dispraxia</a></li>
+                    <li><a href="#tab7">Discalculia</a></li>
+                    <li><a href="#tab8">Ansiedad</a></li>
+                </ul>
 
-                    <div class="scrolling-videos">
-                        <!-- Cada "video" representa un recurso multimedia -->
-                        <div class="video">
-                            <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">
-                                <img src="../img/Video1.jpg" alt="Video1"></a>
-                            <h4> <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">Neurodivergencia:
-                                    construyendo un concepto</a></h3>
-                                <p>Explora el concepto de neurodivergencia, explicando su importancia y
-                                    cómo afecta a las personas. Se enfoca en la diversidad en el funcionamiento
-                                    cerebral y el comportamiento humano.</p>
-                        </div>
+                <!-- Contenedor de los contenidos de cada pestaña -->
+                <div id="tabs-container">
 
-                        <div class="video">
-                            <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">
-                                <img src="../img/Video2.jpg" alt="Video2"></a>
-                            <h4> <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">¿Qué es la
-                                    neurodivergencia?</a></h3>
-                                <p>Carmen Amezcua, psiquiatra enfocada en psiquiatría integrativa,
-                                    habla sobre la neurodivergencia y los diferentes tipos que existen.
-                                    Proporciona una visión general del tema y su relevancia en la sociedad actual.</p>
-                        </div>
+                    <div class="tab-content" id="tab1">
 
-                        <div class="video">
-                            <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">
-                                <img src="../img/Video3.jpg" alt="Video3"></a>
-                            <h4> <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">Los distintos tipos de
-                                    neurodivergencia | Sana Mente</a></h3>
-                                <p>Aborda los diferentes tipos de neurodivergencia, explicando cómo cada
-                                    uno afecta a las personas de manera única. Se enfoca en la importancia
-                                    de comprender y aceptar estas diferencias para promover una sociedad más inclusiva.
-                                </p>
-                        </div>
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
 
-                        <div class="video">
-                            <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy">
-                                <img src="../img/Video4.jpg" alt="Video4"></a>
-                            <h4> <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy">NEURODIVERSIDAD y las
-                                    DIFERENCIAS de PERCEPCIÓN Y APRENDIZAJE</a></h3>
-                                <p>En este video se explica como los problemas o los síntomas negativos son evidentes,
-                                    pero una parte lo que los hace distintos también proporciona pasion por descubrir
-                                    y virtudes por practicar.</p>
-                        </div>
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">
+                                        <img src="../img/Video1.jpg" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">Neurodivergencia:
+                                            construyendo un concepto</a></h3>
+                                        <p>Explora el concepto de neurodivergencia, explicando su importancia y
+                                            cómo afecta a las personas. Se enfoca en la diversidad en el funcionamiento
+                                            cerebral y el comportamiento humano.</p>
+                                </div>
 
-                        <div class="video">
-                            <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6">
-                                <img src="../img/Video5.jpg" alt="Video5"></a>
-                            <h4> <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6">What is Neurodiversity: A
-                                    Video for Children</a></h3>
-                                <p>En este video se habla de la discalculia, como puede identificarse con los criterios
-                                    actuales los trastornos del aprendizaje y del comportamiento.</p>
-                        </div>
+                                <div class="video">
+                                    <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">
+                                        <img src="../img/Video2.jpg" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">¿Qué es la
+                                            neurodivergencia?</a></h3>
+                                        <p>Carmen Amezcua, psiquiatra enfocada en psiquiatría integrativa,
+                                            habla sobre la neurodivergencia y los diferentes tipos que existen.
+                                            Proporciona una visión general del tema y su relevancia en la sociedad
+                                            actual.</p>
+                                </div>
 
-                        <div class="video">
-                            <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb">
-                                <img src="../img/Video6.jpg" alt="Video6"></a>
-                            <h4> <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb">Los distintos tipos de
-                                    neurodivergencia | Sana Mente</a></h3>
-                                <p>Este video habla de la dislexia, como su porcentaje de diagnostico en quien la
-                                    presenta es mínimo y que se puede superar, concientizándonos sobre la importancia de
-                                    tratarla.</p>
-                        </div>
+                                <div class="video">
+                                    <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">
+                                        <img src="../img/Video3.jpg" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">Los distintos tipos
+                                            de
+                                            neurodivergencia | Sana Mente</a></h3>
+                                        <p>Aborda los diferentes tipos de neurodivergencia, explicando cómo cada
+                                            uno afecta a las personas de manera única. Se enfoca en la importancia
+                                            de comprender y aceptar estas diferencias para promover una sociedad más
+                                            inclusiva.
+                                        </p>
+                                </div>
 
-                        <div class="video">
-                            <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX">
-                                <img src="../img/Video7.jpg" alt="Video7"></a>
-                            <h4> <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX">Los distintos tipos de
-                                    neurodivergencia | Sana Mente</a></h3>
-                                <p>En este video se habla de que es el TDAH y cómo puede tratarse.</p>
-                        </div>
+                                <div class="video">
+                                    <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy">
+                                        <img src="../img/Video4.jpg" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy">NEURODIVERSIDAD y
+                                            las
+                                            DIFERENCIAS de PERCEPCIÓN Y APRENDIZAJE</a></h3>
+                                        <p>En este video se explica como los problemas o los síntomas negativos son
+                                            evidentes,
+                                            pero una parte lo que los hace distintos también proporciona pasión por
+                                            descubrir
+                                            y virtudes por practicar.</p>
+                                </div>
 
-                        <div class="video">
-                            <a href="https://youtu.be/mYgaF5_fyhU?si=lJR83Tz_7Zn5xOYI">
-                                <img src="../img/Video8.jpg" alt="Video8"></a>
-                            <h4> <a href="https://youtu.be/mYgaF5_fyhU?si=lJR83Tz_7Zn5xOYI">Los distintos tipos de
-                                    neurodivergencia | Sana Mente</a></h3>
-                                <p>Este video trata sobre el debate de si hay que considerar condiciones como el autismo
-                                    como trastornos o como parte natural de la diversidad humana, dando la última opción
-                                    como una respuesta que fomenta la sana convivencia.</p>
-                        </div>
+                                <div class="video">
+                                    <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6">
+                                        <img src="../img/Video5.jpg" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6">What is
+                                            Neurodiversity: A
+                                            Video for Children</a></h3>
+                                        <p>En este video se habla de la discalculia, como puede identificarse con los
+                                            criterios
+                                            actuales los trastornos del aprendizaje y del comportamiento.</p>
+                                </div>
 
-                        <div class="video">
-                            <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd">
-                                <img src="../img/Video9.jpg" alt="Video9"></a>
-                            <h4> <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd">Los distintos tipos de
-                                    neurodivergencia | Sana Mente</a></h3>
-                                <p>En este video se aborda de forma general el tratamiento del TOC, basado en el libro
-                                    de Aaron T. Beck: Terapia cognitiva para trastornos de ansiedad.</p>
+                                <div class="video">
+                                    <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb">
+                                        <img src="../img/Video6.jpg" alt="Video6"></a>
+                                    <h4> <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb">Los distintos tipos
+                                            de
+                                            neurodivergencia | Sana Mente</a></h3>
+                                        <p>Este video habla de la dislexia, como su porcentaje de diagnostico en quien
+                                            la
+                                            presenta es mínimo y que se puede superar, concientizándonos sobre la
+                                            importancia de
+                                            tratarla.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX">
+                                        <img src="../img/Video7.jpg" alt="Video7"></a>
+                                    <h4> <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX">Los distintos tipos
+                                            de
+                                            neurodivergencia | Sana Mente</a></h3>
+                                        <p>En este video se habla de que es el TDAH y cómo puede tratarse.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/mYgaF5_fyhU?si=lJR83Tz_7Zn5xOYI">
+                                        <img src="../img/Video8.jpg" alt="Video8"></a>
+                                    <h4> <a href="https://youtu.be/mYgaF5_fyhU?si=lJR83Tz_7Zn5xOYI">Los distintos tipos
+                                            de
+                                            neurodivergencia | Sana Mente</a></h3>
+                                        <p>Este video trata sobre el debate de si hay que considerar condiciones como el
+                                            autismo
+                                            como trastornos o como parte natural de la diversidad humana, dando la
+                                            última opción
+                                            como una respuesta que fomenta la sana convivencia.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd">
+                                        <img src="../img/Video9.jpg" alt="Video9"></a>
+                                    <h4> <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd">Los distintos tipos
+                                            de
+                                            neurodivergencia | Sana Mente</a></h3>
+                                        <p>En este video se aborda de forma general el tratamiento del TOC, basado en el
+                                            libro
+                                            de Aaron T. Beck: Terapia cognitiva para trastornos de ansiedad.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
                         </div>
                     </div>
 
-                    <!-- Bóton de scrolling/desplazamiento derecho -->
-                    <span id="btn-right" class="scroll-btn">&#10095;</span>
+                    <div class="tab-content" id="tab2">
 
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab3">
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab4">
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab5">
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab6">
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab7">
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab8">
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span id="btn-left" class="scroll-btn">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="#">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video"></a>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
+                                            nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
+                                            exercitationem deleniti similique natus fugit soluta quibusdam distinctio
+                                            voluptatum quasi aliquid accusantium.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span id="btn-right" class="scroll-btn">&#10095;</span>
+
+                        </div>
+                    </div>
                 </div>
             </section>
         </section>

@@ -20,6 +20,8 @@
 
 
 <body>
+
+    <header>
     <!-- Barra de navegación principal -->
     <nav class="menu" id="Menu">
 
@@ -46,17 +48,17 @@
          <li class="dropdown">
          <a href="#Neurodivergencia">Neurodivergencia <i class="fas fa-chevron-down chevron"></i> </a>
          <ul class="dropdown-content">
-             <li><a href="Autismo.html">Autismo</a></li>
+            <li><a href="Autismo.html">Autismo</a></li>
              <li><a href="TDAH.html">TDAH</a></li>
              <li><a href="Dislexia.html">Dislexia</a></li>
-             <li><a href="Tourette.html">ST</a></li>
+             <li><a href="Tourette.html">Tourette</a></li>
              <li><a href="Dispraxia.html">Dispraxia</a></li>
              <li><a href="Discalculia.html">Discalculia</a></li>
-             <li><a href="Ansiedad.html">TA</a></li>
+             <li><a href="Ansiedad.html">Ansiedad</a></li>
            </ul>
          </li>
-         <li><a href="Apoyo.html">Apoyo</a></li>
-        <li><a href="Comunidad.html">Experiencias y comunidad</a></li>
+         <li><a href="Apoyo.html">Experiencias y comunidad</a></li>
+        <li><a href="Noticias.html">Noticias</a></li>
      </ul>
  
         <!-- Barra de búsqueda en la esquina superior izquierda -->
@@ -70,6 +72,7 @@
             </div>
         </div>
 </nav>
+</header>
 
 <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
 <a href="#Menu" class="scroll" id="scrollTop">
@@ -84,12 +87,13 @@
             <li><a href="#Identification">Diagnóstico y características principales</a></li>
             <li><a href="#Dificults">Desafíos y fortalezas</a></li>
             <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
-            <li><a href="#Recursos">Recursos adicionales</a></li>
             <li><a href="#Footer">Footer</a></li>
         </ul>
-    <div class="lenguajes">
-        <i class="fas fa-language"></i>
-    </div>
+        <div class="traductor">
+            <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
+            <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
+            <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
+        </div>
 </nav>
 
 
@@ -351,10 +355,8 @@ s
                     </div>
                 </div>
             </div>
-       </div>
-    </div>
         </section>
-
+        
 
         <section id="Apoyo"> 
             <div class="ayuda">
@@ -371,11 +373,15 @@ s
                 </p>
         </div>
         </section>
+
+
+
+</div>
 <!--  Mejorar para ver si añadimos esto en forma de vídeos, enlaces a otras páginas, o ver si mejor lo nerfeamos
         <section id="seccion5">
             <h2 class="title">Testimonios o historias</h2>
         </section> -->
-</div>
+
 
 
 <footer class="footer-container">
@@ -397,9 +403,7 @@ s
                     <li><a href="#Introduction">Introducción al tema</a></li>
                     <li><a href="#Identification">Diagnóstico y características principales</a></li>
                     <li><a href="#Dificults">Desafíos y fortalezas</a></li>
-                    <li><a href="#sectiontypes">Tipos de Autismo</a></li>
                     <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
-                    <li><a href="#Recursos">Recursos adicionales</a></li>
                 </ul>               
         </div>
 

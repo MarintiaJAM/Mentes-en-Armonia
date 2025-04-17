@@ -68,31 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-//"TRADUCTOR"
-const translations = { //Constante de nombre "translations" que funciona como un diccionario de idiomas
-    es: { //Atributos en español
-      saludo: "Buscamos visibilizar las acciones que se pueden cometer como sociedad para favorecer la interaccion entre personas, facilitando a quienes sean neurodivergentes una interacción sana en un ambiente de inclusión."
-    },
-    en: { //Atributos en inglés
-      saludo: "We seek to make visible the actions that can be committed as a society to favor interaction between people, facilitating healthy interaction in an environment of inclusion for those who are neurodivergent."
-    }
-  };
-
-  let currentLang = 'es'; //Esta variable guarda el idioma actual.
-
-  function translateTo(lang) { //Esta función traduce al idioma que cambies (por ejemplo 'en').
-    document.querySelectorAll('[data-translate]').forEach(el => { //busca todos los elementos del HTML que tienen el atributo data-translate.
-      const key = el.getAttribute('data-translate'); //Encuentra atributo a traducir y cambia el texto por su versión traducida.
-      el.textContent = translations[lang][key] || el.textContent; //Si no se encuentra una traducción dejará el texto original
-    });
-  }
-
-  function toggleLanguage() {
-    currentLang = currentLang === 'es' ? 'en' : 'es'; //Si el idioma actual es español, cambiará a inglés. Si no, cambiará a español.
-    translateTo(currentLang); //Llama a la función de traducción y le pasa el nuevo idioma.
-  }
-
-
 //"SCROLL"
 
 let scrollBtn = document.getElementById("scrollTop"); //Busca el de scroll en el html a través del ID, que sería
@@ -110,10 +85,10 @@ window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el
 //"SCROLLING DE VIDEOS"
 const rightBtn = document.querySelector("#btn-right");
 const leftBtn = document.querySelector("#btn-left");
-const content = document.querySelector(".scrolling-videos");
+const content = document.querySelector(".scrolling-noticias");
 
 // Cantidad a desplazar (ancho de un video + margen)
-const scrollAmount = document.querySelector(".video").offsetWidth + 25;
+const scrollAmount = document.querySelector(".cuadroNot").offsetWidth + 20;
 
 // Función para desplazarse
 rightBtn.addEventListener("click", () => {
@@ -125,25 +100,37 @@ leftBtn.addEventListener("click", () => {
 });
 
 
-//"ACTIVACIÓN DE PESTAÑAS"
+//"SCROLLING DE VIDEOS"
+const rghtBtn = document.querySelector("#btn-rght");
+const lftBtn = document.querySelector("#btn-lft");
+const cntent = document.querySelector(".importcontainer");
 
-// Selecciona todos los enlaces dentro del contenedor de pestañas
-const tabs = document.querySelectorAll('#tabs a');
+// Cantidad a desplazar (ancho de un video + margen)
+const scrollAmnt = document.querySelector(".cuadroimport").offsetWidth + 20;
 
-// Agrega un evento de clic a cada pestaña
-tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-        // Remueve la clase "active" de todas las pestañas
-        tabs.forEach(t => t.classList.remove('active'));
-
-        // Agrega la clase "active" solo a la pestaña a la que se hizo clic
-        this.classList.add('active');
-    });
+// Función para desplazarse
+rghtBtn.addEventListener("click", () => {
+    cntent.scrollLeft += scrollAmnt;
 });
 
-// Redirige automáticamente al #tab1 si no hay ancla en la URL
-document.addEventListener("DOMContentLoaded", function () {
-    if (!window.location.hash) {
-      window.location.hash = "#tab1";
-    }
-  });
+lftBtn.addEventListener("click", () => {
+    cntent.scrollLeft -= scrollAmnt;
+});
+
+
+//"SCROLLING DE VIDEOS"
+const rBtn = document.querySelector("#btn-r");
+const lBtn = document.querySelector("#btn-l");
+const contnt = document.querySelector(".otrascontainer");
+
+// Cantidad a desplazar (ancho de un video + margen)
+const scrollAmont = document.querySelector(".cuadroOther").offsetWidth + 20;
+
+// Función para desplazarse
+rBtn.addEventListener("click", () => {
+    contnt.scrollLeft += scrollAmont;
+});
+
+lBtn.addEventListener("click", () => {
+    contnt.scrollLeft -= scrollAmont;
+});

@@ -36,6 +36,16 @@ p{
     padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
 }
 
+.subtitle{
+    margin-top:20px;
+    margin-left: 45px;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: justify;
+    color:#453c5c;
+}
+
 
 /*"ESTILO LINKS" Estilos para los enlaces en diferentes estados de interacción*/
 
@@ -164,7 +174,9 @@ a:visited {
   
 .dropdown-content a {
     color: white; /*Color del texto de los enlaces del submenú*/
-    padding: 4px 10px; /*Espaciado interno para mejorar la apariencia*/
+    padding: 6px 12px; /*Espaciado interno para mejorar la apariencia*/
+    line-height: 1.2;  /*Ajusta la altura de línea para mejor lectura*/
+    height: 20px; /*Define una altura fija*/
     text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
     display: block; /*Asegura que los enlaces se muestren en columnas (uno debajo del otro)*/
   }
@@ -184,7 +196,7 @@ a:visited {
   /*Rotación del Chevron al mostrar el submenú cuando el cursor se pone sobre este*/
 .dropdown:hover .chevron {
     transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
-}
+  }
   
 
 /*"ADAPTADOR DEL MENÚ PARA CELULARES"*/
@@ -294,7 +306,6 @@ a:visited {
     width: 40px; /*Ancho del botón*/
     height: 40px; /*Alto del botón*/
     background: #d33649; /*Color del fondo del botón*/
-    color: #fff;
     text-align: center; /*Ya que la flecha cuenta como texto en este caso, esto ayuda a que se mantenga
     centrada dentro del círculo*/
     line-height: 40px; /*Centra el ícono de la flecha verticalmente*/
@@ -362,10 +373,10 @@ a:visited {
 
 /*Estilos para los enlaces del menú*/
 .table li a {
-    padding: 0 16px; /*Agrega espacio a los lados*/
-    display: block; /*Permite que el enlace ocupe toda el área disponible*/
-    height: 60px; /*Hace que el enlace tenga la misma altura que su contenedor*/
-    line-height: 60px; /*Centra el texto verticalmente*/
+    padding: 0 16px; /* Agrega espacio a los lados */
+    display: block; /* Permite que el enlace ocupe toda el área disponible */
+    height: 85%px; /* Hace que el enlace tenga la misma altura que su contenedor */
+    line-height: 60px; /* Centra el texto verticalmente */
     color: white; /*Cambia el color del texto a blanco*/
     text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
     font-size: 16px; /*Define el tamaño de fuente*/
@@ -384,12 +395,11 @@ a:visited {
 .traductor{
     margin-left: auto; /*Separa al icono de traductor del contenido de la lista del submenú*/
     font-size: 35px; /*Tamaño del icono*/
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
 }
 
 .traductor:hover{
     transform: scale(1.1);
-    filter: drop-shadow(6px 8px 0px rgba(4, 46, 33, 0.7));
+    filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7));
 }
 
 /*Estilo del icono de traducción*/
@@ -402,42 +412,9 @@ a:visited {
     background-color: transparent;  /* Quita el fondo blanco que se le coloca al icono del traductor */
 }
 
-/*"HEADER/ENCABEZADO"*/
-
-/*"CUERPO HEADER" Estilos generales del encabezado*/
-.header{
-    height: 60vh; /*Define la altura al 60% de la pantalla*/
-    display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
-    justify-content: center; /*Centra los elementos horizontalmente*/
-    align-items: center; /*Centra los elementos verticalmente*/
-    background-image: url(../img/header.png); /*Imagen de fondo para el header*/
-    filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
-    background-attachment: fixed; /*La imagen de fondo permanece fija al hacer scroll*/    
-    background-repeat:no-repeat center; /*Evita que la imagen de fondo se repita*/
-    background-size: cover; /*Ajusta la imagen para cubrir todo el encabezado*/
-}
-
-/*"FRASE HEADER¨*/
-.header h6{
-    margin: 10px 0 20px 0; /*Margen externo superior de 10px e inferior de 20px*/
-    font-family: 'Dancing Script', cursive; /*Fuente personalizada en cursiva*/
-    color: #fff; /*Color blanco para el texto*/
-    text-align: center; /*Centra el texto horizontalmente*/
-    font-size: 28px; /*Tamaño del texto*/
-}
-
-/*"LETRA HEADER" Estilos del párrafo dentro del encabezado*/
-.header p{
-    color: #fff; /*Color del texto en blanco*/
-    font-size: 20px; /*Tamaño del texto dentro del header*/
-    font-weight: 800; /*Darle el formato a negrita*/
-    text-align: center; /*Centra el texto*/
-}
-
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-    margin-top: 40px; /*Margen exterior superior*/
     margin-bottom: 40px; /*Margen exterior superior*/
     font-size: 45px; /*Tamaño del título*/
     font-weight: 600; /*Grosor de la fuente*/
@@ -447,384 +424,78 @@ a:visited {
 }
 
 
-/*"SOBRE NOSOTROS"*/
-.about{
-    display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
-    flex-direction: column; /*Organiza los elementos en columna*/
-    align-items: center; /*Centra los elementos horizontalmente*/
-    text-align: center; /*Centra el texto*/
-    background-color: #0f7d7e; /*Color de fondo*/
-    padding: 15px 0 30px 0; /*Espaciado con margen interno*/
-    margin: 15px; /*Espaciado con margen externo*/
-    border-radius: 5px; /*Bordes ligeramente redondeados*/
+/*""HEADER*/
+.header{
+    background-color: #f87988;
+    height: 70px; /* Define la altura del header como el 45% de la altura de la ventana del navegador */
+    justify-content: center; /* Centra el contenido del header horizontalmente */
+    align-items: center; /* Centra el contenido del header verticalmente */
 }
 
-.about p{
-    color:#fff;
-}
-
-.about h2{
-    color:#fff;
-}
-
-/*Estilos para los enlaces dentro de la sección*/
-.about a {
-    display: block; /*Este impide que se pueden modificar multiples de los atributos dentro de esta sección*/
-    justify-content: center; /*Alinea los elementos de un contenedor en el centro a lo largo del eje principal (horizontalmente por defecto)*/
-    text-align: center; /*Centra el texto*/
-
+/*CONTENIDO DE PÁGINA*/
+/*En este bloque se hace más pequeño la expansión de la página en la pantalla*/
+.container {
+    width: 90%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
+    margin: 0 auto; /*Centra el contenedo horizontalmente*/
+    padding: 5px 0 0 0; /*Agrega un margen interior superior*/
+    background-color: #faf8e1; /*Color amarillo muy claro para el fondo general*/
+    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
 }
 
 
-/*"BOTÓN" Este bloque sirve para darle estilo a los botones que se encuentran dentro de la página*/
-.btn{
-    display: inline-block; /*Permite modificar la anchura y altura del btón y que su contenido se modifique únicamente en el espacio necesario*/
-    text-align: center; /*Permite posicionar el botón al centro de la pantalla*/
-    margin: 20px 500px; /*Margen exterior en los lados*/
-    padding: 10px 50px; /*Espaciado interno*/
-    border-radius: 5px; /*borde del botón*/
-    color: #fff; /*Color del texto*/
-    text-decoration: none; /*Elimina el subrayado*/
-    background: #207185; /*Color de fondo*/
-}
-
-/*Cambio de estilo al pasar el cursor sobre los botones*/
-.btn:hover{ 
-    background: none; /*Hace que el botón tome el color del fondo*/
-}
-
-
-/*"DEFINICIONES"*/
-.Definiciones{
-    justify-content: center; /*Centra los elementos horizontalmente*/
-    margin: 60px 10px 80px 10px; /*Margen exterior*/
-}
-
-/*Estilos de cada bloque dentro de la sección*/
-.neuro {
-    display: flex;
-    align-items: center; /*Centra el contenido verticalmente*/
-    margin: 20px; /*Margen exterior*/
-    background-color: #76b5a0; /*Color de fondo*/
-    border-radius: 10px; /*Bordes redondeados*/
-}
-
-/* Estilos para los títulos dentro de elementos con la clase .defText */
-.defText h3{
-    text-align: center; /*Centra el texto*/
-    font-size: 30px; /*Tamaño del título*/
-    margin-bottom: 20px; /*Margen externo inferior para separarse del texto*/
-}
-
-.defImg{
-    display: flex; /* Usa flexbox para organizar las imágenes */
-}
-
-.defImg img{
-    width: 225px; /* Ancho fijo para las imágenes */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 5px; /*Redondea los bordes de las imágenes*/
-    margin: 20px; /* Espaciado entre imágenes */
-}
-
-
-/*"TIPOS DE NEURODIVERGENCIA"*/
- 
-/* Contenedor principal de los tipos de neurodivergencia */
-    .box-container{
-        display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
-        flex-wrap: wrap;/*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
-        gap: 5px; /*Espaciado entre cajas*/
-        width: 100%; /*Su anchura abarca el 100% del contenedor en el que se encuentran*/
-        justify-content: center; /*Se centra la información del bloque de contenido*/
-        flex-wrap: wrap; /*Modifica la vista del sitio web para que al entrar en tableta, celular o pc, se adapte a la pantalla del mismo*/
-        text-align: center; /*Centra el texto que se encuentre dentro de este contenedor*/
-        perspective: 1000px; /*Le da un efecto en 3D*/
-    }
-     
-    /* Estilos generales para las cajas */
-    .box{
-        height: 15rem; /*Altura de cada cuadro de texto*/
-        width: 17rem;/*Anchura de cada cuadro de texto*/
-        background-color: #76b5a0; /*Color azul verdoso muy claro a la parte del fondo general de las cajas de texto*/
-        border-radius: 1rem; /*Borde redondeado con medida de 1rem*/
-        cursor: pointer; /*Al poner el cursor sobre estos cambia su icono a una mano, indicando que es cliqueable*/
-        transform-style: preserve-3d; /*Mantiene la perspectiva 3D */
-        transition: transform 0.6s ease;/*Animación suave de rotación*/
-        box-shadow: 0 .3 5rem rgba(0, 0, 0, .5); /*Sombra a la caja de contenido*/
-        margin: 2rem; /*Le asigna un margen externo de 2rem*/
-        position: relative;/*El elemento puede ser movido de su ubicación normal usando las propiedades necesarias */
-     
-    }
-    
-    /*Estiliza los títulos dentro de cada caja*/
-    .box-container .box h3{
-        color: #453c5c; /*Color de los títulos en las cajas*/
-        position: absolute;
-        text-align: center;
-    }
-    
-   /*Formato a los párrafos dentro del box-container*/
-   .box-container .box p{ 
-    font-size: 18px; /*Tamaño del texto*/
-    padding: 0 15px; /*Margen interior superior e inferior de 0px y laterales de 15px*/
-    margin-bottom: 10px; /* Espaciado entre el texto y el enlace */
-    }
-
-    .enlace {
-        display: block; /* Asegura que el enlace aparezca en una nueva línea */
-        margin-top: 10px; /* Agrega espacio entre el texto y el enlace */
-        text-decoration: none;
-        font-weight: bold;
-    }
-    
-    .box a{
-        color: #075f61;
-    }
-
-    /*Configuración de la parte delantera y trasera de las cajas*/
-    .box .front , .box .back{
-        position: absolute; /*Posiciona las caras superpuestas una sobre la otra*/
-        width: 100%; /*Le indica que deberá de tomar una anchura del 100% de la pantalla o contenedor en el que se encuentre*/
-        height: 100%; /*Le indica que deberá de tomar una altura del 100% de la pantalla o contenedor en el que se encuentre*/
-        backface-visibility: hidden; /*Evita que el contenido trasero se vea en espejo*/
-        display: flex; /*Usa flexbox para centrar el contenido*/
-        justify-content: center; /*Se centra la información del bloque de contenido*/
-        align-items: center; /*Centra los elementos de manera vertical*/
-        text-align: center; /*Centra el texto horizontalmente*/
-        font-size: 18px; /*Tamaño de fuente*/
-        border-radius: 8px; /*Bordes ligeramente redondeados*/
-        flex-direction: column;
-    }
-   
-    .box img{
-        position: absolute; /*Posiciona las caras superpuestas una sobre la otra*/
-        width: 100%; /*Le indica que deberá de tomar una anchura del 100% de la pantalla o contenedor en el que se encuentre*/
-        height: 100%; /*Le indica que deberá de tomar una altura del 100% de la pantalla o contenedor en el que se encuentre*/
-        border-radius: 8px; /*Bordes ligeramente redondeados*/
-    }
-
-
-    /*Configuración de la parte delantera de la caja*/
-    .box .front{
-        background: #d33649; /*Color coral para la parte delantera de los cuadros*/
-    }
-
-    /*Configuración de la parte trasera de la caja*/
-    .box .back{
-        background: #f16f6f; /*Color azul verdoso para la parte trasera de los cuadros*/
-        transform: rotateY(180deg); /*Rota los cuadros hacia la parte trasera con 180 grados*/ 
-    }
-
-    /*Efecto de giro al pasar el ratón*/
-    .box:hover{
-        transform: rotateY(180deg); /*Al pasar el ratón, la caja gira*/
-    }
-
-
-/*LINEA DE APOYO*/
-.contenedor-lineap{
-    width: 100%; /*Ancho general al que se adaptan los contenedores*/
-    max-width: 70%; /*Este ancho extiende el contenido*/
-    margin: auto; /*Establece automáticamente el margen según el ancho previamente establecido*/
-    margin-top: 40px;
-}
-
-.contenedor-lineap p{
-    text-align: justify;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.acordeon{
-    background: #fff;
-}
-
-.acordeon label{
-    border-radius: 10px;
-    display: block;
-    padding: 20px;
-    font-size: 20px;
-    background: #0f7d7e;
-    cursor: pointer;
-    margin-bottom: 2px;
-    transition: all 300ms ease;
-}
-
-.label .contenido-acordeon{
-    color:#fff;
-}
-
-label p{
-    color: white;
-}
-
-
-.acordeon label:hover{
-    background: #075f61;
-}
-
-.acordeon .contenido-acordeon{
-    color: #fff;
-    padding: 0px;
-    margin: 0px 10px;
-    max-height: 0px;
-    overflow: hidden;
-    transition: all 300ms ease;
-}
-
-.btn-acordeon:checked ~ .contenido-acordeon{
-    max-height: 600px;
-    padding: 15px 0px;
-}	
-
-.btn-acordeon{
-    display: none;
-} 
-
-
-/*"RECURSOS"*/
-
-.recursos{
-    padding-top: 20px; /*Margen interior superior para definir altura*/
-    margin-top: 30px; /*Ajusta el margen superior para separar las secciones entre sí*/
-    background: #76b5a0; /*Le asigna un color azul verdoso de fondo*/
-    text-align: center; /*Alinea el texto hacia el centro*/
-}
-
-/*Estilos para el título dentro de la sección*/
-.recursos h3{
-    margin-top: 50px; /*Margen exterior superior pata separar el título del contenedor*/
-    margin-bottom: 30px; /*Margen exterior inferior para serparar el título de los demás elementos del contenedor*/
-    font-size: 30px; /*Tamaño de fuente*/
-    color: #fff; /*Color blanco para el texto*/
-    text-align: center; /*Centra el texto*/
-}
-
-
-/*"TABS/PESTAÑAS" Estilos para las pestañas*/
-
-/*Contenedor de las pestañas*/
-#tabs {
-    list-style: none; /*Elimina los estilos de lista predeterminados*/
-    padding: 0; /*Elimina el padding predeterminado*/
-    display: flex; /*Usa flexbox para alinear las pestañas en una fila*/
-    justify-content: flex-start; /*Alinea las pestañas al inicio de la fila*/
-    background-color: #0f7d7e; /*Color de fondo de la barra de pestañas*/
-    margin: 0; /*Elimina el margen exterior*/
-  }
-
-/*Elementos de la lista dentro de las pestañas*/
-#tabs li {
-    margin: 0; /*Elimina el margen exterior*/
-  }
-
-/*Estilos de los enlaces dentro de las pestañas*/
-#tabs li a {
-    display: block; /*Convierte los enlaces en bloques clickeables*/
-    padding: 15px 20px; /*Espaciado interno para un mejor diseño*/
-    text-decoration: none; /*Elimina el subrayado del texto*/
-    color: #fff; /*Color del texto negro*/
-    background-color: #2d938e; /*Color de fondo gris*/
-    border-radius: 5px 5px 0 0; /*Bordes redondeados en la parte superior*/
-    margin-right: 2.5px; /*Espaciado entre pestañas*/
-  }
-
-  /*Cambio de color al pasar el cursor o enfocar*/
-#tabs li a:hover{
-    background-color: #0f7d7e; /*Color de fondo más oscuro al pasar el cursor*/
-}
-
-/*Estilos para el contenedor de contenido*/
-
-.tabs-container {
-    border: 2px solid #0f7d7e; /*Borde gris alrededor del contenedor*/
-    border-top: none; /*Elimina el borde superior para integrarse con las pestañas */
-    padding: 20px; /*Espaciado interno para el contenido */
-    background-color: #76b5a0; /*Fondo blanco para el contenido*/
-  }
-  
-/*Estilos para el contenido de cada pestaña*/
-  
-/*Oculta todas las secciones de contenido por defecto */
-.tab-content {
-    display: none;
-}
-  
-/*Muestra solo el contenido de la pestaña seleccionada (usando anclajes `#id`) */
-.tab-content:target {
-    display: block;
-}
-
-
-/*"SCROLL HROIZONTAL"*/
-
-/*Contenedor principal de los videos con desplazamiento*/
+/*Contenedor principal de noticias destacadas con desplazamiento*/
 .scroll-container{
     display: flex; /*Permite que el contenido sea modificado de una manera más flexible, permitiendo adaptarlo según las especificaciones que se le indiquen*/
-    align-items: center; /*Aline el contenido hacia el centro de manera vertical*/
-    justify-content: center; /*Alinea los elementos del contenedor en el centro a lo largo del eje principal (horizontalmente por defecto)*/
-    position: relative;  /*Permite posicionamiento absoluto dentro de este contenedor */
-    width: 75%; /*Un ancho del 85% dentro de su contenedor en el body de la página*/
+    align-items: center; /*Alinea el contenido hacia el centro de manera vertical*/
+    justify-content: center; /*Alinea los elementos del contenedor en el centro a lo largo del eje principal (horizontalmente por defecto) */
+    position: relative;  /* Permite posicionamiento absoluto dentro de este contenedor */
+    width: 90%; /*Un ancho del 90% dentro de su contenedor en el body de la página*/
     margin: auto; /*El margen se adapta a la anchura asignada*/
 }
 
-/*Contenedor de videos con desplazamiento*/
-.scrolling-videos{
-    display: flex;  /*Usa flexbox para organizar los videos en fila*/
-    overflow-x: auto; /*Permite desplazamiento horizontal*/
+/*Contenedor de noticias con desplazamiento*/
+.scrolling-noticias{
+    display: flex;  /*Usa flexbox para organizar las noticias en fila*/
+    overflow-x: auto; /*Permite desplazamiento horizontal */
     scroll-behavior: smooth; /*Hace que el desplazamiento sea suave*/
     width: 90%; /*Ancho que abarca el 90% del contenido*/
-    padding: 35px 10px; /*Margen interno para definir el espacio alrededor del contenido*/
+    padding: 20px 10px; /*Margen interno para definir el espacio alrededor del contenido*/
     position: relative; /*Mantiene el posicionamiento dentro de scroll-container*/
 
     overflow-x: hidden; /*Oculta la barra de scroll horizontal*/
     overflow-y: hidden; /*Oculta la barra de scroll vertical*/
 }
 
-.scrolling-videos::-webkit-scrollbar {
+.scrolling-noticias::-webkit-scrollbar {
     display: none; /*Oculta la barra de desplazamiento*/
 }
 
-
-/*Formato para cada video dentro de la sección*/
-.video{
-    flex: 0 0 auto; /*Evita que los videos cambien de tamaño dentro del contenedor flex*/
-
-    margin: 10px; /*Le asigna un margen externo de 10px para manetener separado cada contenedor*/
-    width: 250px; /*Asigna una anchura de 250px para cada cuadro contenedor*/
-    height: auto; /*Mantiene la proporción*/
+.cuadroNot{
+    flex: 0 0 auto; /*Evita que los elementos cambien de tamaño dentro del contenedor flex*/
+    margin: 5px; /*Le asigna un margen externo de 10px para manetener separado cada contenedor*/
+    width: 98% ; /*Asigna una anchura del 98% del tamaño del contenedor*/
+    height: auto; /* Mantiene la proporción */
     text-align: center; /*Alinea el texto hacia el centro*/
-    padding: 10px; /*Añade un margen interno para que el contenido interior de estos no choque con los bordes de los recuadros*/
-    background: #fff; /*Pone el colo de fondo de los contenedores de los vídeos en un tono blanco*/
+    padding: 2px; /*Añade un margen interno de 10px para que el contenido interior de estos no choque con los bordes de los recuadros*/
+    background: #fff; /*Pone el colo de fondo de los contenedores de los vídeos en un tono blanco */
     border-radius: 10px; /* Bordes redondeados para un diseño más suave */
     transition: transform 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
 }
 
-.video:hover{
-    transform: scale(1.1); /*Cambia el tamaño del video al poner el cursor sobre este*/
+.cuadroNot:hover{
+    transform: scale(1.1); /*Cambia el tamaño de la imagen al poner el cursor sobre este*/
 }
 
-.video h4{
-    text-align: center; /*Centra los elementros en el centro de manera vertical*/
-    padding: 5px; /*Le asigna un margen interno de 5px*/
-}
-
-/* Estilos para los párrafos dentro del video */
-.video p{
-    padding: 15px; /*Asiga un margen interno de 15px al texto*/
-    font-size: 15px; /*Asiga un tamaño de fuente de 15px*/
-}
-
-/* Estilos para las imágenes dentro del video */
-.video img{
-    width: 100%; /*Las imagenes del área de vídeos abarcan el 100% de espacio de su contenedor*/
+/* Estilos para las imágenes dentro del contenedor de noticias */
+.cuadroNot img{
+    width: 100%; /*Las imagenes del área de noticias principales abarcan el 100% de espacio de su contenedor*/
     height: auto; /* Mantiene la proporción */
     border-radius: 5px; /*Le asigna un borde */
-    border: 1px solid rgb(9, 36, 22); /*Borde oscuro para destacar la miniatura*/
+    /*border: 1px solid black;  Borde negro para destacar la imagen */
 }
 
-/* Botones de desplazamiento para los videos */
+/* Botones de desplazamiento para los las imagenes*/
 .scroll-container span{
     position: absolute; /*Permite que su posisión sea independiente a la de los demás elementos del sitio*/
     color: white; /*Incica que el color del simbolo de scroll será blanco */
@@ -832,14 +503,14 @@ label p{
     padding: 10px; /*Le ofrece un margen interior de 10px*/
     cursor: pointer; /*cambia el cursor del mouse a una mano cuando el usuario pasa sobre un elemento, indicando que es clickeable. */
     z-index: 10; /*Permite que el elemento se superponga a los demás dentro del sitio web*/
-    /*filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); Crea una sombra igual a la flecha*/
+    filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); /*Crea una sombra igual a la flecha*/
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
 }
 
-/*Efecto de hover en las flechas*/
+/* Efecto de hover en las flechas */
 .scroll-container span:hover{
     transform: scale(1.2); /*Cambia el tamaño de las flechas al poner el cursor sobre estas*/
-    /*filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7)); Aumenta el efecto al pasar el cursor*/
+    filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7)); /*Aumenta el efecto al pasar el cursor*/
 }
 
 #btn-left {
@@ -851,9 +522,252 @@ label p{
 }
 
 
-hr{ 
-    border: 1px solid #fff; /*Sirve para dejar un espacio en blanco antes del footer*/
+/*Contenedor principal de noticias importantes con desplazamiento*/
+.ImportNoti{
+    display: flex; /*Permite que el contenido sea modificado de una manera más flexible, permitiendo adaptarlo según las especificaciones que se le indiquen*/
+    align-items: center; /*Alinea el contenido hacia el centro de manera vertical*/
+    justify-content: center; /*Alinea los elementos del contenedor en el centro a lo largo del eje principal (horizontalmente por defecto) */
+    position: relative;  /* Permite posicionamiento absoluto dentro de este contenedor */
+    width: 90%; /*Un ancho del 90% dentro de su contenedor en el body de la página*/
+    margin: auto; /*El margen se adapta a la anchura asignada*/
 }
+
+/*Contenedor de noticias con desplazamiento*/
+.importcontainer{
+    display: flex;  /*Usa flexbox para organizar las noticias en fila*/
+    overflow-x: auto; /*Permite desplazamiento horizontal */
+    scroll-behavior: smooth; /*Hace que el desplazamiento sea suave*/
+    width: 90%; /*Ancho que abarca el 90% del contenido*/
+    padding: 20px 10px; /*Margen interno para definir el espacio alrededor del contenido*/
+    position: relative; /*Mantiene el posicionamiento dentro de scroll-container*/
+
+    overflow-x: hidden; /*Oculta la barra de scroll horizontal*/
+    overflow-y: hidden; /*Oculta la barra de scroll vertical*/
+}
+
+.importcontainer::-webkit-scrollbar {
+    display: none; /*Oculta la barra de desplazamiento*/
+}
+
+.cuadroimport{
+    flex: 0 0 auto; /*Evita que los elementos cambien de tamaño dentro del contenedor flex*/
+    margin: 5px; /*Le asigna un margen externo de 10px para manetener separado cada contenedor*/
+    width: 98% ; /*Asigna una anchura del 98% del tamaño del contenedor*/
+    height: auto; /* Mantiene la proporción */
+    text-align: center; /*Alinea el texto hacia el centro*/
+    padding: 2px; /*Añade un margen interno de 10px para que el contenido interior de estos no choque con los bordes de los recuadros*/
+    background: #fff; /*Pone el colo de fondo de los contenedores de los vídeos en un tono blanco */
+    border-radius: 10px; /* Bordes redondeados para un diseño más suave */
+    transition: transform 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+}
+
+.cuadroimport:hover{
+    transform: scale(1.1); /*Cambia el tamaño de la imagen al poner el cursor sobre este*/
+}
+
+/* Estilos para las imágenes dentro del contenedor de noticias */
+.cuadroimport img{
+    width: 100%; /*Las imagenes del área de noticias principales abarcan el 100% de espacio de su contenedor*/
+    height: auto; /* Mantiene la proporción */
+    border-radius: 5px; /*Le asigna un borde */
+    /*border: 1px solid black;  Borde negro para destacar la imagen */
+}
+
+/* Botones de desplazamiento para los las imagenes*/
+.ImportNoti span{
+    position: absolute; /*Permite que su posisión sea independiente a la de los demás elementos del sitio*/
+    color: white; /*Incica que el color del simbolo de scroll será blanco */
+    font-size: 70px; /*El tamaño del simbolo de scroll será de 70px*/
+    padding: 10px; /*Le ofrece un margen interior de 10px*/
+    cursor: pointer; /*cambia el cursor del mouse a una mano cuando el usuario pasa sobre un elemento, indicando que es clickeable. */
+    z-index: 10; /*Permite que el elemento se superponga a los demás dentro del sitio web*/
+    filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); /*Crea una sombra igual a la flecha*/
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+}
+
+/* Efecto de hover en las flechas */
+.ImportNoti span:hover{
+    transform: scale(1.2); /*Cambia el tamaño de las flechas al poner el cursor sobre estas*/
+    filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7)); /*Aumenta el efecto al pasar el cursor*/
+}
+
+#btn-lft {
+    left: -30px; /*Ajusta la posición de la flecha izquierda*/
+}
+
+#btn-rght {
+    right: -30px; /*Ajusta la posición de la flecha derecha*/
+}
+
+
+/*"OTRAS NOTICIAS"*/
+.Otrasnoti{
+    display: flex; /*Permite que el contenido sea modificado de una manera más flexible, permitiendo adaptarlo según las especificaciones que se le indiquen*/
+    align-items: center; /*Alinea el contenido hacia el centro de manera vertical*/
+    justify-content: center; /*Alinea los elementos del contenedor en el centro a lo largo del eje principal (horizontalmente por defecto) */
+    position: relative;  /* Permite posicionamiento absoluto dentro de este contenedor */
+    width: 90%; /*Un ancho del 90% dentro de su contenedor en el body de la página*/
+    margin: auto; /*El margen se adapta a la anchura asignada*/
+}
+
+/*Contenedor de noticias con desplazamiento*/
+.otrascontainer{
+    display: flex;  /*Usa flexbox para organizar las noticias en fila*/
+    overflow-x: auto; /*Permite desplazamiento horizontal */
+    scroll-behavior: smooth; /*Hace que el desplazamiento sea suave*/
+    width: 90%; /*Ancho que abarca el 90% del contenido*/
+    padding: 20px 10px; /*Margen interno para definir el espacio alrededor del contenido*/
+    position: relative; /*Mantiene el posicionamiento dentro de scroll-container*/
+
+    overflow-x: hidden; /*Oculta la barra de scroll horizontal*/
+    overflow-y: hidden; /*Oculta la barra de scroll vertical*/
+}
+
+.otrascontainer::-webkit-scrollbar {
+    display: none; /*Oculta la barra de desplazamiento*/
+}
+
+.cuadroOther{
+    flex: 0 0 auto; /*Evita que los elementos cambien de tamaño dentro del contenedor flex*/
+    margin: 5px; /*Le asigna un margen externo de 10px para manetener separado cada contenedor*/
+    width: 30% ; /*Asigna una anchura del 30% del tamaño del contenedor*/
+    height: auto; /* Mantiene la proporción */
+    text-align: center; /*Alinea el texto hacia el centro*/
+    padding: 2px; /*Añade un margen interno de 10px para que el contenido interior de estos no choque con los bordes de los recuadros*/
+    background: #fff; /*Pone el colo de fondo de los contenedores de los vídeos en un tono blanco */
+    border-radius: 10px; /* Bordes redondeados para un diseño más suave */
+    transition: transform 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+}
+
+.cuadroOther:hover{
+    transform: scale(1.1); /*Cambia el tamaño de la imagen al poner el cursor sobre este*/
+}
+
+/* Estilos para las imágenes dentro del contenedor de noticias */
+.cuadroOther img{
+    width: 100%; /*Las imagenes del área de noticias principales abarcan el 100% de espacio de su contenedor*/
+    height: auto; /* Mantiene la proporción */
+    border-radius: 5px; /*Le asigna un borde */
+    /*border: 1px solid black;  Borde negro para destacar la imagen */
+}
+
+/* Botones de desplazamiento para los las imagenes*/
+.Otrasnoti span{
+    position: absolute; /*Permite que su posisión sea independiente a la de los demás elementos del sitio*/
+    color: white; /*Incica que el color del simbolo de scroll será blanco */
+    font-size: 40px; /*El tamaño del simbolo de scroll será de 70px*/
+    padding: 10px; /*Le ofrece un margen interior de 10px*/
+    cursor: pointer; /*cambia el cursor del mouse a una mano cuando el usuario pasa sobre un elemento, indicando que es clickeable. */
+    z-index: 10; /*Permite que el elemento se superponga a los demás dentro del sitio web*/
+    filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); /*Crea una sombra igual a la flecha*/
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+}
+
+/* Efecto de hover en las flechas */
+.Otrasnoti span:hover{
+    transform: scale(1.2); /*Cambia el tamaño de las flechas al poner el cursor sobre estas*/
+    filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7)); /*Aumenta el efecto al pasar el cursor*/
+}
+
+#btn-l {
+    left: -30px; /*Ajusta la posición de la flecha izquierda*/
+}
+
+#btn-r {
+    right: -30px; /*Ajusta la posición de la flecha derecha*/
+}
+
+
+
+/*SUBTIPOS*/
+.types{
+    display: flex; /* Usa flexbox para organizar los elementos */
+    flex-direction: column; /* Organiza los elementos en columnas */
+    align-items: center; /* Centra los elementos */
+    background-color:#0f7d7e; /* Color de fondo azul oscuro */
+    padding: 10px 0 30px 0; /* Relleno interior */
+    margin: 20px 30px 20px 30px; /* Márgenes alrededor */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.types h2 {
+    color: #Fff;
+}
+
+/*Le da estilo a la clase general al contenedor que almacenará los cuadros de texto de esta sección*/
+.contenedor {
+    display: flex; /* Usa flexbox para organizar los elementos */
+    flex-wrap: wrap; /* Permite que los cuadros se acomoden automáticamente */
+    gap: 20px; /* Espacio entre los cuadros */
+    justify-content: center; /* Centra los cuadros en el contenedor */
+    margin: 10px 40px 20px 80px; /* Márgenes alrededor del contenedor */
+}
+
+/*Define el estilo de los cuadros de texto de los subtipos*/
+.chart{
+    background-color: #f68f9b; /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    width: 300px; /* Tamaño fijo para pantallas grandes */
+    padding: 20px; /* Relleno interior */
+    text-align: center; /* Centra el texto dentro del cuadro */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor del cuadro */
+    border-radius: 10px;   
+}   
+
+/*Acomoda la imagen dentro de los cuadros de texto*/
+.chart img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho del cuadro */
+    height: 225px; /* Altura fija para las imágenes */
+    border-radius: 5px; /* Bordes redondeados para las imágenes */
+}
+
+/*Le da estilo a los titulos de la sección de cuadros en los subtipos*/
+.titulo {
+    font-size: 18px; /* Tamaño de fuente para los títulos */
+    font-weight: bold; /* Hace que el título sea negrita */
+    margin: 10px 0; /* Márgenes arriba y abajo */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    text-align: center; /* Centra el título */
+}
+
+/*Se le da tamaño a la fuente dentro de los cuadros de texto en los subtipos*/
+.desc {
+    font-size: 16px; /* Tamaño de fuente para la descripción */
+}
+
+
+/*"DEFINICIONES"*/
+.Otras{
+    justify-content: center; /*Centra los elementos horizontalmente*/
+    margin: 60px 10px 80px 10px; /*Margen exterior*/
+}
+
+/*Estilos de cada bloque dentro de la sección*/
+.otrasNoti {
+    display: flex;
+    align-items: center; /*Centra el contenido verticalmente*/
+    margin: 20px; /*Margen exterior*/
+    background-color: #76b5a0; /*Color de fondo*/
+    border-radius: 10px; /*Bordes redondeados*/
+}
+
+.otrasNoti .noticiaText h3{
+    margin:10px 30px;
+    text-align: justify;
+    font-size: 30px;
+}
+
+.noticiaImg{
+    display: flex; /* Usa flexbox para organizar las imágenes */
+}
+
+.noticiaImg img{
+    width: 225px; /* Ancho fijo para las imágenes */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 5px; /*Redondea los bordes de las imágenes*/
+    margin: 20px; /* Espaciado entre imágenes */
+}
+
 
 
 /*FOOTER*/
@@ -904,7 +818,7 @@ hr{
 }
 
 .footer-navbar li a:hover {
-    color: #f7ac0a; /*Al colocar el cursor sobre el texto dentro del elemnto lista, este va a cambiar su color inical a uno naranjado*/
+    color: #fffb00; /*Al poner colocar el cursor sobre el texto dentro del elemnto lista, este va a cambiar su color inical blanco, a uno amarillo*/
 }
 
 
@@ -929,100 +843,12 @@ hr{
 .socials img{
     padding: 0px 5px 5px 0px; /*Añade un margen interior de 0px superior e inferior y 5px en lado izquierdo y derecho*/
     display: inline-block; /*Permite modificar la anchura y altura de la imagen y que su contenido se modifique únicamente en el espacio utilizado por este mismo*/
-    margin-right: 8px; /*El margen izquierdo es el que brinda una separación entre cada imagen*/
-    width: 30px; /*Les da una anchura de 25px para que se vean pequeños*/
+    margin-left: 10px; /*El margen izquierdo es el que brinda una separación entre cada imagen*/
+    width: 25px; /*Les da una anchura de 25px para que se vean pequeños*/
     height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/ 
 }
 
 .socials img:hover {
     /*content: url("nueva-imagen.jpg"); Reemplaza la imagen de los íconos de las redes sociales (pendiente)*/
     transform: scale(1.2); /*Permite que al posicionar el cursor sobre la imagen, esta modifique su tamaño sin cambiar de lugar*/
 }
-
-
- /* Responsividad */
-@media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
-    
-    .title{
-        margin-bottom: 0;
-        font-size: 20px;
-    }
-
-
-
-    .menu {
-        flex-wrap: wrap;
-    }
-
-    /* Centrar logo en móviles */
-    .menu .logo {
-        flex: 1 1 100%;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    /* Mostrar el botón de menú hamburguesa */
-    .menu .menu-toggle {
-        display: block;
-    }
-
-    /* Ocultar enlaces del menú en móviles y mostrarlos solo cuando el menú está activo */
-    .menu .menu-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .menu.active .menu-links {
-        display: flex;
-    }
-
-    /* Hacer que cada elemento del menú ocupe todo el ancho */
-    .menu .menu-links li {
-        width: 100%;
-    }
-
-    /* Centrar enlaces */
-    .menu .menu-links a {
-        padding: 10px;
-        text-align: center;
-    }
-
-    /* Ajustes para el submenú en móviles */
-    .submenu {
-        position: static;
-        background-color: #1b1b1b; /* Mantiene el fondo oscuro */
-        box-shadow: none;
-    }
-
-    /* Aumentar la sangría de los elementos del submenú */
-    .submenu a {
-        padding-left: 30px;
-    }
-
-    /* Centrar la barra de búsqueda */
-    .menu .search-bar {
-        flex: 1 1 100%;
-        margin: 10px 0;
-        justify-content: center;
-    }
-
-    .header p{
-        font-size: 15px;
-    }
-
-    body {
-        font-size: 14px;
-        padding: 10px;
-      }
-    
-
-      .container{
-        width: 100%; /* 100% del ancho de la ventana */
-        margin: auto;
-        margin-top: 0%;
-        margin-bottom: 0%;
-        background-color: #fffdd1;
-      }
- }
