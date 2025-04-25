@@ -68,31 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-//"TRADUCTOR"
-const translations = { //Constante de nombre "translations" que funciona como un diccionario de idiomas
-    es: { //Atributos en español
-      saludo: "Buscamos visibilizar las acciones que se pueden cometer como sociedad para favorecer la interaccion entre personas, facilitando a quienes sean neurodivergentes una interacción sana en un ambiente de inclusión."
-    },
-    en: { //Atributos en inglés
-      saludo: "We seek to make visible the actions that can be committed as a society to favor interaction between people, facilitating healthy interaction in an environment of inclusion for those who are neurodivergent."
-    }
-  };
-
-  let currentLang = 'es'; //Esta variable guarda el idioma actual.
-
-  function translateTo(lang) { //Esta función traduce al idioma que cambies (por ejemplo 'en').
-    document.querySelectorAll('[data-translate]').forEach(el => { //busca todos los elementos del HTML que tienen el atributo data-translate.
-      const key = el.getAttribute('data-translate'); //Encuentra atributo a traducir y cambia el texto por su versión traducida.
-      el.textContent = translations[lang][key] || el.textContent; //Si no se encuentra una traducción dejará el texto original
-    });
-  }
-
-  function toggleLanguage() {
-    currentLang = currentLang === 'es' ? 'en' : 'es'; //Si el idioma actual es español, cambiará a inglés. Si no, cambiará a español.
-    translateTo(currentLang); //Llama a la función de traducción y le pasa el nuevo idioma.
-  }
-
-
 //"SCROLL"
 
 let scrollBtn = document.getElementById("scrollTop"); //Busca el de scroll en el html a través del ID, que sería
@@ -108,6 +83,7 @@ window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el
 
 
 //"SCROLLING DE VIDEOS"
+
 const rightBtn = document.querySelector("#btn-right");
 const leftBtn = document.querySelector("#btn-left");
 const content = document.querySelector(".scrolling-videos");
@@ -133,17 +109,54 @@ const tabs = document.querySelectorAll('#tabs a');
 // Agrega un evento de clic a cada pestaña
 tabs.forEach(tab => {
     tab.addEventListener('click', function() {
-        // Remueve la clase "active" de todas las pestañas
+        //Remueve la clase "active" de todas las pestañas
         tabs.forEach(t => t.classList.remove('active'));
 
-        // Agrega la clase "active" solo a la pestaña a la que se hizo clic
+        //Agrega la clase "active" solo a la pestaña a la que se hizo clic
         this.classList.add('active');
     });
 });
 
-// Redirige automáticamente al #tab1 si no hay ancla en la URL
+//Redirige automáticamente al #tab1 si no hay ancla en la URL
 document.addEventListener("DOMContentLoaded", function () {
     if (!window.location.hash) {
       window.location.hash = "#tab1";
     }
   });
+
+
+//"ENLACE AL ARCHIVO JSON"
+
+let translations = {};
+let currentLang = 'es';
+
+fetch('../Javascript/Language.json') //Ruta al archivo JSON
+  .then(response => response.json())
+  .then(data => {
+    translations = data;
+    translateTo(currentLang); //Traducción inicial
+  });
+
+function translateTo(lang) {
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    const attr = el.getAttribute('data-translate-attr');
+    const innerOnly = el.getAttribute('data-translate-inner') === 'true';
+
+    if (attr) {
+      //Traduce atributos como placeholder, title, alt, etc.
+      el.setAttribute(attr, translations[lang][key] || el.getAttribute(attr));
+    } else if (innerOnly) {
+      //Traduce solo el texto interno (no elimina íconos o etiquetas hijas)
+      el.innerText = translations[lang][key] || el.innerText;
+    } else {
+      //Traduce todo el contenido del elemento (puede reemplazar íconos si no se usa innerOnly)
+      el.textContent = translations[lang][key] || el.textContent;
+    }
+  });
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === 'es' ? 'en' : 'es';
+  translateTo(currentLang);
+}

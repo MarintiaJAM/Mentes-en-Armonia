@@ -20,66 +20,71 @@
 <body>
 
 
-<header>
-    <!-- Ménu de navegación principal-->
-    <nav class="menu" id="Menu">
-        <div class="logo"> <!-- Contenedor del logo -->
-            <a href="index.html">
-                <img src="../img/Logo.png" alt="Logo"></a>
-        </div>
+    <header>
+        <!-- Ménu de navegación principal-->
+        <nav class="menu" id="Menu">
+            <div class="logo"> <!-- Contenedor del logo -->
+                <a href="index.html">
+                    <img src="../img/Logo.png" alt="Logo"></a>
+            </div>
 
 
-        <!-- Botón de menú para móviles -->
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
+            <!-- Botón de menú para móviles -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
 
-        <!-- Barra de navegación principal-->
-        <ul class="navbar">
-            <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+            <!-- Barra de navegación principal-->
+            <ul class="navbar">
+                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
          página de inicio -->
-            <li><a href="#Menu">Inicio</a></li>
-            <li><a href="#Acerca de">Sobre nosotros</a></li>
-            <li class="dropdown">
-                <a href="#Neurodivergencia">Neurodivergencia <i class="fas fa-chevron-down chevron"></i> </a>
-                <ul class="dropdown-content">
-                    <li><a href="Autismo.html">Autismo</a></li>
-                    <li><a href="TDAH.html">TDAH</a></li>
-                    <li><a href="Dislexia.html">Dislexia</a></li>
-                    <li><a href="Tourette.html">Tourette</a></li>
-                    <li><a href="Dispraxia.html">Dispraxia</a></li>
-                    <li><a href="Discalculia.html">Discalculia</a></li>
-                    <li><a href="Ansiedad.html">Ansiedad</a></li>
-                </ul>
-            </li>
-            <li><a href="#Lineap">Experiencias y comunidad</a></li>
-            <li><a href="Noticias.html">Noticias</a></li>
-        </ul>
+                <li><a href="#Menu" data-translate="menu-sec1">Inicio</a></li>
+                <li><a href="#Acerca de" data-translate="menu-sec2">Sobre nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#Neurodivergencia">
+                        <span data-translate="menu-sec3" data-translate-inner="true">Neurodivergencia</span>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </a>
+                    <ul class="dropdown-content">
+                        <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
+                        <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
+                        <li><a href="Dislexia.html" data-translate="dislexia">Dislexia</a></li>
+                        <li><a href="Tourette.html">Tourette</a></li>
+                        <li><a href="Dispraxia.html" data-translate="dispraxia">Dispraxia</a></li>
+                        <li><a href="Discalculia.html" data-translate="discalculia">Discalculia</a></li>
+                        <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Lineap" data-translate="menu-sec4">Experiencias y comunidad</a></li>
+                <li><a href="Noticias.html" data-translate="menu-sec5">Noticias</a></li>
+            </ul>
 
-        <!-- Barra de búsqueda en la esquina superior izquierda -->
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar...">
-            <button type="button" id="searchButton"><i class="fas fa-search"></i>
-            </button>
-        </div>
-        
-        <div class="Login">
-            <a href="#" class="login-button"><i class="fas fa-user"></i> Iniciar sesión</a>
-        </div>
-    </nav>
-</header>
+            <!-- Barra de búsqueda en la esquina superior izquierda -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                    data-translate-attr="placeholder">
+                <button type="button" id="searchButton"><i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="Login">
+                <a href="#" class="login-button"><i class="fas fa-user"></i> <span data-translate="login">Iniciar
+                        sesión</span></a>
+            </div>
+        </nav>
+    </header>
 
 
     <!-- Submenú de navegación -->
     <nav id="subMenu" class="submenu">
         <ul class="table">
-            <li><a href="#Menu">Inicio</a></li>
-            <li><a href="#Acerca de">Acerca de</a></li>
-            <li><a href="#Definiciones">Definiciones</a></li>
-            <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
-            <li><a href="#Lineap">Líneas de apoyo</a></li>
-            <li><a href="#Recursos">Centro de recursos</a></li>
+            <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+            <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+            <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+            <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+            <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+            <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
             <li><a href="#Footer">Footer</a></li>
         </ul>
 
@@ -103,12 +108,12 @@
     <section class="content header">
         <section id="Inicio">
             <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
-            <h2 class="title">Mentes en armonía</h2>
+            <h2 class="title" data-translate="bienvenida">Mentes en armonía</h2>
 
-            <h6>"Una mente distinta no es motivo de discriminación"</h6>
-            <p data-translate="saludo">Buscamos visibilizar las acciones que se pueden cometer como sociedad para favorecer la interaccion
-                entre personas, facilitando a quienes sean neurodivergentes una interacción sana en un ambiente de
-                inclusión.
+            <h6 data-translate="lema">"Una mente distinta no es motivo de discriminación"</h6>
+            <p data-translate="saludo">Buscamos visibilizar las acciones que, como sociedad, podemos tomar para promover
+                una interacción más empática entre todas las personas. Nuestro objetivo es facilitar entornos inclusivos
+                que fomenten una convivencia saludable, especialmente para quienes son neurodivergentes.
             </p>
         </section>
     </section>
@@ -120,13 +125,14 @@
         <!-- Sección sobre nosotros -->
         <section class="content about">
             <section id="Acerca de">
-                <h2 class="title">Nosotros</h2>
-                <p>Esta pagina busca generar consiencia sobre las dificultades experimentadas por las personas que
-                    tienen una forma distinta de procesar su entorno, como aun hace falta visibilizar que la inclusion no es
-                    favor, si no un derecho que todas las personas se merecen, neurodivergentes o no, cualquiera merece respeto
-                    y oportunidades para explorar su potencial.
+                <h2 class="title" data-translate="nosotros">Nosotros</h2>
+                <p data-translate="nosotros_p">Esta página tiene como propósito generar conciencia sobre los desafíos
+                    que
+                    enfrentan las personas que perciben y procesan el mundo de manera distinta. Es fundamental
+                    comprender que la inclusión no es un favor, sino un derecho que todos merecemos. Neurodivergentes o
+                    no, cada persona merece respeto y oportunidades para desarrollar su potencial.
                 </p>
-                <a href="Nosotros.html" class="btn">Saber más</a>
+                <a href="Nosotros.html" class="btn" data-translate="saber_mas">Saber más</a>
             </section>
         </section>
 
@@ -143,8 +149,9 @@
                         </div>
 
                         <div class="defText"> <!-- Definición Neurotipicidad-->
-                            <h3>¿Qué es la Neurotipicidad?</h3>
-                            <p>La neurotipicidad se refiere a las personas cuyos procesos neurológicos y patrones de
+                            <h3 data-translate="Def1">¿Qué es la Neurotipicidad?</h3>
+                            <p data-translate="Def1_p">La neurotipicidad se refiere a las personas cuyos procesos
+                                neurológicos y patrones de
                                 pensamiento se alinean con lo que se considera común o estándar en una sociedad
                                 determinada. No significa que estas personas no enfrenten desafíos, sino que sus formas
                                 de percibir y procesar la información suelen encajar con las normas establecidas, lo que
@@ -156,8 +163,9 @@
                     <!-- Neurodivergencia -->
                     <section class="neuro">
                         <div class="defText"> <!-- Definición Neurodivergencia-->
-                            <h3>¿Qué es la Neurodivergencia?</h3>
-                            <p>La neurodivergencia se refiere a las diferencias naturales en la forma en que funciona el
+                            <h3 data-translate="Def2">¿Qué es la Neurodivergencia?</h3>
+                            <p data-translate="Def2_p">La neurodivergencia se refiere a las diferencias naturales en la
+                                forma en que funciona el
                                 cerebro humano. Este término engloba a personas cuyas estructuras neurológicas y
                                 patrones de pensamiento pueden diferir del estándar socialmente establecido como
                                 "típico". La neurodivergencia no es un defecto ni una enfermedad, sino una variación en
@@ -177,99 +185,106 @@
         <!-- Sección de tipos de neurodivergencia -->
         <section class="content neurodivergencia">
             <section id="Neurodivergencia">
-                <h2 class="title">Tipos de neurodivergencia</h2>
+                <h2 class="title" data-translate="tipos_de_neurodivergencia">Tipos de neurodivergencia</h2>
                 <div class="box-container">
 
-                   
+
                     <div class="box">
                         <div class="front">
-                            <h3>Autismo</h3>
+                            <h3 data-translate="autismo">Autismo</h3>
                             <img src="../img/autism.jpg" alt="Autismo">
                         </div>
                         <div class="back">
-                            <p>El trastorno del espectro autista es una afección relacionada con el desarrollo del
-                                cerebro que afecta la en la que una persona percibe y socializa con otras personas...
+                            <p data-translate="autismo_p"> El autismo es una condición del neurodesarrollo que afecta la
+                                comunicación, la interacción social y la forma en que se percibe el mundo. No es una
+                                enfermedad, sino una forma distinta de procesar la realidad.
                             </p>
-                                <a href="Autismo.html" class="enlace">Leer más</a>
+                            <a href="Autismo.html" class="enlace" data-translate="leer_mas">Leer más</a>
                         </div>
                     </div>
 
 
                     <div class="box">
                         <div class="front">
-                            <h3>TDAH</h3>
+                            <h3 data-translate="tdah">TDAH</h3>
                             <img src="../img/tdah.jpg" alt="TDAH">
                         </div>
                         <div class="back">
-                            <p>Trastorno crónico caracterizado por la dificultad para prestar atención, la
-                                hiperactividad y la impulsividad.
-                                El ADHD suele comenzar en la niñez y puede persistir hasta la edad adulta.
+                            <p data-translate="tdah_p"> El TDAH es una condición que afecta la atención, el control de
+                                impulsos y los niveles de actividad. Puede dificultar la concentración, generar
+                                impulsividad o hiperactividad, y varía mucho entre quienes lo presentan.
                             </p>
-                            <a href="TDAH.html" class="enlace">Leer más</a>
+                            <a href="TDAH.html" class="enlace" data-translate="leer_mas">Leer más</a>
                         </div>
                     </div>
 
                     <div class="box">
                         <div class="front">
-                            <h3>Dislexia</h3>
+                            <h3 data-translate="dislexia">Dislexia</h3>
                             <img src="../img/dislexiaHeader.png" alt="TDAH">
                         </div>
                         <div class="back">
-                            <p>La dislexia es un trastorno del aprendizaje que consiste en la dificultad en la lectura
-                                debido a inconvenientes para identificar los sonidos del habla y aprender a relacionarlos
-                                con las letras y las palabras (decodificación).
+                            <p data-translate="dislexia_p"> La dislexia es una dificultad de aprendizaje que afecta la
+                                lectura, la escritura y, a veces, el procesamiento del lenguaje. No tiene relación con
+                                la inteligencia de quien la presenta.
                             </p>
-                            <a href="Dislexia.html" class="enlace">Leer más</a>
+                            <a href="Dislexia.html" class="enlace" data-translate="leer_mas">Leer más</a>
                         </div>
                     </div>
 
                     <div class="box">
                         <div class="front">
-                            <h3>Síndrome de Tourete</h3>
+                            <h3 data-translate="sindrome_de_tourette">Síndrome de Tourette</h3>
                             <img src="../img/Touretteheader.jpg" alt="TDAH">
                         </div>
                         <div class="back">
-                            <p>Es un trastorno caracterizado por movimientos repetitivos o sonidos indeseados (tics) que
-                                no se pueden controlar con facilidad.</p>
-                            <a href="Tourette.html" class="enlace">Leer más</a>
+                            <p data-translate="tourette_p"> El síndrome de Tourette es una condición neurológica
+                                caracterizada por movimientos y sonidos involuntarios (tics). Puede variar en
+                                intensidad, y no todas las personas presentan los mismos síntomas.
+                            </p>
+                            <a href="Tourette.html" class="enlace" data-translate="leer_mas">Leer más</a>
                         </div>
                     </div>
 
                     <div class="box">
                         <div class="front">
-                            <h3>Dispraxia</h3>
+                            <h3 data-translate="dispraxia">Dispraxia</h3>
                             <img src="../img/Dyspraxia.jpg" alt="TDAH">
                         </div>
                         <div class="back">
-                            <p>La dispraxia es un trastorno neuromotor que afecta la coordinación y planificación de
-                                movimientos voluntarios, como escribir o vestirse, y otras tareas diarias. 
-                                Requiere de apoyo terapéutico.</p>
-                            <a href="Dispraxia.html" class="enlace">Leer más</a>
+                            <p data-translate="dispraxia_p"> La dispraxia, también conocida como trastorno del
+                                desarrollo de la coordinación, afecta la coordinación motora y la planificación de
+                                movimientos, como escribir o vestirse.
+                            </p>
+                            <a href="Dispraxia.html" class="enlace" data-translate="leer_mas">Leer más</a>
                         </div>
                     </div>
 
                     <div class="box">
                         <div class="front">
-                            <h3>Discalculia</h3>
+                            <h3 data-translate="discalculia">Discalculia</h3>
                             <img src="../img/discalculia.jpg" alt="TDAH">
                         </div>
                         <div class="back">
-                            <p>La discalculia es un trastorno del desarrollo que se caracteriza por una alteración en la
-                                capacidad del cálculo (y en general de manejar los números) que afecta al aprendizaje.</p>
-                            <a href="Discalculia.html" class="enlace">Leer más</a>
+                            <p data-translate="discalculia_p"> La discalculia es una dificultad específica del
+                                aprendizaje que afecta la comprensión y el manejo de conceptos numéricos y operaciones
+                                matemáticas básicas, como contar o calcular.
+                            </p>
+                            <a href="Discalculia.html" class="enlace" data-translate="leer_mas">Leer más</a>
                         </div>
                     </div>
 
                     <div class="box">
                         <div class="front">
-                            <h3>Transtornos de ansiedad</h3>
+                            <h3 data-translate="trastornos_de_ansiedad">Trastornos de ansiedad</h3>
                             <img src="../img/ansiedad.jpg" alt="TDAH">
                         </div>
                         <div class="back">
-                            <p>se caracteriza por un miedo excesivo y una respuesta desproporcional al estímulo. Estos
-                                trastornos alteran la forma en que una persona procesa las emociones y se comporta, 
-                                causando también síntomas físicos.</p>
-                            <a href="Ansiedad.html" class="enlace">Leer más</a>
+                            <p data-translate="ansiedad_p"> La ansiedad es una respuesta emocional intensa ante
+                                situaciones de estrés, incertidumbre o miedo. Cuando es persistente o desproporcionada,
+                                puede interferir con las actividades diarias.
+                            </p>
+                            <a href="Ansiedad.html" class="enlace" data-translate="leer_mas">Leer más</a>
                         </div>
                     </div>
 
@@ -280,49 +295,56 @@
 
         <!-- Sección de líneas de apoyo -->
         <section id="Lineap">
-            <h2 class="title">Líneas de apoyo</h2>
-                <p>A lo largo del tiempo se han presentado casos de bullying hacia personas neurodivergentes por su
-                    conción. <br>
-                    Si tú eres una de estas no dudes en llamar a algúnas de estas líneas de apoyo. <br>
-                </p>
+            <h2 class="title" data-translate="lineas_de_apoyo">Líneas de apoyo</h2>
+            <p data-translate="lineap_p">A lo largo del tiempo se han presentado casos de bullying hacia personas
+                neurodivergentes por su condición. <br>
+                Si tú eres una de estas no dudes en llamar a algúnas de estas líneas de apoyo. <br>
+            </p>
             <div class="contenedor-lineap">
-                    <div class="acordeon">
-                        <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
+                <div class="acordeon">
+                    <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
 
-                        <label for="btn-acordeon1">
-                            <p>911: Para emergencias relacionadas con bullying en cualquier contexto <i class="fas fa-chevron-down chevron"></i></p>
-                        </label>
+                    <label for="btn-acordeon1">
+                        <p>911: Para emergencias relacionadas con bullying en cualquier contexto <i
+                                class="fas fa-chevron-down chevron"></i></p>
+                    </label>
                     <div class="contenido-acordeon">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-                                     inventore voluptate. Accusamus delectus at asperiores totam? Laudantium
-                                     enim unde porro, possimus debitis pariatur at, iure animi nobis eum consequatur! Dolorem!</p>
-                            </div>
-                        </div>
-                
-                    <div class="acordeon">
-                        <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
-
-                            <label for="btn-acordeon2">
-                                <p>911: Para emergencias relacionadas con bullying en cualquier contexto <i class="fas fa-chevron-down chevron"></i></p>
-                            </label>
-                        <div class="contenido-acordeon">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quos dolores, culpa eligendi et at cum eum debitis, 
-                                deserunt ut exercitationem provident dolorum quia atque delectus repudiandae! Eum, in illum.</p>
-                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
+                            inventore voluptate. Accusamus delectus at asperiores totam? Laudantium
+                            enim unde porro, possimus debitis pariatur at, iure animi nobis eum consequatur! Dolorem!
+                        </p>
                     </div>
+                </div>
 
-                    <div class="acordeon">
-                        <input type="checkbox" id="btn-acordeon3" class="btn-acordeon">
+                <div class="acordeon">
+                    <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
 
-                            <label for="btn-acordeon3">
-                                <p>SEP 800 1122676 <i class="fas fa-chevron-down chevron"></i></p>
-                            </label>
-                        <div class="contenido-acordeon">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia error autem numquam reprehenderit 
-                                aperiam perspiciatis officiis maiores nisi doloremque? Nemo numquam mollitia reiciendis eius odit 
-                                explicabo sed vel nihil voluptate!</p>
-                        </div>
+                    <label for="btn-acordeon2">
+                        <p>911: Para emergencias relacionadas con bullying en cualquier contexto <i
+                                class="fas fa-chevron-down chevron"></i></p>
+                    </label>
+                    <div class="contenido-acordeon">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quos dolores, culpa eligendi et
+                            at cum eum debitis,
+                            deserunt ut exercitationem provident dolorum quia atque delectus repudiandae! Eum, in illum.
+                        </p>
                     </div>
+                </div>
+
+                <div class="acordeon">
+                    <input type="checkbox" id="btn-acordeon3" class="btn-acordeon">
+
+                    <label for="btn-acordeon3">
+                        <p>SEP 800 1122676 <i class="fas fa-chevron-down chevron"></i></p>
+                    </label>
+                    <div class="contenido-acordeon">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia error autem numquam
+                            reprehenderit
+                            aperiam perspiciatis officiis maiores nisi doloremque? Nemo numquam mollitia reiciendis eius
+                            odit
+                            explicabo sed vel nihil voluptate!</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -330,32 +352,32 @@
         <!-- Sección de recursos recomendados -->
         <section class="recursos">
             <section id="Recursos">
-                <h2 class="title">Recursos Recomendados</h2>
-                <p>En esta sección encontrarás una selección de videos, documentales y sitios web confiables que
-                    exploran
-                    la neurodivergencia desde una perspectiva profesional y científica. Estos materiales han sido
-                    elegidos
-                    para proporcionar información clara, accesible y basada en evidencia sobre el autismo, el TDAH, la
-                    dislexia
-                    y otras formas de neurodivergencia.</p>
+                <h2 class="title" data-translate="recursos_recomendados">Recursos Recomendados</h2>
+                <p data-translate="recursos_p"> En esta sección encontrarás una selección de videos, documentales y sitios web confiables que
+                    exploran la neurodivergencia desde una perspectiva profesional y científica. Estos materiales han
+                    sido elegidos para proporcionar información clara, accesible y basada en evidencia sobre el autismo,
+                    el TDAH, la dislexia y otras formas de neurodivergencia.
+                </p>
 
-                <h3>----- Videos -----</h3>
 
                 <ul id="tabs">
-                    <li><a href="#tab1" class="active">Neurodivergencia</a></li> <!-- Pestaña activa por defecto -->
-                    <li><a href="#tab2">Autismo</a></li>
-                    <li><a href="#tab3">TDAH</a></li>
-                    <li><a href="#tab4">Dislexia</a></li>
-                    <li><a href="#tab5">Tourette</a></li>
-                    <li><a href="#tab6">Dispraxia</a></li>
-                    <li><a href="#tab7">Discalculia</a></li>
-                    <li><a href="#tab8">Ansiedad</a></li>
+                    <li><a href="#tab1" class="active" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                    <!-- Pestaña activa por defecto -->
+                    <li><a href="#tab2" data-translate="autismo">Autismo</a></li>
+                    <li><a href="#tab3" data-translate="tdah">TDAH</a></li>
+                    <li><a href="#tab4" data-translate="dislexia">Dislexia</a></li>
+                    <li><a href="#tab5" data-translate="tourette">Tourette</a></li>
+                    <li><a href="#tab6" data-translate="dispraxia">Dispraxia</a></li>
+                    <li><a href="#tab7" data-translate="discalculia">Discalculia</a></li>
+                    <li><a href="#tab8" data-translate="ansiedad">Ansiedad</a></li>
                 </ul>
 
                 <!-- Contenedor de los contenidos de cada pestaña -->
                 <div id="tabs-container">
 
                     <div class="tab-content" id="tab1">
+
+                        <h3>----- Videos -----</h3>
 
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
@@ -475,6 +497,8 @@
 
                     <div class="tab-content" id="tab2">
 
+                        <h3>----- Videos -----</h3>
+
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
                             <span id="btn-left" class="scroll-btn">&#10094;</span>
@@ -484,7 +508,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -494,7 +519,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -504,7 +530,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -514,7 +541,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -530,6 +558,8 @@
 
                     <div class="tab-content" id="tab3">
 
+                        <h3>----- Videos -----</h3>
+
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
                             <span id="btn-left" class="scroll-btn">&#10094;</span>
@@ -539,7 +569,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -549,7 +580,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -559,7 +591,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -569,7 +602,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -585,6 +619,8 @@
 
                     <div class="tab-content" id="tab4">
 
+                        <h3>----- Videos -----</h3>
+
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
                             <span id="btn-left" class="scroll-btn">&#10094;</span>
@@ -594,7 +630,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -604,7 +641,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -614,7 +652,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -624,7 +663,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -640,6 +680,8 @@
 
                     <div class="tab-content" id="tab5">
 
+                        <h3>----- Videos -----</h3>
+
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
                             <span id="btn-left" class="scroll-btn">&#10094;</span>
@@ -649,7 +691,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -659,7 +702,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -669,7 +713,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -679,7 +724,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -695,6 +741,8 @@
 
                     <div class="tab-content" id="tab6">
 
+                        <h3>----- Videos -----</h3>
+
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
                             <span id="btn-left" class="scroll-btn">&#10094;</span>
@@ -704,7 +752,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -714,7 +763,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -724,7 +774,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -734,7 +785,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -750,6 +802,8 @@
 
                     <div class="tab-content" id="tab7">
 
+                        <h3>----- Videos -----</h3>
+
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
                             <span id="btn-left" class="scroll-btn">&#10094;</span>
@@ -759,7 +813,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -769,7 +824,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -779,7 +835,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -789,7 +846,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -805,6 +863,8 @@
 
                     <div class="tab-content" id="tab8">
 
+                        <h3>----- Videos -----</h3>
+
                         <div class="scroll-container">
                             <!-- Bóton de scrolling/desplazamiento izquierdo -->
                             <span id="btn-left" class="scroll-btn">&#10094;</span>
@@ -814,7 +874,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -824,7 +885,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -834,7 +896,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -844,7 +907,8 @@
                                 <div class="video">
                                     <a href="#">
                                         <img src="../img/VideoPendiente.jpg" alt="Video"></a>
-                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a></h3>
+                                    <h4> <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius</a>
+                                        </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium mollitia
                                             nulla numquam! Iste, atque voluptatibus. Nesciunt repellendus, reprehenderit
                                             exercitationem deleniti similique natus fugit soluta quibusdam distinctio
@@ -879,12 +943,12 @@
 
                     <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
                     página de inicio -->
-                    <li><a href="#Menu">Inicio</a></li>
-                    <li><a href="#Acerca de">Acerca de</a></li>
-                    <li><a href="#Definiciones">Definiciones</a></li>
-                    <li><a href="#Neurodivergencia">Neurodivergencia</a></li>
-                    <li><a href="#Lineap">Líneas de apoyo</a></li>
-                    <li><a href="#Recursos">Centro de recursos</a></li>
+                    <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+                    <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+                    <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+                    <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                    <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+                    <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
                     <li><a href="#Footer">Footer</a></li>
                 </ul>
             </div>
@@ -912,4 +976,5 @@
     <script src="../javascript/javascript.js"></script>
 
 </body>
+
 </html>
