@@ -143,34 +143,38 @@ window.addEventListener("load", () => {
 //"ACTIVACIÓN DE PESTAÑAS"
 
 const tabs = document.querySelectorAll('#tabs a');
+const tabContents = document.querySelectorAll('.tab-content');
 
 tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
+    tab.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevenir el salto automático por el hash (#tabX)
+
+        // Quitar clases activas de todos
         tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        // Activar pestaña y contenido actual
         this.classList.add('active');
-  });
+        const targetId = this.getAttribute('href');
+        const targetContent = document.querySelector(targetId);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+    });
 });
 
+//Activación por defecto al cargar (cuando no hay hash en la URL)
 document.addEventListener("DOMContentLoaded", function () {
     if (!window.location.hash) {
         const defaultTabLink = document.querySelector('#tabs a[href="#tab1"]');
-        if (defaultTabLink) {
-            // Activar la pestaña visual
-            document.querySelectorAll('#tabs a').forEach(t => t.classList.remove('active'));
+        const defaultTabContent = document.querySelector('#tab1');
+
+        if (defaultTabLink && defaultTabContent) {
             defaultTabLink.classList.add('active');
-
-            //Activar el contenido correspondiente
-            const tabContents = document.querySelectorAll('.tab-content'); // Asegúrate de que usas esta clase en los contenedores
-            tabContents.forEach(c => c.classList.remove('active'));
-
-            const targetContent = document.querySelector('#tab1');
-            if (targetContent) {
-                targetContent.classList.add('active');
-            }
+            defaultTabContent.classList.add('active');
         }
     }
 });
-
 
 //"ENLACE AL ARCHIVO JSON"
 
