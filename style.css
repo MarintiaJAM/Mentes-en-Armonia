@@ -941,6 +941,68 @@ hr{
 }
 
 
+
+/*"BITACORA"*/ 
+/*Decidí usar el mismo css inicial, ya que solo es información en la bitacora*/
+.header_bitacora{
+    height:250px; /*Define la altura de 250 pixeles*/
+    display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
+    justify-content: center; /*Centra los elementos horizontalmente*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    background-color: #0f7d7e;
+    background-attachment: fixed; /*La imagen de fondo permanece fija al hacer scroll*/    
+    background-repeat:no-repeat center; /*Evita que la imagen de fondo se repita*/
+    background-size: cover; /*Ajusta la imagen para cubrir todo el encabezado*/
+}
+
+.header_bitacora h2{
+    color: #fff;
+}
+
+
+.header_bitacora p{
+    color: #fff; /*Color del texto en blanco*/
+    font-size: 20px; /*Tamaño del texto dentro del header*/
+    font-weight: 800; /*Darle el formato a negrita*/
+    text-align: center; /*Centra el texto*/
+}
+
+.Bitacora{
+    display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
+    flex-direction: column; /*Organiza los elementos en columna*/
+    align-items: center; /*Centra los elementos horizontalmente*/
+    background-color: #0f7d7e; /*Color de fondo*/
+    padding: 15px 50px 30px 50px; /*Espaciado con margen interno*/
+    margin: 30px; /*Espaciado con margen externo*/
+    margin-bottom: 20px; /*Espaciado con margen externo*/
+    border-radius: 5px; /*Bordes ligeramente redondeados*/
+    text-align: justify;
+}
+
+.Bitacora h3{
+    text-align: center; /*Alinea el texto a la izquierda*/
+    font-size: 30px; /*Tamaño del título*/
+    margin-top: 20px; /*Margen externo superior para separarse del texto*/
+    margin-bottom: 20px; /*Margen externo inferior para separarse del texto*/
+    color:#fff; /*Color del texto en blanco*/
+}
+
+.bitacora-list li{
+    margin: 0px 10px; /* Margen exterior izquierdo y derecho de 10px */
+    font-size: 20px;
+    color:#f3ebeb; /*Color del texto en blanco*/
+    list-style: none; /*Elimina el estilo de lista predeterminado*/
+    text-align: justify;
+}
+
+
+.bitacora-list strong{
+    color: #053a3c; /*Color del texto en negro claro*/
+    font-size: 20px; /*Tamaño del texto*/
+    font-weight: 800; /*Darle el formato a negrita*/
+    text-align: center; /*Centra el texto*/
+}
+
  /* Responsividad */
 @media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
     
