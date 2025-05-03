@@ -244,7 +244,7 @@ a.track-link:active {
 .search-bar {
     display: flex; /*Alinea los elementos en una fila*/
     align-items: center; /*Centra los elementos verticalmente*/
-    margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
+    margin-left: 5px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
 }
 
