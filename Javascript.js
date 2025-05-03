@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menu.classList.toggle('active');
 });
 
+
 //"BARRA DE BÚSQUEDA"
 
 //Función para resaltar texto dentro del contenido
