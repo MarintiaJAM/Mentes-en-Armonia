@@ -3,126 +3,172 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = menu.querySelector('.menu-toggle');
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
-    const content = document.body;
+    const pageContent = document.body;
 
-    // Mostrar/ocultar menú en dispositivos móviles
+    //Mostrar/ocultar menú en dispositivos móviles
     menuToggle.addEventListener('click', function () {
-        menu.classList.toggle('active');
+    menu.classList.toggle('active');
+});
+
+//"BARRA DE BÚSQUEDA"
+
+//Función para resaltar texto dentro del contenido
+function highlightText(text) {
+    const highlightedElements = pageContent.querySelectorAll('.highlight');
+    highlightedElements.forEach(function (element) {
+        const parent = element.parentNode;
+        parent.replaceChild(document.createTextNode(element.textContent), element);
+        parent.normalize();
     });
 
-    // Función para resaltar texto dentro del contenido
-    function highlightText(text) {
-        // Eliminar resaltados previos
-        const highlightedElements = content.querySelectorAll('.highlight');
-        highlightedElements.forEach(function (element) {
-            const parent = element.parentNode;
-            parent.replaceChild(document.createTextNode(element.textContent), element);
-            parent.normalize();
-        });
+    if (text === '') return;
 
-        if (text === '') {
-            return;
-        }
+    const regex = new RegExp(`(${text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const walker = document.createTreeWalker(pageContent, NodeFilter.SHOW_TEXT, null, false);
+    const textNodes = [];
 
-        const regex = new RegExp(`(${text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-
-        const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, null, false);
-        const textNodes = [];
-
-        while (walker.nextNode()) {
-            textNodes.push(walker.currentNode);
-        }
-
-        textNodes.forEach(function (node) {
-            if (regex.test(node.nodeValue)) {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
-                const fragment = document.createDocumentFragment();
-                Array.from(tempDiv.childNodes).forEach(function (child) {
-                    fragment.appendChild(child);
-                });
-                node.parentNode.replaceChild(fragment, node);
-            }
-        });
+    while (walker.nextNode()) {
+        textNodes.push(walker.currentNode);
     }
 
-    // Manejar la búsqueda
-    function handleSearch() {
-        const searchTerm = searchInput.value.trim();
-        highlightText(searchTerm);
-
-        // Desplazarse al primer resultado
-        const firstMatch = content.querySelector('.highlight');
-        if (firstMatch) {
-            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    textNodes.forEach(function (node) {
+        if (regex.test(node.nodeValue)) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+            const fragment = document.createDocumentFragment();
+            Array.from(tempDiv.childNodes).forEach(function (child) {
+                fragment.appendChild(child);
+            });
+            node.parentNode.replaceChild(fragment, node);
         }
-    }
+    });
+}
 
-    // Eventos del buscador
-    searchButton.addEventListener('click', handleSearch);
-    searchInput.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            handleSearch();
+//Manejar la búsqueda
+function handleSearch() {
+    const searchTerm = searchInput.value.trim();
+    highlightText(searchTerm);
+
+    const firstMatch = pageContent.querySelector('.highlight');
+    if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+//Eventos del buscador
+searchButton.addEventListener('click', handleSearch);
+searchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        handleSearch();
         }
     });
 });
 
 
+//"COLORES DE LINKS"
+
+document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll("a.track-link");
+
+    //Restaurar estado visitado desde sessionStorage
+    links.forEach(link => {
+      const href = link.href;
+      if (sessionStorage.getItem(href)) {
+        link.classList.add("visited-during-session");
+      }
+
+      //Al hacer clic, marcar como visitado
+      link.addEventListener("click", () => {
+        sessionStorage.setItem(href, "true");
+        link.classList.add("visited-during-session");
+      });
+    });
+  });
+
+
 //"SCROLL"
 
-let scrollBtn = document.getElementById("scrollTop"); //Busca el de scroll en el html a través del ID, que sería
-//"scroll" y lo guarda dentro de una variable llamda "scrollBtn" (bóton de scroll).
+let scrollBtn = document.getElementById("scrollTop");
 
-window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el usuario hace scroll  (desliza) por la página.
-    if (window.scrollY > 450) { //Detecta si el usuario ha bajado, utilizando medidas de pixeles
-        scrollBtn.classList.add("show"); // Aparece con animación
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 450) {
+        scrollBtn.classList.add("show");
     } else {
-        scrollBtn.classList.remove("show"); // Desaparece suavemente
+        scrollBtn.classList.remove("show");
     }
+});
+
+
+//"FORMULARIO DE INICIO DE SESIÓN"
+
+function toggleLoginModal() {
+    const modal = document.getElementById("loginModal");
+    modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+}
+
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+
+togglePassword.addEventListener("click", () => {
+    const isPassword = passwordInput.type === "password";
+     passwordInput.type = isPassword ? "text" : "password";
+
+//Cambia el ícono
+    togglePassword.classList.toggle("fa-eye");
+    togglePassword.classList.toggle("fa-eye-slash");
 });
 
 
 //"SCROLLING DE VIDEOS"
 
-const rightBtn = document.querySelector("#btn-right");
-const leftBtn = document.querySelector("#btn-left");
-const content = document.querySelector(".scrolling-videos");
+window.addEventListener("load", () => {
+    const rightBtn = document.querySelector("#btn-right");
+    const leftBtn = document.querySelector("#btn-left");
+    const videoContent = document.querySelector(".scrolling-videos");
 
-// Cantidad a desplazar (ancho de un video + margen)
-const scrollAmount = document.querySelector(".video").offsetWidth + 25;
+    const videoCard = document.querySelector(".video");
+    const scrollAmount = videoCard.offsetWidth + 25; // Calculado después de que todo cargue
 
-// Función para desplazarse
-rightBtn.addEventListener("click", () => {
-    content.scrollLeft += scrollAmount;
-});
+    rightBtn?.addEventListener("click", () => {
+        videoContent.scrollLeft += scrollAmount;
+    });
 
-leftBtn.addEventListener("click", () => {
-    content.scrollLeft -= scrollAmount;
+    leftBtn?.addEventListener("click", () => {
+        videoContent.scrollLeft -= scrollAmount;
+    });
 });
 
 
 //"ACTIVACIÓN DE PESTAÑAS"
 
-// Selecciona todos los enlaces dentro del contenedor de pestañas
 const tabs = document.querySelectorAll('#tabs a');
 
-// Agrega un evento de clic a cada pestaña
 tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-        //Remueve la clase "active" de todas las pestañas
+    tab.addEventListener('click', function () {
         tabs.forEach(t => t.classList.remove('active'));
-
-        //Agrega la clase "active" solo a la pestaña a la que se hizo clic
         this.classList.add('active');
-    });
+  });
 });
 
-//Redirige automáticamente al #tab1 si no hay ancla en la URL
 document.addEventListener("DOMContentLoaded", function () {
     if (!window.location.hash) {
-      window.location.hash = "#tab1";
+        const defaultTabLink = document.querySelector('#tabs a[href="#tab1"]');
+        if (defaultTabLink) {
+            // Activar la pestaña visual
+            document.querySelectorAll('#tabs a').forEach(t => t.classList.remove('active'));
+            defaultTabLink.classList.add('active');
+
+            //Activar el contenido correspondiente
+            const tabContents = document.querySelectorAll('.tab-content'); // Asegúrate de que usas esta clase en los contenedores
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            const targetContent = document.querySelector('#tab1');
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        }
     }
-  });
+});
 
 
 //"ENLACE AL ARCHIVO JSON"
@@ -130,33 +176,33 @@ document.addEventListener("DOMContentLoaded", function () {
 let translations = {};
 let currentLang = 'es';
 
-fetch('../Javascript/Language.json') //Ruta al archivo JSON
-  .then(response => response.json())
-  .then(data => {
-    translations = data;
-    translateTo(currentLang); //Traducción inicial
+fetch('../Javascript/Language.json')
+    .then(response => response.json())
+    .then(data => {
+        translations = data;
+        translateTo(currentLang);
   });
 
 function translateTo(lang) {
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    const key = el.getAttribute('data-translate');
-    const attr = el.getAttribute('data-translate-attr');
-    const innerOnly = el.getAttribute('data-translate-inner') === 'true';
+    const langSet = translations[lang] || {};
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        const attr = el.getAttribute('data-translate-attr');
+        const innerOnly = el.getAttribute('data-translate-inner') === 'true';
 
-    if (attr) {
-      //Traduce atributos como placeholder, title, alt, etc.
-      el.setAttribute(attr, translations[lang][key] || el.getAttribute(attr));
-    } else if (innerOnly) {
-      //Traduce solo el texto interno (no elimina íconos o etiquetas hijas)
-      el.innerText = translations[lang][key] || el.innerText;
-    } else {
-      //Traduce todo el contenido del elemento (puede reemplazar íconos si no se usa innerOnly)
-      el.textContent = translations[lang][key] || el.textContent;
-    }
-  });
+        if (key && langSet[key]) {
+            if (attr) {
+                el.setAttribute(attr, langSet[key]);
+            } else if (innerOnly) {
+                el.innerText = langSet[key];
+            } else {
+                el.textContent = langSet[key];
+            }
+        }
+    });
 }
 
 function toggleLanguage() {
-  currentLang = currentLang === 'es' ? 'en' : 'es';
-  translateTo(currentLang);
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    translateTo(currentLang);
 }
