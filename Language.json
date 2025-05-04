@@ -9,8 +9,10 @@
       "dispraxia": "Dispraxia",
       "discalculia": "Discalculia",
       "ansiedad": "Ansiedad",
-    "menu-sec4": "Experiencias y comunidad",
+    "menu-sec4": "Experiencias y Comunidad",
     "menu-sec5": "Noticias",
+    "menu-sec6": "Extras",
+      "bitacora": "Bitácora",
 
     "buscar": "Buscar...",
     "login": "Iniciar Sesión",
@@ -64,6 +66,8 @@
       "ansiedad": "Anxiety",
     "menu-sec4": "Experiences and community",
     "menu-sec5": "News",
+    "menu-sec6": "Extras",
+      "bitacora": "Binnacle",
 
     "buscar": "Search...",
     "login": "Sign in / Login",

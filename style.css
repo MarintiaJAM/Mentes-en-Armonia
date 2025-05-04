@@ -102,7 +102,6 @@ a.track-link:active {
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
     flex-wrap: nowrap; /*Evita que los elementos se desborden en otra línea*/
     z-index: 1000; /*Asegura que el menú permanezca por encima de otros elementos*/
-    flex-wrap: wrap; /*Permite que los elementos se distribuyan en varias líneas si es necesario*/
 }
 
 
@@ -132,18 +131,10 @@ a.track-link:active {
 /*"SECCIONES/LINKS" Contenedor de los elementos de navegación*/
 .navbar{
     display: flex; /*Usa flexbox para organizar los elementos*/
-    margin-right: 20px; /*Margen exterior derecho para separar los elementos*/
     list-style: none; /*Elimina los estilos de lista predeterminados*/
     margin: 0; /*Elimina márgenes predeterminados*/
     padding: 0; /*Elimina relleno predeterminado*/
 }
-
-/*Contenedor de la lista de navegación*/
-.navbar ul {
-    list-style-type: none; /*Elimina los estilos de viñetas predeterminados*/
-    display: flex; /*Organiza los elementos en una sola línea horizontalmente*/
-    justify-content: center; /*Centra los elementos de la lista horizontalmente*/
-  }
 
 /*Cada elemento de la lista de navegación*/
 .navbar li{
@@ -151,32 +142,35 @@ a.track-link:active {
 }
 
 /*Estilos de los enlaces de la barra de navegación*/
-.navbar li a{
-    scroll-margin-top: 60px; /*Evita que el título quede oculto por el menú fijo al hacer scroll*/
-    display: block; /*Hace que la sombra del fondo de las secciones abarque toda la altura del menu*/
-    height: 85px; /*Ajusta la altura de los enlaces para igualarla al menú*/
-    width: 100%; /*Se ajusta al ancho completo del contenedor*/
-    line-height: 85px; /*Centra el texto verticalmente*/
-    padding: 0 16px; /*Agrega un relleno interno a los lados para separar las secciones*/
-    color: #fff; /*Color blanco para los enlaces*/
-    text-decoration: none; /*Elimina el subrayado predeterminado los enlaces*/
-    text-transform: uppercase; /*Convierte el texto a mayúsculas*/
-    text-align: center; /*Centra el texto horizontalmente*/
-    font-size: 14px; /*Tamaño del texto*/
+.navbar li a,
+.dropdown-toggle {
+    scroll-margin-top: 60px;
+    display: block;
+    height: 85px;
+    line-height: 85px;
+    padding: 0 16px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
     transition: transform 0.25s ease-in-out;
 }
 
 /*Efecto de hover y focus en los enlaces de la barra de navegación*/
-.navbar a:hover, a:focus{
-    background: #207185; /*Cambia el color de fondo al pasar el cursor sobre los enlaces*/
+.navbar a:hover,
+.navbar a:focus,
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+    background: #207185;
     transform: scale(1.08);
     color: #fffdd1;
 }
 
-/*Ícono de las secciones*/
-.icon-left {
-    margin-right: 8px;
+.navbar i{
     color: #fff;
+    margin-right: 8px;
 }
 
 
@@ -193,7 +187,7 @@ a.track-link:active {
     visibility: hidden; /*Oculta visualmente el submenú*/
   }
   
-  /*Al pasar el ratón sobre el ítem, el submenú se hace visible*/
+/*Al pasar el ratón sobre el ítem, el submenú se hace visible*/
 .dropdown:hover .dropdown-content {
    display: block; /*Hace visible el submenú*/
    opacity: 1; /*Ajusta la opacidad a 100% para hacerlo visible*/
@@ -208,23 +202,23 @@ a.track-link:active {
     display: block; /*Asegura que los enlaces se muestren en columnas (uno debajo del otro)*/
   }
 
-  /*Estilos para los enalces al pasar el cursor sobre estos*/
+/*Estilos para los enalces al pasar el cursor sobre estos*/
 .dropdown-content a:hover {
     background-color: #207185; /*Cambia el color de fondo cuando el cursor pasa sobre el enlace*/
   }
 
 
-  /*"CHEVRON" Flecha indicadora en el menú desplegable*/
+/*"CHEVRON" Flecha indicadora en el menú desplegable*/
 .chevron {
     margin-left: 8px; /*Espacio entre el texto y la flecha*/
     transition: transform 0.3s ease; /*Animación suave al girar*/
   }
   
-  /*Rotación del Chevron al mostrar el submenú cuando el cursor se pone sobre este*/
+/*Rotación del Chevron al mostrar el submenú cuando el cursor se pone sobre este*/
 .dropdown:hover .chevron {
     transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
 }
-  
+
 
 /*"ADAPTADOR DEL MENÚ PARA CELULARES"*/
 .menu-toggle {
