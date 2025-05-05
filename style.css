@@ -136,6 +136,14 @@ a.track-link:active {
     padding: 0; /*Elimina relleno predeterminado*/
 }
 
+
+/*Contenedor de la lista de navegación*/
+.navbar ul {
+    list-style-type: none; /*Elimina los estilos de viñetas predeterminados*/
+    display: flex; /*Organiza los elementos en una sola línea horizontalmente*/
+    justify-content: center; /*Centra los elementos de la lista horizontalmente*/
+  }
+
 /*Cada elemento de la lista de navegación*/
 .navbar li{
     position: relative; /*Permite posicionar elementos secundarios de forma absoluta dentro de este*/
