@@ -1057,7 +1057,6 @@ label p{
     padding: 10px; /*Le ofrece un margen interior de 10px*/
     cursor: pointer; /*cambia el cursor del mouse a una mano cuando el usuario pasa sobre un elemento, indicando que es clickeable. */
     z-index: 10; /*Permite que el elemento se superponga a los demás dentro del sitio web*/
-    /*filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.5)); Crea una sombra igual a la flecha*/
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
 }
 
