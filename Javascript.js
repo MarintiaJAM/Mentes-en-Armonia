@@ -364,3 +364,5 @@ function toggleLanguage() {
     currentLang = currentLang === 'es' ? 'en' : 'es';
     translateTo(currentLang);
 }
+
+
