@@ -849,6 +849,13 @@ a.track-link:active {
     margin-bottom: 5px;
 }
 
+
+/*Estilo inicial (no visitado)*/
+.acordeon a.track-link {
+    color: rgb(229, 234, 238); /*Color blanco*/
+    text-decoration: none;
+}
+
 .acordeon{
     background: #fff; /*Color de fondo blanco*/
 }
