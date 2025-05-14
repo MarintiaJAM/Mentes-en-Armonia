@@ -120,23 +120,24 @@ togglePassword.addEventListener("click", () => {
 });
 
 
-//"SCROLLING DE VIDEOS"
+//"SCROLLING DE VIDEOS" carga y funcionamiento del scrolling horizontal
 
-window.addEventListener("load", () => {
-    const rightBtn = document.querySelector("#btn-right");
-    const leftBtn = document.querySelector("#btn-left");
-    const videoContent = document.querySelector(".scrolling-videos");
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollAmount = 300; // Ajusta esta distancia si lo necesitas
 
-    const videoCard = document.querySelector(".video");
-    const scrollAmount = videoCard.offsetWidth + 25; // Calculado después de que todo cargue
+  // Delegación de eventos: busca todos los botones con clase scroll-btn
+  document.querySelectorAll('.scroll-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Encuentra el contenedor .scrolling-videos más cercano dentro del mismo .scroll-container
+      const scrollContainer = btn.closest('.scroll-container').querySelector('.scrolling-videos');
 
-    rightBtn?.addEventListener("click", () => {
-        videoContent.scrollLeft += scrollAmount;
+      if (btn.classList.contains('left')) {
+        scrollContainer.scrollLeft -= scrollAmount;
+      } else if (btn.classList.contains('right')) {
+        scrollContainer.scrollLeft += scrollAmount;
+      }
     });
-
-    leftBtn?.addEventListener("click", () => {
-        videoContent.scrollLeft -= scrollAmount;
-    });
+  });
 });
 
 
@@ -175,6 +176,158 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+
+
+//"COMENTARIOS"
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("comment-form");
+  const input = document.getElementById("comment-input");
+  const list = document.getElementById("comments-list");
+
+  const neuroTypeInputs = form.querySelectorAll("input[name='neurotype']");
+
+  let comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+  function saveComments() {
+    localStorage.setItem("comments", JSON.stringify(comments));
+  }
+
+  function renderComments() {
+    list.innerHTML = "";
+    comments.forEach((comment) => {
+      const el = createCommentElement(comment);
+      list.appendChild(el);
+    });
+  }
+
+  function getNeurotypeTag(type) {
+    if (type === "neurodivergente") {
+      return `<span class="tag neurodivergente"><i class="fas fa-puzzle-piece"></i> Neurodivergente</span>`;
+    } else if (type === "neurotipico") {
+      return `<span class="tag neurotipico"><i class="fas fa-seedling"></i> Neurotípico</span>`;
+    }
+    return "";
+  }
+
+  function createCommentElement(comment, isReply = false) {
+    const container = document.createElement("div");
+    container.className = "comment";
+    if (isReply) container.classList.add("reply");
+
+    container.innerHTML = `
+      <div class="comment-body">
+        <img src="https://i.pravatar.cc/48?u=${Math.random()}" class="avatar" />
+        <div class="comment-content">
+          <strong>
+            ${comment.user}
+            ${getNeurotypeTag(comment.neurotype)}
+          </strong>
+          <p>${comment.text}</p>
+        </div>
+        <div class="like-button" data-liked="false">
+          <i class="fa-regular fa-heart heart-icon"></i>
+          <span class="like-count">${comment.likes || 0}</span>
+        </div>
+      </div>
+      <button class="reply-button">Responder</button>
+    `;
+
+    // Me gusta
+    const likeBtn = container.querySelector(".like-button");
+    const heartIcon = likeBtn.querySelector(".heart-icon");
+    const likeCount = container.querySelector(".like-count");
+
+    likeBtn.addEventListener("click", () => {
+      const liked = likeBtn.getAttribute("data-liked") === "true";
+
+      if (!liked) {
+        comment.likes = (comment.likes || 0) + 1;
+        likeBtn.setAttribute("data-liked", "true");
+        likeBtn.classList.add("liked");
+        heartIcon.classList.remove("fa-regular");
+        heartIcon.classList.add("fa-solid");
+        heartIcon.style.color = "#ff2828";
+      } else {
+        comment.likes -= 1;
+        likeBtn.setAttribute("data-liked", "false");
+        likeBtn.classList.remove("liked");
+        heartIcon.classList.remove("fa-solid");
+        heartIcon.classList.add("fa-regular");
+        heartIcon.style.color = "gray";
+      }
+
+      likeCount.textContent = comment.likes;
+      saveComments();
+    });
+
+    // Responder
+    const replyBtn = container.querySelector(".reply-button");
+    replyBtn.addEventListener("click", () => {
+      const existingForm = container.querySelector(".reply-form");
+      if (existingForm) return;
+
+      const replyForm = document.createElement("form");
+      replyForm.className = "reply-form";
+      replyForm.innerHTML = `
+        <textarea placeholder="Escribe una respuesta..." required></textarea>
+        <button type="submit">Responder</button>
+      `;
+
+      replyForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const replyText = replyForm.querySelector("textarea").value;
+        const replyComment = {
+          id: Date.now(),
+          user: "Usuario",
+          text: replyText,
+          likes: 0,
+          neurotype: comment.neurotype,
+          replies: [],
+        };
+        comment.replies.push(replyComment);
+        saveComments();
+        renderComments();
+      });
+
+      container.appendChild(replyForm);
+    });
+
+    // Añadir respuestas
+    if (comment.replies && comment.replies.length > 0) {
+      comment.replies.forEach((reply) => {
+        const replyEl = createCommentElement(reply, true);
+        container.appendChild(replyEl);
+      });
+    }
+
+    return container;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const selectedNeurotype = [...neuroTypeInputs].find((el) => el.checked)?.value || "neurotipico";
+
+    const newComment = {
+      id: Date.now(),
+      user: "Usuario",
+      text: input.value.trim(),
+      likes: 0,
+      neurotype: selectedNeurotype,
+      replies: [],
+    };
+
+    if (!newComment.text) return;
+    comments.push(newComment);
+    saveComments();
+    input.value = "";
+    renderComments();
+  });
+
+  renderComments();
+});
+
 
 //"ENLACE AL ARCHIVO JSON"
 

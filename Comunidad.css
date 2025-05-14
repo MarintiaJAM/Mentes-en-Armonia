@@ -1,0 +1,1034 @@
+/*Importación de fuentes personalizadas desde Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente "Ubuntu"*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
+
+*{
+    /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
+    y que por default se apliquen estos estilos si no se indica lo contrario */
+    margin: 0; /*Elimina el márgen predeterminado*/
+    padding: 0; /*Elimina el relleno interno predeterminado*/
+    border: 0; /*Elimina cualquier borde predeterminado*/
+    font-size: 100%; /*Mantiene el tamaño de fuente base del navegador (16px por defecto)*/
+    text-align: justify; /*Justifica el texto para darle una apariencia alineada a ambos lados*/
+    color: #453c5c; /*Color de texto predeterminado en tono morado oscuro*/
+    vertical-align: baseline; /*Asegura la alineación vertical de los elementos en línea con la línea base del texto*/
+    box-sizing: border-box; /*Evita que el padding y border afecten el tamaño total del elemento*/
+}
+
+
+html {
+    scroll-behavior: smooth; /*Desplazamiento suave al hacer clic en enlaces internos*/
+}
+
+/*"CUERPO GENERAL" Estilos base del body*/
+body{
+    text-align: justify; /*Justifica el texto en todo el cuerpo del documento*/
+    font-family: 'Ubuntu', sans-serif; /*Usa la fuente Ubuntu y, en caso de no estar disponible, una fuente genérica sans-serif*/
+    background: url('../img/fondobody.jpg') repeat; /*Aplica una imagen con patrón al fondo en los laterales (10%) de la página*/
+}
+
+
+/*"LETRA GENERAL" Estilos predeterminados para la letra y los párrafos*/
+p{
+    margin-bottom: 40px; /*Agrega un espacio de 40 píxeles entre párrafos*/
+    font-size: 20px; /*Indica que el tamaño de la letra será de 18 pixeles*/
+    color: #453c5c; /*Usa el color de texto predeterminado en tono morado oscuro*/
+    padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
+}
+
+
+/*"ESTILO LINKS" Estilos para los enlaces en diferentes estados de interacción*/
+
+/*Estilo inicial (no visitado)*/
+a.track-link {
+    color: rgb(0, 153, 255); /*Color azul cielo*/
+    text-decoration: none;
+}
+
+/*Cuando el usuario lo visita durante la sesión*/
+a.track-link.visited-during-session {
+    color: purple; /*Color púrpura*/
+}
+
+/*Hover y active siguen funcionando*/
+a.track-link:hover {
+    color: rgb(243, 110, 132); /*Color rosa coral*/
+}
+
+a.track-link:active {
+    color: #0099ff; /*Color azul cielo*/
+}
+
+
+/*Animación para línea de los links*/
+.underline-animate {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 3px; /* espacio para la línea */
+}
+
+.underline-animate::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 1.5px;
+    background-color: currentColor;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.underline-animate:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+
+/*"ENCABEZADO MENÚ" Estilos del menú principal.*/
+
+/*"CUERPO MENÚ" Contenedor principal del menú.*/
+.menu{
+    display: flex; /*Usa flexbox para distribuir los elementos de manera flexible*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    justify-content: flex-start; /*Distribuye los elementos con espacio entre ellos*/
+    width: 100%; /*Ocupa todo el ancho disponible*/
+    max-width: 100%; /*Evita que el menú supere el ancho de la pantalla con un máximo del 100%*/
+    background-color: #2d938e; /*Color de fondo azul verdoso*/
+    padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
+    box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
+    flex-wrap: nowrap; /*Evita que los elementos se desborden en otra línea*/
+    z-index: 1000; /*Asegura que el menú permanezca por encima de otros elementos*/
+}
+
+
+/*"LOGO"*/
+.logo{
+    margin-right: auto; /*Empuja el logo hacia la izquierda y permite que los demás elementos ocupen el espacio restante*/
+    margin-top: 3px 0; /*Margen exterior superior e inferior*/
+}
+
+/*Ajustes de la imagen del logo*/
+.logo img{
+    width: 70px; /*Define un ancho fijo para la imagen del logo*/
+    height: auto; /*Mantiene la proporción original de la imagen*/
+}
+
+/*Si la imagen del logo no carga, se mostrará un texto "LOGO"*/
+.logo a{
+    text-decoration: none; /*Elimina el subrayado predeterminado en los enlaces*/
+    color: #fff; /*Color blanco para el texto*/
+    text-transform: uppercase; /*Convierte el texto en máyusculas*/
+    font-size: 20px; /*Tamaño del texto del logo*/
+}
+
+
+/*"CUERPO NAVBAR" Estilos de la barra de navegación*/
+
+/*"SECCIONES/LINKS" Contenedor de los elementos de navegación*/
+.navbar{
+    display: flex; /*Usa flexbox para organizar los elementos*/
+    list-style: none; /*Elimina los estilos de lista predeterminados*/
+    margin: 0; /*Elimina márgenes predeterminados*/
+    padding: 0; /*Elimina relleno predeterminado*/
+}
+
+/*Contenedor de la lista de navegación*/
+.navbar ul {
+    list-style-type: none; /*Elimina los estilos de viñetas predeterminados*/
+    display: flex; /*Organiza los elementos en una sola línea horizontalmente*/
+    justify-content: center; /*Centra los elementos de la lista horizontalmente*/
+  }
+
+/*Cada elemento de la lista de navegación*/
+.navbar li{
+    position: relative; /*Permite posicionar elementos secundarios de forma absoluta dentro de este*/
+}
+
+/*Estilos de los enlaces de la barra de navegación*/
+.navbar li a,
+.dropdown-toggle {
+    scroll-margin-top: 60px;
+    display: block;
+    height: 85px;
+    line-height: 85px;
+    padding: 0 16px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease-in-out;
+}
+
+/*Efecto de hover y focus en los enlaces de la barra de navegación*/
+.navbar a:hover,
+.navbar a:focus,
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+    background: #207185;
+    transform: scale(1.08);
+    color: #fffdd1;
+}
+
+.navbar i{
+    color: #fff;
+    margin-right: 8px;
+}
+
+
+/*"Dropdown - Hacia abajo y en lista vertical" Menú desplegable*/
+.dropdown-content {
+    display: none; /*Mantiene el submenú oculto por defecto*/
+    position: absolute; /*Posiciona el submenú en relación con el elemento padre*/
+    background-color: #2d938e; /*Color de fondo igual al del menú*/
+    min-width: 160px; /*Ancho mínimo del submenú*/
+    z-index: 1000; /*Asegura que el submenú esté por encima de otros elementos*/
+    top: 100%; /*Ubica el submenú justo debajo del elemento principal*/
+    left: 0; /*Alinea el submenú con el borde izquierdo del ítem*/
+    opacity: 0; /*Inicicalmente invisible*/
+    visibility: hidden; /*Oculta visualmente el submenú*/
+  }
+  
+/*Al pasar el ratón sobre el ítem, el submenú se hace visible*/
+.dropdown:hover .dropdown-content {
+   display: block; /*Hace visible el submenú*/
+   opacity: 1; /*Ajusta la opacidad a 100% para hacerlo visible*/
+   visibility: visible; /*Cambia la visibilidad para mostrar el submenú*/
+   transition: opacity 0.3s ease-in-out; /*Transición suave para la aparición*/
+  }
+  
+.dropdown-content a {
+    color: white; /*Color del texto de los enlaces del submenú*/
+    padding: 4px 10px; /*Espaciado interno para mejorar la apariencia*/
+    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
+    display: block; /*Asegura que los enlaces se muestren en columnas (uno debajo del otro)*/
+  }
+
+/*Estilos para los enalces al pasar el cursor sobre estos*/
+.dropdown-content a:hover {
+    background-color: #207185; /*Cambia el color de fondo cuando el cursor pasa sobre el enlace*/
+  }
+
+
+/*"CHEVRON" Flecha indicadora en el menú desplegable*/
+.chevron {
+    margin-left: 8px; /*Espacio entre el texto y la flecha*/
+    transition: transform 0.3s ease; /*Animación suave al girar*/
+  }
+  
+/*Rotación del Chevron al mostrar el submenú cuando el cursor se pone sobre este*/
+.dropdown:hover .chevron {
+    transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
+}
+
+
+/*"ADAPTADOR DEL MENÚ PARA CELULARES"*/
+.menu-toggle {
+    display: none; /*Oculto por defecto en pantallas grandes*/
+    cursor: pointer; /*Cambia el cursor a una manita para indicar que es clickeable*/
+    margin-left: auto; /*Empuja el resto del contenido hacia la izquierda*/
+}
+
+/*Estilos del ícono del menú hamburguesa*/
+.menu-toggle i {
+    font-size: 24px; /*Tamaño del ícono*/
+    color: #fff; /*Color del ícono*/
+}
+
+
+/*"BARRA DE BÚSQUEDA"*/
+.search-bar {
+    display: flex; /*Alinea los elementos en una fila*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
+    flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
+}
+
+/*Campo de entrada de texto de la barra de búsqueda*/
+.search-bar input { /*El input es el campo de búsqueda que se expande al enfocarlo.*/
+    padding: 8px 10px; /*Acomoda el "buscar..." para que no toque los bordes*/
+    border-radius: 15px 0 0 15px; /*Esquinas redondeadas solo en el lado izquierdo*/
+    outline: none; /*Elimina el contorno azul predeterminado en algunos navegadores*/
+    width: 200px; /*Ancho inicial del campo de búsqueda*/
+    transition: width 0.4s ease-in-out; /*Expansión suave del input (buscar...)*/
+    /*Por su lado, el ease-in-out permite que la animación sea suave y más fluida, dándole un comienzo y un final lentos*/
+}
+
+.search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
+    width: 275px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
+    en un ancho de 275px*/
+}
+
+/*Estilos para el botón de búsqueda*/
+.search-bar button { 
+    padding: 8px 10px; /*Espaciado interno del botón de búsqueda*/
+    background-color: #ff6b6b; /*Color coral al recuadro donde se encuentra el icono de búsqueda*/
+    color: white; /*Color blanco al icono de búsqueda*/
+    border-radius: 0 15px 15px 0; /*Esquinas redondeadas en el lado derecho*/
+    cursor: pointer; /*Convierte el cursor en un pointer indicar que es un elemento clickeable*/
+    outline: none; /*Elimina la línea exterior que se presenta al expandir el buscador*/
+    transition:0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
+}
+
+.search-bar button:hover {
+    background-color: #e74e5b; /*Le da una ligera sombra al botón del buscador al pasar el cursor sobre este*/
+}
+
+/*Resaltado de búsqueda. El resaltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
+.highlight { 
+    background-color: #f68f9b; /*Fondo resaltado cuando se encuentra un término de búsqueda*/
+}
+
+
+/*"LOGIN/INICIO DE SESIÓN"*/
+.Login {
+    margin-left: 20px; /*Separación entre la barra de búsqueda y el botón de inicio de sesión*/
+    display: flex; /*Organiza los elementos en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+}
+
+/*Botón de Inicio de Sesión*/
+.login-button {
+    display: flex; /*Alinea el ícono y el texto en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+    color: #fff; /*Color blanco para el texto*/
+    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
+    font-size: 14px; /*Tamaño de fuente*/
+    background-color: #ff6b6b; /*Color rosa coral para el fondo*/
+    padding: 8px 14px; /*Margen interno para definir la extensión del fondo*/
+    border-radius: 20px; /*Bordes redondeados*/
+    transition:0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
+}
+
+/*Estilos del ícono del búsqueda*/
+.login-button i {
+    margin-right: 8px; /*Margen exterior derecho para separar el ícono y el texto del botón*/
+}
+
+/*Efecto al pasar el cursor sobre el botón*/
+.login-button:hover {
+    background-color: #e74e5b; /*Cambio de color de fondo al pasar el cursor*/
+}
+
+
+/*"FORMULARIO DE INICIO DE SESIÓN"*/
+
+/*Modal general*/
+.login-modal {
+    display: none; /*Oculto al cargar*/
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+/*Caja del formulario*/
+.login-form {
+    position: relative;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 425px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/*Botón para cerrar*/
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/*Títulos y enlaces*/
+.login-form h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.no-account {
+    font-size: 16px;
+    color: #777;
+    text-align: left;
+    margin-bottom: 10px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.login-form a {
+    color: rgb(0, 153, 255); /*Color azul cielo*/
+    text-decoration: none;
+}
+  
+/*Inputs y etiquetas*/
+.login-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+  
+/*Contraseña y link al mismo nivel*/
+.password-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Contenedor de contraseña*/
+.password-container {
+    position: relative;
+    width: 100%;
+}
+  
+.password-container input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /*deja espacio para el ícono*/
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
+    z-index: 2;
+}
+  
+/*Recordarme*/
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px; /*Espacio entre el checkbox y el texto*/
+    margin-bottom: 15px;
+}
+
+.remember-me label {
+    margin-left: 5px;
+    font-weight: normal;
+}
+  
+/*Botón principal*/
+.login-form button[type="submit"] {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    background-color: #e55b5b;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+/*Línea divisoria*/
+.divider {
+    text-align: center;
+    margin: 33px 0;
+    color: #777;
+}
+  
+/*Botones redes sociales*/
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-buttons button {
+    width: 48%;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.social-buttons .google i {
+    color: #DB4437;
+}
+
+.social-buttons .facebook i {
+    color: #4267B2;
+}  
+
+
+/*"SUBMENÚ"*/
+.submenu{
+    position: sticky; /* Hace que el elemento se fije en la parte superior del viewport cuando se hace scroll */   
+    top: 0;      /* Hace que el elemento se fije en la parte superior del viewport cuando se hace scroll */
+    display: flex; /*Alinea los elementos en una fila*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    width: 100%; /*Ocupa todo el ancho disponible*/
+    max-height: 100%;
+    max-width: 100%; /*Evita que sobrepase el ancho del viewport*/
+    background-color: #075f61; /*Color turquesa para el fondo*/
+    /*padding: 20px 25px; Agrega espacio a los lados para que no pegue al borde*/
+    padding: 5px 25px 5px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
+    box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
+    /*Controla qué elemento está "encima" de otro cuando se superponen.*/
+    z-index: 100;/*flex-wrap: wrap;  Permite que los elementos se envuelvan en múltiples líneas en pantallas pequeñas.*/
+}
+
+
+.table{
+    display: flex; /*Usa flexbox para organizar los elementos en fila*/
+    align-items: center;/*Centra los elementos verticalmente*/
+    list-style: none; /*Elimina los estilos de lista predeterminados*/
+    margin-right: 30px; /*Separa los elementos del submenú del ícono de traductor*/
+}
+
+
+/*Estilos para la lista del menú*/
+.table ul {
+    list-style-type: none; /*Elimina los estilos de viñetas de la lista*/
+    margin: 0px; /*Elimina el margen externo de la lista*/
+    padding: 0px; /*Elimina el relleno interno de la lista*/
+    display: flex; /*Utiliza flexbox para organizar los elementos de la lista en una fila*/
+    justify-content: center; /*Centra los elementos horizontalmente dentro del menú*/
+}
+
+/*Estilos para los elementos de la lista (li)*/
+.table li {
+    text-align: center; /*Centra el texto de las listas*/
+    position: relative; /* Necesario para posicionar el fondo */
+}
+
+/*Estilos para los enlaces del menú*/
+.table li a {
+    padding: 0 16px; /*Agrega espacio a los lados*/
+    display: block; /*Permite que el enlace ocupe toda el área disponible*/
+    height: 60px; /*Hace que el enlace tenga la misma altura que su contenedor*/
+    line-height: 60px; /*Centra el texto verticalmente*/
+    color: white; /*Cambia el color del texto a blanco*/
+    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
+    font-size: 16px; /*Define el tamaño de fuente*/
+    transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+/*Efecto hover en los enlaces del menú*/
+.table li a:hover {
+    color: #f87988; /*Cambia el color del texto a rosa coral al pasar el cursor*/
+    transform: scale(1.1);
+    background-color: #06494b
+}
+
+
+/*"ICONO TRADUCTOR"*/
+.traductor{
+    margin-left: auto; /*Separa al icono de traductor del contenido de la lista del submenú*/
+    font-size: 35px; /*Tamaño del icono*/
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+}
+
+.traductor:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(6px 8px 0px rgba(4, 46, 33, 0.7));
+}
+
+/*Estilo del icono de traducción*/
+.traductor i{
+    color: #93ebf7; /*Color azul claro para el ícono de traductor*/
+    cursor: pointer;
+}
+
+#translateBtn {
+    background-color: transparent;  /* Quita el fondo blanco que se le coloca al icono del traductor */
+}
+
+
+/*"CONTENIDO PRINCIPAL DE PÁGINA"*/
+.container {
+    width: 90%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
+    margin: 0 auto; /*Centra el contenedo horizontalmente*/
+    padding: 5px 0 0 0; /*Agrega un margen interior superior*/
+    background-color: #faf8e1; /*Color amarillo muy claro para el fondo general*/
+    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
+}
+
+
+/*"FLECHA DE SCROLL"*/
+.scroll{
+    position: fixed; /*Mantiene la flecha fija en pantalla*/
+    bottom: 40px; /*Distancia desde la parte inferior*/
+    right: 40px; /*Distancia desde la derecha para mantenerlo en la esquina*/
+    width: 40px; /*Ancho del botón*/
+    height: 40px; /*Alto del botón*/
+    background: #d33649; /*Color del fondo del botón*/
+    color: #fff;
+    text-align: center; /*Ya que la flecha cuenta como texto en este caso, esto ayuda a que se mantenga
+    centrada dentro del círculo*/
+    line-height: 40px; /*Centra el ícono de la flecha verticalmente*/
+    font-size: 30px; /*Tamaño del ícono de la flecha*/
+    border-radius: 50%; /*Hace que el botón tenga forma circular*/
+    cursor: pointer; /*Cambia el cursor a una manita*/
+    text-decoration: none; /*Elimina cualquier subrayado del enlace*/
+    opacity: 0; /*Hace que en un inicio sea invisible*/
+    visibility: hidden; /*Oculta el elemento sin afectar el diseño*/
+    transition: opacity 0.2s ease-in-out, visibility 0.2s; /*Transición para la aparición y desaparición del botón*/
+}
+
+/*Muestra la flecha cuando el usuario ha hecho scroll*/
+#scrollTop.show {
+    opacity: 1; /*Ajusta la opacidad a 100% para hacerla visible*/
+    visibility: visible; /*Cambia la visibilidad para mostrar la flecha*/
+}
+
+.scroll:hover{
+    background: #f87988; /*Cambia el color del fondo al pasar el cursor*/
+    color: #fff; /*Cambia el color de la flecha*/
+}
+
+
+/*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
+.title{
+    margin-top: 40px; /*Margen exterior superior*/
+    margin-bottom: 40px; /*Margen exterior superior*/
+    font-size: 45px; /*Tamaño del título*/
+    font-weight: 600; /*Grosor de la fuente*/
+    text-transform: uppercase; /*Convierte el texto en mayúsculas*/
+    text-align: center; /*Centra el texto*/
+    color:#453c5c; /*Color del título*/
+}
+
+
+/*"COMENTARIOS"*/
+.comments-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #76b5a0;
+    border-radius: 15px;
+    border: 2px solid #0f7d7e;
+    font-family: 'Segoe UI', Tahoma, sans-serif !important;
+    color: #0a2c29;
+    box-sizing: border-box;
+  }
+
+/*Título superior*/
+.comments-section h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+  
+  .comments-section #comments-list {
+    margin: 30px;
+  }
+  
+  .comments-section .comment {
+    background-color: #ffffff;
+    border-left: 5px solid #2d938e;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 1.4;
+    font-family: inherit;
+  }
+
+/*"Nombres de los usuarios"*/
+.comments-section .comment strong {
+    display: block;
+    margin-left: 5px;
+    color: #0099ff;
+    font-weight: bold;
+}
+  
+  .comments-section #comment-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*"Área para escribir comentario"*/
+  .comments-section #comment-input {
+    resize: none;
+    padding: 12px;
+    margin: 30px;
+    border-radius: 10px;
+    border: 1px solid #2d938e;
+    font-size: 16px;
+    min-height: 80px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+  
+/*"Botón para Publicar"*/
+  .comments-section #comment-form button {
+    width: 300px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    margin-left: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: inherit;
+  }
+  
+  .comments-section #comment-form button:hover {
+    background-color: #e74e5b;
+  }
+
+/*"Etiquetas Neurotípico/Neurodivergente"*/
+.identity-selection {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.identity-selection label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: #0a2c29;
+}
+
+.comment .tag {
+  color: #0099ff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border: 1px solid #0099ff;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+/*"Opciones de neurotipo"*/
+.neurotype-options {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  flex-wrap: wrap;
+}
+
+.neurotype-card {
+  border: 2px solid #747474;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: white;
+  transition: border 0.2s, background-color 0.2s;
+}
+
+.neurotype-card input {
+  display: none;
+}
+
+.neurotype-card:has(input:checked) {
+  border-color: #007bff;
+  background-color: #e6f0ff;
+}
+
+/*"Opciones de publicación"*/
+.publish-options{
+    display: flex; /*Usa flexbox para distribuir los elementos de manera flexible*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    justify-content: flex-start; /*Distribuye los elementos con espacio entre ellos*/
+    max-width: 100%; /*Evita que el menú supere el ancho de la pantalla con un máximo del 100%*/
+    padding: 0px 30px 0px 30px; /*Agrega espacio a los lados para que no pegue al borde*/
+    box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
+    flex-wrap: nowrap; /*Evita que los elementos se desborden en otra línea*/
+}
+
+
+/*"COMENTARIOS DE RESPUESTA"*/
+
+.comment {
+  background-color: #ffffff;
+  border-left: 5px solid #2d938e;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative; /*sirve para posicionar el botón en la esquina*/
+}
+
+.comment-body {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-wrapper {
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/*"Botón de Me Gusta"*/
+.like-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 14px;
+  color: gray;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.like-button .heart-icon {
+  font-size: 18px;
+}
+
+.like-button.liked .heart-icon {
+  color: #ff2828 !important;
+}
+
+/*Botón de Responder"*/
+.reply-wrapper {
+  margin-left: 65px;
+  margin-bottom: 15px;
+}
+
+.reply-form textarea {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  border: 1px solid #2d938e;
+  border-radius: 10px;
+  font-family: inherit;
+}
+
+.reply-form button {
+  margin-top: 8px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.reply {
+  margin-left: 50px;
+  border-color: #919191;
+  background-color: #f3fefc;
+}
+
+.comment strong {
+  color: #0f7d7e;
+  font-weight: bold;
+}
+
+.reply-form {
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.reply-button {
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  color: #747474;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.reply-button:hover {
+  text-decoration: underline;
+}
+
+
+/*FOOTER*/
+
+/*"FOOTER SUPERIOR"*/
+.footer-container{
+    margin: 0; /*Margen externo de 0px*/
+    width: 100%; /*Anchura que abarcará el 100% de la pantalla*/
+    box-sizing: border-box; /*Define cómo se calculan el ancho (width) y la altura (height)*/ 
+}
+
+.footer-top{
+    background-color: #0f7d7e; /*Establece un color azul verdoso claro*/
+    display: flex; /*Permite que el contenido dentro de el footer superior sea modificado a gusto*/
+    justify-content: space-between;/*Establece un espacio entre el contenido dentro del footer superiorr*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    flex-wrap: wrap;/*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
+    max-width: 100%; /*Su máxima anchura abarcará el tamaño del 100% de la pantalla del dispositico donde se este viendo*/
+    padding-bottom: 15px; /*Asigna un margen interior inferior de 15px, de modo que añadira un espacio entre el contenido de este y el footer inferior*/
+    margin: 0 auto;/*Permite centrar los elemnetos de manera horizontal dentro del footer superior*/
+}
+
+.footer-logo img{
+    margin: 5px 0 0 15px; /*Asigna un margen externo superior de 5px, uno inferior y lateral derecho de 0px y uno inferior de 15px*/
+    width: 80px; /*Le asigna una anchura de 80px a la imagen del logo*/
+    height: auto; /*Permite que la altura se modifique de manera automatica según se el tamaño de la anchura para no distorcionar la imagen y simplemento modificar su tamaño*/
+}  
+
+.footer-navbar{
+    display: flex; /*Permite que el contenido dentro de el footer-navbar sea modificado a gusto*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    list-style: none; /*Elimina el tipo de lista con el que puede aparecer el texto dentro de nuestro navbar*/
+    flex-wrap: wrap; /*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
+    margin: 0; /*No asigna ningún tamaño de margen exterior*/
+    padding: 0; /*No asigna ningún tipo de margen interior*/
+}
+
+.footer-navbar li{
+    margin: 0 10px; /*Establece un margen lateral izquierdo y derecho de 10px para mantener separados los elementos dentro de li*/
+}
+
+.footer-navbar li a{
+    color: #fff; /*Cambia el color de los enlaces de la lista a uno de color blanco*/
+    padding: 0 10px; /*Margen interior*/
+    text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
+    text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
+    font-size: 13px; /*Asigan el tamaño de su fuente a una de 13px*/
+}
+
+.footer-navbar li a:hover {
+    color: #f87988; /*Al colocar el cursor sobre el texto dentro del elemnto lista, este va a cambiar su color inical a uno naranjado*/
+}
+
+
+/*"FOOTER INFERIOR"*/
+.footer-bottom{
+    background-color: #075f61; /*El color del footer inferior será de uno más oscuro que el superior*/
+    font-size: 14px; /*El tamaño de la fuente que no este dentro de las etiquetas p dentro del footer-bottom tendrá un tamaño de 14px*/
+    display: flex; /*Permite que el contenido dentro de el footer-bottom sea modificado a gusto*/
+    justify-content: space-between; /*Establece un espacio entre el contenido dentro del footer inferior*/
+    align-items: center; /*Centra los elementos de manera vertical en la pantalla*/
+    max-width: 100%; /*Su máxima anchura abarcará el tamaño del 100% de la pantalla del dispositico donde se este viendo*/
+    padding-top: 15px; /*Asigna un margen interior superior de 15px, de modo que añadira un espacio entre el contenido de este y el footer superior*/
+    margin: 0 auto; /*Permite centrar los elemnetos de manera horizontal dentro del footer inferior*/
+}
+
+.footer-bottom p {
+    padding-left: 15px; /*Los parrafos del footer inferior tendrás un margen interior izqierdo de 15 px, brindando un espaciado entre ellos*/
+    color: #fff; /*Le da un color blanco a la fuente*/
+    font-size: 16.5px; /*Le asigna un tamaño de fuente de 16.5px*/
+}
+
+.socials img{
+    padding: 0px 5px 5px 0px; /*Añade un margen interior de 0px superior e inferior y 5px en lado izquierdo y derecho*/
+    display: inline-block; /*Permite modificar la anchura y altura de la imagen y que su contenido se modifique únicamente en el espacio utilizado por este mismo*/
+    margin-right: 8px; /*El margen izquierdo es el que brinda una separación entre cada imagen*/
+    width: 30px; /*Les da una anchura de 25px para que se vean pequeños*/
+    height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/ 
+}
+
+.socials img:hover {
+    /*content: url("nueva-imagen.jpg"); Reemplaza la imagen de los íconos de las redes sociales (pendiente)*/
+    transform: scale(1.2); /*Permite que al posicionar el cursor sobre la imagen, esta modifique su tamaño sin cambiar de lugar*/
+}
+
+
+
+/*"BITACORA"*/ 
+/*Decidí usar el mismo css inicial, ya que solo es información en la bitacora*/
+.header_bitacora{
+    height:250px; /*Define la altura de 250 pixeles*/
+    display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
+    justify-content: center; /*Centra los elementos horizontalmente*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    background-color: #0f7d7e;
+    background-attachment: fixed; /*La imagen de fondo permanece fija al hacer scroll*/    
+    background-repeat:no-repeat center; /*Evita que la imagen de fondo se repita*/
+    background-size: cover; /*Ajusta la imagen para cubrir todo el encabezado*/
+}
+
+.header_bitacora h2{
+    color: #fff;
+}
+
+
+.header_bitacora p{
+    color: #fff; /*Color del texto en blanco*/
+    font-size: 20px; /*Tamaño del texto dentro del header*/
+    font-weight: 800; /*Darle el formato a negrita*/
+    text-align: center; /*Centra el texto*/
+}
+
+.Bitacora{
+    display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
+    flex-direction: column; /*Organiza los elementos en columna*/
+    align-items: center; /*Centra los elementos horizontalmente*/
+    background-color: #0f7d7e; /*Color de fondo*/
+    padding: 15px 50px 30px 50px; /*Espaciado con margen interno*/
+    margin: 30px; /*Espaciado con margen externo*/
+    margin-bottom: 20px; /*Espaciado con margen externo*/
+    border-radius: 5px; /*Bordes ligeramente redondeados*/
+    text-align: justify;
+}
+
+.Bitacora h3{
+    text-align: center; /*Alinea el texto a la izquierda*/
+    font-size: 30px; /*Tamaño del título*/
+    margin-top: 20px; /*Margen externo superior para separarse del texto*/
+    margin-bottom: 20px; /*Margen externo inferior para separarse del texto*/
+    color:#fff; /*Color del texto en blanco*/
+}
+
+.bitacora-list li{
+    margin: 0px 10px; /* Margen exterior izquierdo y derecho de 10px */
+    font-size: 20px;
+    color:#f3ebeb; /*Color del texto en blanco*/
+    list-style: none; /*Elimina el estilo de lista predeterminado*/
+    text-align: justify;
+}
+
+
+.bitacora-list strong{
+    color: #053a3c; /*Color del texto en negro claro*/
+    font-size: 20px; /*Tamaño del texto*/
+    font-weight: 800; /*Darle el formato a negrita*/
+    text-align: center; /*Centra el texto*/
+}
