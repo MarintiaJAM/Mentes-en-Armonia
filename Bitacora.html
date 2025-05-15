@@ -38,13 +38,14 @@
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
                 página de inicio -->
-                <li><a href="#Menu" data-translate="menu-sec1"><i class="fas fa-house icon-left"></i>Inicio</a></li>
-                <li><a href="#Acerca de" data-translate="menu-sec2"><i class="fas fa-users icon-left"></i>Nosotros</a></li>
+                <li><a href="index.html" data-translate="menu-sec1"><i class="fas fa-house"></i>Inicio</a></li>
+                <li><a href="#Acerca de" data-translate="menu-sec2"><i class="fas fa-users"></i>Nosotros</a></li>
                 <li class="dropdown">
-                    <a href="#Neurodivergencia"><i class="fas fa-brain icon-left"></i>
-                        <span data-translate="menu-sec3" data-translate-inner="true">Neurodivergencia</span>
+                    <span class="dropdown-toggle" data-translate="menu-sec3">
+                        <i class="fas fa-brain icon-left"></i>
+                        Neurodivergencia
                         <i class="fas fa-chevron-down chevron"></i>
-                    </a>
+                    </span>                      
                     <ul class="dropdown-content">
                         <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
                         <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
@@ -55,21 +56,21 @@
                         <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
-                <li><a href="#Lineap" data-translate="menu-sec4"><i class="fas fa-comments icon-left"></i>Comunidad</a></li>
-                <li><a href="Noticias.html" data-translate="menu-sec5"><i class="fas fa-newspaper icon-left"></i>Noticias</a></li>
+                <li><a href="#Lineap" data-translate="menu-sec4"><i class="fas fa-comments"></i>Comunidad</a></li>
+                <li><a href="Noticias.html" data-translate="menu-sec5"><i class="fas fa-newspaper"></i>Noticias</a></li>
                 <li class="dropdown">
-                    <a href="">
-                        <span data-translate="menu-sec6" data-translate-inner="true">Actualizaciones</span>
+                    <span class="dropdown-toggle" data-translate="menu-sec6">
+                        <i class="fas fa-puzzle-piece icon-left"></i>
+                        Extras
                         <i class="fas fa-chevron-down chevron"></i>
-                    </a>
+                    </span>
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="Bitacora">Bitácora</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora">Bitácora</a></li>
                         <li><a href="Referencias.html" data-translate="Referencias">Referencias</a></li>
                     </ul>
-                </li>
+                </li>            
             </ul>
 
-            
             <!-- Barra de búsqueda en la esquina superior izquierda -->
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
@@ -78,10 +79,48 @@
                 </button>
             </div>
 
+            <!-- Botón de Inicio de Sesión -->
             <div class="Login">
-                <a href="#" class="login-button"><i class="fas fa-user"></i> <span data-translate="login">Iniciar
-                        sesión</span></a>
-            </div>
+                <a href="#" class="login-button" onclick="toggleLoginModal()">
+                    <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
+                </a>
+            </div>              
+
+            <!-- Formulario de inicio de sesión -->
+            <div id="loginModal" class="login-modal">
+                <div class="login-form">
+                    <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
+
+                    <h2>INICIO DE SESIÓN</h2>
+                    <p class="no-account"> ¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
+                
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                
+                    <div class="password-row">
+                        <label for="password">Contraseña</label>
+                        <a href="#" class="forgot-password underline-animate">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <div class="password-container">
+                        <input type="password" id="password" placeholder="Mínimo 5 caracteres" required>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                      </div>                      
+                
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Recordarme</label>
+                    </div>
+                
+                    <button type="submit">Entrar</button>
+                
+                    <div class="divider">────── o inicia sesión con ──────</div>
+                    <div class="social-buttons">
+                        <button class="google"><i class="fab fa-google"></i> Google</button>
+                        <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    </div>
+                </div>
+            </div>          
         </nav>
     </header>
 
@@ -110,7 +149,7 @@
     <section class="content header_bitacora">
         <section id="Inicio">
             <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
-            <h2 class="title" data-translate="bienvenida">Bitacora</h2>
+            <h2 class="title" data-translate="bienvenida">Bitacora de Cambios</h2>
             <p data-translate="bitacora-text">Aquí puedes ver los cambios realizados en el sitio web y las actualizaciones
                 importantes.</p>
         </section>
@@ -120,105 +159,123 @@
      <!-- CLase que selacciona parte del contenido de la página para ajustar su tamaño a un 80% -->
     <div class="container">
         <section class="content Bitacora">
-            <ul class="bitacora-list">
-                <h3>Cambios Febrero del 2025</h3>
-                <li><strong>Fecha:</strong> 12/02/2025 - <strong>Cambio:</strong> Se creó la versión de prueba para la página principal.</li>
-                <li><strong>Fecha:</strong> 18/02/2025 - <strong>Cambio:</strong> Se agregaron estilos básicos para comenzar a darle forma a la página.</li>
-                <li><strong>Fecha:</strong> 18/02/2025 - <strong>Cambio:</strong> Se enlazaron las páginas subyacentes a la página principal, sin embargo estas quedaron como archivos vacios de manera inicial.</li>
-                <li><strong>Fecha:</strong> 19/02/2025 - <strong>Cambio:</strong> Se eliminaron líneas de código dentro del css que no atribuían al funcionamiento de los estilos.</li>
-                <li><strong>Fecha:</strong> 20/02/2025 - <strong>Cambio:</strong> Se agregaron cuadros de texto en la página principal con información respecto a cada tipo de neurodivergencia.</li>
-                <li><strong>Fecha:</strong> 20/02/2025 - <strong>Cambio:</strong> Se agrego la sección de definiciones de manera provicional.</li>
-                <li><strong>Fecha:</strong> 20/02/2025 - <strong>Cambio:</strong> Se añadieron imagenes a la página principal.</li>
-                <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se modificó la presentación de los cuadros de texto que contienen la información sobre los tipos de neuro divergencia.</li>
-                <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se le dieron estilos especificos a cada uno de estos cuadros de texto.</li>
-                <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se agregó la sección de líneas de apoyo en la página principal.</li>
-                <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se le asignaron estilos para que las listas dentro de líneas de apoyo se viera atractivo a la vista.</li>
-                <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se creó un formato a modo de base para elaborar las páginas para cada tipo de Neurodivergencia.</li>
-                <li><strong>Fecha:</strong> 23/02/2025 - <strong>Cambio:</strong> Se acomodó el códido asignando comentarios e iteraciones para que fuera más cómodo y legible a la hora de trabajar.</li>
-                <li><strong>Fecha:</strong> 23/02/2025 - <strong>Cambio:</strong> Se cambio el color del espaciado que se encuentra en el fondo por uno amarillo.</li>
-                <li><strong>Fecha:</strong> 23/02/2025 - <strong>Cambio:</strong> Se cambio la altura del contenido general de la página principal.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambió el color del body y la letra de los parrafos de manera general.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambió el color del la barra de navegación principal así como también el de la letra de otros titulos.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambiaron los colores de cada cuadro de texto de cada neurodivergencia con el objetivo de darle una identificación a cada uno de estos, siendo más llamativo a la vista del usuario.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadieron iconos font Awesome y fuentes y estilos de google para darle una mejor presentación a la página.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambió el tipo de letra a una de tipo Ubuntu.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se agrego el botón de menú para celulares.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió la barra de búsqueda y además se le asignó un funcionamiento por medio de javascript.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió la sección de encabezado que nos muestra una imagen y la bienvenida a la página principal de nuestro sitio web.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se asignaron estilos a la seccion del encabezado, como colores, altura, anchura y el tipo de letra para los parrafos y titulos que se encuentrar dentro de este.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió el propósito de nuestra página en la sección de nosotros dentro de la página principal.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se agregó más información dentro de la sección de definiciones.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió la sección de recursos recomendados en la cual se introdujo una sección de vídeos a los que el usuario podía acceder con el objetivo de recurrir a más información.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se agregaró el botón de scroll que permite volver al inicio de la página sin importar el lugar de la página en el que te encuentres.</li>
-                <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se le dió funcionamiento por medio de JavaScript y algo de css para poder manipularlo adecuadamente.</li>
-                <li><strong>Fecha:</strong> 26/02/2025 - <strong>Cambio:</strong> Se resolvieron problemas que habían con el funcionamiento del búscador.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se modificó la sección de definiciones añadiendo imagenes.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadieron estilos a para darle un mejor aspecto al texto e imagenes de la sección de definiciones.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se hicieron pequeñas modificaciones de colores, tamaño de letra y tamaño a los contenedores y a sus elementos internos.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se modificaron los cuadros de texto neurodivergencia para que estos dieran vuelta a la hora de colocar el cursor sobre estos, volviendolos un elemento interactivo.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se cambió el color del subrayado en el funcionamiento del buscador para que fuera más visible.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadió la barra de navegación inferior dentro del footer.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadieron botones de inicio de sesión en redes sociales para una mejor experiencia de usuario.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadió el logo al footer superior así como también los derechos reservados de la página.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadió estilos a loss iconos de redes sociales para que el color de estos cambie cuando el cursor se encuentre sobre ellos.</li>
-                <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se le asignaron estilos al footer para acomodar los elementos que se encuentran dentro de este.</li>
-                <h3>Cambios Marzo del 2025</h3>
-                <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se modificó la información que se encuentra dentro de los cuadros de texto para cada tipo de neurodivergencia.</li>
-                <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se añadieron vídeos con miniatura y descripción a la sección de recursos recomendados.</li>
-                <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se añadieron estilos a la sección de recursos recomendados para que estos se vieran más atractivos a la vista del usuario.</li>
-                <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se le dió añadió un scroll a los vídeos en la sección de recursos recomendados, con el objetivo de hacer la sección más interactiva.</li>
-                <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se agregó codigo dentro de javascriptpara darle funcionamiento al scroll de vídeos.</li>
-                <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se modificaron algunas líneas de código dentro del css para cambios pequeños como tamaños y colores.</li>
-                <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se agregó codigo dentro de javascriptpara darle funcionamiento al scroll de vídeos.</li>
-                <li><strong>Fecha:</strong> 05/03/2025 - <strong>Cambio:</strong> Se modificó el tamaño de las miniaturas de los vídeos para una mejor presentación.</li>
-                <li><strong>Fecha:</strong> 05/03/2025 - <strong>Cambio:</strong> Se crea el logo definitivo y se implementa dentro de la página.</li>
-                <li><strong>Fecha:</strong> 05/03/2025 - <strong>Cambio:</strong> Se añaden estilos para la barra de navegación inferior.</li>
-                <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se añade un dropdown a la barra de navegación superior que te maneja a las demás página sobre los distintos tipos de neurodivergencia.</li>
-                <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se agregaron estilos en el css para hacer más atractivo el dropdown ante la vista del usuario, como la animación del chevron.</li>
-                <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se creó la página de autismo.</li>
-                <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se le añadieron las secciones que llevará, sin embargo en tanto a información y a imagenes sigue incompleta.</li>
-                <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se hicieron pequeñas modificaciones en el header y el footer para acomodar unos elementos.</li>
-                <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se creó la página de TDAH a esta misma se le añadió de igual manera información básica.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadió información a las secciones de historia y evolucion, identificadores y subtipos en la página de tdah.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadieron líneas de código dentro de la página de autismo en las secciones de historia y evolución, identificadores, subtipos y algunas modificaciones pequeñas en otras secciones.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se agregaron imagenes a la página de autismo.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadió información a las secciones de historia y evolucion, identificadores y subtipos en la página de tdah.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadieron líneas de código dentro de la página de tdah en las secciones de historia y evolución, identificadores, subtipos y algunas modificaciones pequeñas en otras secciones.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se agregaron imagenes a la página de tdah.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se modificó la altura del menú y la posición del chevron en la barra de navegación superior.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se cambió el icono del scroll de vídeos en la página principal, por dos triángulos.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se modifico los estilos de los titulos y subtilos en todas las páginas.</li>
-                <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se cambiaron algunas imagenes en la página principal.</li>
-                <li><strong>Fecha:</strong> 11/03/2025 - <strong>Cambio:</strong> Se añadió más información a la sección de recursos recomendados en la página principal.</li>
-                <li><strong>Fecha:</strong> 11/03/2025 - <strong>Cambio:</strong> Se realizaron leves cambios en le css como en tamaño de fuentes y margenes.</li>
-                <li><strong>Fecha:</strong> 12/03/2025 - <strong>Cambio:</strong> Se agregan las secciones en la barra de navegación inferior que te llevan a secciones de la misma página.</li>
-                <li><strong>Fecha:</strong> 12/03/2025 - <strong>Cambio:</strong> Se añadé el botón de traductor pero de manera provicional ya que solo traduce dos líneas hasta el momento.</li>
-                <li><strong>Fecha:</strong> 12/03/2025 - <strong>Cambio:</strong> Se añadieron estilos al botón de traductor como el color, posicionamiento y tamaño.</li>
-                <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se agregaron imagenes a la página de tdah.</li>
-                <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se crea la página de dislexia y se le integra su información respectiva.</li>
-                <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se agregaron más imagenes a la página de tdah.</li>
-                <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se agrega información faltante a la página de tdah.</li>
-                <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se modificaron los nombres de las secciones de la barra de navegación inferior.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de dispraxia, sin embargo esta no cuenta con información definitiva.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de discalculia, sin embargo esta no cuenta con información definitiva.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de tourette, sin embargo esta no cuenta con información definitiva.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de ansiedad, sin embargo esta no cuenta con información definitiva.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se le añadión una frase dicha por un doctor o un experto en el encabezado de cada página de tipos de neurodivergencia.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se añadieron imagenes al encabezado de cada página de los tipos de neurodivergencia.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se añade el botón de inicio de sesión en la barra de navegación superior.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se le añaden estilos al icono y boton de inicio de sesión, dandole un color rojo coral.</li>
-                <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se le asigna un color diferente al icono de inicio de sesión cuando el cursor se encuentra sobre este.</li>
-                <li><strong>Fecha:</strong> 16/03/2025 - <strong>Cambio:</strong> Se añadieron pequeñas modificaciones a los estilos del icono de inicio de sesión y a la sección de definiciones de la página principal.</li>
-                <li><strong>Fecha:</strong> 16/03/2025 - <strong>Cambio:</strong> Se modifico el tamaño y el colo del botón que se encuentra en la sección de "Nosotros en la página principal".</li>
-                <li><strong>Fecha:</strong> 16/03/2025 - <strong>Cambio:</strong> Se añadieron más imagenes a la página de definiciones.</li>
-                <li><strong>Fecha:</strong> 25/03/2025 - <strong>Cambio:</strong> Se añadieron imagenes a los cuadros de texto giratorios que se envuentran en la página principal.</li>
-                <h3>Cambios Abril del 2025</h3>
-                <li><strong>Fecha:</strong> 15/04/2025 - <strong>Cambio:</strong> Se creó la página de noticias y se incorporaron varias secciones de scrolling de víos así como también secciones donde se encuentra la información de la noticia y una miniatura de esta misma.</li>
-                <li><strong>Fecha:</strong> 15/04/2025 - <strong>Cambio:</strong> Se añadieron estilos a la página de noticias para que esta tuviera un mejor aspecto.</li>
-                <li><strong>Fecha:</strong> 15/04/2025 - <strong>Cambio:</strong> Se añadió un scroll a la sección de vídeos en la página de noticias.</li>
-                <li><strong>Fecha:</strong> 16/04/2025 - <strong>Cambio:</strong> Se añadió el json del traductor en un archivo de texto aparte.</li>
-                <li><strong>Fecha:</strong> 25/04/2025 - <strong>Cambio:</strong> Se tradujó el 90% de la página principal.</li>
-                </ul> 
+                <div class="scroll-div">
+                    <div class="scroll-object">
+                        <ul class="bitacora_list">
+                        <h3>Cambios Febrero del 2025</h3>
+                        <li><strong>Fecha:</strong> 12/02/2025 - <strong>Cambio:</strong> Se creó la versión de prueba para la página principal.</li>
+                        <li><strong>Fecha:</strong> 18/02/2025 - <strong>Cambio:</strong> Se agregaron estilos básicos para comenzar a darle forma a la página.</li>
+                        <li><strong>Fecha:</strong> 18/02/2025 - <strong>Cambio:</strong> Se enlazaron las páginas subyacentes a la página principal, sin embargo estas quedaron como archivos vacios de manera inicial.</li>
+                        <li><strong>Fecha:</strong> 19/02/2025 - <strong>Cambio:</strong> Se eliminaron líneas de código dentro del css que no atribuían al funcionamiento de los estilos.</li>
+                        <li><strong>Fecha:</strong> 20/02/2025 - <strong>Cambio:</strong> Se agregaron cuadros de texto en la página principal con información respecto a cada tipo de neurodivergencia.</li>
+                        <li><strong>Fecha:</strong> 20/02/2025 - <strong>Cambio:</strong> Se agrego la sección de definiciones de manera provicional.</li>
+                        <li><strong>Fecha:</strong> 20/02/2025 - <strong>Cambio:</strong> Se añadieron imagenes a la página principal.</li>
+                        <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se modificó la presentación de los cuadros de texto que contienen la información sobre los tipos de neuro divergencia.</li>
+                        <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se le dieron estilos especificos a cada uno de estos cuadros de texto.</li>
+                        <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se agregó la sección de líneas de apoyo en la página principal.</li>
+                        <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se le asignaron estilos para que las listas dentro de líneas de apoyo se viera atractivo a la vista.</li>
+                        <li><strong>Fecha:</strong> 21/02/2025 - <strong>Cambio:</strong> Se creó un formato a modo de base para elaborar las páginas para cada tipo de Neurodivergencia.</li>
+                        <li><strong>Fecha:</strong> 23/02/2025 - <strong>Cambio:</strong> Se acomodó el códido asignando comentarios e iteraciones para que fuera más cómodo y legible a la hora de trabajar.</li>
+                        <li><strong>Fecha:</strong> 23/02/2025 - <strong>Cambio:</strong> Se cambio el color del espaciado que se encuentra en el fondo por uno amarillo.</li>
+                        <li><strong>Fecha:</strong> 23/02/2025 - <strong>Cambio:</strong> Se cambio la altura del contenido general de la página principal.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambió el color del body y la letra de los parrafos de manera general.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambió el color del la barra de navegación principal así como también el de la letra de otros titulos.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambiaron los colores de cada cuadro de texto de cada neurodivergencia con el objetivo de darle una identificación a cada uno de estos, siendo más llamativo a la vista del usuario.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadieron iconos font Awesome y fuentes y estilos de google para darle una mejor presentación a la página.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se cambió el tipo de letra a una de tipo Ubuntu.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se agrego el botón de menú para celulares.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió la barra de búsqueda y además se le asignó un funcionamiento por medio de javascript.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió la sección de encabezado que nos muestra una imagen y la bienvenida a la página principal de nuestro sitio web.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se asignaron estilos a la seccion del encabezado, como colores, altura, anchura y el tipo de letra para los parrafos y titulos que se encuentrar dentro de este.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió el propósito de nuestra página en la sección de nosotros dentro de la página principal.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se agregó más información dentro de la sección de definiciones.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se añadió la sección de recursos recomendados en la cual se introdujo una sección de vídeos a los que el usuario podía acceder con el objetivo de recurrir a más información.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se agregaró el botón de scroll que permite volver al inicio de la página sin importar el lugar de la página en el que te encuentres.</li>
+                        <li><strong>Fecha:</strong> 25/02/2025 - <strong>Cambio:</strong> Se le dió funcionamiento por medio de JavaScript y algo de css para poder manipularlo adecuadamente.</li>
+                        <li><strong>Fecha:</strong> 26/02/2025 - <strong>Cambio:</strong> Se resolvieron problemas que habían con el funcionamiento del búscador.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se modificó la sección de definiciones añadiendo imagenes.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadieron estilos a para darle un mejor aspecto al texto e imagenes de la sección de definiciones.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se hicieron pequeñas modificaciones de colores, tamaño de letra y tamaño a los contenedores y a sus elementos internos.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se modificaron los cuadros de texto neurodivergencia para que estos dieran vuelta a la hora de colocar el cursor sobre estos, volviendolos un elemento interactivo.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se cambió el color del subrayado en el funcionamiento del buscador para que fuera más visible.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadió la barra de navegación inferior dentro del footer.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadieron botones de inicio de sesión en redes sociales para una mejor experiencia de usuario.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadió el logo al footer superior así como también los derechos reservados de la página.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se añadió estilos a loss iconos de redes sociales para que el color de estos cambie cuando el cursor se encuentre sobre ellos.</li>
+                        <li><strong>Fecha:</strong> 28/02/2025 - <strong>Cambio:</strong> Se le asignaron estilos al footer para acomodar los elementos que se encuentran dentro de este.</li>
+                        <h3>Cambios Marzo del 2025</h3>
+                        <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se modificó la información que se encuentra dentro de los cuadros de texto para cada tipo de neurodivergencia.</li>
+                        <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se añadieron vídeos con miniatura y descripción a la sección de recursos recomendados.</li>
+                        <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se añadieron estilos a la sección de recursos recomendados para que estos se vieran más atractivos a la vista del usuario.</li>
+                        <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se le dió añadió un scroll a los vídeos en la sección de recursos recomendados, con el objetivo de hacer la sección más interactiva.</li>
+                        <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se agregó codigo dentro de javascriptpara darle funcionamiento al scroll de vídeos.</li>
+                        <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se modificaron algunas líneas de código dentro del css para cambios pequeños como tamaños y colores.</li>
+                        <li><strong>Fecha:</strong> 04/03/2025 - <strong>Cambio:</strong> Se agregó codigo dentro de javascriptpara darle funcionamiento al scroll de vídeos.</li>
+                        <li><strong>Fecha:</strong> 05/03/2025 - <strong>Cambio:</strong> Se modificó el tamaño de las miniaturas de los vídeos para una mejor presentación.</li>
+                        <li><strong>Fecha:</strong> 05/03/2025 - <strong>Cambio:</strong> Se crea el logo definitivo y se implementa dentro de la página.</li>
+                        <li><strong>Fecha:</strong> 05/03/2025 - <strong>Cambio:</strong> Se añaden estilos para la barra de navegación inferior.</li>
+                        <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se añade un dropdown a la barra de navegación superior que te maneja a las demás página sobre los distintos tipos de neurodivergencia.</li>
+                        <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se agregaron estilos en el css para hacer más atractivo el dropdown ante la vista del usuario, como la animación del chevron.</li>
+                        <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se creó la página de autismo.</li>
+                        <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se le añadieron las secciones que llevará, sin embargo en tanto a información y a imagenes sigue incompleta.</li>
+                        <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se hicieron pequeñas modificaciones en el header y el footer para acomodar unos elementos.</li>
+                        <li><strong>Fecha:</strong> 09/03/2025 - <strong>Cambio:</strong> Se creó la página de TDAH a esta misma se le añadió de igual manera información básica.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadió información a las secciones de historia y evolucion, identificadores y subtipos en la página de tdah.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadieron líneas de código dentro de la página de autismo en las secciones de historia y evolución, identificadores, subtipos y algunas modificaciones pequeñas en otras secciones.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se agregaron imagenes a la página de autismo.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadió información a las secciones de historia y evolucion, identificadores y subtipos en la página de tdah.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se añadieron líneas de código dentro de la página de tdah en las secciones de historia y evolución, identificadores, subtipos y algunas modificaciones pequeñas en otras secciones.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se agregaron imagenes a la página de tdah.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se modificó la altura del menú y la posición del chevron en la barra de navegación superior.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se cambió el icono del scroll de vídeos en la página principal, por dos triángulos.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se modifico los estilos de los titulos y subtilos en todas las páginas.</li>
+                        <li><strong>Fecha:</strong> 10/03/2025 - <strong>Cambio:</strong> Se cambiaron algunas imagenes en la página principal.</li>
+                        <li><strong>Fecha:</strong> 11/03/2025 - <strong>Cambio:</strong> Se añadió más información a la sección de recursos recomendados en la página principal.</li>
+                        <li><strong>Fecha:</strong> 11/03/2025 - <strong>Cambio:</strong> Se realizaron leves cambios en le css como en tamaño de fuentes y margenes.</li>
+                        <li><strong>Fecha:</strong> 12/03/2025 - <strong>Cambio:</strong> Se agregan las secciones en la barra de navegación inferior que te llevan a secciones de la misma página.</li>
+                        <li><strong>Fecha:</strong> 12/03/2025 - <strong>Cambio:</strong> Se añadé el botón de traductor pero de manera provicional ya que solo traduce dos líneas hasta el momento.</li>
+                        <li><strong>Fecha:</strong> 12/03/2025 - <strong>Cambio:</strong> Se añadieron estilos al botón de traductor como el color, posicionamiento y tamaño.</li>
+                        <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se agregaron imagenes a la página de tdah.</li>
+                        <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se crea la página de dislexia y se le integra su información respectiva.</li>
+                        <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se agregaron más imagenes a la página de tdah.</li>
+                        <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se agrega información faltante a la página de tdah.</li>
+                        <li><strong>Fecha:</strong> 13/03/2025 - <strong>Cambio:</strong> Se modificaron los nombres de las secciones de la barra de navegación inferior.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de dispraxia, sin embargo esta no cuenta con información definitiva.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de discalculia, sin embargo esta no cuenta con información definitiva.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de tourette, sin embargo esta no cuenta con información definitiva.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se creó la página de ansiedad, sin embargo esta no cuenta con información definitiva.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se le añadión una frase dicha por un doctor o un experto en el encabezado de cada página de tipos de neurodivergencia.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se añadieron imagenes al encabezado de cada página de los tipos de neurodivergencia.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se añade el botón de inicio de sesión en la barra de navegación superior.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se le añaden estilos al icono y boton de inicio de sesión, dandole un color rojo coral.</li>
+                        <li><strong>Fecha:</strong> 14/03/2025 - <strong>Cambio:</strong> Se le asigna un color diferente al icono de inicio de sesión cuando el cursor se encuentra sobre este.</li>
+                        <li><strong>Fecha:</strong> 16/03/2025 - <strong>Cambio:</strong> Se añadieron pequeñas modificaciones a los estilos del icono de inicio de sesión y a la sección de definiciones de la página principal.</li>
+                        <li><strong>Fecha:</strong> 16/03/2025 - <strong>Cambio:</strong> Se modifico el tamaño y el colo del botón que se encuentra en la sección de "Nosotros en la página principal".</li>
+                        <li><strong>Fecha:</strong> 16/03/2025 - <strong>Cambio:</strong> Se añadieron más imagenes a la página de definiciones.</li>
+                        <li><strong>Fecha:</strong> 25/03/2025 - <strong>Cambio:</strong> Se añadieron imagenes a los cuadros de texto giratorios que se envuentran en la página principal.</li>
+                        <h3>Cambios Abril del 2025</h3>
+                        <li><strong>Fecha:</strong> 15/04/2025 - <strong>Cambio:</strong> Se creó la página de noticias y se incorporaron varias secciones de scrolling de víos así como también secciones donde se encuentra la información de la noticia y una miniatura de esta misma.</li>
+                        <li><strong>Fecha:</strong> 15/04/2025 - <strong>Cambio:</strong> Se añadieron estilos a la página de noticias para que esta tuviera un mejor aspecto.</li>
+                        <li><strong>Fecha:</strong> 15/04/2025 - <strong>Cambio:</strong> Se añadió un scroll a la sección de vídeos en la página de noticias.</li>
+                        <li><strong>Fecha:</strong> 16/04/2025 - <strong>Cambio:</strong> Se añadió el json del traductor en un archivo de texto aparte.</li>
+                        <li><strong>Fecha:</strong> 25/04/2025 - <strong>Cambio:</strong> Se tradujó el 90% de la página principal.</li>
+                        <h3>Cambios Mayo del 2025</h3>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se creó la página de bitácora en donde se estan almacenando todos los cambios y actualizaciones que tiene la página.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se añadieron estilos a la página de bitácora para que esta tuviera un mejor aspecto, además de que al ser muy pocos los estilos que necesita, estos se encuentran en el css de la página principal.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se modificó la apariencia de los links, como sus colores y se les agregó una animación para que estos fueran más llamativos.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se  reó el formulario de inicio de sesión y se le dió funcionalidad al menos a los botones y otras cosas básicas.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se añadieron iconos Font-Awesome a las secciones de la barra dd navegación superior.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se arreglaron las pestañas de los vídeos en la sección de recursos recomendados, ya que estos anteriormente no aparecían y al iniciar la página esta te direccionaba directamente a esa sección.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se modificó el tamaño de expanción que tiene la barra de búscador, pues antes al desplegarse desacomodaba todos los elementos contenidos dentro de la barra de navegación superior.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se cambiaron los nombres de algunas secciones en la barra de navegación superior.</li>
+                        <li><strong>Fecha:</strong> 02/05/2025 - <strong>Cambio:</strong> Se creó una nueva sección en la barra de navegación superior, llamada "Extras" en esta se agregarán las páginas con información extra que necesitamos.</li>
+                        <li><strong>Fecha:</strong> 03/05/2025 - <strong>Cambio:</strong> Se quitaron líneas de código repetidas en el css.</li>
+                        <li><strong>Fecha:</strong> 03/05/2025 - <strong>Cambio:</strong> Se cambio el color de letra a blanco en las secciones de "Neurodivergencia" y "Extras" ya que al ser desplegables dentro de la barra de navegación principal, sus colores aparecían distintos.</li>
+                        <li><strong>Fecha:</strong> 03/05/2025 - <strong>Cambio:</strong> Se agregó una pequeña tradución a la página de bitácora.</li>
+                        <li><strong>Fecha:</strong> 05/05/2025 - <strong>Cambio:</strong> Se eliminó el estilo de lista que presentaban las secciones desplegables en la barra de navegación superior.</li>
+                        </ul> 
+                    </div>
+                </div>
         </section>
 
         <section>

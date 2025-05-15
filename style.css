@@ -1202,12 +1202,14 @@ hr{
     display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
     flex-direction: column; /*Organiza los elementos en columna*/
     align-items: center; /*Centra los elementos horizontalmente*/
-    background-color: #0f7d7e; /*Color de fondo*/
-    padding: 15px 50px 30px 50px; /*Espaciado con margen interno*/
-    margin: 30px; /*Espaciado con margen externo*/
+    background-color: #2d938e; /*Color de fondo*/
+    padding: 0px 50px 0px 50px; /*Espaciado con margen interno*/
+    margin: 50px; /*Espaciado con margen externo*/
     margin-bottom: 20px; /*Espaciado con margen externo*/
-    border-radius: 5px; /*Bordes ligeramente redondeados*/
+    border-radius: 10px; /*Bordes ligeramente redondeados*/
     text-align: justify;
+    width: 1250px;
+    height: 600px;
 }
 
 .Bitacora h3{
@@ -1218,16 +1220,28 @@ hr{
     color:#fff; /*Color del texto en blanco*/
 }
 
-.bitacora-list li{
+.scroll-div{
+    padding: 20px 50px;
+    width: 1250px;
+    height: 600px;
+    overflow:hidden;
+    overflow-y: scroll;
+}
+
+.scroll-object{
+    font-size: 20px;
+}
+
+.scroll-object li{
     margin: 0px 10px; /* Margen exterior izquierdo y derecho de 10px */
     font-size: 20px;
-    color:#f3ebeb; /*Color del texto en blanco*/
+    color:#ede7e7; /*Color del texto en blanco*/
     list-style: none; /*Elimina el estilo de lista predeterminado*/
     text-align: justify;
 }
 
 
-.bitacora-list strong{
+.scroll-object strong{
     color: #053a3c; /*Color del texto en negro claro*/
     font-size: 20px; /*Tamaño del texto*/
     font-weight: 800; /*Darle el formato a negrita*/
