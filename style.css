@@ -856,6 +856,11 @@ a.track-link:active {
     text-decoration: none;
 }
 
+/*Hover y active siguen funcionando*/
+a.track-link:hover {
+    color: rgb(243, 110, 132); /*Color rosa coral*/
+}
+
 .acordeon{
     background: #f6f5f5; /*Color de fondo blanco*/
 }
