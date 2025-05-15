@@ -186,6 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const list = document.getElementById("comments-list");
 
   const neuroTypeInputs = form.querySelectorAll("input[name='neurotype']");
+  const commentCountDisplay = document.getElementById("comment-count");
+  const sortSelect = document.getElementById("sort-select");
+
 
   let comments = JSON.parse(localStorage.getItem("comments")) || [];
 
@@ -193,13 +196,32 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("comments", JSON.stringify(comments));
   }
 
-  function renderComments() {
-    list.innerHTML = "";
-    comments.forEach((comment) => {
-      const el = createCommentElement(comment);
-      list.appendChild(el);
-    });
+  if (sortSelect) {
+  sortSelect.addEventListener("change", renderComments);
   }
+
+ function renderComments() {
+  list.innerHTML = "";
+
+  //Ordenamiento dinámico al renderizar
+  const sortOrder = sortSelect?.value || "newest";
+  const sortedComments = [...comments];
+
+  if (sortOrder === "newest") {
+    sortedComments.sort((a, b) => b.id - a.id);
+  } else {
+    sortedComments.sort((a, b) => a.id - b.id);
+  }
+
+  //Mostrar comentarios ordenados
+  sortedComments.forEach((comment) => {
+    const el = createCommentElement(comment);
+    list.appendChild(el);
+  });
+
+  //Actualizar el contador
+  commentCountDisplay.textContent = comments.length;
+}
 
   function getNeurotypeTag(type) {
     if (type === "neurodivergente") {
@@ -227,13 +249,14 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div class="like-button" data-liked="false">
           <i class="fa-regular fa-heart heart-icon"></i>
+          <span class="like-text">Me gusta</span>
           <span class="like-count">${comment.likes || 0}</span>
         </div>
       </div>
       <button class="reply-button">Responder</button>
     `;
 
-    // Me gusta
+    //Me gusta
     const likeBtn = container.querySelector(".like-button");
     const heartIcon = likeBtn.querySelector(".heart-icon");
     const likeCount = container.querySelector(".like-count");
@@ -247,21 +270,19 @@ document.addEventListener("DOMContentLoaded", function () {
         likeBtn.classList.add("liked");
         heartIcon.classList.remove("fa-regular");
         heartIcon.classList.add("fa-solid");
-        heartIcon.style.color = "#ff2828";
       } else {
         comment.likes -= 1;
         likeBtn.setAttribute("data-liked", "false");
         likeBtn.classList.remove("liked");
         heartIcon.classList.remove("fa-solid");
         heartIcon.classList.add("fa-regular");
-        heartIcon.style.color = "gray";
       }
 
       likeCount.textContent = comment.likes;
       saveComments();
     });
 
-    // Responder
+    //Responder
     const replyBtn = container.querySelector(".reply-button");
     replyBtn.addEventListener("click", () => {
       const existingForm = container.querySelector(".reply-form");
@@ -271,29 +292,57 @@ document.addEventListener("DOMContentLoaded", function () {
       replyForm.className = "reply-form";
       replyForm.innerHTML = `
         <textarea placeholder="Escribe una respuesta..." required></textarea>
-        <button type="submit">Responder</button>
+
+        <div class="identity-selection">
+          <label>
+          <input type="radio" name="reply-identity-${comment.id}" value="Neurotípico" required/>
+            Neurotípico
+          </label>
+
+          <label>
+          <input type="radio" name="reply-identity-${comment.id}" value="Neurodivergente" required/>
+            Neurodivergente
+          </label>
+        </div>
+
+        <div class="reply-form-buttons">
+          <button type="submit">Publicar</button>
+          <button type="button" class="cancel-reply">Cancelar</button>
+        </div>
       `;
 
       replyForm.addEventListener("submit", (e) => {
         e.preventDefault();
+        // Lógica para guardar respuesta
         const replyText = replyForm.querySelector("textarea").value;
+        const identityValue = replyForm.querySelector(`input[name="reply-identity-${comment.id}"]:checked`)?.value;
+        
         const replyComment = {
           id: Date.now(),
           user: "Usuario",
           text: replyText,
           likes: 0,
-          neurotype: comment.neurotype,
           replies: [],
+          neurotype: identityValue
         };
+
+        comment.replies = comment.replies || [];
         comment.replies.push(replyComment);
         saveComments();
-        renderComments();
+        renderComments(); //Remueve el formulario automáticamente
       });
 
-      container.appendChild(replyForm);
+      //Agregar botón para cancelar respuesta
+      replyForm.querySelector(".cancel-reply").addEventListener("click", () => {
+        replyForm.remove();
+        replyBtn.style.display = "inline-block"; //Vuelve a mostrar el botón "Responder"
+      });
+      
+      replyBtn.style.display = "none"; //Oculta el botón "Responder"
+      container.appendChild(replyForm); //Agrega el formulario al comentario
     });
 
-    // Añadir respuestas
+    //Añadir respuestas
     if (comment.replies && comment.replies.length > 0) {
       comment.replies.forEach((reply) => {
         const replyEl = createCommentElement(reply, true);
@@ -364,5 +413,3 @@ function toggleLanguage() {
     currentLang = currentLang === 'es' ? 'en' : 'es';
     translateTo(currentLang);
 }
-
-

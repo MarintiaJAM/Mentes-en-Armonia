@@ -635,7 +635,7 @@ a.track-link:active {
     font-family: 'Segoe UI', Tahoma, sans-serif !important;
     color: #0a2c29;
     box-sizing: border-box;
-  }
+}
 
 /*Título superior*/
 .comments-section h2 {
@@ -644,12 +644,45 @@ a.track-link:active {
     margin-bottom: 20px;
     font-size: 30px;
 }
+
+/*"Opciones de Ordenar por"*/
+.comment-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0 20px;
+  font-size: 14px;
+  color: #444;
+  flex-wrap: wrap;
+}
+
+/*Opciones para Ordenar por (individuales)*/
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/*Selección de opciones para Ordenar por*/
+.sort-options select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+/*"Conteo de comentarios"*/
+.comment-count {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/*Lista de comentarios*/  
+.comments-section #comments-list {
+    margin: 30px; /*Margen para separar los comentarios*/
+}
   
-  .comments-section #comments-list {
-    margin: 30px;
-  }
-  
-  .comments-section .comment {
+.comments-section .comment {
     background-color: #ffffff;
     border-left: 5px solid #2d938e;
     border-radius: 10px;
@@ -659,7 +692,7 @@ a.track-link:active {
     font-size: 18px;
     line-height: 1.4;
     font-family: inherit;
-  }
+}
 
 /*"Nombres de los usuarios"*/
 .comments-section .comment strong {
@@ -669,13 +702,13 @@ a.track-link:active {
     font-weight: bold;
 }
   
-  .comments-section #comment-form {
+.comments-section #comment-form {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  /*"Área para escribir comentario"*/
-  .comments-section #comment-input {
+/*"Área para escribir comentario"*/
+.comments-section #comment-input {
     resize: none;
     padding: 12px;
     margin: 30px;
@@ -686,10 +719,10 @@ a.track-link:active {
     margin-bottom: 15px;
     font-family: inherit;
     box-sizing: border-box;
-  }
+}
   
 /*"Botón para Publicar"*/
-  .comments-section #comment-form button {
+.comments-section #comment-form button {
     width: 300px;
     background-color: #ff6b6b;
     color: white;
@@ -702,11 +735,11 @@ a.track-link:active {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-family: inherit;
-  }
+}
   
-  .comments-section #comment-form button:hover {
+.comments-section #comment-form button:hover {
     background-color: #e74e5b;
-  }
+}
 
 /*"Etiquetas Neurotípico/Neurodivergente"*/
 .identity-selection {
@@ -777,65 +810,94 @@ a.track-link:active {
 /*"COMENTARIOS DE RESPUESTA"*/
 
 .comment {
-  background-color: #ffffff;
-  border-left: 5px solid #2d938e;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  position: relative; /*sirve para posicionar el botón en la esquina*/
+    background-color: #ffffff;
+    border-left: 5px solid #2d938e;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /*sirve para posicionar el botón en la esquina*/
 }
 
 .comment-body {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
 }
 
 .comment-content {
-  flex: 1;
+    flex: 1;
 }
 
 .comment-wrapper {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
+/*Contenedor sticky para el formulario de comentarios*/
+.sticky-comment {
+  position: sticky;
+  bottom: 0;
+  background: #76b5a0;
+  padding: 10px;
+  z-index: 10;
+}
+
+/*Ajustes visuales del formulario*/
+#comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*"Foto de perfil del usuario"*/
 .avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-right: 10px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 /*"Botón de Me Gusta"*/
 .like-button {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 14px;
-  color: gray;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  user-select: none;
-  transition: color 0.3s;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px; /*Espaciado entre ícono (corazón) y texto (Me gusta)*/
+    user-select: none;
 }
 
-.like-button .heart-icon {
-  font-size: 18px;
+.like-button .heart-icon,
+.like-button .like-text,
+.like-button .like-count {
+    color: gray; /*Color gris antes de dar me gusta*/
+    transition: color 0.2s;
 }
 
-.like-button.liked .heart-icon {
-  color: #ff2828 !important;
+.like-button.liked .heart-icon,
+.like-button.liked .like-text,
+.like-button.liked .like-count {
+  color: #ff2828; /*Color rosado rojizo al dar Me gusta*/
 }
 
-/*Botón de Responder"*/
+/*"Responder" Opción para responder"*/
+.reply {
+  margin-left: 50px;
+  border-color: #919191;
+  background-color: #f3fefc;
+}
+
+/*"Área de respuesta"*/
 .reply-wrapper {
   margin-left: 65px;
   margin-bottom: 15px;
 }
 
+/*"Área para escribir la respuesta"*/
 .reply-form textarea {
   margin-top: 10px;
   width: 100%;
@@ -846,6 +908,7 @@ a.track-link:active {
   font-family: inherit;
 }
 
+/*"Botón para publicar la respuesta"*/
 .reply-form button {
   margin-top: 8px;
   background-color: #ff6b6b;
@@ -856,17 +919,13 @@ a.track-link:active {
   cursor: pointer;
 }
 
-.reply {
-  margin-left: 50px;
-  border-color: #919191;
-  background-color: #f3fefc;
-}
-
+/*PENDIENTE*/
 .comment strong {
   color: #0f7d7e;
   font-weight: bold;
 }
 
+/*PENDIENTE*/
 .reply-form {
   margin-left: 50px;
   margin-top: 10px;
@@ -883,6 +942,94 @@ a.track-link:active {
 
 .reply-button:hover {
   text-decoration: underline;
+}
+
+/*IDENTIDAD (Neurotípico/Neurodivergente) como cuadritos */
+.identity-selection {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.identity-selection label {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 10px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.identity-selection input[type="radio"] {
+  margin-right: 6px;
+}
+
+/*Botones de publicar y cancelar respuesta, alineados a la derecha */
+.reply-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.reply-form-buttons button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.reply-form-buttons button[type="submit"] {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.reply-form-buttons button.cancel-reply {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+/* Like button - ícono, texto y contador alineados */
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: gray;
+}
+
+.like-button.liked {
+  color: #ff2828;
+}
+
+.like-button .heart-icon {
+  transition: color 0.2s;
+}
+
+.like-button .like-text,
+.like-button .like-count {
+  transition: color 0.2s;
+}
+
+/*Etiquetas de neurotipo*/
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
 }
 
 

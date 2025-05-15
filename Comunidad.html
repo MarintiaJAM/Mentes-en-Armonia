@@ -155,24 +155,41 @@
                     <section class="comments-section">
                         <h2>Comentarios de la Comunidad</h2>
 
+                        <div class="comment-controls">
+                            <div class="sort-options">
+                                <label for="sort-select">Ordenar por:</label>
+                                <select id="sort-select">
+                                <option value="newest">Más recientes</option>
+                                <option value="oldest">Más antiguos</option>
+                                </select>
+                            </div>
+                            <div class="comment-count">
+                                Comentarios <span id="comment-count">0</span>
+                            </div>
+                        </div>
+
+
+
                         <div id="comments-list">
                             <!-- Comentarios aparecerán aquí -->
                         </div>
+                        
+                        <div class="sticky-comment">
+                            <form id="comment-form">
+                                <textarea id="comment-input" placeholder="Escribe tu comentario..."></textarea>
+                                
+                                <div class="publish-options">
+                                    <div class="neurotype-options">
+                                    <label class="neurotype-card">
+                                        <input type="radio" name="neurotype" value="neurodivergente"/>Neurodivergente</label>
+                                    <label class="neurotype-card">
+                                        <input type="radio" name="neurotype" value="neurotipico"/>Neurotípico</label>
+                                    </div>
 
-                        <form id="comment-form">
-                            <textarea id="comment-input" placeholder="Escribe tu comentario..."></textarea>
-                            
-                            <div class="publish-options">
-                                <div class="neurotype-options">
-                                <label class="neurotype-card">
-                                    <input type="radio" name="neurotype" value="neurodivergente"/>Neurodivergente</label>
-                                <label class="neurotype-card">
-                                    <input type="radio" name="neurotype" value="neurotipico"/>Neurotípico</label>
+                                    <button type="submit">Publicar</button>
                                 </div>
-
-                                <button type="submit">Publicar</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </section>
                 </div>
             
