@@ -29,7 +29,7 @@ body{
 
 /*"LETRA GENERAL" Estilos predeterminados para la letra y los párrafos*/
 p{
-    margin-bottom: 40px; /*Agrega un espacio de 40 píxeles entre párrafos*/
+    margin-bottom: 30px; /*Agrega un espacio de 40 píxeles entre párrafos*/
     font-size: 20px; /*Indica que el tamaño de la letra será de 18 pixeles*/
     color: #453c5c; /*Usa el color de texto predeterminado en tono morado oscuro*/
     padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
@@ -38,8 +38,8 @@ p{
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-    margin: 40px;
-     font-size: 45px;
+    margin: 20px;
+     font-size: 30px;
      font-weight: 600;
      text-transform: uppercase;
      text-align: center;
@@ -670,8 +670,8 @@ a.track-link:active {
 .about {
     display: flex; /* Organiza los elementos en fila utilizando flexbox */
     align-items: center; /*Alinea verticalmente*/
-    margin: 10px; /* Agrega un margen de 10px alrededor de la sección */
-    background-color: #5fb5b1; /* Establece un color de fondo verde-azulado para la sección */
+    margin: 10px 35px; /* Agrega un margen de 10px alrededor de la sección */
+    background-color: #e55b5b; /* Establece un color de fondo verde-azulado para la sección */
     border-radius: 5px; /* Agrega bordes redondeados a la sección */
 }
 
@@ -692,16 +692,36 @@ a.track-link:active {
 
 /*HISTORIA Y EVOLUCIÓN*/
 .history{
-    display: flex; /* Usa flexbox para organizar los elementos */
-    flex-direction: column; /*Permite que el orden del contenido vaya hacia abajo tipo columnas*/
-    align-items: center; /*Centra el texto*/
-    padding: 20px 0 30px 0;  /* Agrega un relleno de 20px arriba y abajo y 30px en la parte inferior */
-    margin:30px 10px 30px 10px; /* Agrega márgenes de 30px arriba y abajo y 10px a los lados */
-    border-radius: 5px; /* Redondea las esquinas del contenedor */
+    display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
+    flex-direction: column; /*Organiza los elementos en columna*/
+    align-items: center; /*Centra los elementos horizontalmente*/
+    background-color: #2d938e; /*Color de fondo*/
+    padding: 0px 50px; /*Espaciado con margen interno*/
+    margin: 35px; /*Espaciado con margen externo*/
+    margin-bottom: 20px; /*Espaciado con margen externo*/
+    border-radius: 10px; /*Bordes ligeramente redondeados*/
+    text-align: justify;
+    width: 1300px;
+    height: 600px;
+}
+
+.scroll-div{
+    padding: 20px 20px;
+    width: 1300px;
+    height: 600px;
+    overflow:hidden;
+    overflow-y: scroll;
+}
+
+.scroll-object{
+    font-size: 20px;
+    background: #faf8e1;
+    border-radius: 10px;
+    padding: 15px;
 }
 
 /*Ajusta las imagenes que se encuentran dentro de la clase de hisrory*/
-.history img{
+.scroll-object .hisimg img{
     width: 300px; /*Le asigna un ancho de 300px*/
     height:auto; /*Le asigna una altura proporcional al ancho*/
     align-items: center; /*Centra las imagenes*/
@@ -712,33 +732,84 @@ a.track-link:active {
 
 /*IDENTIFICADORES*/
 .identificadores{
-    background-color: #5fb5b1;/* Color de fondo verde-azulado */
-    margin:30px 10px 30px 10px; /* Márgenes alrededor de la sección */
-    padding: 20px 0 30px 0; /* Relleno interior, 20px arriba y 30px abajo */
+    padding: 10px;
+    background-color: #2d938e;
     border-radius: 5px; /* Bordes redondeados */
+    width:100%; /*Ancho general al que se adaptan los contenedores*/
+    max-width: 95%; /*Este ancho extiende el contenido*/
+    margin: auto; /*Establece automáticamente el margen según el ancho previamente establecido*/
 }
 
-.kids{
-    background-color: #fffdd1; /* Color de fondo suave */
-    margin:30px 20px 30px 20px; /* Márgenes alrededor de la sección */
-    padding: 20px 0 30px 0; /* Relleno interior, 20px arriba y 30px abajo */
-    border-radius: 5px; /* Bordes redondeados */
+.identificadores i{
+    color: #fff;
 }
 
-.adults{
-    background-color: #fffdd1; /* Color de fondo suave */
-    margin:30px 20px 30px 20px; /* Márgenes alrededor de la sección */
-    padding: 20px 0 30px 0; /* Relleno interior, 20px arriba y 30px abajo */
-    border-radius: 5px; /* Bordes redondeados */
+.identificadores p{
+    text-align: justify;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
-.adults li{
+.acordeon{
+    background: #faf8e1; /*Color de fondo blanco*/
+}
+
+.acordeon label{
+    border-radius: 10px; /*Bordes redondeados*/
+    display: block; /*Permite que el elemento ocupe todo el ancho disponible*/
+    padding: 15px; /*Espaciado interno*/
+    font-size: 20px; /*Tamaño de fuente*/
+    background: #0f7d7e; /*Color de fondo*/
+    cursor: pointer; /*Cambia el cursor a una manita para indicar que es clickeable*/
+}
+
+.label .content-acordeon{
+    color:#fff;
+}
+
+label p{
+    color: white;
+}
+
+.acordeon label:hover{
+    background: #075f61; /*Color de fondo más oscuro al pasar el cursor*/
+}
+
+.acordeon .content-acordeon {
+    color: #fff;
+    padding: 0px; /* cambia de 10px a 0 */
+    margin: 0.5px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 300ms ease;
+}
+
+.acordeon .content-acordeon li{
     margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
-    font-size: 18px;
+    font-size: 20px;
 }
 
-.adults li a{
-    font-size: 18px;
+/* Cuando está activo, le damos padding */
+.btn-acordeon:checked ~ .content-acordeon {
+    max-height: 100%;
+    padding: 15px 10px; /* Aplica padding solo cuando se despliega */
+}
+
+.btn-acordeon{
+    display: none; /*Oculta el botón de acordeón*/
+} 
+
+
+.rasgos{
+    margin:0px 35px;
+    padding: 20px;
+    background-color: #e55b5b;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.rasgos-content{
+    background: #faf8e1;
+    padding: 10px;
 }
 
 
@@ -747,9 +818,9 @@ a.track-link:active {
     display: flex; /* Usa flexbox para organizar los elementos */
     flex-direction: column; /* Organiza los elementos en columnas */
     align-items: center; /* Centra los elementos */
-    background-color: #0f7d7e; /* Color de fondo azul oscuro */
+    background-color: #2d938e; /* Color de fondo azul oscuro */
     padding: 10px 0 30px 0; /* Relleno interior */
-    margin:10px; /* Márgenes alrededor */
+    margin:35px; /* Márgenes alrededor */
     border-radius: 5px; /* Bordes redondeados */
 }
 
@@ -759,18 +830,19 @@ a.track-link:active {
     flex-wrap: wrap; /* Permite que los cuadros se acomoden automáticamente */
     gap: 20px; /* Espacio entre los cuadros */
     justify-content: center; /* Centra los cuadros en el contenedor */
-    max-width: 1000px; /* Ancho máximo del contenedor */
-    margin: 10px 40px 20px 80px; /* Márgenes alrededor del contenedor */
+    max-width: 1500px; /* Ancho máximo del contenedor */
+    margin: 10px 20px 20px 20px; /* Márgenes alrededor del contenedor */
 }
 
 /*Define el estilo de los cuadros de texto de los subtipos*/
 .chart{
-    background-color: rgba(95, 171, 187, 0.8); /* Fondo semi-transparente */
+    background-color: #fffdd1; /* Fondo semi-transparente */
     color: white; /* Color del texto */
-    width: 300px; /* Tamaño fijo para pantallas grandes */
+    width: 350px; /* Tamaño fijo para pantallas grandes */
     padding: 20px; /* Relleno interior */
     text-align: center; /* Centra el texto dentro del cuadro */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor del cuadro */
+    border-radius: 10px;
 }
 
 /*Acomoda la imagen dentro de los cuadros de texto*/
