@@ -514,41 +514,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //"ENLACE AL ARCHIVO JSON"
 
-let translations = {}; //Objeto donde se almacenarán las traducciones cargadas desde el archivo JSON
-let currentLang = 'es'; //Idioma por defecto al cargar la página
+let translations = {}; //Objeto global con las traducciones
+let currentLang = 'es'; //Idioma predeterminado
 
-//Carga el archivo JSON que contiene los textos traducidos
+//Carga del archivo JSON con traducciones
 fetch('../Javascript/Language.json')
-    .then(response => response.json())
-    .then(data => {
-        translations = data; //Guarda las traducciones en la variable global
-        translateTo(currentLang); //Aplica la traducción inicial al cargar
-  });
-
-//Función que actualiza el contenido del sitio según el idioma seleccionado
-function translateTo(lang) {
-    const langSet = translations[lang] || {}; //Obtiene el conjunto de traducciones para el idioma indicado
-
-    //Busca todos los elementos con el atributo personalizado 'data-translate'
-    document.querySelectorAll('[data-translate]').forEach(el => {
-        const key = el.getAttribute('data-translate');
-        const attr = el.getAttribute('data-translate-attr');
-        const innerOnly = el.getAttribute('data-translate-inner') === 'true';
-
-        if (key && langSet[key]) {
-            if (attr) {
-                el.setAttribute(attr, langSet[key]);
-            } else if (innerOnly) {
-                el.innerText = langSet[key];
-            } else {
-                el.textContent = langSet[key];
-            }
-        }
-    });
-}
-
-//Cambia entre los idiomas disponibles y actualiza el contenido
-function toggleLanguage() {
-    currentLang = currentLang === 'es' ? 'en' : 'es';
+  .then(response => response.json())
+  .then(data => {
+    translations = data;
     translateTo(currentLang);
+  })
+  .catch(error => console.error("Error cargando el archivo de idioma:", error));
+
+//Función para aplicar traducciones al DOM
+function translateTo(lang) {
+  const langSet = translations[lang] || {};
+
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    const attr = el.getAttribute('data-translate-attr');
+    const innerOnly = el.getAttribute('data-translate-inner') === 'true';
+
+    if (key && langSet[key]) {
+      if (attr) {
+        el.setAttribute(attr, langSet[key]);
+      } else if (innerOnly) {
+        el.innerText = langSet[key];
+      } else {
+        el.textContent = langSet[key];
+      }
+    }
+  });
 }
+
+//Muestra u oculta el menú desplegable de idioma
+function toggleDropdown() {
+  const dropdown = document.getElementById('languageDropdown');
+  dropdown.classList.toggle('hidden');
+}
+
+//Cambia el idioma y oculta el menú
+function setLanguage(lang) {
+  if (lang === currentLang) return; //Evita traducción innecesaria
+  currentLang = lang;
+  translateTo(lang);
+  document.getElementById('languageDropdown').classList.add('hidden');
+}
+
+//Cerrar lista de idiomas de traductor
+document.addEventListener('click', function (e) {
+    const dropdown = document.getElementById('languageDropdown');
+    const btn = document.getElementById('translateBtn');
+
+    if (!dropdown.contains(e.target) && !btn.contains(e.target)) {
+        dropdown.classList.add('hidden');
+    }
+});

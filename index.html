@@ -139,9 +139,13 @@
                     </ul>
 
                     <div class="traductor">
-                        <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
-                        <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
-                        <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
+                        <button id="translateBtn" onclick="toggleDropdown()">
+                            <i class="fas fa-language"></i>
+                        </button>
+                        <div id="languageDropdown" class="language-dropdown hidden">
+                            <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+                            <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+                        </div>
                     </div>
                 </nav>
             
@@ -198,7 +202,7 @@
                                 <!-- Neurotipicidad-->
                                 <section class="neuro">
                                     <div class="defImg"> <!-- Imágen Neurotipicidad-->
-                                        <img src="../img/Neurotipicidad.jpg" alt="Neurotipicidad">
+                                        <img src="../img/Neurotipicidad.webp" alt="Neurotipicidad">
                                     </div>
             
                                     <div class="defText"> <!-- Definición Neurotipicidad-->
@@ -227,7 +231,7 @@
                                     </div>
             
                                     <div class="defImg"> <!-- Imágen Neurodivergencia-->
-                                        <img src="../img/Neurodivergencia.jpg" alt="Neurodivergencia">
+                                        <img src="../img/Neurodivergencia.webp" alt="Neurodivergencia">
                                     </div>
                                 </section>
             
@@ -542,7 +546,7 @@
                                             <!-- Cada "video" representa un recurso multimedia -->
                                             <div class="video">
                                                 <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">
-                                                    <img src="../img/Video1.jpg" alt="Video1"></a>
+                                                    <img src="../img/Video1.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z" class="underline-animate track-link" data-translate="vid_neuro_1">
                                                     Neurodivergencia: construyendo un concepto</a></h4>
                                                     <p data-translate="vid_neuro_desc_1">Explora el concepto de neurodivergencia, explicando su importancia y
@@ -552,7 +556,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">
-                                                    <img src="../img/Video2.jpg" alt="Video2"></a>
+                                                    <img src="../img/Video2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt" class="underline-animate track-link" data-translate="vid_neuro_2">
                                                     ¿Qué es la neurodivergencia?</a></h4>
                                                     <p data-translate="vid_neuro_desc_2">Carmen Amezcua, psiquiatra enfocada en psiquiatría integrativa,
@@ -563,7 +567,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">
-                                                    <img src="../img/Video3.jpg" alt="Video3"></a>
+                                                    <img src="../img/Video3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR" class="underline-animate track-link" data-translate="vid_neuro_3">
                                                     Los distintos tipos de neurodivergencia | Sana Mente</a></h4>
                                                     <p data-translate="vid_neuro_desc_3">Aborda los diferentes tipos de neurodivergencia, explicando cómo cada
@@ -575,7 +579,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy">
-                                                    <img src="../img/Video4.jpg" alt="Video4"></a>
+                                                    <img src="../img/Video4.webp" alt="Video4"></a>
                                                 <h4> <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy" class="underline-animate track-link" data-translate="vid_neuro_4">NEURODIVERSIDAD y
                                                         las
                                                         DIFERENCIAS de PERCEPCIÓN Y APRENDIZAJE</a></h4>
@@ -588,7 +592,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6">
-                                                    <img src="../img/Video5.jpg" alt="Video5"></a>
+                                                    <img src="../img/Video5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6" class="underline-animate track-link" data-translate="vid_neuro_5">What is
                                                         Neurodiversity: A
                                                         Video for Children</a></h4>
@@ -600,7 +604,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/1bHRaUai2GA?si=P_OsvGdrF3z5d3bK">
-                                                    <img src="../img/vid_neuro_6.jpg" alt="Video7"></a>
+                                                    <img src="../img/vid_neuro_6.webp" alt="Video7"></a>
                                                 <h4> <a href="https://youtu.be/1bHRaUai2GA?si=P_OsvGdrF3z5d3bK"  class="underline-animate track-link" data-translate="vid_neuro_6">
                                                     Ser NEURODIVERGENTE en la sociedad moderna vs NEUROTÍPICOS 🎙️ Nuria Valera</a></h4>
                                                     <p data-translate="vid_neuro_desc_6">Este podcast es una mirada profunda y empática hacia la neurodiversidad, destacando sus desafíos y su gran habilidad para 
@@ -625,7 +629,7 @@
                                             <!-- Cada "video" representa un recurso multimedia -->
                                             <div class="video">
                                                 <a href="https://youtu.be/FXDt0VRfGeY?si=7DcG2Qdr6n8lFked">
-                                                    <img src="../img/vid_autismo_1.jpg" alt="Video1"></a>
+                                                    <img src="../img/vid_autismo_1.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/FXDt0VRfGeY?si=7DcG2Qdr6n8lFked" class="underline-animate track-link" data-translate="vid_autismo_1">¿Qué es el Autismo?</a></h4>
                                                     <p data-translate="vid_autismo_desc_1">Este video aborda el debate de si hay que considerar condiciones como el
                                                         autismo
@@ -636,7 +640,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/NY0ApnCq9pQ?si=B2chfFGQO3pX8oIT">
-                                                    <img src="../img/vid_autismo_2.jpg" alt="Video2"></a>
+                                                    <img src="../img/vid_autismo_2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/NY0ApnCq9pQ?si=B2chfFGQO3pX8oIT" class="underline-animate track-link" data-translate="vid_autismo_2">
                                                     AUTISMO: Una Realidad Desconocida</a></h4>
                                                     <p data-translate="vid_autismo_desc_2">Elaborado con el objetivo de conmemorar el día mundial del autismo el 02 de Abril se nos presenta el estreno de uno de los documentos 
@@ -646,7 +650,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/_R4lWNpsmno?si=0GVAeXkGgrn4WjT2">
-                                                    <img src="../img/vid_autismo_3.jpg" alt="Video3"></a>
+                                                    <img src="../img/vid_autismo_3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/_R4lWNpsmno?si=0GVAeXkGgrn4WjT2" class="underline-animate track-link" data-translate="vid_autismo_3">
                                                     10 rasgos del AUTISMO INFANTIL 🔵 Aprende a identificar los PRIMEROS SIGNOS de TEA en bebés y niños</a></h4>
                                                     <p data-translate="vid_autismo_desc_3">¿Te has preguntado alguna vez si tu hijo puede ser autista? En el vídeo de hoy veremos las 
@@ -656,7 +660,7 @@
                                             
                                             <div class="video">
                                                 <a href="https://youtu.be/c8R4SxhPsjk?si=GD1xBXEuGTr9_6GK">
-                                                    <img src="../img/vid_autismo_4.jpg" alt="Video4"></a>
+                                                    <img src="../img/vid_autismo_4.webp" alt="Video4"></a>
                                                 <h4> <a href="https://youtu.be/c8R4SxhPsjk?si=GD1xBXEuGTr9_6GK" class="underline-animate track-link" data-translate="vid_autismo_4">
                                                     Autismo: Nuevos descubrimientos que debes conocer para 2025</a></h4>
                                                     <p data-translate="vid_autismo_desc_4">En este vídeo se nos habla sobre los nuevos decubrimientos que se han observado dentro de el espectro autista (TEA)
@@ -665,7 +669,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/VrrPnGzOKe4?si=7C2LMgDdUxCn2Qsn">
-                                                    <img src="../img/vid_autismo_5.jpg" alt="Video5"></a>
+                                                    <img src="../img/vid_autismo_5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/VrrPnGzOKe4?si=7C2LMgDdUxCn2Qsn" class="underline-animate track-link" data-translate="vid_autismo_5">
                                                     SER AUTISTA EN UN MUNDO SORDO DE EMPATÍA (CON: DIANA TORRES) Vos podés - EP 170</a></h4>
                                                     <p data-translate="vid_autismo_desc_5">Hoy, en el Día Mundial de la Concienciación sobre el Autismo, Diana hace un llamado urgente a 
@@ -692,7 +696,7 @@
                                             <!-- Cada "video" representa un recurso multimedia -->
                                             <div class="video">
                                                 <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX">
-                                                    <img src="../img/Video7.jpg" alt="Video1"></a>
+                                                    <img src="../img/Video7.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX"  class="underline-animate track-link" data-translate="vid_tdah_1">¿Qué sabemos sobre TDAH?</a></h4>
                                                     <p data-translate="vid_tdah_desc_1">En este video se habla de que es el TDAH y cómo puede tratarse.
                                                         Se presentan los síntomas y características del TDAH, así como su diagnóstico y tratamiento.
@@ -702,7 +706,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/yWPFdDxJNw8?si=PWme9sp5pt8TyPWr">
-                                                    <img src="../img/vid_tdah_2.jpg" alt="Video2"></a>
+                                                    <img src="../img/vid_tdah_2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/yWPFdDxJNw8?si=PWme9sp5pt8TyPWr"  class="underline-animate track-link" data-translate="vid_tdah_2">
                                                     Tu cerebro cuando tienes TDAH</a></h4>
                                                     <p data-translate="vid_tdah_desc_2">En los adultos con TDAH, las dificultades atencionales y la disfunción ejecutiva se manifiestan por la dificultad para organizarse, 
@@ -711,7 +715,7 @@
     
                                             <div class="video">
                                                 <a href="https://youtu.be/Dj64hbDd_f8?si=w1hoTHvvaE-P-yEN">
-                                                    <img src="../img/vid_tdah_3.jpg" alt="Video3"></a>
+                                                    <img src="../img/vid_tdah_3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/Dj64hbDd_f8?si=w1hoTHvvaE-P-yEN"  class="underline-animate track-link" data-translate="vid_tdah_3">
                                                     El TDAH en ADULTOS. Las 11 claves que te abrirán los ojos. 😳</a></h4>
                                                     <p data-translate="vid_tdah_desc_3">Los adultos también pueden presentar TDAH. Y no solo eso, es tan frecuente, 
@@ -720,7 +724,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/uDsEhLCMw9A?si=HvRcP8g21x2pNKuH">
-                                                    <img src="../img/vid_tdah_4.jpg" alt="Video4"></a>
+                                                    <img src="../img/vid_tdah_4.webp" alt="Video4"></a>
                                                 <h4> <a href="https://youtu.be/uDsEhLCMw9A?si=HvRcP8g21x2pNKuH"  class="underline-animate track-link" data-translate="vid_tdah_4">
                                                     ¿Qué pasa en el cerebro 🧠 cuando se tiene TDAH?</a></h4>
                                                     <p data-translate="vid_tdah_desc_4">El Dr. Juan Carlos Pérez Castro nos da una plática muy didáctica sobre los procesos 
@@ -729,7 +733,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/9fZurSe2hV4?si=QNa2_6vDgrOfsqtS">
-                                                    <img src="../img/vid_tdah_5.jpg" alt="Video5"></a>
+                                                    <img src="../img/vid_tdah_5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/9fZurSe2hV4?si=QNa2_6vDgrOfsqtS"  class="underline-animate track-link" data-translate="vid_tdah_5">
                                                     El CEREBRO del TDAH 🧠 Así funciona la mente de tu hijo.</a></h4>
                                                     <p data-translate="vid_tdah_desc_5">En este video, se nos explican los funcionamientos básicos del cerebro humano, para que entiendas, 
@@ -758,7 +762,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb">
-                                                    <img src="../img/Video6.jpg" alt="Video1"></a>
+                                                    <img src="../img/Video6.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb" class="underline-animate track-link" data-translate="vid_dislexia_1">
                                                     La dislexia es una dificultad de aprendizaje, no es una enfermedad. Luz Rello, investigadora </a></h4>
                                                     <p data-translate="vid_dislexia_desc_1">Este video habla de la dislexia, como su porcentaje de diagnostico en quien la
@@ -768,7 +772,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/6l7dWaPS4lo?si=L2G0iJpN10rIoKHS">
-                                                    <img src="../img/vid_dislexia_2.jpg" alt="Video2"></a>
+                                                    <img src="../img/vid_dislexia_2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/6l7dWaPS4lo?si=L2G0iJpN10rIoKHS" class="underline-animate track-link" data-translate="vid_dislexia_2">
                                                     Qué es la dislexia - Kelli Sandman-Hurley</a></h4>
                                                     <p data-translate="vid_dislexia_desc_2">La dislexia afecta a una de cada cinco personas, pero la experiencia de la dislexia no es 
@@ -778,7 +782,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/O27NZDT8kSE?si=OJyAIXlfXl6Y-TGC">
-                                                    <img src="../img/vid_dislexia_3.jpg" alt="Video3"></a>
+                                                    <img src="../img/vid_dislexia_3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/O27NZDT8kSE?si=OJyAIXlfXl6Y-TGC" class="underline-animate track-link" data-translate="vid_dislexia_3">
                                                     TEA: DISLEXIA, DISGRAFÍA, DISORTOGRAFÍA Y DISCALCULIA | #TELOEXPLICO</a></h4>
                                                     <p data-translate="vid_dislexia_desc_3"> LOS TRASTORNOS ESPECÍFICOS DEL APRENDIZAJE: QUÉ SON Y CÓMO FUNCIONAN</p>
@@ -786,7 +790,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/IfIIOuiXyU8?si=RyaMF18g3vODBDef">
-                                                    <img src="../img/vid_dislexia_4.jpg" alt="Video4"></a>
+                                                    <img src="../img/vid_dislexia_4.webp" alt="Video4"></a>
                                                 <h4> <a href="https://youtu.be/IfIIOuiXyU8?si=RyaMF18g3vODBDef" class="underline-animate track-link" data-translate="vid_dislexia_4">
                                                     ¿Cómo es vivir con dislexia? | Médico de familia | Dr. Jorge Tartaglione | Lucas Slevin</a></h4>
                                                     <p data-translate="vid_dislexia_desc_4"> Vivir con dislexia: la historia de Lucas Slevin, sus tatuajes y el mensaje de inclusión.
@@ -797,7 +801,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/9A5OorMtFjk?si=RSd8cb1yzXLpe6EA">
-                                                    <img src="../img/vid_dislexia_5.jpg" alt="Video5"></a>
+                                                    <img src="../img/vid_dislexia_5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/9A5OorMtFjk?si=RSd8cb1yzXLpe6EA" class="underline-animate track-link" data-translate="vid_dislexia_5">
                                                     📖 Dislexia Diagnóstico y signos de alarma Intro | Cursos ITK Academy</a></h4>
                                                     <p data-translate="vid_dislexia_desc_5"> En este vídeo 
@@ -808,7 +812,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/zVFdHfFdVac?si=QXFOmIrB6rV0E_yY">
-                                                    <img src="../img/vid_dislexia_6.jpg" alt="Video6"></a>
+                                                    <img src="../img/VideoPendiente.jpg" alt="Video6"></a>
                                                 <h4> <a href="https://youtu.be/zVFdHfFdVac?si=QXFOmIrB6rV0E_yY" class="underline-animate track-link" data-translate="vid_dislexia_6">
                                                     ¿De qué manera la dislexia afecta a los niños fuera de la escuela? | Child Mind Institute</a></h4>
                                                     <p data-translate="vid_dislexia_desc_6"> En este vídeo 
@@ -837,7 +841,7 @@
                                             
                                             <div class="video">
                                                 <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd">
-                                                    <img src="../img/Video9.jpg" alt="Video1"></a>
+                                                    <img src="../img/Video9.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd" class="underline-animate track-link" data-translate="vid_toc_1">
                                                     Tu cerebro cuando tienes TOC - Trastorno Obsesivo Compulsivo</a></h4>
                                                     <p data-translate="vid_toc_desc_1">En este video se aborda de forma general el tratamiento del TOC, basado en el
@@ -847,7 +851,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/irlCibk2Bmw?si=jKpVvRUecWgg525E">
-                                                    <img src="../img/vid_tourette_2.jpg" alt="Video2"></a>
+                                                    <img src="../img/vid_tourette_2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/irlCibk2Bmw?si=jKpVvRUecWgg525E" class="underline-animate track-link" data-translate="vid_toc_2">
                                                     Qué es el Síndrome de Tourette</a></h4>
                                                     <p data-translate="vid_toc_desc_2">En este vídeo podrás conocer de manera breve que es el síndrome de Tourette, cuales son sus síntomas, maneras de detección y diagnosticos.</p>
@@ -855,7 +859,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/Rl3nZwxM28w?si=Lq6H60I9XPPEtsCs">
-                                                    <img src="../img/vid_tourette_3.jpg" alt="Video3"></a>
+                                                    <img src="../img/vid_tourette_3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/Rl3nZwxM28w?si=Lq6H60I9XPPEtsCs" class="underline-animate track-link" data-translate="vid_toc_3">
                                                     El peor caso de síndrome de Tourette</a></h4>
                                                     <p data-translate="vid_toc_desc_3">El caso de Bianca Saez es uno de los de síndrome de Tourette más severos que se conocen en el mundo. Sin embargo, su historia es inspiradora.
@@ -864,7 +868,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/S2G631CzMII?si=pGApwaTabKii4Pre">
-                                                    <img src="../img/vid_tourette_4.jpg" alt="Video4"></a>
+                                                    <img src="../img/vid_tourette_4.webp" alt="Video4"></a>
                                                 <h4> <a href="https://youtu.be/S2G631CzMII?si=pGApwaTabKii4Pre" class="underline-animate track-link" data-translate="vid_toc_4">
                                                     Síndrome de Tourette</a></h4>
                                                     <p data-translate="vid_toc_desc_4">¿#SabíasQue el Síndrome de Tourette es un trastorno neuropsiquíatrico, crónico y genético, caracterizado por 
@@ -874,7 +878,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/XsP11-2nO_k?si=GAI-252LUNZGh-C2">
-                                                    <img src="../img/vid_tourette_5.jpg" alt="Video5"></a>
+                                                    <img src="../img/vid_tourette_5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/XsP11-2nO_k?si=GAI-252LUNZGh-C2" class="underline-animate track-link" data-translate="vid_toc_5">
                                                     ¿QUÉ ES EL SÍNDROME DE TOURETTE? | Draw My Life</a></h4>
                                                     <p data-translate="vid_toc_desc_5">¿Conocéis cuáles son sus síntomas? Hoy hablaremos de ello. ¡Recordad que la empatía es fundamental 
@@ -901,7 +905,7 @@
                                             <!-- Cada "video" representa un recurso multimedia -->
                                             <div class="video">
                                                 <a href="https://youtu.be/sWAMSK-dupI?si=fzzhu9o7S90GI77b">
-                                                    <img src="../img/vid_dispraxia_1.jpg" alt="Video1"></a>
+                                                    <img src="../img/vid_dispraxia_1.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/sWAMSK-dupI?si=fzzhu9o7S90GI77b" class="underline-animate track-link" data-translate="vid_dispraxia_1">
                                                     #NeuroPhysioClub: DISPRAXIA</a></h4>
                                                     <p data-translate="vid_dispraxia_desc_1">En esta ocasión, el neurofisioterapeuta Juan Anaya Ojeda [@juanayaojeda] charla 
@@ -911,7 +915,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/bhP73xjz7GM?si=tsI5gznOSFPeUUIr">
-                                                    <img src="../img/vid_dispraxia_2.jpg" alt="Video2"></a>
+                                                    <img src="../img/vid_dispraxia_2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/bhP73xjz7GM?si=tsI5gznOSFPeUUIr" class="underline-animate track-link" data-translate="vid_dispraxia_2">
                                                     Neurólogo Pediatra en Guadalajara Dra. Giselle/ DISPRAXIA EN NIÑOS ¿CÓMO LOS PUEDE AFECTAR?</a></h4>
                                                     <p data-translate="vid_dispraxia_desc_2">Este video te guiará sobre algunos síntomas que puedes observar en niños 
@@ -921,7 +925,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/8n-iv8ljJyc?si=S0HFmCXRcnnPRVyT">
-                                                    <img src="../img/vid_dispraxia_3.jpg" alt="Video3"></a>
+                                                    <img src="../img/vid_dispraxia_3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/8n-iv8ljJyc?si=S0HFmCXRcnnPRVyT" class="underline-animate track-link" data-translate="vid_dispraxia_3">
                                                     Dispraxia y Disgrafía | Causas, prevención y tratamiento</a></h4>
                                                     <p data-translate="vid_dispraxia_desc_3">¡Hola! Hoy os traigo un video que me gusta mucho porque hablamos de dos trastornos muy desconocidos: 
@@ -932,7 +936,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/XLAUPb3_UOc?si=6N5CTWZwIcDMttES">
-                                                    <img src="../img/vid_dispraxia_4.jpg" alt="Video5"></a>
+                                                    <img src="../img/vid_dispraxia_4.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/XLAUPb3_UOc?si=6N5CTWZwIcDMttES" class="underline-animate track-link" data-translate="vid_dispraxia_4">
                                                     ¿Qué es la Dispraxia?</a></h4>
                                                     <p data-translate="vid_dispraxia_desc_4">Te invitamos a ver este episodio donde hablaremos sobre la Dispraxia que es uno de los 
@@ -943,7 +947,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/24pdMCzPR7U?si=j3a1abBzJy3bCkEl">
-                                                    <img src="../img/vid_dispraxia_5.jpg" alt="Video5"></a>
+                                                    <img src="../img/vid_dispraxia_5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/24pdMCzPR7U?si=j3a1abBzJy3bCkEl" class="underline-animate track-link" data-translate="vid_dispraxia_5">
                                                     Qué es la dispraxia ?</a></h4>
                                                     <p data-translate="vid_dispraxia_desc_5">Dificultades a nivel motriz en niños, ¿Qué es la dispraxia? síntomas en niños y su manera de detección temprana.
@@ -969,7 +973,7 @@
                                             <!-- Cada "video" representa un recurso multimedia -->
                                            <div class="video">
                                                 <a href="https://youtu.be/fs19szj8L78?si=3UBl0KsiMwcrxCy4">
-                                                    <img src="../img/vid_discalculia_1.jpg" alt="Video1"></a>
+                                                    <img src="../img/vid_discalculia_1.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/fs19szj8L78?si=3UBl0KsiMwcrxCy4" class="underline-animate track-link" data-translate="vid_discalculia_1">
                                                     ¿Qué es la DISCALCULIA? Todo lo que necesitas saber 👆</a></h4>
                                                     <p data-translate="vid_discalculia_desc_1">
@@ -980,7 +984,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/uaB1pouNHQM?si=ZMQno6bIFJ_HE5-v">
-                                                    <img src="../img/vid_discalculia_2.jpg" alt="Video2"></a>
+                                                    <img src="../img/vid_discalculia_2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/uaB1pouNHQM?si=ZMQno6bIFJ_HE5-v" class="underline-animate track-link" data-translate="vid_discalculia_2">
                                                    Clase magistral: Discalculia, qué es y cómo detectarla con Silvia Figiacone</a></h4>
                                                     <p data-translate="vid_discalculia_desc_2">
@@ -991,7 +995,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/ZrG_fJ65CNE?si=8zvkZFCfDgRXCinv">
-                                                    <img src="../img/vid_discalculia_3.jpg" alt="Video3"></a>
+                                                    <img src="../img/vid_discalculia_3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/ZrG_fJ65CNE?si=8zvkZFCfDgRXCinv" class="underline-animate track-link" data-translate="vid_discalculia_3">
                                                     Señales de discalculia | Child Mind Institute</a></h4>
                                                     <p data-translate="vid_discalculia_desc_3">
@@ -1003,7 +1007,7 @@
             
                                              <div class="video">
                                                 <a href="https://youtu.be/mMX7iHtHUK8?si=anm_GYyhsRdaeCBW">
-                                                    <img src="../img/vid_discalculia_4.jpg" alt="Video4"></a>
+                                                    <img src="../img/vid_discalculia_4.webp" alt="Video4"></a>
                                                 <h4> <a href="https://youtu.be/mMX7iHtHUK8?si=anm_GYyhsRdaeCBW" class="underline-animate track-link" data-translate="vid_discalculia_4">
                                                    ¿Qué es la discalculia? | Child Mind Institute</a></h4>
                                                     <p data-translate="vid_discalculia_desc_4">
@@ -1015,7 +1019,7 @@
 
                                              <div class="video">
                                                 <a href="https://www.youtube.com/live/-A7DZRS1nPY?si=rQUSx1p4F3QeT2cX">
-                                                    <img src="../img/vid_discalculia_5.png" alt="Video5"></a>
+                                                    <img src="../img/vid_discalculia_5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://www.youtube.com/live/-A7DZRS1nPY?si=rQUSx1p4F3QeT2cX" class="underline-animate track-link" data-translate="vid_discalculia_5">
                                                    Dislexia, Disgrafía y Discalculia</a></h4>
                                                     <p data-translate="vid_discalculia_desc_5">
@@ -1043,7 +1047,7 @@
                                             <!-- Cada "video" representa un recurso multimedia -->
                                              <div class="video">
                                                 <a href="https://youtu.be/iEdv9X8JbsA?si=JT6WpCql-j2hRBMu">
-                                                    <img src="../img/vid_ansiedad_1.jpg" alt="Video1"></a>
+                                                    <img src="../img/vid_ansiedad_1.webp" alt="Video1"></a>
                                                 <h4> <a href="https://youtu.be/iEdv9X8JbsA?si=JT6WpCql-j2hRBMu" class="underline-animate track-link" data-translate="vid_ansiedad_1">
                                                   ¿Qué es Ansiedad?</a></h4>
                                                     <p data-translate="vid_ansiedad_desc_1">
@@ -1054,7 +1058,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/hAt6lgwC8cw?si=ZCYN7ll8QBOSlTAD">
-                                                    <img src="../img/vid_ansiedad_2.jpg" alt="Video2"></a>
+                                                    <img src="../img/vid_ansiedad_2.webp" alt="Video2"></a>
                                                 <h4> <a href="https://youtu.be/hAt6lgwC8cw?si=ZCYN7ll8QBOSlTAD" class="underline-animate track-link" data-translate="vid_ansiedad_2">
                                                   Cómo sanar la ansiedad: estrategias y herramientas efectivas | Psicología al Desnudo - T1 E 14</a></h4>
                                                     <p data-translate="vid_ansiedad_desc_2">En este podcast hablamos de emociones. De tus mecanismos internos: ¿Por qué hacés lo que hacés? 
@@ -1065,7 +1069,7 @@
             
                                              <div class="video">
                                                 <a href="https://youtu.be/2kUqVkYGI48?si=qxexAZz7L3TAwYw4">
-                                                    <img src="../img/vid_ansiedad_3.jpg" alt="Video3"></a>
+                                                    <img src="../img/vid_ansiedad_3.webp" alt="Video3"></a>
                                                 <h4> <a href="https://youtu.be/2kUqVkYGI48?si=qxexAZz7L3TAwYw4" class="underline-animate track-link" data-translate="vid_ansiedad_3">
                                                   Así superé los Ataques de Pánico y de Ansiedad</a></h4>
                                                     <p data-translate="vid_ansiedad_desc_3">A miles de personas les da y no saben lo que tienen: Los ataques de pánico y 
@@ -1077,7 +1081,7 @@
             
                                             <div class="video">
                                                 <a href="https://youtu.be/3iXjHf12ed4?si=kZx8U6rT4qNfsCD2">
-                                                    <img src="../img/vid_ansiedad_4.jpg" alt="Video4"></a>
+                                                    <img src="../img/vid_ansiedad_4.webp" alt="Video4"></a>
                                                 <h4> <a href="https://youtu.be/3iXjHf12ed4?si=kZx8U6rT4qNfsCD2" class="underline-animate track-link" data-translate="vid_ansiedad_4">
                                                   ¿Qué es la ansiedad? | APA</a></h4>
                                                     <p data-translate="vid_ansiedad_desc_4">En este vídeo podremos observas el que es la ansiedad, sus síntomas y como se puede tratar.
@@ -1088,7 +1092,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/S1g1cQjUguI?si=HadGipryag-AXJGK">
-                                                    <img src="../img/vid_ansiedad_5.jpg" alt="Video5"></a>
+                                                    <img src="../img/vid_ansiedad_5.webp" alt="Video5"></a>
                                                 <h4> <a href="https://youtu.be/S1g1cQjUguI?si=HadGipryag-AXJGK" class="underline-animate track-link" data-translate="vid_ansiedad_5">
                                                   TODO LO QUE NECESITAS SABER SOBRE LA ANSIEDAD | #TELOEXPLICO</a></h4>
                                                     <p data-translate="vid_ansiedad_desc_5">Latidos rápidos del corazón, sudoración, preocupación creciente, tensión muscular...
@@ -1100,7 +1104,7 @@
 
                                             <div class="video">
                                                 <a href="https://youtu.be/ZSuyJWlx8bc?si=tPW89F9pmA2UIeCC">
-                                                    <img src="../img/vid_ansiedad_6.jpg" alt="Video6"></a>
+                                                    <img src="../img/vid_ansiedad_6.webp" alt="Video6"></a>
                                                 <h4> <a href="https://youtu.be/ZSuyJWlx8bc?si=tPW89F9pmA2UIeCC" class="underline-animate track-link" data-translate="vid_ansiedad_6">
                                                   ¿Qué es la ansiedad y cómo se manifiesta?</a></h4>
                                                     <p data-translate="vid_ansiedad_desc_6">Latidos rápidos del corazón, sudoración, preocupación creciente, tensión muscular...

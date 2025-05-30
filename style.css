@@ -247,35 +247,6 @@ a.track-link:active {
     align-items: center; /*Centra los elementos verticalmente*/
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
-    position: relative; /*Permite posicionar elementos hijos de forma absoluta dentro de este*/
-}
-
-#results {
-  max-width: 600px;
-  /* Limita el ancho máximo para mantener coherencia con el buscador */
-  margin: 0 auto;
-  /* Centra horizontalmente el contenedor de resultados */
-}
-
-.result-item {
-  border-bottom: 1px solid #ccc;
-  /* Línea separadora gris claro debajo de cada resultado para delimitar visualmente */
-  padding: 12px 0;
-  /* Espacio vertical interno para separar cada resultado */
-}
-
-.result-title {
-  font-weight: bold;
-  /* Texto en negrita para destacar el título de cada resultado */
-  margin-bottom: 6px;
-  /* Espacio inferior para separar título del texto de preview */
-  color: #222;
-  /* Color de texto oscuro, casi negro, para legibilidad */
-}
-
-.result-preview {
-  color: #555;
-  /* Color gris medio para el texto de preview, para que no compita visualmente con el título */
 }
 
 /*Campo de entrada de texto de la barra de búsqueda*/
@@ -310,7 +281,6 @@ a.track-link:active {
 /*Resaltado de búsqueda. El resaltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
 .highlight { 
     background-color: #f68f9b; /*Fondo resaltado cuando se encuentra un término de búsqueda*/
-    font-weight: bold; /*Texto en negrita para destacar el término encontrado*/
 }
 
 
@@ -575,25 +545,45 @@ a.track-link:active {
 
 
 /*"ICONO TRADUCTOR"*/
-.traductor{
+.hidden {
+    display: none;
+}
+
+.traductor {
     margin-left: auto; /*Separa al icono de traductor del contenido de la lista del submenú*/
     font-size: 35px; /*Tamaño del icono*/
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+    position: relative;
 }
 
-.traductor:hover{
-    transform: scale(1.1);
-    filter: drop-shadow(6px 8px 0px rgba(4, 46, 33, 0.7));
-}
-
-/*Estilo del icono de traducción*/
-.traductor i{
+.traductor i {
     color: #93ebf7; /*Color azul claro para el ícono de traductor*/
     cursor: pointer;
 }
 
 #translateBtn {
-    background-color: transparent;  /* Quita el fondo blanco que se le coloca al icono del traductor */
+    background-color: transparent; /* Quita el fondo blanco que se le coloca al icono del traductor */
+}
+
+.language-dropdown {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 8px;
+    right: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.language-dropdown div {
+    padding: 8px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.language-dropdown div:hover {
+    background-color: #f0f0f0;
 }
 
 
@@ -649,7 +639,7 @@ a.track-link:active {
     display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
     justify-content: center; /*Centra los elementos horizontalmente*/
     align-items: center; /*Centra los elementos verticalmente*/
-    background-image: url(../img/header.png); /*Imagen de fondo para el header*/
+    background-image: url(../img/header.webp); /*Imagen de fondo para el header*/
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen de fondo permanece fija al hacer scroll*/    
     background-repeat:no-repeat center; /*Evita que la imagen de fondo se repita*/
