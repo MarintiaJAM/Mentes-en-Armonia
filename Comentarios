@@ -83,3 +83,67 @@ window.addEventListener("scroll", function () { //Detecta y se ejecuta cuando el
 });
 
 Oi oi oi, me hand dicho que tengo la voz de Bakugo
+
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #2d938e;
+}
+
+/* Contenedor del input + botón */
+#search-container {
+  display: flex;
+  align-items: center;
+  transition: width 0.4s ease-in-out;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+/* Estado inicial colapsado */
+#search-container.collapsed input {
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Estado expandido */
+#search-container input {
+  width: 200px;
+  transition: all 0.4s ease-in-out;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Botón de búsqueda */
+#search-container button {
+  background-color: #ff6b6b;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+/*"BARRA DE BÚSQUEDA"*/
+.search-bar {
+    background-color: #2d938e;
+}
+
+
+#search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+    margin-left: 0;    
+    width: fit-content;
+    margin: 0 auto;
+}
