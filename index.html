@@ -36,7 +36,7 @@
             <!-- Barra de navegación principal-->
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                página de inicio -->
+         página de inicio -->
                 <li><a href="index.html" data-translate="menu-sec1"><i class="fas fa-house"></i>Inicio</a></li>
                 <li><a href="Nosotros.html" data-translate="menu-sec2"><i class="fas fa-users"></i>Nosotros</a></li>
                 <li class="dropdown">
@@ -71,12 +71,14 @@
             </ul>
 
                         <!-- Barra de búsqueda en la esquina superior derecha -->
-                        <div class="search-bar">
+                        <div class="search-bar" id="search-container">
                             <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
-                                data-translate-attr="placeholder">
+                                data-translate-attr="placeholder" autocomplete="off">
                             <button type="button" id="searchButton"><i class="fas fa-search"></i>
                             </button>
                         </div>
+
+                       
             
                         <!-- Botón de Inicio de Sesión -->
                         <div class="Login">
@@ -119,7 +121,7 @@
                                     <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
                                 </div>
                             </div>
-                        </div>                       
+                        </div>                      
                     </nav>
                 </header>
             
@@ -135,7 +137,7 @@
                         <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
                         <li><a href="#Footer">Footer</a></li>
                     </ul>
-            
+
                     <div class="traductor">
                         <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
                         <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
@@ -146,7 +148,7 @@
             
                 <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
                 <a href="#Menu" class="scroll" id="scrollTop">
-                    &#8679; <!-- Este código asigna un simbolo de flecha que servirá como el cuerpo del scroll-->
+                    &#8679; <!-- Este código asigna un simbolo de flecha que servirá como e cuerpo del scroll-->
                 </a>
             
             
@@ -155,6 +157,8 @@
                 <!-- Sección de bienvenida/header -->
                 <section class="content header">
                     <section id="Inicio">
+                        
+                        <div id="results"></div> 
                         <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
                         <h2 class="title" data-translate="bienvenida">Mentes en armonía</h2>
             
@@ -168,6 +172,7 @@
             
                 <!-- CLase que selacciona parte del contenido de la página para ajustar su tamaño a un 80% -->
                 <div class="container">
+                <div id="content" style="margin-top: 40px;">
             
             
                     <!-- Sección sobre nosotros -->
@@ -1113,7 +1118,9 @@
                             </div>
                         </section>
                     </section>
+                    </div>
                 </div>
+            
             
             
                 <!-- Sección del Footer -->

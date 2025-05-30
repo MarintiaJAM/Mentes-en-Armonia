@@ -247,6 +247,35 @@ a.track-link:active {
     align-items: center; /*Centra los elementos verticalmente*/
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
+    position: relative; /*Permite posicionar elementos hijos de forma absoluta dentro de este*/
+}
+
+#results {
+  max-width: 600px;
+  /* Limita el ancho máximo para mantener coherencia con el buscador */
+  margin: 0 auto;
+  /* Centra horizontalmente el contenedor de resultados */
+}
+
+.result-item {
+  border-bottom: 1px solid #ccc;
+  /* Línea separadora gris claro debajo de cada resultado para delimitar visualmente */
+  padding: 12px 0;
+  /* Espacio vertical interno para separar cada resultado */
+}
+
+.result-title {
+  font-weight: bold;
+  /* Texto en negrita para destacar el título de cada resultado */
+  margin-bottom: 6px;
+  /* Espacio inferior para separar título del texto de preview */
+  color: #222;
+  /* Color de texto oscuro, casi negro, para legibilidad */
+}
+
+.result-preview {
+  color: #555;
+  /* Color gris medio para el texto de preview, para que no compita visualmente con el título */
 }
 
 /*Campo de entrada de texto de la barra de búsqueda*/
@@ -281,6 +310,7 @@ a.track-link:active {
 /*Resaltado de búsqueda. El resaltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
 .highlight { 
     background-color: #f68f9b; /*Fondo resaltado cuando se encuentra un término de búsqueda*/
+    font-weight: bold; /*Texto en negrita para destacar el término encontrado*/
 }
 
 
