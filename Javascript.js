@@ -1,11 +1,12 @@
+//Espera a que el DOM esté completamente cargado antes de ejecutar cualquier lógica
 document.addEventListener('DOMContentLoaded', function () {
-    const menu = document.querySelector('.menu');
-    const menuToggle = menu.querySelector('.menu-toggle');
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
-    const pageContent = document.body;
+    const menu = document.querySelector('.menu'); //Referencia al menú principal
+    const menuToggle = menu.querySelector('.menu-toggle'); //Botón para abrir/cerrar el menú
+    const searchInput = document.getElementById('searchInput'); //Campo de entrada de búsqueda
+    const searchButton = document.getElementById('searchButton'); //Botón para ejecutar la búsqueda
+    const pageContent = document.body; //Botón para ejecutar la búsqueda
 
-    //Mostrar/ocultar menú en dispositivos móviles
+    //Al hacer clic en el botón del menú, alterna la clase 'active' para mostrar u ocultar el menú en móviles
     menuToggle.addEventListener('click', function () {
     menu.classList.toggle('active');
 });
@@ -13,116 +14,117 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //"BARRA DE BÚSQUEDA"
 (function(){
-  // Declaración de función anónima autoejecutable (IIFE)
-  // Esto crea un ámbito local para evitar contaminar el ámbito global
+  //Declaración de función anónima autoejecutable (IIFE)
+  //Esto crea un ámbito local para evitar contaminar el ámbito global
 
   const input = document.getElementById('searchInput');
-  // Obtiene la referencia al input de búsqueda por su id
-  // Será donde el usuario escriba el texto a buscar
+  //Obtiene la referencia al input de búsqueda por su id
+  //Será donde el usuario escriba el texto a buscar
 
   const results = document.getElementById('results');
-  // Obtiene el contenedor donde se mostrarán los resultados dinámicamente
+  //Obtiene el contenedor donde se mostrarán los resultados dinámicamente
 
   const content = document.getElementById('content');
-  // Obtiene el contenedor que tiene todo el contenido donde haremos la búsqueda
+  //Obtiene el contenedor que tiene todo el contenido donde haremos la búsqueda
 
-  // Extraemos los textos y títulos del contenido para buscar
-  // Creamos un array de objetos {title, text}
+  //Extraemos los textos y títulos del contenido para buscar
+  //Creamos un array de objetos {title, text}
   const sections = [];
-  // Array vacío que almacenará objetos con la estructura:
-  // { title: 'Título de sección', text: 'Texto completo de esa sección' }
+  //Array vacío que almacenará objetos con la estructura:
+  //{ title: 'Título de sección', text: 'Texto completo de esa sección' }
 
   // Vamos a obtener todos los h2 y sus párrafos hermanos
   const headings = content.querySelectorAll('h2');
-  // Obtiene todos los elementos h2 dentro de #content, 
-  // para identificar cada sección del contenido (cada tema)
+  //Obtiene todos los elementos h2 dentro de #content, 
+  //para identificar cada sección del contenido (cada tema)
 
   headings.forEach(h2 => {
     let textBlocks = '';
-    // Variable que almacenará concatenado el texto de todos los párrafos de la sección actual
+    //Variable que almacenará concatenado el texto de todos los párrafos de la sección actual
 
-    // Obtener objetos hermanos siguientes hasta el siguiente h2 o fin del contenido
+    //Obtener objetos hermanos siguientes hasta el siguiente h2 o fin del contenido
     let sibling = h2.nextElementSibling;
     while(sibling && sibling.tagName !== 'H2'){
       if(sibling.tagName === 'P'){
-        // Si el objeto hermano es un párrafo, añadimos su texto al bloque
+        //Si el objeto hermano es un párrafo, añadimos su texto al bloque
         textBlocks += sibling.textContent + ' ';
       }
       sibling = sibling.nextElementSibling;
-      // Avanzamos al siguiente objeto hermano para revisar
+      //Avanzamos al siguiente objeto hermano para revisar
     }
 
-    // Guardamos la sección con título y texto completo
+    //Guardamos la sección con título y texto completo
     sections.push({
-      title: h2.textContent.trim(),  // Título sin espacios al inicio/final
-      text: textBlocks.trim()         // Texto de párrafos concatenados, también limpio
+      title: h2.textContent.trim(),  //Título sin espacios al inicio/final
+      text: textBlocks.trim()        //Texto de párrafos concatenados, también limpio
     });
   });
 
-  // Función para escapar caracteres especiales en expresiones regulares
+  //Función para escapar caracteres especiales en expresiones regulares
   function escapeRegExp(string) {
-    // Esto evita que caracteres con significado especial en regex causen errores
+    //Esto evita que caracteres con significado especial en regex causen errores
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  // Función para obtener un fragmento de texto (preview) alrededor de la palabra buscada,
-  // resaltando la palabra con la etiqueta <mark>
+  //Función para obtener un fragmento de texto (preview) alrededor de la palabra buscada,
+  //resaltando la palabra con la etiqueta <mark>
+
   function getPreview(text, query, previewLen = 100){
     const queryLower = query.toLowerCase();
     const textLower = text.toLowerCase();
 
-    // Buscar la posición donde aparece la palabra (en minúsculas para ignorar mayúsculas)
+    //Buscar la posición donde aparece la palabra (en minúsculas para ignorar mayúsculas)
     const idx = textLower.indexOf(queryLower);
     if(idx === -1) return ''; // Si no se encuentra, retorna cadena vacía
 
-    // Definir inicio y fin del fragmento para la preview, centrado en la palabra buscada
+    //Definir inicio y fin del fragmento para la preview, centrado en la palabra buscada
     let start = idx - Math.floor(previewLen / 2);
     if(start < 0) start = 0;
     let end = start + previewLen;
     if(end > text.length) end = text.length;
 
-    // Extraer el fragmento de texto para la preview
+    //Extraer el fragmento de texto para la preview
     let preview = text.substring(start, end);
 
-    // Crear expresión regular para la palabra buscada (sin importar mayúsc/minúsc)
+    //Crear expresión regular para la palabra buscada (sin importar mayúsc/minúsc)
     const regex = new RegExp(escapeRegExp(query), 'gi');
 
-    // Reemplazar la palabra buscada en el preview con la misma palabra envuelta en <mark>
+    //Reemplazar la palabra buscada en el preview con la misma palabra envuelta en <mark>
     preview = preview.replace(regex, (match) => `<mark>${match}</mark>`);
 
-    // Agregar puntos suspensivos al inicio o al final si el preview está cortado
+    //Agregar puntos suspensivos al inicio o al final si el preview está cortado
     if(start > 0) preview = '... ' + preview;
     if(end < text.length) preview = preview + ' ...';
 
-    return preview; // Retorna el fragmento con la palabra resaltada
+    return preview; //Retorna el fragmento con la palabra resaltada
   }
 
-  // Función principal que hace la búsqueda y muestra resultados
+  //Función principal que hace la búsqueda y muestra resultados
   function searchContent(query) {
-    results.innerHTML = ''; // Limpia resultados previos
+    results.innerHTML = ''; //Limpia resultados previos
 
-    if(query.trim().length < 2) return; // Ignora búsquedas con menos de 2 caracteres
+    if(query.trim().length < 2) return; //Ignora búsquedas con menos de 2 caracteres
 
     const matches = [];
-    // Recorre cada sección para buscar coincidencias en título o texto
+    //Recorre cada sección para buscar coincidencias en título o texto
     sections.forEach(section => {
       if(
         section.text.toLowerCase().includes(query.toLowerCase()) ||
         section.title.toLowerCase().includes(query.toLowerCase())
       ){
-        // Si la palabra está en el texto o en el título
-        const preview = getPreview(section.text, query); // Obtenemos preview con palabra resaltada
-        matches.push({title: section.title, preview}); // Guardamos resultado
+        //Si la palabra está en el texto o en el título
+        const preview = getPreview(section.text, query); //Obtenemos preview con palabra resaltada
+        matches.push({title: section.title, preview}); //Guardamos resultado
       }
     });
 
     if(matches.length === 0){
-      // Si no hay coincidencias, mostramos mensaje
+      //Si no hay coincidencias, mostramos mensaje
       results.innerHTML = '<p>No se encontraron resultados.</p>';
       return;
     }
 
-    // Usamos un DocumentFragment para insertar resultados sin repintar todo repetidamente
+    //Usamos un DocumentFragment para insertar resultados sin repintar todo repetidamente
     const fragment = document.createDocumentFragment();
 
     matches.forEach(m => {
@@ -135,21 +137,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const previewEl = document.createElement('div');
       previewEl.classList.add('result-preview');
-      // Se usa innerHTML porque preview contiene etiquetas <mark>
+      //Se usa innerHTML porque preview contiene etiquetas <mark>
       previewEl.innerHTML = m.preview;
 
-      // Construimos el bloque resultado: título + preview
+      //Construimos el bloque resultado: título + preview
       div.appendChild(titleEl);
       div.appendChild(previewEl);
 
       fragment.appendChild(div);
     });
 
-    // Insertamos todos los resultados al contenedor de forma eficiente
+    //Insertamos todos los resultados al contenedor de forma eficiente
     results.appendChild(fragment);
   }
 
-  // Event listener para capturar la escritura en el input y lanzar la búsqueda
+  //Event listener para capturar la escritura en el input y lanzar la búsqueda
   input.addEventListener('input', e => {
     searchContent(e.target.value);
   });
@@ -169,7 +171,10 @@ function handleSearch() {
 }
 
 //Eventos del buscador
+
+//Al hacer clic en el botón de búsqueda, ejecuta la función
 searchButton.addEventListener('click', handleSearch);
+//También permite activar la búsqueda al presionar Enter
 searchInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         handleSearch();
@@ -180,17 +185,21 @@ searchInput.addEventListener('keypress', function (e) {
 
 //"COLORES DE LINKS"
 
+//Espera a que el DOM cargue para procesar los enlaces
 document.addEventListener("DOMContentLoaded", () => {
+    //Selecciona todos los enlaces que deben rastrear si fueron visitados durante la sesión
     const links = document.querySelectorAll("a.track-link");
 
     //Restaurar estado visitado desde sessionStorage
     links.forEach(link => {
       const href = link.href;
+
+      //Si el enlace ya fue marcado como visitado en sessionStorage, añade la clase correspondiente
       if (sessionStorage.getItem(href)) {
         link.classList.add("visited-during-session");
       }
 
-      //Al hacer clic, marcar como visitado
+      //Al hacer clic en el enlace, se marca como "visitado" y se guarda el estado
       link.addEventListener("click", () => {
         sessionStorage.setItem(href, "true");
         link.classList.add("visited-during-session");
@@ -199,14 +208,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-//"SCROLL"
+//"SCROLL" botón de scroll que lleva al usuario al inicio de la página
 
+//Referencia al botón scroll
 let scrollBtn = document.getElementById("scrollTop");
 
+//Detecta el evento de desplazamiento en la ventana
 window.addEventListener("scroll", function () {
+
+    //Si el usuario ha bajado más de 450px, muestra el botón
     if (window.scrollY > 450) {
         scrollBtn.classList.add("show");
     } else {
+        //Si sube por encima del umbral, oculta el botón
         scrollBtn.classList.remove("show");
     }
 });
@@ -234,18 +248,23 @@ togglePassword.addEventListener("click", () => {
 
 //"SCROLLING DE VIDEOS" carga y funcionamiento del scrolling horizontal
 
+//Espera a que el DOM esté completamente cargado para configurar la funcionalidad
 document.addEventListener("DOMContentLoaded", () => {
-  const scrollAmount = 300; // Ajusta esta distancia si lo necesitas
+  const scrollAmount = 300; //Define cuántos píxeles se moverá el scroll al hacer clic
 
-  // Delegación de eventos: busca todos los botones con clase scroll-btn
+  //Selecciona todos los botones de desplazamiento (izquierda y derecha)
   document.querySelectorAll('.scroll-btn').forEach(btn => {
+    //Asigna un evento a cada botón
     btn.addEventListener('click', () => {
-      // Encuentra el contenedor .scrolling-videos más cercano dentro del mismo .scroll-container
+      //Busca el contenedor de videos más cercano dentro del grupo contenedor de videos
       const scrollContainer = btn.closest('.scroll-container').querySelector('.scrolling-videos');
 
+      //Si el botón es de clase "left", se desplaza hacia la izquierda
       if (btn.classList.contains('left')) {
         scrollContainer.scrollLeft -= scrollAmount;
-      } else if (btn.classList.contains('right')) {
+      } 
+      //Si es de clase "right", se desplaza hacia la derecha
+      else if (btn.classList.contains('right')) {
         scrollContainer.scrollLeft += scrollAmount;
       }
     });
@@ -255,20 +274,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //"ACTIVACIÓN DE PESTAÑAS"
 
+//Selecciona todos los enlaces que actúan como pestañas
 const tabs = document.querySelectorAll('#tabs a');
+//Selecciona todos los contenidos asociados a las pestañas
 const tabContents = document.querySelectorAll('.tab-content');
 
+//Itera por cada pestaña y le asigna un evento de clic
 tabs.forEach(tab => {
     tab.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevenir el salto automático por el hash (#tabX)
+        e.preventDefault(); //Evita el comportamiento por defecto del enlace (navegar a #id)
 
-        // Quitar clases activas de todos
+        //Desactiva todas las pestañas y sus contenidos
         tabs.forEach(t => t.classList.remove('active'));
         tabContents.forEach(c => c.classList.remove('active'));
 
-        // Activar pestaña y contenido actual
+        //Activa la pestaña y el contenido correspondiente al hacer clic
         this.classList.add('active');
-        const targetId = this.getAttribute('href');
+        const targetId = this.getAttribute('href'); //Obtiene el ID del contenido
         const targetContent = document.querySelector(targetId);
         if (targetContent) {
             targetContent.classList.add('active');
@@ -276,7 +298,7 @@ tabs.forEach(tab => {
     });
 });
 
-//Activación por defecto al cargar (cuando no hay hash en la URL)
+//Al cargar la página, activa una pestaña por defecto si no hay un hash en la URL
 document.addEventListener("DOMContentLoaded", function () {
     if (!window.location.hash) {
         const defaultTabLink = document.querySelector('#tabs a[href="#tab1"]');
@@ -492,18 +514,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //"ENLACE AL ARCHIVO JSON"
 
-let translations = {};
-let currentLang = 'es';
+let translations = {}; //Objeto donde se almacenarán las traducciones cargadas desde el archivo JSON
+let currentLang = 'es'; //Idioma por defecto al cargar la página
 
+//Carga el archivo JSON que contiene los textos traducidos
 fetch('../Javascript/Language.json')
     .then(response => response.json())
     .then(data => {
-        translations = data;
-        translateTo(currentLang);
+        translations = data; //Guarda las traducciones en la variable global
+        translateTo(currentLang); //Aplica la traducción inicial al cargar
   });
 
+//Función que actualiza el contenido del sitio según el idioma seleccionado
 function translateTo(lang) {
-    const langSet = translations[lang] || {};
+    const langSet = translations[lang] || {}; //Obtiene el conjunto de traducciones para el idioma indicado
+
+    //Busca todos los elementos con el atributo personalizado 'data-translate'
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
         const attr = el.getAttribute('data-translate-attr');
@@ -521,6 +547,7 @@ function translateTo(lang) {
     });
 }
 
+//Cambia entre los idiomas disponibles y actualiza el contenido
 function toggleLanguage() {
     currentLang = currentLang === 'es' ? 'en' : 'es';
     translateTo(currentLang);
