@@ -208,6 +208,70 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+//"SUBRAYADO PARA SECCIONES"
+
+//Quita el subrayado de todos los enlaces
+function clearActiveLinks() {
+    document.querySelectorAll('.navbar a, .dropdown-toggle').forEach(el => {
+        el.classList.remove('active-link');
+    });
+}
+
+//Guarda el enlace normal (no desplegable) antes de cambiar de página
+function saveActiveLink(href) {
+    localStorage.setItem('activeLinkHref', href);
+    localStorage.removeItem('activeDropdownId');
+    localStorage.removeItem('activeDropdownText');
+}
+
+//Guarda el dropdown activo antes de cambiar de página
+function saveDropdownState(toggleId, newText) {
+    localStorage.setItem('activeDropdownId', toggleId);
+    localStorage.setItem('activeDropdownText', newText);
+    localStorage.removeItem('activeLinkHref');
+}
+
+//Restaurar el estado activo al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdownId = localStorage.getItem('activeDropdownId');
+    const dropdownText = localStorage.getItem('activeDropdownText');
+    const activeLinkHref = localStorage.getItem('activeLinkHref');
+
+    clearActiveLinks(); //Limpia cualquier anterior
+
+    //Restaurar si era un dropdown
+    if (dropdownId && dropdownText) {
+        const toggle = document.getElementById(dropdownId);
+        if (toggle) {
+            toggle.classList.add('active-link');
+
+            //Cambia solo el texto visible
+            const children = Array.from(toggle.childNodes).filter(n => n.nodeType === 3);
+            if (children.length > 0) {
+                children[0].nodeValue = ` ${dropdownText} `;
+            }
+        }
+    }
+
+    //Restaurar si era un enlace normal
+    if (activeLinkHref) {
+        const link = document.querySelector(`.navbar a[href="${activeLinkHref}"]`);
+        if (link) {
+            link.classList.add('active-link');
+        }
+    }
+});
+
+
+//"ROTACIÓN DE CHEVRON AL DAR CLIC"
+document.querySelectorAll('.acordeon-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const chevron = toggle.querySelector('.chevron');
+    chevron.classList.toggle('rotate');
+  });
+});
+
+
 //"SCROLL" botón de scroll que lleva al usuario al inicio de la página
 
 //Referencia al botón scroll
@@ -512,56 +576,43 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-//"ENLACE AL ARCHIVO JSON"
 
-let translations = {}; //Objeto global con las traducciones
-let currentLang = 'es'; //Idioma predeterminado
+//TRADUCTOR Y ENLACE AL JSON
 
-//Carga del archivo JSON con traducciones
-fetch('../Javascript/Language.json')
-  .then(response => response.json())
-  .then(data => {
-    translations = data;
-    translateTo(currentLang);
-  })
-  .catch(error => console.error("Error cargando el archivo de idioma:", error));
+let currentLang = localStorage.getItem('lang') || 'es'; // Idioma actual
 
-//Función para aplicar traducciones al DOM
-function translateTo(lang) {
-  const langSet = translations[lang] || {};
-
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    const key = el.getAttribute('data-translate');
-    const attr = el.getAttribute('data-translate-attr');
-    const innerOnly = el.getAttribute('data-translate-inner') === 'true';
-
-    if (key && langSet[key]) {
-      if (attr) {
-        el.setAttribute(attr, langSet[key]);
-      } else if (innerOnly) {
-        el.innerText = langSet[key];
-      } else {
-        el.textContent = langSet[key];
-      }
-    }
-  });
-}
-
-//Muestra u oculta el menú desplegable de idioma
+//Muestra/oculta el menú
 function toggleDropdown() {
-  const dropdown = document.getElementById('languageDropdown');
-  dropdown.classList.toggle('hidden');
+    const dropdown = document.getElementById('languageDropdown');
+    dropdown.classList.toggle('hidden');
 }
 
-//Cambia el idioma y oculta el menú
+// Cambia la imagen de la bandera
+function updateFlag(lang) {
+    const flagImg = document.getElementById('currentFlag');
+    flagImg.src = lang === 'en'
+        ? '../img/Bandera_Estados_Unidos.svg'
+        : '../img/Bandera_Espana.svg';
+}
+
+//Definir el español como idioma predeterminado
+document.addEventListener('DOMContentLoaded', () => {
+    updateFlag(currentLang);
+    translateTo(currentLang); // <-- Esto estaba faltando
+});
+
+//Cambia el idioma
 function setLanguage(lang) {
-  if (lang === currentLang) return; //Evita traducción innecesaria
-  currentLang = lang;
-  translateTo(lang);
-  document.getElementById('languageDropdown').classList.add('hidden');
+    if (lang === currentLang) return;
+
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    translateTo(lang);
+    updateFlag(lang);
+    document.getElementById('languageDropdown').classList.add('hidden');
 }
 
-//Cerrar lista de idiomas de traductor
+//Cierra el menú si haces clic fuera
 document.addEventListener('click', function (e) {
     const dropdown = document.getElementById('languageDropdown');
     const btn = document.getElementById('translateBtn');
@@ -570,3 +621,24 @@ document.addEventListener('click', function (e) {
         dropdown.classList.add('hidden');
     }
 });
+
+//Aplicar traducción
+function translateTo(lang) {
+    const langSet = translations[lang] || {};
+
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        const attr = el.getAttribute('data-translate-attr');
+        const innerOnly = el.getAttribute('data-translate-inner') === 'true';
+
+        if (key && langSet[key]) {
+            if (attr) {
+                el.setAttribute(attr, langSet[key]);
+            } else if (innerOnly) {
+                el.innerText = langSet[key];
+            } else {
+                el.textContent = langSet[key];
+            }
+        }
+    });
+}

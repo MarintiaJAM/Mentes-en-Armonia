@@ -36,36 +36,39 @@
             <!-- Barra de navegación principal-->
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-         página de inicio -->
-                <li><a href="index.html" data-translate="menu-sec1"><i class="fas fa-house"></i>Inicio</a></li>
-                <li><a href="Nosotros.html" data-translate="menu-sec2"><i class="fas fa-users"></i>Nosotros</a></li>
+                página de inicio -->
+                <li><a href="index.html" data-translate="menu-sec1" onclick="saveActiveLink('index.html')"><i class="fas fa-house"></i>Inicio</a></li>
+                
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec3">
+                    <span id="neuroToggle" class="dropdown-toggle" data-translate="menu-sec2">
                         <i class="fas fa-brain icon-left"></i>
                         Neurodivergencia
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>                         
                     <ul class="dropdown-content">
-                        <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
-                        <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
-                        <li><a href="Dislexia.html" data-translate="dislexia">Dislexia</a></li>
-                        <li><a href="Tourette.html">Tourette</a></li>
-                        <li><a href="Dispraxia.html" data-translate="dispraxia">Dispraxia</a></li>
-                        <li><a href="Discalculia.html" data-translate="discalculia">Discalculia</a></li>
-                        <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
+                        <li><a href="Autismo.html" data-translate="autismo" onclick="saveDropdownState('neuroToggle', 'Autismo')">Autismo</a></li>
+                        <li><a href="TDAH.html" data-translate="tdah" onclick="saveDropdownState('neuroToggle', 'TDAH')">TDAH</a></li>
+                        <li><a href="Dislexia.html" data-translate="dislexia" onclick="saveDropdownState('neuroToggle', 'Dislexia')">Dislexia</a></li>
+                        <li><a href="Tourette.html" data-translate="tourette" onclick="saveDropdownState('neuroToggle', 'Tourette')">Tourette</a></li>
+                        <li><a href="Dispraxia.html" data-translate="dispraxia" onclick="saveDropdownState('neuroToggle', 'Dispraxia')">Dispraxia</a></li>
+                        <li><a href="Discalculia.html" data-translate="discalculia" onclick="saveDropdownState('neuroToggle', 'Discalculia')">Discalculia</a></li>
+                        <li><a href="Ansiedad.html" data-translate="ansiedad" onclick="saveDropdownState('neuroToggle', 'Ansiedad')">Ansiedad</a></li>
                     </ul>
                 </li>
-                <li><a href="Comunidad.html" data-translate="menu-sec4"><i class="fas fa-comments"></i>Comunidad</a></li>
-                <li><a href="Noticias.html" data-translate="menu-sec5"><i class="fas fa-newspaper"></i>Noticias</a></li>
+
+                <li><a href="Encuestas.html" data-translate="menu-sec3" onclick="saveActiveLink('Nosotros.html')"><i class="fas fa-users"></i>Encuestas</a></li>
+                <li><a href="Comunidad.html" data-translate="menu-sec4" onclick="saveActiveLink('Comunidad.html')"><i class="fas fa-comments"></i>Comunidad</a></li>
+                <li><a href="Noticias.html" data-translate="menu-sec5" onclick="saveActiveLink('Noticias.html')"><i class="fas fa-newspaper"></i>Noticias</a></li>
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec6">
+
+                    <span id="extrasToggle" class="dropdown-toggle" data-translate="menu-sec6">
                         <i class="fas fa-puzzle-piece icon-left"></i>
                         Extras
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="Bitacora">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="Referencias">Referencias</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora" onclick="saveDropdownState('extrasToggle', 'Bitácora')">Bitácora</a></li>
+                        <li><a href="Referencias.html" data-translate="referencias" onclick="saveDropdownState('extrasToggle', 'Referencias')">Referencias</a></li>
                     </ul>
                 </li>                                                
             </ul>
@@ -135,12 +138,12 @@
                         <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
                         <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
                         <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
-                        <li><a href="#Footer">Footer</a></li>
+                        <li><a href="#Footer" data-translate="pie_de_página">Pie de página</a></li>
                     </ul>
 
-                    <div class="traductor">
+                    <div class="translator">
                         <button id="translateBtn" onclick="toggleDropdown()">
-                            <i class="fas fa-language"></i>
+                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.png" alt="Idioma actual">
                         </button>
                         <div id="languageDropdown" class="language-dropdown hidden">
                             <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
@@ -361,8 +364,9 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
             
-                                <label for="btn-acordeon1">
-                                   <p> <a href="https://www.consejociudadanomx.org/index.php" class="underline-animate track-link" data-translate="lineap_link1">Consejo Ciudadano para la Seguridad y Justicia de la Ciudad de México</a> <i class="fas fa-chevron-down chevron"></i></p>
+                                <label for="btn-acordeon1" class="acordeon-toggle">
+                                    <p> <a href="https://www.consejociudadanomx.org/index.php" class="underline-animate track-link" data-translate="lineap_link1">
+                                        Consejo Ciudadano para la Seguridad y Justicia de la Ciudad de México</a> <i class="fas fa-chevron-down chevron"></i></p>
                                 </label>
                                 <div class="container-acordeon">
                                     <p data-translate="lineap_content1">A través del Consejo Ciudadano para la Seguridad y Justicia de la Ciudad de México se brindan primeros auxilios psicológicos las 24 horas todos los días. 
@@ -379,7 +383,7 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
             
-                                <label for="btn-acordeon2">
+                                <label for="btn-acordeon2" class="acordeon-toggle">
                                     <p> <a href="https://cms311.cdmx.gob.mx/asesorias-especializadas/" class="underline-animate track-link" data-translate="lineap_link2">LOCATEL</a> <i class="fas fa-chevron-down chevron"></i></p>
                                  </label>
                                  <div class="container-acordeon">
@@ -396,7 +400,7 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon3" class="btn-acordeon">
             
-                                <label for="btn-acordeon3">
+                                <label for="btn-acordeon3" class="acordeon-toggle">
                                     <p> <a href="https://coordinaciongenero.unam.mx/2021/08/atencion-psicologica-unam/" class="underline-animate track-link" data-translate="lineap_link3"> Call Center UNAM</a> <i class="fas fa-chevron-down chevron"></i></p>
                                  </label>
                                  <div class="container-acordeon">
@@ -413,7 +417,7 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon4" class="btn-acordeon">
             
-                                <label for="btn-acordeon4">
+                                <label for="btn-acordeon4" class="acordeon-toggle">
                                     <p> <a href="https://dmd.org.mx/?page_id=6166" class="underline-animate track-link" data-translate="lineap_link4"> Consejería SAPTEL</a> <i class="fas fa-chevron-down chevron"></i></p>
                                  </label>
                                  <div class="container-acordeon">
@@ -434,7 +438,7 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon5" class="btn-acordeon">
             
-                                <label for="btn-acordeon5">
+                                <label for="btn-acordeon5" class="acordeon-toggle">
                                     <p> <a href="https://www.gob.mx/salud/acciones-y-programas/unidad-de-inteligencia-epidemiologica-y-sanitaria-uies" class="underline-animate track-link" data-translate="lineap_link5">Unidad de inteligencia Epidemiológica Sanitaria</a> <i class="fas fa-chevron-down chevron"></i></p>
                                  </label>
                                  <div class="container-acordeon">
@@ -451,7 +455,7 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon6" class="btn-acordeon">
             
-                                <label for="btn-acordeon6">
+                                <label for="btn-acordeon6" class="acordeon-toggle">
                                     <p> <a href="https://www.injuve.cdmx.gob.mx/" class="underline-animate track-link" data-translate="lineap_link6">Instituto Nacional de la Juventud (INJUVE)</a> <i class="fas fa-chevron-down chevron"></i></p>
                                  </label>
                                  <div class="container-acordeon">
@@ -470,7 +474,7 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon7" class="btn-acordeon">
             
-                                <label for="btn-acordeon7">
+                                <label for="btn-acordeon7" class="acordeon-toggle">
                                     <p> <a href="https://www.semujeres.cdmx.gob.mx/servicios/servicio/lunas" class="underline-animate track-link" data-translate="lineap_link7">LUNAS</a> <i class="fas fa-chevron-down chevron"></i></p>
                                  </label>
                                  <div class="container-acordeon">
@@ -488,7 +492,7 @@
                             <div class="acordeon">
                                 <input type="checkbox" id="btn-acordeon8" class="btn-acordeon">
             
-                                <label for="btn-acordeon8">
+                                <label for="btn-acordeon8" class="acordeon-toggle">
                                     <p> <a href="https://www.gob.mx/tramites/ficha/centro-de-atencion-ciudadana-la-linea-de-la-vida/CONADIC3414" class="underline-animate track-link" data-translate="lineap_link8"> Línea de la Vida</a> <i class="fas fa-chevron-down chevron"></i></p>
                                  </label>
                                  <div class="container-acordeon">
@@ -1158,23 +1162,28 @@
                             <p>© 2025 Mentes en armonía</p>
             
                             <div class="socials">
-                                <a href="https://www.youtube.com/">
-                                    <img src="../img/youtube.png" alt="Youtube"></a>
-                                <a href="https://www.facebook.com/?locale=es_LA">
-                                    <img src="../img/facebook.png" alt="Facebook"></a>
-                                <a href="https://www.instagram.com/">
-                                    <img src="../img/instagram.png" alt="Instagram"></a>
-                                <a href="https://x.com/?lang=es&mx=2">
-                                    <img src="../img/twitter.png" alt="Twitter/X"></a>
+                                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
                             </div>
                         </div>
                     </section>
                 </footer>
             
-            
+                <!-- Enlace al archivo Json -->
+                <script src="../Javascript/Language.js"></script>
+
                 <!-- Enlace al archivo JavaScript -->
                 <script src="../javascript/javascript.js"></script>
             
-            </body>
-            
-            </html>
+    </body>          
+</html>
