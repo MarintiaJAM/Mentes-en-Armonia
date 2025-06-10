@@ -581,7 +581,7 @@ a.track-link:active {
     height: auto;
     border-radius: 4px; /* esquinas ligeramente redondeadas */
     transition: transform 0.3s ease-in-out;
-    border: 2px solid #93ebf7;
+    
 }
 
 .flag-rectangle-img:hover {
