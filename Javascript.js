@@ -591,8 +591,8 @@ function toggleDropdown() {
 function updateFlag(lang) {
     const flagImg = document.getElementById('currentFlag');
     flagImg.src = lang === 'en'
-        ? '../img/Bandera_Estados_Unidos.png'
-        : '../img/Bandera_Espana.png';
+        ? '../img/Bandera_Estados_Unidos.webp'
+        : '../img/Bandera_Espana.webp';
 }
 
 //Definir el español como idioma predeterminado
