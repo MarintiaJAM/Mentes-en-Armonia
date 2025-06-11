@@ -314,7 +314,7 @@ togglePassword.addEventListener("click", () => {
 
 //Espera a que el DOM esté completamente cargado para configurar la funcionalidad
 document.addEventListener("DOMContentLoaded", () => {
-  const scrollAmount = 300; //Define cuántos píxeles se moverá el scroll al hacer clic
+  const scrollAmount = 275; //Define cuántos píxeles se moverá el scroll al hacer clic
 
   //Selecciona todos los botones de desplazamiento (izquierda y derecha)
   document.querySelectorAll('.scroll-btn').forEach(btn => {
@@ -511,7 +511,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       replyForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        // Lógica para guardar respuesta
+        //Lógica para guardar respuesta
         const replyText = replyForm.querySelector("textarea").value;
         const identityValue = replyForm.querySelector(`input[name="reply-identity-${comment.id}"]:checked`)?.value;
         
@@ -591,8 +591,8 @@ function toggleDropdown() {
 function updateFlag(lang) {
     const flagImg = document.getElementById('currentFlag');
     flagImg.src = lang === 'en'
-        ? '../img/Bandera_Estados_Unidos.svg'
-        : '../img/Bandera_Espana.svg';
+        ? '../img/Bandera_Estados_Unidos.png'
+        : '../img/Bandera_Espana.png';
 }
 
 //Definir el español como idioma predeterminado

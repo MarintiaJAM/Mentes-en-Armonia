@@ -162,7 +162,7 @@ a.track-link:active {
     text-align: center;
     font-size: 14px;
     cursor: pointer;
-    transition: transform 0.35s ease-in-out;
+    transition: transform 0.25s ease-in-out;
 }
 
 /*Efecto de hover y focus en los enlaces de la barra de navegación*/
@@ -581,7 +581,6 @@ a.track-link:active {
     height: auto;
     border-radius: 4px; /* esquinas ligeramente redondeadas */
     transition: transform 0.3s ease-in-out;
-    
 }
 
 .flag-rectangle-img:hover {
@@ -1012,6 +1011,7 @@ label p{
     background-color: #2d938e; /*Color de fondo gris*/
     border-radius: 5px 5px 0 0; /*Bordes redondeados en la parte superior*/
     margin-right: 2.5px; /*Espaciado entre pestañas*/
+    transition: background-color 0.3s ease-in-out, color 0.25s ease-in-out;
   }
 
   /*Cambio de color al pasar el cursor o enfocar*/
@@ -1059,6 +1059,7 @@ label p{
     overflow-x: auto; /*Permite desplazamiento horizontal*/
     scroll-behavior: smooth; /*Hace que el desplazamiento sea suave*/
     width: 90%; /*Ancho que abarca el 90% del contenido*/
+    height: auto;
     padding: 35px 10px; /*Margen interno para definir el espacio alrededor del contenido*/
     position: relative; /*Mantiene el posicionamiento dentro de scroll-container*/
 
@@ -1130,12 +1131,12 @@ label p{
     /*filter: drop-shadow(6px 8px 0px rgba(0, 0, 0, 0.7)); Aumenta el efecto al pasar el cursor*/
 }
 
-#btn-left {
-    left: -30px; /*Ajusta la posición de la flecha izquierda*/
+.scroll-btn.left {
+  left: -30px; /*Ajusta la posición de la flecha izquierda*/
 }
 
-#btn-right {
-    right: -30px; /*Ajusta la posición de la flecha derecha*/
+.scroll-btn.right {
+  right: -30px; /*Ajusta la posición de la flecha derecha*/
 }
 
 
