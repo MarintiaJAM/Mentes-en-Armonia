@@ -259,6 +259,7 @@ a.track-link:active {
     align-items: center; /*Centra los elementos verticalmente*/
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
+    position: relative;
 }
 
 /*Campo de entrada de texto de la barra de búsqueda*/
@@ -272,8 +273,15 @@ a.track-link:active {
 }
 
 .search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
-    width: 275px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
+    width: 230px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
     en un ancho de 275px*/
+}
+
+/* Contenedor específico para input y sugerencias */
+.search-container {
+    position: relative;            /* Contexto de posicionamiento para dropdown */
+    display: flex;                 /* Layout flexbox */
+    align-items: center;           /* Centra verticalmente */
 }
 
 /*Estilos para el botón de búsqueda*/
@@ -290,9 +298,87 @@ a.track-link:active {
     background-color: #e55b5b; /*Le da una ligera sombra al botón del buscador al pasar el cursor sobre este*/
 }
 
+
+/*DROPDOWN SUGERENCIAS DE BÚSQUEDA*/
+/* Contenedor principal de las sugerencias */
+.search-suggestions {
+    position: absolute;/* Posicionamiento absoluto respecto al contenedor padre */
+    top: 100%;/* Posicionado justo debajo del campo de búsqueda */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Se extiende hasta la derecha */
+    background-color: white; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave para profundidad */
+    max-height: 300px; /* Altura máxima de 300px */
+    overflow-y: auto; /* Scroll vertical si el contenido excede la altura */
+    z-index: 2000; /* Índice muy alto para aparecer sobre todo */
+    display: none; /* Oculto por defecto */
+    margin-top: 5px; /* Pequeño espacio entre input y dropdown */
+}
+
+/* Clase para mostrar las sugerencias con animación */
+.search-suggestions.show {
+    display: block; /* Hace visible el dropdown */
+    animation: fadeInDown 0.3s ease-out; /* Aplica animación de entrada */
+}
+
+
+/* Elementos individuales de sugerencia */
+.suggestion-item {
+    padding: 12px 15px;           /* Espaciado interno generoso */
+    cursor: pointer;               /* Cursor de puntero */
+    border-bottom: 1px solid #f0f0f0; /* Línea separadora sutil */
+    color: #333;                   /* Texto en gris oscuro */
+    transition: background-color 0.2s ease; /* Transición suave para hover */
+    display: flex;                 /* Layout flexbox para alinear contenido */
+    align-items: center;           /* Centra verticalmente el contenido */
+}
+
+/* Elimina el borde del último elemento */
+.suggestion-item:last-child {
+    border-bottom: none;           /* Sin borde en el último elemento */
+}
+
+/* Estados hover y selected para sugerencias */
+.suggestion-item:hover,
+.suggestion-item.selected {
+    background-color: #f8f9fa;     /* Fondo gris muy claro */
+    color: #d21026;                /* Texto en color rojo corporativo */
+}
+
+/* Iconos dentro de las sugerencias */
+.suggestion-item i {
+    margin-right: 10px;            /* Espacio de 10px a la derecha del icono */
+    color: #666;                   /* Color gris medio para los iconos */
+    width: 16px;                   /* Ancho fijo para alineación consistente */
+}
+
+/* Texto principal de la sugerencia */
+.suggestion-text {
+    flex: 1;                       /* Ocupa el espacio disponible restante */
+}
+
+/* Categoría de la sugerencia */
+.suggestion-category {
+    font-size: 0.8em;             /* Tamaño de fuente más pequeño */
+    color: #888;                   /* Color gris claro */
+    margin-left: auto;             /* Empuja hacia la derecha */
+}
+
+/* Mensaje cuando no hay sugerencias */
+.no-suggestions {
+    padding: 15px;                 /* Espaciado interno */
+    text-align: center;            /* Texto centrado */
+    color: #666;                   /* Color gris medio */
+    font-style: italic;            /* Texto en cursiva */
+}
+
 /*Resaltado de búsqueda. El resaltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
-.highlight { 
+.highlight mark { 
     background-color: #f68f9b; /*Fondo resaltado cuando se encuentra un término de búsqueda*/
+    border-radius: 2px;  /* Esquinas ligeramente redondeadas */
+    font-weight: bold;  /*Texto en negrita para hacer énfasis en el resultado*/
 }
 
 
@@ -668,7 +754,7 @@ a.track-link:active {
     display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
     justify-content: center; /*Centra los elementos horizontalmente*/
     align-items: center; /*Centra los elementos verticalmente*/
-    background-image: url(../img/header.webp); /*Imagen de fondo para el header*/
+    background-image: url(../img/header.png); /*Imagen de fondo para el header*/
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen de fondo permanece fija al hacer scroll*/    
     background-repeat:no-repeat center; /*Evita que la imagen de fondo se repita*/
@@ -733,22 +819,34 @@ a.track-link:active {
 
 }
 
+.video-section {
+    position: relative;
+    width: 80%;
+    height: 75vh;
+    overflow: hidden;
+} 
 
-/*"BOTÓN" Este bloque sirve para darle estilo a los botones que se encuentran dentro de la página*/
-.btn{
-    display: inline-block; /*Permite modificar la anchura y altura del btón y que su contenido se modifique únicamente en el espacio necesario*/
-    text-align: center; /*Permite posicionar el botón al centro de la pantalla*/
-    margin: 20px 500px; /*Margen exterior en los lados*/
-    padding: 10px 50px; /*Espaciado interno*/
-    border-radius: 5px; /*borde del botón*/
-    color: #fff; /*Color del texto*/
-    text-decoration: none; /*Elimina el subrayado*/
-    background: #207185; /*Color de fondo*/
+.video-intro {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    object-fit: cover;
 }
 
-/*Cambio de estilo al pasar el cursor sobre los botones*/
-.btn:hover{ 
-    background: none; /*Hace que el botón tome el color del fondo*/
+.video-overlay {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
 

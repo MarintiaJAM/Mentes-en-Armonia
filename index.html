@@ -73,12 +73,14 @@
                 </li>                                                
             </ul>
 
-                        <!-- Barra de búsqueda en la esquina superior derecha -->
-                        <div class="search-bar" id="search-container">
-                            <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                         <!-- Barra de búsqueda en la esquina superior derecha -->
+                        <div class="search-bar"> 
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
                                 data-translate-attr="placeholder" autocomplete="off">
-                            <button type="button" id="searchButton"><i class="fas fa-search"></i>
-                            </button>
+                                <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                                <div class="search-suggestions" id="searchSuggestions"></div>
+                            </div>
                         </div>
 
                        
@@ -192,7 +194,10 @@
                                 comprender que la inclusión no es un favor, sino un derecho que todos merecemos. Neurodivergentes o
                                 no, cada persona merece respeto y oportunidades para desarrollar su potencial.
                             </p>
-                            <a href="Nosotros.html" class="btn" data-translate="saber_mas">Saber más</a>
+                            <video class="video-intro" autoplay muted loop playsinline>
+                                <source src="../video/Nosotros 2.0.mp4" type="video/mp4">
+                                Tu navegador no soporta HTML5 video.
+                            </video>
                         </section>
                     </section>
             
@@ -205,7 +210,7 @@
                                 <!-- Neurotipicidad-->
                                 <section class="neuro">
                                     <div class="defImg"> <!-- Imágen Neurotipicidad-->
-                                        <img src="../img/Neurotipicidad.webp" alt="Neurotipicidad">
+                                        <img src="../img/Neurotipicidad.jpg" alt="Neurotipicidad">
                                     </div>
             
                                     <div class="defText"> <!-- Definición Neurotipicidad-->
@@ -234,7 +239,7 @@
                                     </div>
             
                                     <div class="defImg"> <!-- Imágen Neurodivergencia-->
-                                        <img src="../img/Neurodivergencia.webp" alt="Neurodivergencia">
+                                        <img src="../img/Neurodivergencia.jpg" alt="Neurodivergencia">
                                     </div>
                                 </section>
             
@@ -1184,6 +1189,8 @@
 
                 <!-- Enlace al archivo JavaScript -->
                 <script src="../javascript/javascript.js"></script>
+
+                <script src="../javascript/Buscador.js"></script>
             
     </body>          
 </html>
