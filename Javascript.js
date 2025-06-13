@@ -1,188 +1,3 @@
-//Espera a que el DOM esté completamente cargado antes de ejecutar cualquier lógica
-document.addEventListener('DOMContentLoaded', function () {
-    const menu = document.querySelector('.menu'); //Referencia al menú principal
-    const menuToggle = menu.querySelector('.menu-toggle'); //Botón para abrir/cerrar el menú
-    const searchInput = document.getElementById('searchInput'); //Campo de entrada de búsqueda
-    const searchButton = document.getElementById('searchButton'); //Botón para ejecutar la búsqueda
-    const pageContent = document.body; //Botón para ejecutar la búsqueda
-
-    //Al hacer clic en el botón del menú, alterna la clase 'active' para mostrar u ocultar el menú en móviles
-    menuToggle.addEventListener('click', function () {
-    menu.classList.toggle('active');
-});
-
-
-//"BARRA DE BÚSQUEDA"
-(function(){
-  //Declaración de función anónima autoejecutable (IIFE)
-  //Esto crea un ámbito local para evitar contaminar el ámbito global
-
-  const input = document.getElementById('searchInput');
-  //Obtiene la referencia al input de búsqueda por su id
-  //Será donde el usuario escriba el texto a buscar
-
-  const results = document.getElementById('results');
-  //Obtiene el contenedor donde se mostrarán los resultados dinámicamente
-
-  const content = document.getElementById('content');
-  //Obtiene el contenedor que tiene todo el contenido donde haremos la búsqueda
-
-  //Extraemos los textos y títulos del contenido para buscar
-  //Creamos un array de objetos {title, text}
-  const sections = [];
-  //Array vacío que almacenará objetos con la estructura:
-  //{ title: 'Título de sección', text: 'Texto completo de esa sección' }
-
-  // Vamos a obtener todos los h2 y sus párrafos hermanos
-  const headings = content.querySelectorAll('h2');
-  //Obtiene todos los elementos h2 dentro de #content, 
-  //para identificar cada sección del contenido (cada tema)
-
-  headings.forEach(h2 => {
-    let textBlocks = '';
-    //Variable que almacenará concatenado el texto de todos los párrafos de la sección actual
-
-    //Obtener objetos hermanos siguientes hasta el siguiente h2 o fin del contenido
-    let sibling = h2.nextElementSibling;
-    while(sibling && sibling.tagName !== 'H2'){
-      if(sibling.tagName === 'P'){
-        //Si el objeto hermano es un párrafo, añadimos su texto al bloque
-        textBlocks += sibling.textContent + ' ';
-      }
-      sibling = sibling.nextElementSibling;
-      //Avanzamos al siguiente objeto hermano para revisar
-    }
-
-    //Guardamos la sección con título y texto completo
-    sections.push({
-      title: h2.textContent.trim(),  //Título sin espacios al inicio/final
-      text: textBlocks.trim()        //Texto de párrafos concatenados, también limpio
-    });
-  });
-
-  //Función para escapar caracteres especiales en expresiones regulares
-  function escapeRegExp(string) {
-    //Esto evita que caracteres con significado especial en regex causen errores
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-
-  //Función para obtener un fragmento de texto (preview) alrededor de la palabra buscada,
-  //resaltando la palabra con la etiqueta <mark>
-
-  function getPreview(text, query, previewLen = 100){
-    const queryLower = query.toLowerCase();
-    const textLower = text.toLowerCase();
-
-    //Buscar la posición donde aparece la palabra (en minúsculas para ignorar mayúsculas)
-    const idx = textLower.indexOf(queryLower);
-    if(idx === -1) return ''; // Si no se encuentra, retorna cadena vacía
-
-    //Definir inicio y fin del fragmento para la preview, centrado en la palabra buscada
-    let start = idx - Math.floor(previewLen / 2);
-    if(start < 0) start = 0;
-    let end = start + previewLen;
-    if(end > text.length) end = text.length;
-
-    //Extraer el fragmento de texto para la preview
-    let preview = text.substring(start, end);
-
-    //Crear expresión regular para la palabra buscada (sin importar mayúsc/minúsc)
-    const regex = new RegExp(escapeRegExp(query), 'gi');
-
-    //Reemplazar la palabra buscada en el preview con la misma palabra envuelta en <mark>
-    preview = preview.replace(regex, (match) => `<mark>${match}</mark>`);
-
-    //Agregar puntos suspensivos al inicio o al final si el preview está cortado
-    if(start > 0) preview = '... ' + preview;
-    if(end < text.length) preview = preview + ' ...';
-
-    return preview; //Retorna el fragmento con la palabra resaltada
-  }
-
-  //Función principal que hace la búsqueda y muestra resultados
-  function searchContent(query) {
-    results.innerHTML = ''; //Limpia resultados previos
-
-    if(query.trim().length < 2) return; //Ignora búsquedas con menos de 2 caracteres
-
-    const matches = [];
-    //Recorre cada sección para buscar coincidencias en título o texto
-    sections.forEach(section => {
-      if(
-        section.text.toLowerCase().includes(query.toLowerCase()) ||
-        section.title.toLowerCase().includes(query.toLowerCase())
-      ){
-        //Si la palabra está en el texto o en el título
-        const preview = getPreview(section.text, query); //Obtenemos preview con palabra resaltada
-        matches.push({title: section.title, preview}); //Guardamos resultado
-      }
-    });
-
-    if(matches.length === 0){
-      //Si no hay coincidencias, mostramos mensaje
-      results.innerHTML = '<p>No se encontraron resultados.</p>';
-      return;
-    }
-
-    //Usamos un DocumentFragment para insertar resultados sin repintar todo repetidamente
-    const fragment = document.createDocumentFragment();
-
-    matches.forEach(m => {
-      const div = document.createElement('div');
-      div.classList.add('result-item');
-
-      const titleEl = document.createElement('div');
-      titleEl.classList.add('result-title');
-      titleEl.textContent = m.title;
-
-      const previewEl = document.createElement('div');
-      previewEl.classList.add('result-preview');
-      //Se usa innerHTML porque preview contiene etiquetas <mark>
-      previewEl.innerHTML = m.preview;
-
-      //Construimos el bloque resultado: título + preview
-      div.appendChild(titleEl);
-      div.appendChild(previewEl);
-
-      fragment.appendChild(div);
-    });
-
-    //Insertamos todos los resultados al contenedor de forma eficiente
-    results.appendChild(fragment);
-  }
-
-  //Event listener para capturar la escritura en el input y lanzar la búsqueda
-  input.addEventListener('input', e => {
-    searchContent(e.target.value);
-  });
-
-})();
-
-
-//Manejar la búsqueda
-function handleSearch() {
-    const searchTerm = searchInput.value.trim();
-    highlightText(searchTerm);
-
-    const firstMatch = pageContent.querySelector('.highlight');
-    if (firstMatch) {
-        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-}
-
-//Eventos del buscador
-
-//Al hacer clic en el botón de búsqueda, ejecuta la función
-searchButton.addEventListener('click', handleSearch);
-//También permite activar la búsqueda al presionar Enter
-searchInput.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        handleSearch();
-        }
-    });
-});
-
-
 //"COLORES DE LINKS"
 
 //Espera a que el DOM cargue para procesar los enlaces
@@ -206,61 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-
-
-//"SUBRAYADO PARA SECCIONES"
-
-//Quita el subrayado de todos los enlaces
-function clearActiveLinks() {
-    document.querySelectorAll('.navbar a, .dropdown-toggle').forEach(el => {
-        el.classList.remove('active-link');
-    });
-}
-
-//Guarda el enlace normal (no desplegable) antes de cambiar de página
-function saveActiveLink(href) {
-    localStorage.setItem('activeLinkHref', href);
-    localStorage.removeItem('activeDropdownId');
-    localStorage.removeItem('activeDropdownText');
-}
-
-//Guarda el dropdown activo antes de cambiar de página
-function saveDropdownState(toggleId, newText) {
-    localStorage.setItem('activeDropdownId', toggleId);
-    localStorage.setItem('activeDropdownText', newText);
-    localStorage.removeItem('activeLinkHref');
-}
-
-//Restaurar el estado activo al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    const dropdownId = localStorage.getItem('activeDropdownId');
-    const dropdownText = localStorage.getItem('activeDropdownText');
-    const activeLinkHref = localStorage.getItem('activeLinkHref');
-
-    clearActiveLinks(); //Limpia cualquier anterior
-
-    //Restaurar si era un dropdown
-    if (dropdownId && dropdownText) {
-        const toggle = document.getElementById(dropdownId);
-        if (toggle) {
-            toggle.classList.add('active-link');
-
-            //Cambia solo el texto visible
-            const children = Array.from(toggle.childNodes).filter(n => n.nodeType === 3);
-            if (children.length > 0) {
-                children[0].nodeValue = ` ${dropdownText} `;
-            }
-        }
-    }
-
-    //Restaurar si era un enlace normal
-    if (activeLinkHref) {
-        const link = document.querySelector(`.navbar a[href="${activeLinkHref}"]`);
-        if (link) {
-            link.classList.add('active-link');
-        }
-    }
-});
 
 
 //"ROTACIÓN DE CHEVRON AL DAR CLIC"
@@ -290,24 +50,149 @@ window.addEventListener("scroll", function () {
 });
 
 
-//"FORMULARIO DE INICIO DE SESIÓN"
+//"FUNCIONALIDADES Y FORMULARIO DE INICIO DE SESIÓN"
 
+// Abrir/cerrar el modal
 function toggleLoginModal() {
     const modal = document.getElementById("loginModal");
     modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+
+    // Reiniciar el formulario al abrir/cerrar
+    if (modal.style.display === "flex") {
+        limpiarFormulario();
+    }
 }
 
+// Mostrar u ocultar contraseña
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 
 togglePassword.addEventListener("click", () => {
     const isPassword = passwordInput.type === "password";
-     passwordInput.type = isPassword ? "text" : "password";
-
-//Cambia el ícono
+    passwordInput.type = isPassword ? "text" : "password";
     togglePassword.classList.toggle("fa-eye");
     togglePassword.classList.toggle("fa-eye-slash");
 });
+
+// Validación del email
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Mostrar mensajes de error
+function mostrarError(inputId, mensaje) {
+    const input = document.getElementById(inputId);
+    input.classList.add("input-error");
+
+    let feedback = input.nextElementSibling;
+    if (!feedback || !feedback.classList.contains("input-feedback")) {
+        feedback = document.createElement("span");
+        feedback.className = "input-feedback";
+        input.parentNode.insertBefore(feedback, input.nextSibling);
+    }
+
+    feedback.textContent = mensaje;
+}
+
+// Limpiar errores
+function limpiarErrores() {
+    document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+    document.querySelectorAll(".input-feedback").forEach(el => el.remove());
+}
+
+// Limpiar campos
+function limpiarFormulario() {
+    document.getElementById("formulario").reset();
+    limpiarErrores();
+    actualizarBarraFortaleza(0); // Reiniciar barra
+    passwordInput.type = "password";
+    togglePassword.classList.remove("fa-eye-slash");
+    togglePassword.classList.add("fa-eye");
+}
+
+// Medidor de fortaleza de contraseña
+passwordInput.addEventListener("input", () => {
+    const value = passwordInput.value;
+    const nivel = evaluarFortaleza(value);
+    actualizarBarraFortaleza(nivel);
+});
+
+function evaluarFortaleza(pass) {
+    let nivel = 0;
+    if (pass.length >= 5) nivel++;
+    if (/[a-z]/.test(pass)) nivel++;
+    if (/[A-Z]/.test(pass)) nivel++;
+    if (/\d/.test(pass)) nivel++;
+    if (/[\W_]/.test(pass)) nivel++;
+    return Math.min(nivel, 5);
+}
+
+function actualizarBarraFortaleza(nivel) {
+    const barra = document.querySelector(".password-strength::after"); // No funciona con pseudo-elementos
+    const realBar = document.querySelector(".password-strength");
+    if (!realBar) return;
+
+    realBar.innerHTML = ""; // Limpiar cualquier contenido previo
+
+    const inner = document.createElement("div");
+    inner.style.height = "100%";
+    inner.style.width = `${(nivel / 5) * 100}%`;
+    inner.style.borderRadius = "3px";
+    inner.style.transition = "width 0.3s ease-in-out";
+
+    // Color según fortaleza
+    switch (nivel) {
+        case 0:
+        case 1: inner.style.backgroundColor = "#e55b5b"; break;
+        case 2: inner.style.backgroundColor = "#f1c40f"; break;
+        case 3:
+        case 4: inner.style.backgroundColor = "#2ecc71"; break;
+        case 5: inner.style.backgroundColor = "#27ae60"; break;
+    }
+
+    realBar.appendChild(inner);
+}
+
+// Validación de inicio de sesión
+function validarFormulario() {
+    limpiarErrores(); // Limpia antes de validar
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    let valido = true;
+
+    if (email === "") {
+        mostrarError("email", "Este campo es obligatorio.");
+        valido = false;
+    } else if (!regexEmail.test(email)) {
+        mostrarError("email", "Formato de correo inválido.");
+        valido = false;
+    }
+
+    if (password === "") {
+        mostrarError("password", "Este campo es obligatorio.");
+        valido = false;
+    } else if (password.length < 5) {
+        mostrarError("password", "Debe tener al menos 5 caracteres.");
+        valido = false;
+    }
+
+    if (!valido) return false;
+
+    const usuariosGuardados = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const usuarioEncontrado = usuariosGuardados.find(
+        usuario => usuario.correo === email && usuario.password === password
+    );
+
+    if (!usuarioEncontrado) {
+        mostrarError("email", "Correo o contraseña incorrectos.");
+        mostrarError("password", "");
+        return false;
+    }
+
+    alert("¡Inicio de sesión exitoso!");
+    toggleLoginModal();
+    return false;
+}
 
 
 //"SCROLLING DE VIDEOS" carga y funcionamiento del scrolling horizontal
@@ -366,11 +251,8 @@ tabs.forEach(tab => {
 document.addEventListener("DOMContentLoaded", function () {
     if (!window.location.hash) {
         const defaultTabLink = document.querySelector('#tabs a[href="#tab1"]');
-        const defaultTabContent = document.querySelector('#tab1');
-
-        if (defaultTabLink && defaultTabContent) {
-            defaultTabLink.classList.add('active');
-            defaultTabContent.classList.add('active');
+        if (defaultTabLink) {
+            defaultTabLink.click();
         }
     }
 });
@@ -577,68 +459,92 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//TRADUCTOR Y ENLACE AL JSON
+//ESTADO ACTVIO DE SECCIONES, SUBRAYADO, TRADUCTOR Y ENLACE AL JSON
 
-let currentLang = localStorage.getItem('lang') || 'es'; // Idioma actual
+document.addEventListener("DOMContentLoaded", () => {
+    const lang = localStorage.getItem("lang") || "es";
+    const path = window.location.pathname.toLowerCase();
 
-//Muestra/oculta el menú
-function toggleDropdown() {
-    const dropdown = document.getElementById('languageDropdown');
-    dropdown.classList.toggle('hidden');
-}
+    let activeKey = "menu-sec2"; //Default
+    let dropdownId = "neuroToggle";
 
-// Cambia la imagen de la bandera
-function updateFlag(lang) {
-    const flagImg = document.getElementById('currentFlag');
-    flagImg.src = lang === 'en'
-        ? '../img/Bandera_Estados_Unidos.webp'
-        : '../img/Bandera_Espana.webp';
-}
+    if (path.includes("autismo")) {
+        activeKey = "autismo";
+    } else if (path.includes("tdah")) {
+        activeKey = "tdah";
+    }
 
-//Definir el español como idioma predeterminado
-document.addEventListener('DOMContentLoaded', () => {
-    updateFlag(currentLang);
-    translateTo(currentLang); // <-- Esto estaba faltando
+    // Guardar info para usar luego si es necesario
+    localStorage.setItem("activeDropdownKey", activeKey);
+    localStorage.setItem("activeDropdownId", dropdownId);
+
+    // Cambiar texto del botón dropdown
+    const labelSpan = document.querySelector(`#${dropdownId} .dropdown-label`);
+    if (labelSpan && typeof translations !== "undefined") {
+        const translatedText = translations[lang]?.[activeKey];
+        if (translatedText) {
+            labelSpan.textContent = translatedText;
+        }
+    }
+
+    // Subrayar el enlace activo
+    const links = document.querySelectorAll(".dropdown-menu a");
+    links.forEach(link => {
+        const href = link.getAttribute("href").toLowerCase();
+        if (path.includes(href)) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    });
 });
 
-//Cambia el idioma
+
+//TRADUCTOR, FUNCIONALIDADES Y ENLACE AL LANGUAGE.JS
+
+//Idioma actual desde localStorage o por defecto español
+let currentLang = localStorage.getItem('lang') || 'es';
+
+//Cambiar idioma
 function setLanguage(lang) {
     if (lang === currentLang) return;
 
     currentLang = lang;
     localStorage.setItem('lang', lang);
-    translateTo(lang);
-    updateFlag(lang);
-    document.getElementById('languageDropdown').classList.add('hidden');
+
+    //Actualiza la bandera
+    const flagImg = document.getElementById('currentFlag');
+    if (flagImg) {
+        flagImg.src = lang === 'en'
+            ? '../img/Bandera_Estados_Unidos.webp'
+            : '../img/Bandera_Espana.webp';
+    }
+
+    //Aplica traducción
+    translatePage(lang);
+
+    //Cierra el menú desplegable
+    const dropdown = document.getElementById('languageDropdown');
+    if (dropdown) dropdown.classList.add('hidden');
 }
 
-//Cierra el menú si haces clic fuera
+//Mostrar/ocultar selector
+function toggleDropdown() {
+    const dropdown = document.getElementById('languageDropdown');
+    dropdown.classList.toggle('hidden');
+}
+
+//Cerrar menú si haces clic fuera
 document.addEventListener('click', function (e) {
     const dropdown = document.getElementById('languageDropdown');
     const btn = document.getElementById('translateBtn');
-
-    if (!dropdown.contains(e.target) && !btn.contains(e.target)) {
+    if (dropdown && !dropdown.contains(e.target) && !btn.contains(e.target)) {
         dropdown.classList.add('hidden');
     }
 });
 
-//Aplicar traducción
-function translateTo(lang) {
-    const langSet = translations[lang] || {};
-
-    document.querySelectorAll('[data-translate]').forEach(el => {
-        const key = el.getAttribute('data-translate');
-        const attr = el.getAttribute('data-translate-attr');
-        const innerOnly = el.getAttribute('data-translate-inner') === 'true';
-
-        if (key && langSet[key]) {
-            if (attr) {
-                el.setAttribute(attr, langSet[key]);
-            } else if (innerOnly) {
-                el.innerText = langSet[key];
-            } else {
-                el.textContent = langSet[key];
-            }
-        }
-    });
-}
+//Al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    updateFlag(currentLang);
+    translateTo(currentLang); //Aplica traducción inicial
+});

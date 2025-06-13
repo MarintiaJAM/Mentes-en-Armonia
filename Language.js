@@ -1,9 +1,9 @@
 const translations = {
 
-    "es": {
-      "menu-sec1": "Inicio",
-      "menu-sec2": "Neurodivergencia",
-      "menu-sec3": "Pruebas",
+  es: {
+      'menu-sec1': 'Inicio',
+      'menu-sec2': 'Neurodivergencia',
+      'menu-sec3': 'Encuestas',
         "autismo": "Autismo",
         "tdah": "TDAH",
         "dislexia": "Dislexia",
@@ -58,9 +58,9 @@ const translations = {
     },
     
     "en": {
-      "menu-sec1": "Home",
-      "menu-sec2": "Neurodivergence",
-      "menu-sec3": " Tests",
+      'menu-sec1': 'Home',
+      'menu-sec2': 'Neurodivergence',
+      'menu-sec3': 'Surveys',
         "autismo": "Autism",
         "tdah": "adhd",
         "dislexia": "Dyslexia",
@@ -113,4 +113,33 @@ const translations = {
 
         "recursos_recomendados": "Recommended Resources"
     }
-};  
+}; 
+
+
+
+//Función para traducir elementos con data-translate
+function translatePage(lang) {
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+    localStorage.setItem('lang', lang);
+}
+
+//Traducir al cargar
+document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("lang") || "es";
+    translatePage(savedLang);
+});
+
+document.addEventListener('click', function (e) {
+    const dropdown = document.getElementById('languageDropdown');
+    const button = document.getElementById('translateBtn');
+
+    if (dropdown && button && !dropdown.contains(e.target) && !button.contains(e.target)) {
+        dropdown.classList.add('hidden');
+    }
+});

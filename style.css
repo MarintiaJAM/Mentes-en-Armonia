@@ -156,13 +156,17 @@ a.track-link:active {
     height: 85px;
     line-height: 85px;
     padding: 0 16px;
-    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
     font-size: 14px;
     cursor: pointer;
     transition: transform 0.25s ease-in-out;
+}
+
+/*Color del nombre de las secciones*/
+.navbar li span{
+    color: #fff; /*Color blanco*/
 }
 
 /*Efecto de hover y focus en los enlaces de la barra de navegación*/
@@ -253,6 +257,7 @@ a.track-link:active {
 }
 
 
+/*"BARRA DE BÚSQUEDA"*/
 /*"BARRA DE BÚSQUEDA"*/
 .search-bar {
     display: flex; /*Alinea los elementos en una fila*/
@@ -383,41 +388,39 @@ a.track-link:active {
 
 
 /*"LOGIN/INICIO DE SESIÓN"*/
+
 .Login {
-    margin-left: 20px; /*Separación entre la barra de búsqueda y el botón de inicio de sesión*/
-    display: flex; /*Organiza los elementos en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
-/*Botón de Inicio de Sesión*/
 .login-button {
-    display: flex; /*Alinea el ícono y el texto en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
-    color: #fff; /*Color blanco para el texto*/
-    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
-    font-size: 14px; /*Tamaño de fuente*/
-    background-color: #ff6b6b; /*Color rosa coral para el fondo*/
-    padding: 8px 14px; /*Margen interno para definir la extensión del fondo*/
-    border-radius: 20px; /*Bordes redondeados*/
-    transition:0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #ff6b6b;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: 0.2s ease-in-out;
 }
 
-/*Estilos del ícono del búsqueda*/
 .login-button i {
-    margin-right: 8px; /*Margen exterior derecho para separar el ícono y el texto del botón*/
+    margin-right: 8px;
 }
 
-/*Efecto al pasar el cursor sobre el botón*/
 .login-button:hover {
-    background-color: #e55b5b; /*Cambio de color de fondo al pasar el cursor*/
+    background-color: #e55b5b;
 }
 
 
-/*"FORMULARIO DE INICIO DE SESIÓN"*/
+/*FORMULARIO DE INICIO DE SESIÓN*/
 
 /*Modal general*/
 .login-modal {
-    display: none; /*Oculto al cargar*/
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -428,18 +431,53 @@ a.track-link:active {
     align-items: center;
     z-index: 1000;
 }
-  
-/*Caja del formulario*/
+
 .login-form {
     position: relative;
     background: white;
     padding: 30px;
+    padding-right: 20px;
     border-radius: 8px;
-    width: 425px;
+    width: 480px; /* AUMENTADO desde 425px */
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-/*Botón para cerrar*/
+.login-form-scroll {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/*Scroll para Firefox*/
+.login-form-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+}
+
+/*Scroll personalizado dentro del modal*/
+.login-form-scroll::-webkit-scrollbar {
+    width: 5px; /*Grosor del scroll*/
+}
+
+.login-form-scroll::-webkit-scrollbar-track {
+    background: transparent; /* Fondo de la pista */
+}
+
+.login-form-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.4); /* Color del "pulgar" (scroll) */
+    border-radius: 4px;
+}
+
+.login-form-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100, 100, 100, 0.6); /* Al pasar el mouse */
+}
+
+/* Elimina flechas de scroll (solo Chrome/Safari) */
+.login-form-scroll::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Botón para cerrar */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -453,7 +491,7 @@ a.track-link:active {
     color: #333;
 }
 
-/*Títulos y enlaces*/
+/* Titular y subtítulo */
 .login-form h2 {
     font-size: 20px;
     margin-bottom: 8px;
@@ -465,16 +503,15 @@ a.track-link:active {
     color: #777;
     text-align: left;
     margin-bottom: 10px;
-    width: 100%;
     white-space: nowrap;
 }
 
 .login-form a {
-    color: rgb(0, 153, 255); /*Color azul cielo*/
+    color: rgb(0, 153, 255);
     text-decoration: none;
 }
-  
-/*Inputs y etiquetas*/
+
+/* Inputs y etiquetas */
 .login-form label {
     display: block;
     margin: 15px 0 5px;
@@ -489,29 +526,41 @@ a.track-link:active {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-  
-/*Contraseña y link al mismo nivel*/
+
+.input-feedback {
+    font-size: 12px;
+    margin-top: 2px;
+    color: #e55b5b;
+    display: block;
+}
+
+.input-error {
+    border: 2px solid red !important;
+    background-color: #ffe5e5;
+}
+
+/* Contraseña y link alineados */
 .password-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/*Contenedor de contraseña*/
+/* Contenedor para ícono de ver contraseña */
 .password-container {
     position: relative;
     width: 100%;
 }
-  
+
 .password-container input {
     width: 100%;
     padding: 10px;
-    padding-right: 40px; /*deja espacio para el ícono*/
+    padding-right: 40px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-  
+
 .toggle-password {
     position: absolute;
     top: 50%;
@@ -522,12 +571,33 @@ a.track-link:active {
     font-size: 18px;
     z-index: 2;
 }
-  
-/*Recordarme*/
+
+/* Medidor de fortaleza de contraseña */
+.password-strength {
+    height: 6px;
+    width: 100%;
+    margin-top: 6px;
+    border-radius: 3px;
+    background-color: #eee;
+    overflow: hidden;
+    position: relative;
+}
+
+.password-strength::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: #ccc;
+    transition: width 0.3s ease-in-out;
+    border-radius: 3px;
+}
+
+/* Recordarme */
 .remember-me {
     display: flex;
     align-items: center;
-    gap: 5px; /*Espacio entre el checkbox y el texto*/
+    gap: 5px;
     margin-bottom: 15px;
 }
 
@@ -535,8 +605,8 @@ a.track-link:active {
     margin-left: 5px;
     font-weight: normal;
 }
-  
-/*Botón principal*/
+
+/* Botón de envío */
 .login-form button[type="submit"] {
     text-align: center;
     align-items: center;
@@ -548,37 +618,6 @@ a.track-link:active {
     border-radius: 5px;
     cursor: pointer;
 }
-  
-/*Línea divisoria*/
-.divider {
-    text-align: center;
-    margin: 33px 0;
-    color: #777;
-}
-  
-/*Botones redes sociales*/
-.social-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.social-buttons button {
-    width: 48%;
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: white;
-    cursor: pointer;
-}
-
-.social-buttons .google i {
-    color: #DB4437;
-}
-
-.social-buttons .facebook i {
-    color: #4267B2;
-}  
 
 
 /*"SUBMENÚ"*/
@@ -754,7 +793,7 @@ a.track-link:active {
     display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
     justify-content: center; /*Centra los elementos horizontalmente*/
     align-items: center; /*Centra los elementos verticalmente*/
-    background-image: url(../img/header.png); /*Imagen de fondo para el header*/
+    background-image: url(../img/header.webp); /*Imagen de fondo para el header*/
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     background-attachment: fixed; /*La imagen de fondo permanece fija al hacer scroll*/    
     background-repeat:no-repeat center; /*Evita que la imagen de fondo se repita*/
@@ -791,6 +830,7 @@ a.track-link:active {
 }
 
 
+
 /*"SOBRE NOSOTROS"*/
 .about{
     display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
@@ -819,34 +859,29 @@ a.track-link:active {
 
 }
 
-.video-section {
+.about-section {
     position: relative;
-    width: 80%;
-    height: 75vh;
     overflow: hidden;
-} 
-
-.video-intro {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    object-fit: cover;
+    min-height: 100vh;
 }
 
-.video-overlay {
-    border-radius: 5px;
+.video-intro {
     position: absolute;
     top: 0;
     left: 0;
-    width: 90%;
+    width: 100%;
     height: 100%;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.4); /* oscurece un poco el fondo para leer mejor el texto */
+}
+
+.about-text {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 60px 20px;
     text-align: center;
-    padding: 0 20px;
 }
 
 

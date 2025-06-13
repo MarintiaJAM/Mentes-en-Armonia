@@ -25,7 +25,7 @@
         <nav class="menu" id="Menu">
             <div class="logo"> <!-- Contenedor del logo -->
                 <a href="index.html">
-                    <img src="../img/Logo.png" alt="Logo"></a>
+                <img src="../img/Logo.png" alt="Logo"></a>
             </div>
 
             <!-- Botón de menú para móviles -->
@@ -37,33 +37,54 @@
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
                 página de inicio -->
-                <li><a href="index.html" data-translate="menu-sec1" onclick="saveActiveLink('index.html')"><i class="fas fa-house"></i>Inicio</a></li>
+                <li>
+                    <a href="index.html" onclick="saveActiveLink('index.html')">
+                        <i class="fas fa-house"></i>
+                        <span data-translate="menu-sec1">Inicio</span>
+                    </a>
+                </li>
                 
                 <li class="dropdown">
-                    <span id="neuroToggle" class="dropdown-toggle" data-translate="menu-sec2">
+                    <span id="neuroToggle" class="dropdown-toggle">
                         <i class="fas fa-brain icon-left"></i>
-                        Neurodivergencia
+                        <span class="dropdown-label" id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
                         <i class="fas fa-chevron-down chevron"></i>
-                    </span>                         
+                    </span>
+
                     <ul class="dropdown-content">
-                        <li><a href="Autismo.html" data-translate="autismo" onclick="saveDropdownState('neuroToggle', 'Autismo')">Autismo</a></li>
-                        <li><a href="TDAH.html" data-translate="tdah" onclick="saveDropdownState('neuroToggle', 'TDAH')">TDAH</a></li>
-                        <li><a href="Dislexia.html" data-translate="dislexia" onclick="saveDropdownState('neuroToggle', 'Dislexia')">Dislexia</a></li>
-                        <li><a href="Tourette.html" data-translate="tourette" onclick="saveDropdownState('neuroToggle', 'Tourette')">Tourette</a></li>
-                        <li><a href="Dispraxia.html" data-translate="dispraxia" onclick="saveDropdownState('neuroToggle', 'Dispraxia')">Dispraxia</a></li>
-                        <li><a href="Discalculia.html" data-translate="discalculia" onclick="saveDropdownState('neuroToggle', 'Discalculia')">Discalculia</a></li>
-                        <li><a href="Ansiedad.html" data-translate="ansiedad" onclick="saveDropdownState('neuroToggle', 'Ansiedad')">Ansiedad</a></li>
+                        <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
+                        <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
+                        <li><a href="Dislexia.html" data-translate="dislexia">Dislexia</a></li>
+                        <li><a href="Tourette.html">Tourette</a></li>
+                        <li><a href="Dispraxia.html" data-translate="dispraxia">Dispraxia</a></li>
+                        <li><a href="Discalculia.html" data-translate="autismo">Discalculia</a></li>
+                        <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
 
-                <li><a href="Encuestas.html" data-translate="menu-sec3" onclick="saveActiveLink('Nosotros.html')"><i class="fas fa-users"></i>Encuestas</a></li>
-                <li><a href="Comunidad.html" data-translate="menu-sec4" onclick="saveActiveLink('Comunidad.html')"><i class="fas fa-comments"></i>Comunidad</a></li>
-                <li><a href="Noticias.html" data-translate="menu-sec5" onclick="saveActiveLink('Noticias.html')"><i class="fas fa-newspaper"></i>Noticias</a></li>
-                <li class="dropdown">
+                <li>
+                    <a href="Encuestas.html" onclick="saveActiveLink('Nosotros.html')">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="menu-sec3">Encuestas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Comunidad.html" onclick="saveActiveLink('Comunidad.html')">
+                        <i class="fas fa-comments"></i>
+                        <span data-translate="menu-sec4">Comunidad</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Noticias.html" onclick="saveActiveLink('Noticias.html')">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-translate="menu-sec5">Noticias</span>
+                    </a>
+                </li>
 
-                    <span id="extrasToggle" class="dropdown-toggle" data-translate="menu-sec6">
+                <li class="dropdown">
+                    <span id="extrasToggle" class="dropdown-toggle">
                         <i class="fas fa-puzzle-piece icon-left"></i>
-                        Extras
+                            <span data-translate="menu-sec6">Extras</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
                     <ul class="dropdown-content">
@@ -73,7 +94,7 @@
                 </li>                                                
             </ul>
 
-                         <!-- Barra de búsqueda en la esquina superior derecha -->
+                        <!-- Barra de búsqueda en la esquina superior derecha -->
                         <div class="search-bar"> 
                             <div class="search-container">
                                 <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
@@ -82,7 +103,6 @@
                                 <div class="search-suggestions" id="searchSuggestions"></div>
                             </div>
                         </div>
-
                        
             
                         <!-- Botón de Inicio de Sesión -->
@@ -90,43 +110,67 @@
                             <a href="#" class="login-button" onclick="toggleLoginModal()">
                                 <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
                             </a>
-                        </div>              
-                        
+                        </div>          
+
                         <!-- Formulario de inicio de sesión -->
                         <div id="loginModal" class="login-modal">
                             <div class="login-form">
-                                <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
-            
-                                <h2>INICIO DE SESIÓN</h2>
-                                <p class="no-account"> ¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
-                            
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="you@example.com" required>
-                            
-                                <div class="password-row">
-                                    <label for="password">Contraseña</label>
-                                    <a href="#" class="forgot-password underline-animate">¿Olvidaste tu contraseña?</a>
-                                </div>
-            
-                                <div class="password-container">
-                                    <input type="password" id="password" placeholder="Mínimo 5 caracteres" required>
-                                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                                  </div>                      
-                            
-                                <div class="remember-me">
-                                    <input type="checkbox" id="remember">
-                                    <label for="remember">Recordarme</label>
-                                </div>
-                            
-                                <button type="submit">Entrar</button>
-                            
-                                <div class="divider">────── o inicia sesión con ──────</div>
-                                <div class="social-buttons">
-                                    <button class="google"><i class="fab fa-google"></i> Google</button>
-                                    <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+
+                                <!-- Scroll activado si se excede el tamaño -->
+                                <div class="login-form-scroll">
+
+                                    <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
+
+                                    <h2>INICIO DE SESIÓN</h2>
+                                    <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
+                                
+                                    <!-- Formulario con validaciones -->
+                                    <form id="formulario" onsubmit="return validarFormulario()">
+                                        <!-- Campo oculto -->
+                                        <input type="hidden" id="txtIndice" value="">
+
+                                        <!-- Correo -->
+                                        <label for="email">Correo electrónico *</label>
+                                        <input type="email" id="email" placeholder="you@example.com" required>
+                                        <small id="emailFeedback" class="input-feedback"></small>
+
+                                        <!-- Confirmar correo -->
+                                        <label for="confirmEmail">Confirmar correo electrónico *</label>
+                                        <input type="email" id="confirmEmail" placeholder="Repite tu correo" required>
+                                        <small id="confirmEmailFeedback" class="input-feedback"></small>
+
+                                        <!-- Contraseña -->
+                                        <div class="password-row">
+                                            <label for="password">Contraseña *</label>
+                                            <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar sesión?</a>
+                                        </div>
+                                        <div class="password-container">
+                                            <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
+                                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                                        </div>
+                                        <div id="passwordStrength" class="password-strength"></div>
+                                        <small id="passwordFeedback" class="input-feedback"></small>
+
+                                        <!-- Confirmar contraseña -->
+                                        <label for="confirmPassword">Confirmar contraseña *</label>
+                                        <div class="password-container">
+                                            <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required>
+                                            <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                                        </div>
+                                        <small id="confirmPasswordFeedback" class="input-feedback"></small>
+
+                                        <!-- Recordarme -->
+                                        <div class="remember-me">
+                                            <input type="checkbox" id="remember">
+                                            <label for="remember">Recordarme</label>
+                                        </div>
+
+                                        <!-- BOTÓN -->
+                                        <button type="submit">Entrar</button>
+                                    </form>
                                 </div>
                             </div>
-                        </div>                      
+                        </div>                     
                     </nav>
                 </header>
             
@@ -145,7 +189,7 @@
 
                     <div class="translator">
                         <button id="translateBtn" onclick="toggleDropdown()">
-                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.png" alt="Idioma actual">
+                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
                         </button>
                         <div id="languageDropdown" class="language-dropdown hidden">
                             <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
@@ -186,18 +230,23 @@
             
                     <!-- Sección sobre nosotros -->
                     <section class="content about">
-                        <section id="Acerca de">
-                            <h2 class="title" data-translate="nosotros">Nosotros</h2>
-                            <p data-translate="nosotros_p">Esta página tiene como propósito generar conciencia sobre los desafíos
-                                que
-                                enfrentan las personas que perciben y procesan el mundo de manera distinta. Es fundamental
-                                comprender que la inclusión no es un favor, sino un derecho que todos merecemos. Neurodivergentes o
-                                no, cada persona merece respeto y oportunidades para desarrollar su potencial.
-                            </p>
+                        <section id="Acerca de" class="about-section">
+                            <!-- Video de fondo -->
                             <video class="video-intro" autoplay muted loop playsinline>
                                 <source src="../video/Nosotros 2.0.mp4" type="video/mp4">
                                 Tu navegador no soporta HTML5 video.
                             </video>
+
+                            <!-- Texto encima del video -->
+                            <div class="about-text">
+                                <h2 class="title" data-translate="nosotros">Nosotros</h2>
+                                <p data-translate="nosotros_p">
+                                    Esta página tiene como propósito generar conciencia sobre los desafíos
+                                    que enfrentan las personas que perciben y procesan el mundo de manera distinta. Es fundamental
+                                    comprender que la inclusión no es un favor, sino un derecho que todos merecemos. Neurodivergentes o
+                                    no, cada persona merece respeto y oportunidades para desarrollar su potencial.
+                                </p>
+                            </div>
                         </section>
                     </section>
             
@@ -210,7 +259,7 @@
                                 <!-- Neurotipicidad-->
                                 <section class="neuro">
                                     <div class="defImg"> <!-- Imágen Neurotipicidad-->
-                                        <img src="../img/Neurotipicidad.jpg" alt="Neurotipicidad">
+                                        <img src="../img/Neurotipicidad.webp" alt="Neurotipicidad">
                                     </div>
             
                                     <div class="defText"> <!-- Definición Neurotipicidad-->
@@ -239,7 +288,7 @@
                                     </div>
             
                                     <div class="defImg"> <!-- Imágen Neurodivergencia-->
-                                        <img src="../img/Neurodivergencia.jpg" alt="Neurodivergencia">
+                                        <img src="../img/Neurodivergencia.webp" alt="Neurodivergencia">
                                     </div>
                                 </section>
             
@@ -356,6 +405,7 @@
                             </div>
                         </section>
                     </section>
+            
             
                     <!-- Sección de líneas de apoyo -->
                     <section id="Lineap">
@@ -1172,7 +1222,7 @@
                                 <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="https://www.instagram.com/mentesen.armonia/" target="_blank" aria-label="Instagram">
+                                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                                 <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
@@ -1184,11 +1234,12 @@
                 </footer>
             
                 <!-- Enlace al archivo Json -->
-                <script src="../Javascript/Language.js"></script>
+                <script src="../javascript/Language.js"></script>
 
                 <!-- Enlace al archivo JavaScript -->
-                <script src="../javascript/javascript.js"></script>
+                <script src="../javascript/Javascript.js"></script>
 
+                <!-- Enlace al archivo JavaScript del buscador -->
                 <script src="../javascript/Buscador.js"></script>
             
     </body>          
