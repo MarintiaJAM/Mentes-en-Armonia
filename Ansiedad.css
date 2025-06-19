@@ -461,7 +461,7 @@ p{
     width: 100%; /*Ocupa todo el ancho disponible*/
     max-height: 100%;
     max-width: 100%; /*Evita que sobrepase el ancho del viewport*/
-    background-color: #075f61; /*Color turquesa para el fondo*/
+    background-color: #007274; /*Color turquesa para el fondo*/
     /*padding: 20px 25px; Agrega espacio a los lados para que no pegue al borde*/
     padding: 5px 25px 5px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
