@@ -14,7 +14,7 @@
      <!-- Enlace a Font Awesome para íconos -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
      <!-- Enlace al css -->
-    <link rel="stylesheet" href="../css/Discalculia.css">
+    <link rel="stylesheet" href="../css/Autismo.css">
 
 </head>
 
@@ -26,27 +26,32 @@
         <nav class="menu" id="Menu">
             <div class="logo"> <!-- Contenedor del logo -->
                 <a href="index.html">
-                    <img src="../img/Logo.png" alt="Logo"></a>
+                <img src="../img/Logo.png" alt="Logo"></a>
             </div>
 
-        <!-- Botón de menú para móviles -->
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
+            <!-- Botón de menú para móviles -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
-
-    <!-- Barra de navegación principal-->
+            <!-- Barra de navegación principal-->
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-         página de inicio -->
-                <li><a href="index.html" data-translate="menu-sec1"><i class="fas fa-house"></i>Inicio</a></li>
-                <li><a href="Nosotros.html" data-translate="menu-sec2"><i class="fas fa-users"></i>Nosotros</a></li>
+                página de inicio -->
+                <li>
+                    <a href="index.html" onclick="saveActiveLink('index.html')">
+                        <i class="fas fa-house"></i>
+                        <span data-translate="menu-sec1">Inicio</span>
+                    </a>
+                </li>
+                
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec3">
+                    <span id="neuroToggle" class="dropdown-toggle">
                         <i class="fas fa-brain icon-left"></i>
-                        Neurodivergencia
+                        <span class="dropdown-label" id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
                         <i class="fas fa-chevron-down chevron"></i>
-                    </span>                         
+                    </span>
+
                     <ul class="dropdown-content">
                         <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
                         <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
@@ -57,71 +62,123 @@
                         <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
-                <li><a href="Comunidad.html" data-translate="menu-sec4"><i class="fas fa-comments"></i>Comunidad</a></li>
-                <li><a href="Noticias.html" data-translate="menu-sec5"><i class="fas fa-newspaper"></i>Noticias</a></li>
+
+                <li>
+                    <a href="Encuestas.html" onclick="saveActiveLink('Nosotros.html')">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="menu-sec3">Encuestas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Comunidad.html" onclick="saveActiveLink('Comunidad.html')">
+                        <i class="fas fa-comments"></i>
+                        <span data-translate="menu-sec4">Comunidad</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Noticias.html" onclick="saveActiveLink('Noticias.html')">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-translate="menu-sec5">Noticias</span>
+                    </a>
+                </li>
+
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec6">
+                    <span id="extrasToggle" class="dropdown-toggle">
                         <i class="fas fa-puzzle-piece icon-left"></i>
-                        Extras
+                            <span data-translate="menu-sec6">Extras</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="Bitacora">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="Referencias">Referencias</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora" onclick="saveDropdownState('extrasToggle', 'Bitácora')">Bitácora</a></li>
+                        <li><a href="Referencias.html" data-translate="referencias" onclick="saveDropdownState('extrasToggle', 'Referencias')">Referencias</a></li>
                     </ul>
                 </li>                                                
             </ul>
 
-        <!-- Barra de búsqueda en la esquina superior izquierda -->
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
-                data-translate-attr="placeholder">
-                <button type="button" id="searchButton"><i class="fas fa-search"></i>
-                </button>
-        </div>
+                        <!-- Barra de búsqueda en la esquina superior derecha -->
+                        <div class="search-bar"> 
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                                data-translate-attr="placeholder" autocomplete="off">
+                                <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                                <div class="search-suggestions" id="searchSuggestions"></div>
+                            </div>
+                        </div>
+                       
+                    
+                        <!-- Botón de Inicio de Sesión -->
+                        <div class="Login">
+                            <a href="#" class="login-button" onclick="toggleLoginModal()">
+                                <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
+                            </a>
+                        </div>          
 
-            <!-- Botón de Inicio de Sesión -->
-            <div class="Login">
-                <a href="#" class="login-button" onclick="toggleLoginModal()">
-                    <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
-                </a>
-            </div>   
-
-            <!-- Formulario de inicio de sesión -->
+                        <!-- Formulario de inicio de sesión -->
                         <div id="loginModal" class="login-modal">
                             <div class="login-form">
+                                <div class="login-form-scroll">
                                 <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
-            
                                 <h2>INICIO DE SESIÓN</h2>
-                                <p class="no-account"> ¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
-                            
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="you@example.com" required>
-                            
-                                <div class="password-row">
-                                    <label for="password">Contraseña</label>
-                                    <a href="#" class="forgot-password underline-animate">¿Olvidaste tu contraseña?</a>
-                                </div>
-            
-                                <div class="password-container">
-                                    <input type="password" id="password" placeholder="Mínimo 5 caracteres" required>
-                                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                                  </div>                      
-                            
-                                <div class="remember-me">
-                                    <input type="checkbox" id="remember">
+                                <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
+
+                                <form id="formularioLogin">
+                                    <!-- Campo oculto -->
+                                    <input type="hidden" name="form_type" value="login" />
+
+                                    <!-- Correo -->
+                                    <label for="email">Correo electrónico *</label>
+                                    <input type="email" id="email" name="user_email" placeholder="you@example.com" required />
+                                    <small id="emailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Confirmar correo -->
+                                    <label for="confirmEmail">Confirmar correo electrónico *</label>
+                                    <input type="email" id="confirmEmail" placeholder="Repite tu correo" required />
+                                    <small id="confirmEmailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Contraseña -->
+                                    <div class="password-row">
+                                    <label for="password">Contraseña *</label>
+                                    <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar sesión?</a>
+                                    </div>
+
+                                    <div class="password-container">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="user_password"
+                                        placeholder="Mínimo 8 caracteres"
+                                        required
+                                        autocomplete="new-password"
+                                    />
+                                    <i class="fas fa-eye toggle-password" id="togglePassword" aria-hidden="true"></i>
+                                    </div>
+
+                                    <p id="passwordStrengthLabel" class="password-strength-label" style="display: none;">Fortaleza de la contraseña:</p>
+                                    <div id="passwordStrength" class="password-strength"></div>
+                                    <small id="passwordFeedback" class="input-feedback"></small>
+
+                                    <!-- Confirmar contraseña -->
+                                    <label for="confirmPassword">Confirmar contraseña *</label>
+                                    <div class="password-container">
+                                    <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required />
+                                    <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                                    </div>
+                                    <small id="confirmPasswordFeedback" class="input-feedback"></small>
+
+                                    <!-- Recordarme -->
+                                    <div class="remember-me">
+                                    <input type="checkbox" id="remember" />
                                     <label for="remember">Recordarme</label>
-                                </div>
-                            
-                                <button type="submit">Entrar</button>
-                            
-                                <div class="divider">────── o inicia sesión con ──────</div>
-                                <div class="social-buttons">
-                                    <button class="google"><i class="fab fa-google"></i> Google</button>
-                                    <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                                    </div>
+
+                                    <!-- BOTÓN -->
+                                    <button type="submit">Entrar</button>
+                                    <p id="formStatus" style="color: green; margin-top: 10px;"></p>
+                                </form>
                                 </div>
                             </div>
-                        </div> 
+                        </div>                     
+                    
 </nav>
 </header>
 
@@ -141,15 +198,19 @@
             <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
             <li><a href="#Footer">Footer</a></li>
         </ul>
-        <div class="traductor">
-            <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
-            <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
-            <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
+        <div class="translator">
+                        <button id="translateBtn" onclick="toggleDropdown()">
+                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
+                        </button>
+                        <div id="languageDropdown" class="language-dropdown hidden">
+                            <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+                            <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+                        </div>
         </div>
 </nav>
 
 
-        <div class="content header">
+        <div class="content headerDiscalculia">
             <h1 class="title">DISCALCULIA</h1>
             <!-- Añadir una breve información de cada tipo deneurotipicidad -->
             <h6>"La verdadera discapacidad es cuando alguien se niega a ver la capacidad en otros."</h6> <br> <h6>– Anónimo</h6>
@@ -158,324 +219,280 @@
 
         <div class="container">
         <section id="Introduction">
-            <div class="content about">
+            <div class="content aboutDiscalculia">
                 <div class="aboutimg">
-                <img src="../img/discalculia.jpg" alt="que es">
+                <img src="../img/Discalculiaes.png" alt="que es">
                 </div>
-                <div class="aboutext">
+                <div class="aboutextDiscalculia">
                     <h2 class="title">¿Qué es la discalculia?</h2>
-                    <p> Es una condición del neurodesarrollo que afecta a la configuración del sistema nervioso y al funcionamiento cerebral.
-                        Se caracteriza por dar lugar a dificultades para la comunicación e interacción social y para la flexibilidad del
-                        pensamiento y de la conducta de la persona que lo presenta.
+                    <p> Es una condición del neurodesarrollo que afecta a la configuración del sistema nervioso y al funcionamiento cerebral. Se caracteriza por dar lugar a dificultades para la comunicación e interacción social y para la flexibilidad del pensamiento y de la conducta de la persona que lo presenta.La discalculia es un trastorno del aprendizaje que se caracteriza por una dificultad significativa para comprender y utilizar los conceptos matemáticos, así como para realizar cálculos numéricos y operaciones aritméticas básicas.<br>
+                    A diferencia de una deficiente habilidad en matemáticas debida a una falta de interés o esfuerzo, la discalculia es un trastorno que afecta el cerebro y puede ser hereditario. Las personas con discalculia pueden tener dificultades para realizar tareas simples como contar, medir, identificar números y entender conceptos matemáticos abstractos. Aunque la discalculia se considera un trastorno del aprendizaje, no está relacionada con la inteligencia. De hecho, personas con discalculia pueden tener habilidades sobresalientes en otras áreas, como la creatividad, la comunicación y las artes. <br>
                     </p>
                 </div>
             </div>
 
-
+            <!-- Sección sobre la historia de la discalculia -->
             <div class="content history">
                 <h2 class="title">Historia y evolución</h2>
-                <p>Las primeras investigaciones se comenzaron a realizar en 1908 por el psiquiatra Eugen Bleuler, quien en 1911 fue el primero que utilizó 
-                    el término con el que se conoce este trastorno en la actualidad. Se refería principalmente a los pacientes que tenían esquizofrenia. <br>
-                    Bleuler no investigó directamente sobre este síndrome, pero es un psiquiatra importante que se debe tomar en cuenta, pues fue el primero que utilizó este término. <br>
-                    Leo Kanner y Hans Asperger contribuyeron significativamente al conocimiento actual del autismo. Sus estudios y observaciones 
-                    forman parte de los pilares sobre los cuales se apoya nuestra comprensión moderna del trastorno del espectro autista (TEA). <br>
-                    </p>
-                    
-                    <h2 class="subtitle">Leo Kanner</h2>
-                    <div class="hisimg">
-                    <img src="../img/LeoKanner.jpg" alt="Leo Kanner">
-                    </div>
-                    <p>
-                    El científico que descubrió e investigó por primera este síndrome,  publicando los resultados de su investigación en un artículo en 1943, fue el psiquiatra 
-                    Leo Kanner. Hacía referencia al estudio de once niños que presentaban esta condición, donde resaltaba que poseían ciertas peculiaridades y tenían características
-                    muy similares entre ellos.
-                    </p>
-
-                    <h2 class="subtitle"> Errores cometidos en su investigación</h2>
-                    <p>
-                    Se debe resaltar que este científico realizó algunas afirmaciones que hoy en día son consideradas erróneas. Estas afirmaciones acerca
-                    del autismo fueron las siguientes:
-
-                    Era producido por la forma como los padres trataban a los niños, con la frialdad afectiva y en la forma como los criaban.
-                    Solo se presentaba en los hijos de aquellos padres que tienen un nivel socioeconómico alto, que eran las familias que acudían a su consulta. Siendo una afirmación
-                    errónea.
-                    Él, terminó admitiendo qué esa afirmación era un error, y que no se debía culpar a los padres como causantes de esta condición. Reconoció que le había hecho mucho daño 
-                    a estos padres porque generó un sentimiento de culpa.<br>
-
-                    Después de reconocer su error, este científico se dió cuenta que el origen de este síndrome era biológico, y que había un factor genético. Pero siguió manteniendo su 
-                    teoría, de que había un factor ambiental que influenciaba la aparición de los síntomas del autismo en los niños.
-                </p>
-
-                <h2 class="subtitle">Hans Asperger</h2>
-                <div class="hisimg">
-                <img src="../img/HansAsperger.jpg" alt="Hans Asperger">
-                </div>
                 <p>
-                    Este científico estudió cuatro casos de niños, utilizando el término del autismo para identificar la condición que estos pacientes tenían. Los infantes presentaban 
-                    características comunes entre ellos. Los síntomas detectados en su investigación eran los siguientes:
+                    Fue la frenología de Gall y Surpzheim durante la segunda mitad del siglo XIX quienes, a parte de introducir la noción básica de un cerebro diferenciado según funciones(germen de la noción de modularidad), atribuyeron una región a lo que le denominaron cantidad y otra al cálculo. A fines del siglo XIX y en publicaciones del sigloXX, es el oftalmólogo Hinshelwood quien hace mención por primera vez a un caso de discalculia (caso originalmente descrito por Stepheson en 1905). El término “acalculia” es acuñado por el neurólogosueco Henschen, quien en dos artículos (años 1919 y 1920), hace referencia a la posibilidad de que la capacidad de calcular pueda afectarse de manera relativamente independiente por una lesión más omenos circunscrita del lóbulo parietal izquierdo (pacientes diestros).
+                </p>
+                <section class="Hist">
+                    <div class="histimg">
+                         <img src="../img/LadislavKosc.jpg" alt="LadislavKosc">
+                    </div>
+                    <div class="histext">
+                        <h2 class="subtitle">Ladislav Kosc.</h2>
+                
+                        <p> 
+                           Ladislav Kosc fue un psicólogo eslovaco que realizó una de las primeras investigaciones científicas formales sobre la discalculia. Su trabajo fue pionero en el reconocimiento de la discalculia como un trastorno específico del aprendizaje independiente de otras condiciones neurológicas o intelectuales.
+                            Kosc examinó a una muestra de niños escolares con inteligencia promedio y sin discapacidades sensoriales, motoras ni emocionales. <br>
+                            Utilizó pruebas específicas para evaluar diferentes componentes del aprendizaje matemático. <br>
+                            Se enfocó en encontrar dificultades específicas en el procesamiento numérico y no simplemente bajo rendimiento en matemáticas generales. <br>
+                        </p>
+                    </div>
+                </section>
+
+                <h2 class="subtitle">Principales aportes</h2>
+                <p>
+                    <strong>Definición formal de la discalculia del desarrollo</strong> <br>
+                    “Una incapacidad estructural para aprender conceptos aritméticos en personas con inteligencia normal, sin déficits visuales, auditivos o emocionales.”
+                    Esta definición sentó las bases para distinguir la discalculia de otras dificultades escolares.
                 </p>
                 <p>
-                    1.Tenían ausencia de empatía. <br>
-                    2.Presentaban la incapacidad para relacionarse socialmente. <br>
-                    3.Tenían dificultad para mantener el contacto visual con otras personas.<br>
-                    4.Utilizaban mucho los gestos y la mímica para comunicarse, también se les podía observar conversando solos. <br>
-                    5.Y resaltaban su dedicación exclusiva en áreas específicas y concretas. <br>
-                    </p>
-                    <p>
-                    Hans Asperger, publicó sus estudios en Alemania cuando se desarrollaba la Segunda Guerra Mundial y fue ignorado por la comunidad científica mundial de aquella época,
-                    solo fue tomado en cuenta cuando Lorna Wing tradujo todos sus artículos al inglés.
-                    
-                    Este científico realizó estudios sobre el trastorno, el cual tiempo después lleva su nombre. Estos hacen diferencias muy importantes sobre las condiciones que 
-                    presentan los niños con autismo y Asperger.</p>
-        
-        
-                <h2 class="subtitle">¿Cuándo se utilizó el término de autismo por primera vez?</h2>
-                    <p>En la historia del autismo, se debe destacar cuándo fue usado por primera vez esta palabra, para determinar los avances que se han logrado en su estudio  hasta la época actual.
+                    <strong>Identificación de subtipos de discalculia</strong> <br>
+                    Kosc identificó diferentes subtipos de discalculia, como la discalculia verbal (dificultades con el lenguaje matemático) y la discalculia no verbal (dificultades con la representación visual de los números). Esto ayudó a comprender mejor las diversas manifestaciones del trastorno.
+                </p>
 
-                    Se resalta lo dicho por la terapeuta Ángela Patiño, profesora del «Centro Hacer para Ser»,  experta en el tratamiento de esta condición con muchos años de experiencia. Ella indica
-                    que «el  concepto de esta condición como lo conocemos hoy, es relativamente nuevo, tiene alrededor de 50 años, y es la definición más cercana a lo que se conoce hoy en día»
-                    </p> 
-                </div>
-        </section>
+                <h2 class="subtitle">Importancia de su trabajo</h2>
+                <p> 
+                    Estableció la discalculia como un trastorno independiente, no simplemente como una parte de la dislexia o el bajo rendimiento escolar.
+                    Su clasificación de subtipos ayudó a desarrollar métodos de evaluación más precisos y estrategias de intervención específicas para cada tipo de dificultad.
+                    Fue una base esencial para futuras investigaciones neuropsicológicas, como las de Brian Butterworth.
+                </p>
 
-
-        <section id="Identification">
-            <div class="identificadores">
-                <h2 class="title"> Cómo se identifica en niños, adolescentes y adultos</h2>
-                <div class="kids">
-                    <h2 class="subtitle">En niños</h2>
-                <p> 1.Desconexión con los demás :<br>
-                    Los niños con autismo suelen mostrarse distantes o desconectados con lo seres queridos (padres, hermanos,etc.). Por ejemplo, puede parecer que no presentan conexión emocional a estas
-                    personas y no entienden la diferencia entre señales faciales. En otras palabras, los niños con autismo a menudo no reaccionan de manera diferente frente a un un ceño fruncido o una
-                    sonrisa de otra persona.</p>
-
-                
-                    <p>2. La aparente falta de empatía: <br>
-                    Otra característica común de los niños con autismo y que también tiene que ver con la teoría de la mente, es que tienen dificultades empatizando con los demás. A pesar de que la falta de empatía
-                    puede ser difícil de detectar y evaluar en los bebés y niños pequeños con eficacia, hay señales específicas que muestran la falta de capacidad para empatizar.
-
-                    Los niños autistas parecen tener dificultad para comprender o apreciar las situaciones desde la perspectiva de otras personas. Esto se debe a que piensan que todo el mundo entiende el mundo como lo hacen, lo que puede causar confusión o la imposibilidad de prever o comprender las acciones de los demás.
-                    </p>
-
-                
-                    <p>3. Se muestran indiferentes ante las interacciones sociables: <br>
-                    La gran mayoría de niños son muy sociables de manera natural. Sin embargo, los niños con autismo no pasan tiempo mirando las caras de los demás, respondiendo al oír su nombre, imitando las expresiones faciales de otros, o cogiendo las manos de otros durante el juego. En cambio, los niños con autismo a menudo no parecen muy interesados en participar en juegos y actividades normales del desarrollo infantil, incluyendo la socialización e imitación de otras personas.
-
-                    Estas señales comienzan a manifestarse a los 18 meses de edad, y a medida que la socialización con los demás continúa, los síntomas pueden ser más notables. Por ejemplo, a los 3 años de edad, los niños normales suelen querer jugar con juguetes con otros niños. Los niños autistas, en cambio, prefieren jugar solos.
-                    </p>
-                </div>
-                    <div class="adults">
-                    <h2 class="subtitle">En adultos</h2>
-                    <p>Una lista de los síntomas más habituales en los adultos con autismo es la siguiente:</p>
-
-                    <li>Dificultad para iniciar y mantener una conversación</li>
-                    <li>Evitación del contacto visual</li>
-                    <li>Dificultad para expresar necesidades y deseos</li>
-                    <li>Necesidad de mantener una rutina clara y estructurada</li>
-                    <li>Preferencia en mantener siempre un orden claro y lógico para él o ella</li>
-                    <li>Dificultad para comprender las emociones y las intenciones de los demás</li>
-                    <li>Dificultades para generar y mantener las amistades</li>
-                    <li>Suelen tener unos intereses y gustos muy restringidos y repetitivos</li>
-                    <li>Se pueden pasar largas horas realizando la misma actividad</li>
-                    <li>Dificultad para comprender las normas sociales y el lenguaje no verbal</li>
-                    <li>Les puede costar comprender las bromas y la ironía</li>
-                    <li>Si no siguen tratamiento psicológico suelen desarrollar cuadros de ansiedad, depresión o estrés</li>
+                <section class="Hist">
+                    <div class="histimg">
+                        <img src="../img/BrianButterworth.jpg" alt="Brian Butterworth">
                     </div>
+                    <div class="histext">
+                        <h2 class="subtitle">Brian Butterworth</h2>
+                        <p>
+                            Durante décadas, los problemas relacionados con el aprendizaje de las matemáticas fueron minimizados o confundidos con la falta de interés, de práctica o incluso de capacidad intelectual. Sin embargo, el trabajo del neuropsicólogo británico Brian Butterworth transformó esa visión por completo. Butterworth, profesor emérito de Psicología Cognitiva en el University College London (UCL), se convirtió en uno de los principales referentes mundiales en el estudio de la discalculia del desarrollo, una condición que afecta la capacidad para comprender y manejar conceptos numéricos.
+                            Su interés por el tema lo llevó a investigar cómo el cerebro humano procesa los números. En 1999, publicó su obra más influyente: “The Mathematical Brain” (El cerebro matemático). En este libro, Butterworth plantea una idea fundamental: el cerebro humano posee un "sentido numérico" innato, una especie de sistema interno que nos permite entender cantidades, comparar objetos o reconocer cuándo hay “más” o “menos” de algo, incluso desde muy temprana edad. Según él, este sentido no se aprende, sino que forma parte de nuestra estructura biológica básica, al igual que el lenguaje.
+                        </p>
+                    </div>
+                </section>
+
+                <p>
+                    Este sentido numérico, explicó Butterworth, se localiza en una zona específica del cerebro: el giro intraparietal, ubicado en el lóbulo parietal, tanto en el hemisferio derecho como en el izquierdo. Allí, según sus estudios con resonancias magnéticas funcionales (fMRI), se activa un área que nos permite realizar operaciones tan sencillas como reconocer cantidades pequeñas sin contar (lo que se conoce como subitización), o tan complejas como resolver problemas aritméticos.
+                </p>
+                <p>
+                    Lo innovador en su enfoque es que propuso que la discalculia se origina por un mal funcionamiento o desarrollo anormal de ese módulo cerebral, lo que significa que los niños con discalculia no “son malos para las matemáticas”, sino que sus cerebros procesan los números de manera distinta. Esta visión neurológica ayudó a cambiar la forma en que padres, maestros y especialistas entienden este trastorno.
+                </p>
+                <p>
+                    Además de su labor como investigador, Butterworth ha sido un firme defensor del reconocimiento oficial de la discalculia como una condición del aprendizaje, tan importante como la dislexia. Ha colaborado con gobiernos e instituciones educativas para que esta dificultad sea identificada adecuadamente y no sea confundida con bajo rendimiento o desinterés.
+                </p>
             </div>
-
-
-            <h2 class="title"> Síntomas o rasgos más comunes</h2>
-                <p> Algunos niños presentan signos del trastorno del espectro autista en la primera infancia, como menor contacto visual, 
-                    falta de respuesta cuando los llaman por su nombre o indiferencia ante las personas responsables del cuidado. Otros niños pueden 
-                    desarrollarse normalmente durante los primeros meses o años de vida, pero luego repentinamente se vuelven introvertidos o agresivos o pierden 
-                    habilidades del lenguaje que habían adquirido. En general, los signos se observan a los 2 años. <br>
-                </p>
-                <p>
-                    Es probable que los trastornos del espectro autista tengan un patrón de comportamiento y un nivel de gravedad únicos en cada niño, desde un funcionamiento
-                    bajo hasta uno alto. <br>
-                    
-                    Algunos niños con trastornos del espectro autista tienen dificultades de aprendizaje y algunos presentan signos de inteligencia inferiores a lo normal. 
-                    Otros niños con este trastorno tienen una inteligencia entre normal y alta, aprenden rápido, aunque tienen problemas para comunicarse, aplicar lo que saben
-                    en la vida diaria y adaptarse a situaciones sociales. <br>
-                    
-                    Debido a la combinación única de síntomas que presenta cada niño, a veces, puede ser difícil determinar la gravedad. En general, se basa en el nivel de deterioro
-                    y en cómo afecta la capacidad de desenvolverse.</p>
-
-                    
-                    <h2 class="subtitle">Comunicación e interacción social</h2>
-                    <p>
-                    Un niño o un adulto con trastorno del espectro autista puede tener problemas con la interacción social y las habilidades de comunicación, incluso presentar cualquiera de los siguientes signos:
-
-                    No responde a su nombre o, en ocasiones, parece no escucharte
-                    Se resiste a los abrazos y las caricias; además, parece que prefiere jugar solo y se abstrae en su propio mundo
-                    No suele hacer contacto visual y carece de expresión facial
-                    No habla o tiene un desarrollo tardío del habla, o bien pierde la capacidad que tenía para decir palabras u oraciones
-                    No puede mantener ni iniciar una conversación o, tal vez, inicia una solamente para pedir algo o nombrar elementos
-                    Habla con tono o ritmo anormal y es posible que utilice una voz cantarina o que hable como un robot
-                    Repite palabras o frases textuales, pero no comprende cómo usarlas
-                    No parece entender preguntas o indicaciones simples
-                    No expresa emociones ni sentimientos y parece no ser consciente de los sentimientos de los demás
-                    No señala ni trae objetos para compartir sus intereses
-                    Aborda interacciones sociales de forma inadecuada comportándose de manera pasiva, agresiva o perturbadora
-                    Tiene dificultad para reconocer señales no verbales, como la interpretación de las expresiones faciales de otras personas, las posturas corporales o el tono de voz
-                    </p>
-                    <h2 class="subtitle">Patrones de comportamiento</h2>
-                    <p>
-                    Un niño o un adulto con trastorno del espectro autista puede tener intereses, actividades o patrones de comportamiento repetitivos y limitados, e incluso presentar cualquiera de los siguientes signos: <br> <br>
-
-                    - Realiza movimientos repetitivos, como balancearse, girar o aletear con las manos. <br>
-                    - Realiza actividades que podrían causarle daño, como morderse o golpearse la cabeza.<br>
-                    - Desarrolla rutinas o rituales específicos y se altera con el mínimo cambio.<br>
-                    - Tiene problemas con la coordinación o muestra patrones de movimientos extraños, como ser torpe o caminar en puntas de pie, y muestra un lenguaje corporal extraño, rígido o exagerado. <br>
-                    - Se deslumbra con los detalles de un objeto, como las ruedas que giran en un auto de juguete, pero no entiende el propósito general o el funcionamiento del objeto.<br>
-                    - Es más sensible que lo habitual a la luz, el sonido o el contacto físico, pero puede ser indiferente al dolor o la temperatura.<br>
-                    - No participa en juegos de imitación o de simulación.<br>
-                    - Se obsesiona con un objeto o una actividad con una intensidad o concentración anormales.<br>
-                    - Tiene preferencias específicas con respecto a los alimentos, como comer solamente unos pocos alimentos o no comer alimentos con una determinada textura.<br>
-                    </p>
         </section>
 
-        <section id="Dificults">
-            <h2 class="title">Impacto en la vida cotidiana</h2>
-                <p>No solo afecta a la persona diagnosticada, sino que tiene profundas repercusiones en la familia y la comunidad. Los cuidadores y familiares a menudo 
-                    enfrentan altos niveles de estrés y pueden experimentar sentimientos de aislamiento. Es vital que las familias tengan acceso a recursos y apoyo emocional
-                    para sobrellevar los desafíos cotidianos que implica cuidar a una persona con TEA.
+<!-- Sección sobre la identificación de dislexia en distintas edades -->
+<section id="Identification">
+                <div class="identificadores">
+                    <h2 class="title"> Cómo se identifica en niños, adolescentes y adultos</h2>
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
 
-                    Las comunidades también juegan un papel crucial, y es necesario crear espacios inclusivos que favorezcan la plena participación de las personas con autismo. 
-                    La sensibilización y la educación son claves para desmitificar el autismo y fomentar un ambiente más comprensivo y solidario. Es fundamental que tanto la sociedad 
-                    como las instituciones públicas y privadas colaboren para garantizar que las personas con TEA reciban el apoyo necesario en todos los ámbitos de sus vidas.
+                        <label for="btn-acordeon1">
+                            <p>En niños <i class="fas fa-chevron-down chevron"></i>  </p>
+                        </label>
+                        <div class="content-acordeon">
+                           <p>
+                        Se caracteriza por las dificultades para reconocer letras y palabras, leer con fluidez, comprender
+                        textos escritos y, en ocasiones, problemas en la escritura y ortografía. 
+                        Estas dificultades pueden manifestarse desde los primeros años escolares:
+
+                        <li>Problemas para asociar sonidos con letras.</li>
+                        <li>Dificultad para reconocer letras y palabras.</li>
+                        <li>Inversión de letras y números</li>
+                        <li>Dificultad para recordar secuencias</li>
+                        <li>Problemas con la pronunciación y construcción de oraciones.</li>
+                        <li>Dificultades para seguir instrucciones con varios pasos.</li>
+                        <li>Baja autoestima y frustración relacionadas con el aprendizaje.</li>
+                    </p>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
+
+                        <label for="btn-acordeon2">
+                            <p>En adultos <i class="fas fa-chevron-down chevron"></i> </p> 
+                        </label>
+                        <div class="content-acordeon">
+                            <p>
+                    1.Dificultades con tareas que requieren habilidades de lectura,<br>
+                    </p>
+
+                    <li>Baja autoestima y ansiedad relacionada con actividades que implican lectura o escritura.</li>
+                    <li>No poder completar formularios o leer mapas.</li>
+                    <li>Problemas con la toma de notas o recordar información escrita.</li>
+                    <li>Dificultad para organizar ideas de manera coherente al escribir o hablar.</li>
                 </p>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Sección sobre síntomas comunes -->
+         <div class="rasgosDislexia">
+                <div class="rasgos-content">
+                    <h2 class="title"> Síntomas o rasgos más comunes</h2>
+                    <p>Los síntomas más comunes de la dislexia incluyen dificultad para leer rápidamente, errores de ortografía, inversión 
+                    de letras y números, problemas para asociar sonidos con letras, y dificultades en la comprensión lectora. También 
+                    tienen problemas para seguir secuencias y pueden sentirse frustrados o tener baja autoestima debido a estas dificultades.
+                </p>
+                <p>
+                    El principal síntoma que caracteriza, generalmente y a grandes rasgos, a la dislexia es una gran dificultad durante el aprendizaje y la adquisición de la lectura, que es una dificultad inesperada en relación a otras habilidades que muestra la persona y sus circunstancias educacionales.
+                </p> 
+                <p>
+                    El segundo síntoma más común entre las personas que sufren dislexia es el bajo rendimiento escolar en todas aquellas asignaturas que requieren la lectura como base de aprendizaje, puesto que tener dificultades en la lectura y la escritura implica mayor dificultad en el proceso de aprendizaje de ciertas asignaturas o conceptos. Por ejemplo, se pueden dar problemas en el ritmo y velocidad del aprendizaje del lenguaje escrito, dificultades para el copiado de la pizarra al cuaderno, entre otros. Además, se tiene que tener en cuenta que la lectura y la escritura son esenciales en la mayoría de las asignaturas, ya sea al leer libros o al leer las preguntas y escribir las respuestas en un examen.
+                </p>
+                <p>
+                    <strong>Déficit fonológico:</strong> la gran mayoría de personas que sufren dislexia, padecen al mismo tiempo un déficit fonológico, es decir un déficit en algún aspecto de la representación y procesamiento de los sonidos del lenguaje. Este puede ser debido a una habilidad débil para poder atender y manipular conscientemente los sonidos de la lengua, a una memoria verbal a corto plazo que limite la capacidad de mantener activa momentáneamente las representaciones fonológicas, y/o a una habilidad lenta para recuperar las formas fonológicas de las palabras con el objetivo de emprender la articulación del habla.
+                </p>
+                <p>
+                    <strong>Dificultades</strong> en la lectura, escritura, ortografía, visión, coordinación motora, matemáticas, <strong>comprensión del tiempo, situación en el espacio</strong> y limitación de la capacidad para integrar información que entienden por separado. Es decir, confunden letras, cambian sílabas, suprimen o añaden letras o palabras, presentan dificultad para memorizar reglas ortográficas y presentan dificultad en la motricidad fina y gruesa.
+                </p>
+                </div>
+         </div>
+</section>
+
+<!-- Sección sobre dificultades e impacto en la vida cotidiana -->
+        <section id="seccion3">
+            <h2 class="title">Dificultades sensoriales, sociales o cognitivas </h2>
+            <p>Las personas con dislexia suelen experimentar desafíos sensoriales, sociales y cognitivos. A nivel sensorial, pueden 
+               tener dificultades para procesar estímulos visuales y auditivos, lo que afecta su capacidad para leer y escribir. 
+               Socialmente, estas dificultades pueden generar frustración y baja autoestima, especialmente cuando se sienten 
+               excluidos en actividades que requieren habilidades lectoras. Cognitivamente, tienen problemas para decodificar 
+               palabras y recordar información escrita, aunque pueden destacar en otras áreas. La intervención temprana con 
+               métodos como el Orton-Gillingham puede ser clave para mejorar estas áreas.</p>
+
+
+            <div class="vida-cotidiana">
+                <div class="vida-cotidiana-content">
+                    <h2 class="title">Impacto en la vida cotidiana</h2>
+                    <p>
+                        Existe la idea errónea de que la Dislexia solo afecta la capacidad de leer y escribir. En realidad, la Dislexia puede afectar la memoria, la organización, el cálculo del tiempo, la concentración, la realización de múltiples tareas a la vez y la comunicación. Todo puede impactar en la vida cotidiana.
+
+                        Los desafíos pueden extenderse al ámbito académico, donde enfrentan dificultades en la lectura, escritura y 
+                        comprensión de textos, afectando su rendimiento escolar y, en consecuencia, su autoestima. La frustración 
+                        derivada de estas dificultades puede llevar al aislamiento social y a una percepción negativa de sus propias
+                        habilidades.
+                    </p>
+
+                    <p>
+                        <strong>Organización:</strong> A la persona con Dislexia le puede resultar difícil recordar citas o reuniones, o juzgar cuánto tiempo puede llevar una tarea en particular. Puede resultar útil configurar recordatorios en el teléfono móvil para fechas o citas importantes, o usar un calendario en un lugar destacado del hogar o empleo. Pedirle al médico, al dentista o al hospital que le envíen recordatorios por mensaje de texto para las citas.
+                    </p>
+                    <p>
+                        <strong>Cansancio:</strong> Las personas con Dislexia suelen trabajan más horas para superar los desafíos diarios. Cuando están cansados puede suceder que tengan menos energía para poner en práctica estrategias habituales de afrontamiento. Se vuelve importante que el entorno trate de ser más paciente y comprensivo con ellos.
+                    </p>
+                    <p>
+                        <strong>Memoria:</strong> Las personas con Dislexia pueden tener dificultades para recordar información, como nombres, fechas o instrucciones. Pueden beneficiarse de técnicas de memorización, como la repetición, el uso de mnemotecnias o la creación de asociaciones visuales.
+                    </p>
+                    <p>
+                        <strong>Comunicación:</strong> La Dislexia puede afectar la capacidad de una persona para expresarse verbalmente. Pueden tener dificultades para encontrar las palabras adecuadas o para organizar sus pensamientos de manera coherente. La práctica y el uso de herramientas de apoyo, como aplicaciones de dictado, pueden ser útiles.
+                    </p>
+                    <p> 
+                        <strong>Leer y/o escribir</strong> : Las tareas que implican leer o escribir pueden ser complicadas, tales como: hacer una lista de compras o escribir un mensaje telefónico.
+                    </p>
+                </div>
+            </div>
 
             <h2 class="title">Mitos y prejuicios</h2>
-                <p>Existen muchos mitos sobre el trastorno del espectro autista que pueden perpetuar la desinformación y estigmatización de las personas afectadas. Un mito común, 
-                    por ejemplo, es que las personas con autismo carecen de empatía. Sin embargo, muchas personas con TEA pueden experimentar y mostrar empatía, aunque su forma de 
-                    expresarla puede ser diferente. Esto es crucial para desarticular prejuicios y fomentar un entendimiento más profundo del autismo.
-
-                    Otro mito importante es la idea de que el autismo es una condición única, estática y no cambia a lo largo de la vida. La realidad es que las personas con TEA 
-                    pueden desarrollar nuevas habilidades y mejorar sus capacidades a lo largo del tiempo, especialmente con la intervención adecuada. La concientización sobre estos
-                    mitos es esencial para promover la aceptación y el apoyo hacia personas con TEA en la sociedad.
-                </p>
+            <p>
+                Existen varios mitos y prejuicios acerca de la dislexia que pueden contribuir al estigma que enfrentan quienes
+                 la padecen. Uno de los mitos más comunes es que las personas con dislexia tienen una inteligencia inferior, 
+                 cuando en realidad la dislexia no está relacionada con el cociente intelectual, sino con dificultades en el 
+                 procesamiento del lenguaje escrito. Otro prejuicio es que la dislexia solo afecta a los niños; sin embargo, 
+                 los adultos también pueden vivir con ella y enfrentar desafíos en su vida cotidiana, especialmente en el 
+                 ámbito laboral. Además, se suele pensar que las personas con dislexia simplemente necesitan "trabajar más
+                 duro", cuando en realidad se requieren enfoques educativos y terapéuticos específicos para ayudarles a 
+                 superar las barreras que enfrentan. Estos mitos y prejuicios pueden generar malentendidos y frustración,
+                 impidiendo una mejor comprensión y apoyo para las personas con dislexia.
+            </p>
         </section>
 
-
-        <section id="sectiontypes">
-            <div class="types">
-                <h2 class="title">Sub-tipos</h2>
-            <div class="contenedor">
-                <div class="chart">
-                    <img src="../img/kanner.jpg" alt="Imagen 1">
-                    <div class="titulo">Autismo o síndrome de Kanner</div>
-                    <div class="desc">Es un trastorno del neurodesarrollo que se suele detectar durante los primeros años de vida de un niño y le acompañará durante todo
-                        su ciclo vital, pues no tiene cura. Habitualmente se suele detectar en la escuela ya que es donde pasa la mayor parte del tiempo. Está demostrado 
-                        que hay una mayor efectividad en su diagnóstico si hay una implicación de la familia, pues hay veces que no se quiere reconocer que su hijo sufre 
-                        un trastorno.</div>
-                </div>
-        
-                <div class="chart">
-                    <img src="../img/asperger.jpg" alt="Imagen 2">
-                    <div class="titulo">Síndrome de Asperger</div>
-                    <div class="desc">El síndrome de Asperger es una forma de trastorno del espectro autista (TEA) que se caracteriza por diferencias en la comunicación social
-                        y patrones de comportamiento repetitivos e intensos. En otras palabras, según la Asperger/Autism Network (AANE), quienes tengan esta afección "no podría 
-                        percibir los indicadores sociales o el lenguaje corporal de otras personas o no notar claramente los sentimientos de otros a su alrededor".</div>
-                </div>
-
-                <div class="chart">
-                    <img src="../img/rett.jpg" alt="Imagen 3">
-                    <div class="titulo">Síndrome de Rett</div>
-                    <div class="desc">El síndrome de Rett, aunque durante mucho tiempo ha sido incluido dentro de los trastornos del espectro autista, en la nueva actualización
-                        del DSM5, ya no aparece como tal. Se diferencia de los demás trastornos, ya que tiene un origen genético, el trastorno está originado en el cromosoma X y,
-                        por eso, se presenta comúnmente en niñas y mujeres. <br>
-                        El estadio de más deterioro suele empezar a suceder hacia los 10 años de edad.</div>
-                </div>
-        
-                <div class="chart">
-                    <img src="../img/heller.jpg" alt="Imagen 4">
-                    <div class="titulo">Síndrome de Heller o trastorno desintegrativo</div>
-                    <div class="desc">El síndrome de Heller, también conocido como trastorno desintegrativo infantil, es un trastorno del desarrollo generalizado poco frecuente 
-                        que implica una alteración de la capacidad del desarrollo del lenguaje, las habilidades sociales y las capacidades motoras. Desafortunadamente, a día de hoy
-                        se desconocen las causas que lo provocan.</div>
-                </div>
-
-                <div class="chart">
-                    <img src="../img/desarrollo.webp" alt="Imagen 5">
-                    <div class="titulo">Trastorno generalizado del desarrollo no especificado</div>
-                    <div class="desc">El trastorno del desarrollo no especificado (TGD no especificado) se refiere a un grupo de trastornos que muestran unas características
-                        semejantes a los bien conocidos Síndrome Autista o Síndrome de Asperger pero que no cumplen con todos los criterios para el diagnóstico.
-
-                        Se engloban dentro de estas etiquetas debido a que sí suponen ciertas dificultades en las interacciones con los otros. Podemos ver afectado el lenguaje 
-                        verbal y no verbal</div>
-                    </div>
-                </div>
-            </div>
-       </div>
-    </div>
-        </section>
-
-
-        <section id="Apoyo"> 
+        <!-- Sección sobre terapias y estrategias -->
+        <section id="seccion4">
             <div class="ayuda">
-            <h2 class="title">Terapias y acompañamiento profesional</h2>
+                <h2 class="title">Terapias y acompañamiento profesional</h2>
                 <p>
-                    El apoyo emocional en el entorno de personas con autismo es fundamental para promover su bienestar y desarrollo. En un mundo que a usual no comprende
-                    las necesidades únicas de estas personas, el acompañamiento adecuado puede marcar la diferencia en su vida diaria. Este artículo explora la 
-                    importancia de ofrecer un entorno emocionalmente seguro y cómo pequeñas acciones pueden transformar la experiencia de quienes viven con autismo,
-                    potenciando su autoconfianza y habilidades sociales.
+                    Una de las primeras estrategias suele ser la intervención psicopedagógica especializada. A través de sesiones individuales o grupales, un especialista trabaja con la persona usando materiales concretos: bloques, regletas, fichas, monedas o figuras. Con estas herramientas, se busca que el aprendizaje matemático sea tangible y visual, facilitando la comprensión de conceptos básicos como la suma, la resta o el valor posicional. Esta terapia se adapta al nivel y estilo de aprendizaje de cada individuo.
                 </p>
-
-            <h2 class="title">Estrategias educativas y laborales</h2>
                 <p>
+                    En muchos casos, también se recomienda la terapia ocupacional. Aunque pueda parecer que este enfoque está más relacionado con habilidades físicas, en realidad es de gran utilidad para mejorar la coordinación visoespacial, la percepción del cuerpo en el espacio, y la motricidad fina. Estas capacidades son esenciales para ubicar correctamente los números en una hoja, leer relojes, o seguir procedimientos paso a paso sin confusión.
                 </p>
-        </div>
-        </section>
-<!--  Mejorar para ver si añadimos esto en forma de vídeos, enlaces a otras páginas, o ver si mejor lo nerfeamos
-        <section id="seccion5">
-            <h2 class="title">Testimonios o historias</h2>
-        </section> -->
-</div>
-
-
-<footer class="footer-container">
-    <section id="Footer">
-        <div class="footer-top">
-            <div class="footer-logo">
-                <a href="index.html">
-            <div class="logo">
-                <img src="../img/Logo.png" alt="Logo"></a> 
             </div>
-            </div> 
-                  
+        </section>
 
-            <!-- Esta es la barra de navegación inferior -->
-                <ul class="footer-navbar">
+       
+    </div>
 
-                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                    página de inicio -->
-                    <li><a href="#Introduction">Introducción al tema</a></li>
-                    <li><a href="#Identification">Diagnóstico y características principales</a></li>
-                    <li><a href="#Dificults">Desafíos y fortalezas</a></li>
-                    <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
-                </ul>               
-        </div>
+           <footer class="footer-container">
+                    <section id="Footer">
+            
+                        <!-- Sección superior con navegación inferior y logo-->
+                        <div class="footer-top">
+                            <div class="footer-logo">
+                                <a href="index.html">
+                                    <img src="../img/Logo.png" alt="Logo"></a>
+                            </div>
+            
+                            <!-- Barra de navegación inferior -->
+                            <ul class="footer-navbar">
+            
+                                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                                página de inicio -->
+                                <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+                                <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+                                <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+                                <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                                <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+                                <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+                                <li><a href="#Footer">Footer</a></li>
+                            </ul>
+                        </div>
+            
+                        <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+                        <div class="footer-bottom">
+                            <p>© 2025 Mentes en armonía</p>
+            
+                            <div class="socials">
+                                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mentesen.armonia/" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+            </footer>
 
-        <div class="footer-bottom">
-            <p>© 2025 Mentes en armonía</p>
 
-            <div class="socials">
-                <a href="https://www.youtube.com/">
-                    <img src="../img/youtube.png" alt="Youtube"></a>
-                <a href="https://www.facebook.com/?locale=es_LA">
-                    <img src="../img/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/">
-                    <img src="../img/instagram.png" alt="Instagram"></a>
-                <a href="https://x.com/?lang=es&mx=2">
-                    <img src="../img/twitter.png" alt="Twitter/X"></a>
-            </div>  
-        </div>
-    </section>
-</footer>
+                <!-- Enlace al archivo Json -->
+                <script src="../javascript/Languaje.js"></script>
 
+                <!-- Enlace al archivo JavaScript -->
+                <script src="../javascript/Javascript.js"></script>
 
- <!-- Enlace al archivo JavaScript externo -->
- <script src="../javascript/javascript.js"></script>
+                <!-- Enlace al archivo JavaScript del buscador -->
+                <script src="../javascript/Buscador.js"></script>
 </body>
 </html>
