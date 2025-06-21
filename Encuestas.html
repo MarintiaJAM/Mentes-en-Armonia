@@ -14,27 +14,30 @@
     <!-- Enlace a Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Enlace al css -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/Encuestas.css">
 </head>
 
 <body>
 
 
     <header>
+
         <!-- Ménu de navegación principal-->
         <nav class="menu" id="Menu">
             <div class="logo"> <!-- Contenedor del logo -->
                 <a href="index.html">
-                <img src="../img/Logo.png" alt="Logo"></a>
+                    <img src="../img/Logo.png" alt="Logo"></a>
             </div>
 
-            <!-- Botón de menú para móviles -->
-            <div class="menu-toggle">
+            <!-- Botón hamburguesa "☰" animado con 3 líneas que se transforma en "X" -->
+            <button class="hamburger-btn" id="hamburgerBtn">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
+
 
             <!-- Barra de navegación principal-->
-            <ul class="navbar">
+            <nav class="navbar">
+
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
                 página de inicio -->
                 <li>
@@ -43,11 +46,12 @@
                         <span data-translate="menu-sec1">Inicio</span>
                     </a>
                 </li>
-                
+
                 <li class="dropdown">
                     <span id="neuroToggle" class="dropdown-toggle">
                         <i class="fas fa-brain icon-left"></i>
-                        <span class="dropdown-label" id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
+                        <span class="dropdown-label" id="neuroToggleText"
+                            data-translate="menu-sec2">Neurodivergencia</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
 
@@ -57,13 +61,13 @@
                         <li><a href="Dislexia.html" data-translate="dislexia">Dislexia</a></li>
                         <li><a href="Tourette.html">Tourette</a></li>
                         <li><a href="Dispraxia.html" data-translate="dispraxia">Dispraxia</a></li>
-                        <li><a href="Discalculia.html" data-translate="autismo">Discalculia</a></li>
+                        <li><a href="Discalculia.html" data-translate="discalculia">Discalculia</a></li>
                         <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="Encuestas.html" onclick="saveActiveLink('Nosotros.html')">
+                    <a href="Encuestas.html" onclick="saveActiveLink('Encuestas.html')">
                         <i class="fas fa-users"></i>
                         <span data-translate="menu-sec3">Encuestas</span>
                     </a>
@@ -84,265 +88,431 @@
                 <li class="dropdown">
                     <span id="extrasToggle" class="dropdown-toggle">
                         <i class="fas fa-puzzle-piece icon-left"></i>
-                            <span data-translate="menu-sec6">Extras</span>
+                        <span data-translate="menu-sec6">Extras</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
+
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="bitacora" onclick="saveDropdownState('extrasToggle', 'Bitácora')">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="referencias" onclick="saveDropdownState('extrasToggle', 'Referencias')">Referencias</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora">Bitácora</a></li>
+                        <li><a href="Referencias.html" data-translate="referencias">Referencias</a></li>
                     </ul>
-                </li>                                                
-            </ul>
+                </li>
+            </nav>
 
-                        <!-- Barra de búsqueda en la esquina superior derecha -->
-                        <div class="search-bar"> 
-                            <div class="search-container">
-                                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
-                                data-translate-attr="placeholder" autocomplete="off">
-                                <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
-                                <div class="search-suggestions" id="searchSuggestions"></div>
-                            </div>
-                        </div>
-                       
-            
-                        <!-- Botón de Inicio de Sesión -->
-                        <div class="Login">
-                            <a href="#" class="login-button" onclick="toggleLoginModal()">
-                                <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
-                            </a>
-                        </div>          
 
-                        <!-- Formulario de inicio de sesión -->
-                        <div id="loginModal" class="login-modal">
-                            <div class="login-form">
+            <!-- Barra de búsqueda en la esquina superior derecha -->
+            <div class="search-bar">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                        data-translate-attr="placeholder" autocomplete="off">
+                    <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+            </div>
 
-                                <!-- Scroll activado si se excede el tamaño -->
-                                <div class="login-form-scroll">
 
-                                    <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
-
-                                    <h2>INICIO DE SESIÓN</h2>
-                                    <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
-                                
-                                    <!-- Formulario con validaciones -->
-                                    <form id="formulario" onsubmit="return validarFormulario()">
-                                        <!-- Campo oculto -->
-                                        <input type="hidden" id="txtIndice" value="">
-
-                                        <!-- Correo -->
-                                        <label for="email">Correo electrónico *</label>
-                                        <input type="email" id="email" placeholder="you@example.com" required>
-                                        <small id="emailFeedback" class="input-feedback"></small>
-
-                                        <!-- Confirmar correo -->
-                                        <label for="confirmEmail">Confirmar correo electrónico *</label>
-                                        <input type="email" id="confirmEmail" placeholder="Repite tu correo" required>
-                                        <small id="confirmEmailFeedback" class="input-feedback"></small>
-
-                                        <!-- Contraseña -->
-                                        <div class="password-row">
-                                            <label for="password">Contraseña *</label>
-                                            <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar sesión?</a>
-                                        </div>
-                                        <div class="password-container">
-                                            <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
-                                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                                        </div>
-                                        <div id="passwordStrength" class="password-strength"></div>
-                                        <small id="passwordFeedback" class="input-feedback"></small>
-
-                                        <!-- Confirmar contraseña -->
-                                        <label for="confirmPassword">Confirmar contraseña *</label>
-                                        <div class="password-container">
-                                            <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required>
-                                            <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
-                                        </div>
-                                        <small id="confirmPasswordFeedback" class="input-feedback"></small>
-
-                                        <!-- Recordarme -->
-                                        <div class="remember-me">
-                                            <input type="checkbox" id="remember">
-                                            <label for="remember">Recordarme</label>
-                                        </div>
-
-                                        <!-- BOTÓN -->
-                                        <button type="submit">Entrar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>                     
-                    </nav>
-                </header>
-            
-            
-                <!-- Submenú de navegación -->
-                <nav id="subMenu" class="submenu">
-                    <ul class="table">
-                        <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
-                        <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
-                        <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
-                        <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
-                        <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
-                        <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
-                        <li><a href="#Footer" data-translate="pie_de_página">Pie de página</a></li>
-                    </ul>
-
-                    <div class="translator">
-                        <button id="translateBtn" onclick="toggleDropdown()">
-                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.png" alt="Idioma actual">
-                        </button>
-                        <div id="languageDropdown" class="language-dropdown hidden">
-                            <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
-                            <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
-                        </div>
-                    </div>
-                </nav>
-            
-            
-                <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
-                <a href="#Menu" class="scroll" id="scrollTop">
-                    &#8679; <!-- Este código asigna un simbolo de flecha que servirá como e cuerpo del scroll-->
+            <!-- Botón de Inicio de Sesión -->
+            <div class="Login">
+                <a href="#" class="login-button" onclick="toggleLoginModal()">
+                    <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
                 </a>
-            
+            </div>
 
+            <!-- Formulario de inicio de sesión -->
+            <div id="loginModal" class="login-modal">
+                <div class="login-form">
+                    <div class="login-form-scroll">
+                        <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
+                        <h2>INICIO DE SESIÓN</h2>
+                        <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a>
+                        </p>
 
-                <!-- Sección de recursos recomendados -->
-                    <section class="recursos">
-                        <section id="Recursos">
-                            <h2 class="title" data-translate="recursos_recomendados">Recursos Recomendados</h2>
-                            <p data-translate="recursos_p"> En esta sección encontrarás una selección de videos, documentales y sitios web confiables que
-                                exploran la neurodivergencia desde una perspectiva profesional y científica. Estos materiales han
-                                sido elegidos para proporcionar información clara, accesible y basada en evidencia sobre el autismo,
-                                el TDAH, la dislexia y otras formas de neurodivergencia.
-                            </p>
-            
-            
-                            <ul id="tabs">
-                                <li><a href="#tab1" class="active" data-translate="neurodivergencia">Neurodivergencia</a></li>
-                                <!-- Pestaña activa por defecto -->
-                                <li><a href="#tab2" data-translate="autismo">Autismo</a></li>
-                                <li><a href="#tab3" data-translate="tdah">TDAH</a></li>
-                                <li><a href="#tab4" data-translate="dislexia">Dislexia</a></li>
-                                <li><a href="#tab5" data-translate="tourette">Tourette</a></li>
-                                <li><a href="#tab6" data-translate="dispraxia">Dispraxia</a></li>
-                                <li><a href="#tab7" data-translate="discalculia">Discalculia</a></li>
-                                <li><a href="#tab8" data-translate="ansiedad">Ansiedad</a></li>
-                            </ul>
-            
-                            <!-- Contenedor de los contenidos de cada pestaña -->
-                            <div id="tabs-container">
-            
-                                <div class="tab-content" id="tab1">
-            
-                                    <!-- CONTENIDO ENCUESTA 1 -->
-                                    
-                                </div>
+                        <form id="formularioLogin">
+                            <!-- Campo oculto -->
+                            <input type="hidden" name="form_type" value="login" />
 
-                                <div class="tab-content" id="tab2">
-            
-                                    <!-- CONTENIDO ENCUESTA 2 -->
+                            <!-- Correo -->
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="user_email" placeholder="you@example.com" required />
+                            <small id="emailFeedback" class="input-feedback" aria-live="polite"></small>
 
-                                </div>
-            
-                                <div class="tab-content" id="tab3">
-            
-                                    <!-- CONTENIDO ENCUESTA 3 -->
+                            <!-- Confirmar correo -->
+                            <label for="confirmEmail">Confirmar correo electrónico *</label>
+                            <input type="email" id="confirmEmail" placeholder="Repite tu correo" required />
+                            <small id="confirmEmailFeedback" class="input-feedback" aria-live="polite"></small>
 
-                                </div>
-            
-                                <div class="tab-content" id="tab4">
-            
-                                    <!-- CONTENIDO ENCUESTA 4 -->
-
-                                </div>
-            
-                                <div class="tab-content" id="tab5">
-            
-                                    <!-- CONTENIDO ENCUESTA 5 -->
-
-                                </div>
-            
-                                <div class="tab-content" id="tab6">
-            
-                                    <!-- CONTENIDO ENCUESTA 6 -->
-
-                                </div>
-            
-                                <div class="tab-content" id="tab7">
-            
-                                    <!-- CONTENIDO ENCUESTA 7 -->
-
-                                </div>
-            
-                                <div class="tab-content" id="tab8">
-            
-                                    <!-- CONTENIDO ENCUESTA 8 -->
-
-                                </div>
+                            <!-- Contraseña -->
+                            <div class="password-row">
+                                <label for="password">Contraseña *</label>
+                                <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar
+                                    sesión?</a>
                             </div>
-                        </section>
-                    </section>
+
+                            <div class="password-container">
+                                <input type="password" id="password" name="user_password"
+                                    placeholder="Mínimo 8 caracteres" required autocomplete="new-password" />
+
+                                <i class="fas fa-eye toggle-password" id="togglePassword" aria-hidden="true"></i>
+                            </div>
+
+                            <p id="passwordStrengthLabel" class="password-strength-label" style="display: none;">
+                                Fortaleza de la contraseña:</p>
+                            <div id="passwordStrength" class="password-strength"></div>
+                            <small id="passwordFeedback" class="input-feedback"></small>
+
+                            <!-- Confirmar contraseña -->
+                            <label for="confirmPassword">Confirmar contraseña *</label>
+                            <div class="password-container">
+                                <input type="password" id="confirmPassword" placeholder="Repite tu contraseña"
+                                    required />
+                            </div>
+                            <small id="confirmPasswordFeedback" class="input-feedback"></small>
+
+                            <!-- Recordarme -->
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember" />
+                                <label for="remember">Recordarme</label>
+                            </div>
+
+                            <!-- BOTÓN -->
+                            <button type="submit">Entrar</button>
+                            <p id="formStatus" style="color: green; margin-top: 10px;"></p>
+                        </form>
+                    </div>
+                </div>
+        </nav>
+    </header>
+
+
+    <!-- Submenú de navegación -->
+    <nav id="subMenu" class="submenu">
+        <ul class="table">
+            <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+            <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+            <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+            <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+            <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+            <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+            <li><a href="#Footer" data-translate="pie_de_página">Pie de página</a></li>
+        </ul>
+
+        <div class="translator">
+            <button id="translateBtn" onclick="toggleDropdown()">
+                <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
+            </button>
+            <div id="languageDropdown" class="language-dropdown hidden">
+                <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+                <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Overlay de Fondo  -->
+    <!-- Capa semitransparente que aparece cuando el menú está abierto -->
+    <!-- Al hacer clic en esta área, se cierra el menú -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+
+    <!-- Contenedor principal del menú hamburguesa que se desliza desde la izquierda -->
+    <nav class="sidebar" id="sidebar">
+
+        <!-- Botón de cierre para el sidebar -->
+        <button class="close-menu" id="close-menu">&times;</button>
+
+        <!-- Cabecera del menú lateral con título -->
+        <div class="sidebar-header">
+            Menú de Navegación
+        </div>
+
+        <!-- Contenido scrolleable del menú -->
+        <div class="sidebar-content">
+
+            <!-- ELEMENTO SIMPLE (SIN MENÚ): Elemento de menú básico que enlaza directamente a una página -->
+            <div class="menu-item">
+                <a href="index.html" class="menu-link" onclick="saveActiveLink('index.html')">
+                    <div class="menu-label">
+                        <i class="fas fa-house"></i>
+                        <span data-translate="menu-sec1">Inicio</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ELEMENTO SUBMENÚ DESPLEGABLE:  Elemento de menú con submenú desplegable vertical -->
+            <div class="menu-item">
+                <!-- Título clickeable -->
+                <div class="menu-link" onclick="toggleSubmenu('neuroSubmenu')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-brain"></i>
+                        <span id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
+                    </div>
+                    <!-- Flecha indicadora que rota cuando se abre el submenú -->
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+
+                <!-- Submenú desplegable con ID único para identificación en JavaScript -->
+                <div class="sidebar-dropdown" id="neuroSubmenu">
+                    <!-- Elementos individuales del submenú -->
+                    <a href="Autismo.html" class="submenu-item" data-translate="autismo">Autismo</a>
+                    <a href="TDAH.html" class="submenu-item" data-translate="tdah">TDAH</a>
+                    <a href="Dislexia.html" class="submenu-item" data-translate="dislexia">Dislexia</a>
+                    <a href="Tourette.html" class="submenu-item">Tourette</a>
+                    <a href="Dispraxia.html" class="submenu-item" data-translate="dispraxia">Dispraxia</a>
+                    <a href="Discalculia.html" class="submenu-item" data-translate="autismo">Discalculia</a>
+                    <a href="Ansiedad.html" class="submenu-item" data-translate="ansiedad">Ansiedad</a>
+                </div>
+            </div>
+
+            <!-- Elemento Simple -->
+            <div class="menu-item">
+                <a href="Encuestas.html" class="menu-link" onclick="saveActiveLink('Encuestas.html')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="menu-sec3">Encuestas</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Elemento Simple -->
+            <div class="menu-item">
+                <a href="Comunidad.html" class="menu-link" onclick="saveActiveLink('Comunidad.html')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-comments"></i>
+                        <span data-translate="menu-sec4">Comunidad</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Elemento Simple -->
+            <div class="menu-item">
+                <a href="Noticias.html" class="menu-link" onclick="saveActiveLink('Noticias.html')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-translate="menu-sec5">Noticias</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Elemento Desplegable -->
+            <div class="menu-item">
+                <!-- Título clickeable -->
+                <div class="menu-link" onclick="toggleSubmenu('extrasSubmenu')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span data-translate="menu-sec6">Extras</span>
                     </div>
 
+                    <!-- Flecha indicadora que rota cuando se abre el submenú -->
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+
+                <div class="sidebar-dropdown" id="extrasSubmenu">
+                    <a href="Bitacora.html" class="submenu-item" data-translate="bitacora">Bitácora</a>
+                    <a href="Referencias.html" class="submenu-item" data-translate="referencias">Referencias</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
 
+    <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
+    <a href="#Menu" class="scroll" id="scrollTop">
+        &#8679; <!-- Este código asigna un simbolo de flecha que servirá como e cuerpo del scroll-->
+    </a>
 
-                <!-- Sección del Footer -->
-                <footer class="footer-container">
-                    <section id="Footer">
-            
-                        <!-- Sección superior con navegación inferior y logo-->
-                        <div class="footer-top">
-                            <div class="footer-logo">
-                                <a href="index.html">
-                                    <img src="../img/Logo.png" alt="Logo"></a>
-                            </div>
-            
-                            <!-- Barra de navegación inferior -->
-                            <ul class="footer-navbar">
-            
-                                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+    <!-- CLase que selacciona parte del contenido de la página para ajustar su tamaño a un 80% -->
+    <div class="container">
+        <div id="content" style="margin-top: 40px;">
+
+            <!-- Sección de encuestas -->
+            <section class="encuestas" id="Encuestas">
+                <h2 class="survey-title" data-translate="Encuestas">Encuestas</h2>
+                <p data-translate="Encuestas_introducción"> Nuestras encuestas tienen el fin de brindarte apoyo con las
+                    dudas que tengas sobre tu salud mental, ya sea que estés buscando información sobre alguna condición
+                    neurodivergente o simplemente quieras conocer más sobre ti mismo. Con esto no aseguramos un
+                    diágnostico seguro, sino una detección de señales que podrían indicar la presencia de alguna
+                    condición neurodivergente y que gracias a estas puedas acudir con un especialista en el área para
+                    que te brinde un diagnóstico profesional y un tratamiento adecuado.
+                </p>
+
+                <ul id="tabs-surveys">
+                    <li><a href="#tab1" data-translate="autismo">Autismo</a></li>
+                    <li><a href="#tab2" data-translate="tdah_2">TDAH (Trastorno por Déficit de Atención e Hiperactividad)</a></li>
+                    <li><a href="#tab3" data-translate="dislexia">Dislexia</a></li>
+                    <li><a href="#tab4" data-translate="discalculia">Discalculia</a></li>
+                    <li><a href="#tab5" data-translate="ansiedad">Ansiedad Generalizada</a></li>
+                </ul>
+
+                <!-- Contenedor de los contenidos de cada pestaña -->
+                <div class="tabs-container-surveys">
+
+                    <!-- ENCUESTA AUTISMO -->
+                    <div class="tab-content" id="tab1">
+
+                        <div class="test-container">
+                            <h2 class="test-title" data-translate="encuesta-autismo">────── Encuesta: Rasgos de Autismo ──────</h2>
+                            <form id="form-autism">
+                                <div class="test-questions" id="questions-autism"></div>
+                                <button type="submit" data-translate="enviar">Enviar</button>
+                            </form>
+
+                            <canvas class="test-chart" id="chart-autism"></canvas>
+
+                            <div class="test-result" id="result-autism"></div>
+                            <button id="restart-autism" style="display: none;">Rehacer Encuesta</button>
+                        </div>
+                    </div>
+
+                    <!-- ENCUESTA TDAH -->
+                    <div class="tab-content" id="tab2">
+
+                        <div class="test-container">
+                            <h2 class="test-title" data-translate="encuesta-tdah">────── Encuesta: Rasgos de TDAH ──────<br>(Trastorno por Déficit de Atención e Hiperactividad)</h2>
+                            <form id="form-adhd">
+                                <div class="test-questions" id="questions-adhd"></div>
+                                <button type="submit" data-translate="enviar">Enviar</button>
+                            </form>
+
+                            <canvas class="test-chart" id="chart-adhd"></canvas>
+
+                            <div class="test-result" id="result-adhd"></div>
+                            <button id="restart-adhd" style="display: none;">Rehacer Encuesta</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab3">
+
+                        <div class="test-container">
+                            <h2 class="test-title" data-translate="encuesta-dislexia">────── Encuesta: Rasgos de Dislexia ──────</h2>
+                            <form id="form-dyslexia">
+                                <div class="test-questions" id="questions-dyslexia"></div>
+                                <button type="submit" data-translate="enviar">Enviar</button>
+                            </form>
+
+                            <canvas class="test-chart" id="chart-dyslexia"></canvas>
+
+                            <div class="test-result" id="result-dyslexia"></div>
+                            <button id="restart-dyslexia" style="display: none;">Rehacer Encuesta</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab4"> 
+
+                        <div class="test-container">
+                            <h2 class="test-title" data-translate="encuesta-discalculia">────── Encuesta: Rasgos de Discalculia ──────</h2>
+                            <form id="form-dyscalculia">
+                                <div class="test-questions" id="questions-dyscalculia"></div>
+                                <button type="submit" data-translate="enviar">Enviar</button>
+                            </form>
+
+                            <canvas class="test-chart" id="chart-dyscalculia"></canvas>
+
+                            <div class="test-result" id="result-dyscalculia"></div>
+                            <button id="restart-dyscalculia" style="display: none;">Rehacer Encuesta</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab5"> 
+
+                        <div class="test-container">
+                            <h2 class="test-title" data-translate="encuesta-ansiedad">────── Encuesta: Rasgos de Ansiedad Generalizada ──────</h2>
+                            <form id="form-anxiety">
+                                <div class="test-questions" id="questions-anxiety"></div>
+                                <button type="submit" data-translate="enviar">Enviar</button>
+                            </form>
+
+                            <canvas class="test-chart" id="chart-anxiety"></canvas>
+
+                            <div class="test-result" id="result-anxiety"></div>
+                            <button id="restart-anxiety" style="display: none;">Rehacer Encuesta</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <!-- Sección del Footer -->
+    <footer class="footer-container">
+        <section id="Footer">
+
+            <!-- Sección superior con navegación inferior y logo-->
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="../img/Logo.png" alt="Logo"></a>
+                </div>
+
+                <!-- Barra de navegación inferior -->
+                <ul class="footer-navbar">
+
+                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
                                 página de inicio -->
-                                <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
-                                <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
-                                <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
-                                <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
-                                <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
-                                <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
-                                <li><a href="#Footer">Footer</a></li>
-                            </ul>
-                        </div>
-            
-                        <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
-                        <div class="footer-bottom">
-                            <p>© 2025 Mentes en armonía</p>
-            
-                            <div class="socials">
-                                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </footer>
-            
-                <!-- Enlace al archivo Json -->
-                <script src="../javascript/Language.js"></script>
+                    <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+                    <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+                    <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+                    <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                    <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+                    <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+                    <li><a href="#Footer">Footer</a></li>
+                </ul>
+            </div>
 
-                <!-- Enlace al archivo JavaScript -->
-                <script src="../javascript/Javascript.js"></script>
+            <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+            <div class="footer-bottom">
+                <p>© 2025 Mentes en armonía</p>
 
-                <!-- Enlace al archivo JavaScript del buscador -->
-                <script src="../javascript/Buscador.js"></script>
-            
-    </body>          
+                <div class="socials">
+                    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- Enlace al archivo Json -->
+    <script src="../javascript/Languaje.js"></script>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="../javascript/Javascript.js"></script>
+
+    <!-- Enlace al archivo JavaScript del buscador -->
+    <script src="../javascript/Buscador.js"></script>
+
+    <!-- Encuestas - Tipos de Neurodivergencia -->
+
+        <!-- Enlace a la biblioteca de Chart.js, que sirve para dibujar las gráficas <canvas> -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Enlace a archivo render AHH SADGSUKFKUYWADGGWAGJKDWAJG -->
+        <script src="../javascript/renderEncuesta.js"></script>
+
+        <!-- Enlace al archivo de Encuesta - AUTISMO -->
+        <script src="../javascript/Autismo.js"></script>
+
+        <!-- Enlace al archivo de Encuesta - TDAH -->
+         <script src="../javascript/TDAH.js"></script>
+
+         <!-- Enlace al archivo de Encuesta - DISLEXIA -->
+        <script src="../javascript/Dislexia.js"></script>
+
+        <!-- Enlace al archivo de Encuesta - DISCALCULIA -->
+        <script src="../javascript/Discalculia.js"></script>
+
+        <!-- Enlace al archivo de Encuesta - ANSIEDAD -->
+        <script src="../javascript/Ansiedad.js"></script>
+
+</body>
 </html>
