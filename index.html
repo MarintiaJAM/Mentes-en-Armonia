@@ -21,20 +21,23 @@
 
 
     <header>
+
         <!-- Ménu de navegación principal-->
         <nav class="menu" id="Menu">
             <div class="logo"> <!-- Contenedor del logo -->
                 <a href="index.html">
-                <img src="../img/Logo.png" alt="Logo"></a>
+                    <img src="../img/Logo.png" alt="Logo"></a>
             </div>
 
-            <!-- Botón de menú para móviles -->
-            <div class="menu-toggle">
+            <!-- Botón hamburguesa "☰" animado con 3 líneas que se transforma en "X" -->
+            <button class="hamburger-btn" id="hamburgerBtn">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
+
 
             <!-- Barra de navegación principal-->
-            <ul class="navbar">
+            <nav class="navbar">
+
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
                 página de inicio -->
                 <li>
@@ -43,11 +46,12 @@
                         <span data-translate="menu-sec1">Inicio</span>
                     </a>
                 </li>
-                
+
                 <li class="dropdown">
                     <span id="neuroToggle" class="dropdown-toggle">
                         <i class="fas fa-brain icon-left"></i>
-                        <span class="dropdown-label" id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
+                        <span class="dropdown-label" id="neuroToggleText"
+                            data-translate="menu-sec2">Neurodivergencia</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
 
@@ -57,13 +61,13 @@
                         <li><a href="Dislexia.html" data-translate="dislexia">Dislexia</a></li>
                         <li><a href="Tourette.html">Tourette</a></li>
                         <li><a href="Dispraxia.html" data-translate="dispraxia">Dispraxia</a></li>
-                        <li><a href="Discalculia.html" data-translate="autismo">Discalculia</a></li>
+                        <li><a href="Discalculia.html" data-translate="discalculia">Discalculia</a></li>
                         <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="Encuestas.html" onclick="saveActiveLink('Nosotros.html')">
+                    <a href="Encuestas.html" onclick="saveActiveLink('Encuestas.html')">
                         <i class="fas fa-users"></i>
                         <span data-translate="menu-sec3">Encuestas</span>
                     </a>
@@ -84,1163 +88,1535 @@
                 <li class="dropdown">
                     <span id="extrasToggle" class="dropdown-toggle">
                         <i class="fas fa-puzzle-piece icon-left"></i>
-                            <span data-translate="menu-sec6">Extras</span>
+                        <span data-translate="menu-sec6">Extras</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
+
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="bitacora" onclick="saveDropdownState('extrasToggle', 'Bitácora')">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="referencias" onclick="saveDropdownState('extrasToggle', 'Referencias')">Referencias</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora">Bitácora</a></li>
+                        <li><a href="Referencias.html" data-translate="referencias">Referencias</a></li>
                     </ul>
-                </li>                                                
-            </ul>
+                </li>
+            </nav>
 
-                        <!-- Barra de búsqueda en la esquina superior derecha -->
-                        <div class="search-bar"> 
-                            <div class="search-container">
-                                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
-                                data-translate-attr="placeholder" autocomplete="off">
-                                <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
-                                <div class="search-suggestions" id="searchSuggestions"></div>
-                            </div>
-                        </div>
-                       
-            
-                        <!-- Botón de Inicio de Sesión -->
-                        <div class="Login">
-                            <a href="#" class="login-button" onclick="toggleLoginModal()">
-                                <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
-                            </a>
-                        </div>          
 
-                        <!-- Formulario de inicio de sesión -->
-                        <div id="loginModal" class="login-modal">
-                            <div class="login-form">
+            <!-- Barra de búsqueda en la esquina superior derecha -->
+            <div class="search-bar">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                        data-translate-attr="placeholder" autocomplete="off">
+                    <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+            </div>
 
-                                <!-- Scroll activado si se excede el tamaño -->
-                                <div class="login-form-scroll">
 
-                                    <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
-
-                                    <h2>INICIO DE SESIÓN</h2>
-                                    <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
-                                
-                                    <!-- Formulario con validaciones -->
-                                    <form id="formulario" onsubmit="return validarFormulario()">
-                                        <!-- Campo oculto -->
-                                        <input type="hidden" id="txtIndice" value="">
-
-                                        <!-- Correo -->
-                                        <label for="email">Correo electrónico *</label>
-                                        <input type="email" id="email" placeholder="you@example.com" required>
-                                        <small id="emailFeedback" class="input-feedback"></small>
-
-                                        <!-- Confirmar correo -->
-                                        <label for="confirmEmail">Confirmar correo electrónico *</label>
-                                        <input type="email" id="confirmEmail" placeholder="Repite tu correo" required>
-                                        <small id="confirmEmailFeedback" class="input-feedback"></small>
-
-                                        <!-- Contraseña -->
-                                        <div class="password-row">
-                                            <label for="password">Contraseña *</label>
-                                            <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar sesión?</a>
-                                        </div>
-                                        <div class="password-container">
-                                            <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
-                                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                                        </div>
-                                        <div id="passwordStrength" class="password-strength"></div>
-                                        <small id="passwordFeedback" class="input-feedback"></small>
-
-                                        <!-- Confirmar contraseña -->
-                                        <label for="confirmPassword">Confirmar contraseña *</label>
-                                        <div class="password-container">
-                                            <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required>
-                                            <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
-                                        </div>
-                                        <small id="confirmPasswordFeedback" class="input-feedback"></small>
-
-                                        <!-- Recordarme -->
-                                        <div class="remember-me">
-                                            <input type="checkbox" id="remember">
-                                            <label for="remember">Recordarme</label>
-                                        </div>
-
-                                        <!-- BOTÓN -->
-                                        <button type="submit">Entrar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>                     
-                    </nav>
-                </header>
-            
-            
-                <!-- Submenú de navegación -->
-                <nav id="subMenu" class="submenu">
-                    <ul class="table">
-                        <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
-                        <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
-                        <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
-                        <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
-                        <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
-                        <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
-                        <li><a href="#Footer" data-translate="pie_de_página">Pie de página</a></li>
-                    </ul>
-
-                    <div class="translator">
-                        <button id="translateBtn" onclick="toggleDropdown()">
-                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
-                        </button>
-                        <div id="languageDropdown" class="language-dropdown hidden">
-                            <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
-                            <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
-                        </div>
-                    </div>
-                </nav>
-            
-            
-                <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
-                <a href="#Menu" class="scroll" id="scrollTop">
-                    &#8679; <!-- Este código asigna un simbolo de flecha que servirá como e cuerpo del scroll-->
+            <!-- Botón de Inicio de Sesión -->
+            <div class="Login">
+                <a href="#" class="login-button" onclick="toggleLoginModal()">
+                    <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
                 </a>
-            
-            
-                <!-- La etiqueta de sección nos permite determinar el contenido que formará parte de un esquema, como en este caso subsecciones -->
-            
-                <!-- Sección de bienvenida/header -->
-                <section class="content header">
-                    <section id="Inicio">
-                        
-                        <div id="results"></div> 
-                        <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
-                        <h2 class="title" data-translate="bienvenida">Mentes en armonía</h2>
-            
-                        <h6 data-translate="lema">"Una mente distinta no es motivo de discriminación"</h6>
-                        <p data-translate="saludo">Buscamos visibilizar las acciones que, como sociedad, podemos tomar para promover
-                            una interacción más empática entre todas las personas. Nuestro objetivo es facilitar entornos inclusivos
-                            que fomenten una convivencia saludable, especialmente para quienes son neurodivergentes.
+            </div>
+
+            <!-- Formulario de inicio de sesión -->
+            <div id="loginModal" class="login-modal">
+                <div class="login-form">
+                    <div class="login-form-scroll">
+                        <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
+                        <h2>INICIO DE SESIÓN</h2>
+                        <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a>
                         </p>
-                    </section>
-                </section>
-            
-                <!-- CLase que selacciona parte del contenido de la página para ajustar su tamaño a un 80% -->
-                <div class="container">
-                <div id="content" style="margin-top: 40px;">
-            
-            
-                    <!-- Sección sobre nosotros -->
-                    <section class="content about">
-                        <section id="Acerca de" class="about-section">
-                            <!-- Video de fondo -->
-                            <video class="video-intro" autoplay muted loop playsinline>
-                                <source src="../video/Nosotros 2.0.mp4" type="video/mp4">
-                                Tu navegador no soporta HTML5 video.
-                            </video>
 
-                            <!-- Texto encima del video -->
-                            <div class="about-text">
-                                <h2 class="title" data-translate="nosotros">Nosotros</h2>
-                                <p data-translate="nosotros_p">
-                                    Esta página tiene como propósito generar conciencia sobre los desafíos
-                                    que enfrentan las personas que perciben y procesan el mundo de manera distinta. Es fundamental
-                                    comprender que la inclusión no es un favor, sino un derecho que todos merecemos. Neurodivergentes o
-                                    no, cada persona merece respeto y oportunidades para desarrollar su potencial.
-                                </p>
-                            </div>
-                        </section>
-                    </section>
-            
-            
-                    <!-- Sección de definiciones -->
-                    <section class="content Definiciones">
-                        <article class="contain">
-                            <section id="Definiciones">
-            
-                                <!-- Neurotipicidad-->
-                                <section class="neuro">
-                                    <div class="defImg"> <!-- Imágen Neurotipicidad-->
-                                        <img src="../img/Neurotipicidad.webp" alt="Neurotipicidad">
-                                    </div>
-            
-                                    <div class="defText"> <!-- Definición Neurotipicidad-->
-                                        <h3 data-translate="Def1">¿Qué es la Neurotipicidad?</h3>
-                                        <p data-translate="Def1_p">La neurotipicidad se refiere a las personas cuyos procesos
-                                            neurológicos y patrones de
-                                            pensamiento se alinean con lo que se considera común o estándar en una sociedad
-                                            determinada. No significa que estas personas no enfrenten desafíos, sino que sus formas
-                                            de percibir y procesar la información suelen encajar con las normas establecidas, lo que
-                                            les permite desenvolverse en el mundo sin mayores dificultades relacionadas con la
-                                            comunicación, el procesamiento sensorial o la interacción social.</p>
-                                    </div>
-                                </section>
-            
-                                <!-- Neurodivergencia -->
-                                <section class="neuro">
-                                    <div class="defText"> <!-- Definición Neurodivergencia-->
-                                        <h3 data-translate="Def2">¿Qué es la Neurodivergencia?</h3>
-                                        <p data-translate="Def2_p">La neurodivergencia se refiere a las diferencias naturales en la
-                                            forma en que funciona el
-                                            cerebro humano. Este término engloba a personas cuyas estructuras neurológicas y
-                                            patrones de pensamiento pueden diferir del estándar socialmente establecido como
-                                            "típico". La neurodivergencia no es un defecto ni una enfermedad, sino una variación en
-                                            la manera en que se percibe, procesa y responde al mundo. A continuación veremos algunos
-                                            ejemplos que incluyen el autismo, el TDAH, la dislexia y la dispraxia, etc.</p>
-                                    </div>
-            
-                                    <div class="defImg"> <!-- Imágen Neurodivergencia-->
-                                        <img src="../img/Neurodivergencia.webp" alt="Neurodivergencia">
-                                    </div>
-                                </section>
-            
-                            </section>
-                        </article>
-                    </section>
-            
-                    <!-- Sección de tipos de neurodivergencia -->
-                    <section class="content neurodivergencia">
-                        <section id="Neurodivergencia">
-                            <h2 class="title" data-translate="tipos_de_neurodivergencia">Tipos de neurodivergencia</h2>
-                            <div class="box-container">
-            
-            
-                                <div class="box">
-                                    <div class="front">
-                                        <h3 data-translate="autismo">Autismo</h3>
-                                        <img src="../img/autism.jpg" alt="Autismo">
-                                    </div>
-                                    <div class="back">
-                                        <p data-translate="autismo_p"> El autismo es una condición del neurodesarrollo que afecta la
-                                            comunicación, la interacción social y la forma en que se percibe el mundo. No es una
-                                            enfermedad, sino una forma distinta de procesar la realidad.
-                                        </p>
-                                        <a href="Autismo.html" class="enlace" data-translate="leer_mas">Leer más</a>
-                                    </div>
-                                </div>
-            
-            
-                                <div class="box">
-                                    <div class="front">
-                                        <h3 data-translate="tdah">TDAH</h3>
-                                        <img src="../img/tdah.jpg" alt="TDAH">
-                                    </div>
-                                    <div class="back">
-                                        <p data-translate="tdah_p"> El TDAH es una condición que afecta la atención, el control de
-                                            impulsos y los niveles de actividad. Puede dificultar la concentración, generar
-                                            impulsividad o hiperactividad, y varía mucho entre quienes lo presentan.
-                                        </p>
-                                        <a href="TDAH.html" class="enlace" data-translate="leer_mas">Leer más</a>
-                                    </div>
-                                </div>
-            
-                                <div class="box">
-                                    <div class="front">
-                                        <h3 data-translate="dislexia">Dislexia</h3>
-                                        <img src="../img/dislexiaHeader.png" alt="TDAH">
-                                    </div>
-                                    <div class="back">
-                                        <p data-translate="dislexia_p"> La dislexia es una dificultad de aprendizaje que afecta la
-                                            lectura, la escritura y, a veces, el procesamiento del lenguaje. No tiene relación con
-                                            la inteligencia de quien la presenta.
-                                        </p>
-                                        <a href="Dislexia.html" class="enlace" data-translate="leer_mas">Leer más</a>
-                                    </div>
-                                </div>
-            
-                                <div class="box">
-                                    <div class="front">
-                                        <h3 data-translate="sindrome_de_tourette">Síndrome de Tourette</h3>
-                                        <img src="../img/Touretteheader.jpg" alt="TDAH">
-                                    </div>
-                                    <div class="back">
-                                        <p data-translate="tourette_p"> El síndrome de Tourette es una condición neurológica
-                                            caracterizada por movimientos y sonidos involuntarios (tics). Puede variar en
-                                            intensidad, y no todas las personas presentan los mismos síntomas.
-                                        </p>
-                                        <a href="Tourette.html" class="enlace" data-translate="leer_mas">Leer más</a>
-                                    </div>
-                                </div>
-            
-                                <div class="box">
-                                    <div class="front">
-                                        <h3 data-translate="dispraxia">Dispraxia</h3>
-                                        <img src="../img/Dyspraxia.jpg" alt="TDAH">
-                                    </div>
-                                    <div class="back">
-                                        <p data-translate="dispraxia_p"> La dispraxia, también conocida como trastorno del
-                                            desarrollo de la coordinación, afecta la coordinación motora y la planificación de
-                                            movimientos, como escribir o vestirse.
-                                        </p>
-                                        <a href="Dispraxia.html" class="enlace" data-translate="leer_mas">Leer más</a>
-                                    </div>
-                                </div>
-            
-                                <div class="box">
-                                    <div class="front">
-                                        <h3 data-translate="discalculia">Discalculia</h3>
-                                        <img src="../img/discalculia.jpg" alt="TDAH">
-                                    </div>
-                                    <div class="back">
-                                        <p data-translate="discalculia_p"> La discalculia es una dificultad específica del
-                                            aprendizaje que afecta la comprensión y el manejo de conceptos numéricos y operaciones
-                                            matemáticas básicas, como contar o calcular.
-                                        </p>
-                                        <a href="Discalculia.html" class="enlace" data-translate="leer_mas">Leer más</a>
-                                    </div>
-                                </div>
-            
-                                <div class="box">
-                                    <div class="front">
-                                        <h3 data-translate="trastornos_de_ansiedad">Trastornos de ansiedad</h3>
-                                        <img src="../img/ansiedad.jpg" alt="TDAH">
-                                    </div>
-                                    <div class="back">
-                                        <p data-translate="ansiedad_p"> La ansiedad es una respuesta emocional intensa ante
-                                            situaciones de estrés, incertidumbre o miedo. Cuando es persistente o desproporcionada,
-                                            puede interferir con las actividades diarias.
-                                        </p>
-                                        <a href="Ansiedad.html" class="enlace" data-translate="leer_mas">Leer más</a>
-                                    </div>
-                                </div>
-            
-                            </div>
-                        </section>
-                    </section>
-            
-            
-                    <!-- Sección de líneas de apoyo -->
-                    <section id="Lineap">
-                        <h2 class="title" data-translate="lineas_de_apoyo">Líneas de apoyo</h2>
-                        <p data-translate="lineap_p">A lo largo del tiempo se han presentado casos de bullying hacia personas
-                            neurodivergentes por su condición. <br>
-                            Si tú eres una de estas no dudes en llamar a algúnas de estas líneas de apoyo. <br>
-                        </p>
-                        <div class="container-lineap">
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
-            
-                                <label for="btn-acordeon1" class="acordeon-toggle">
-                                    <p> <a href="https://www.consejociudadanomx.org/index.php" class="underline-animate track-link" data-translate="lineap_link1">
-                                        Consejo Ciudadano para la Seguridad y Justicia de la Ciudad de México</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                </label>
-                                <div class="container-acordeon">
-                                    <p data-translate="lineap_content1">A través del Consejo Ciudadano para la Seguridad y Justicia de la Ciudad de México se brindan primeros auxilios psicológicos las 24 horas todos los días. 
-                                        El primero de estos tres teléfonos gratuitos es de atención psicológico, y se ofrece otros dos servicios telefónicos a los que también se puede mandar mensaje de WhatsApp:
-                                    </p>
-                                    <ul data-translate="ayuda1">
-                                        <li>Línea de Seguridad y Chat de Confianza: 55-5533-5533</li>
-                                        <li>Línea Nacional vs la Trata de Personas: 800-5533-000</li>
-                                        <li>Línea Nacional Diversidad Segura: 800-000-5428</li>
-                                    </ul>
-                                </div>
-                            </div>
-            
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
-            
-                                <label for="btn-acordeon2" class="acordeon-toggle">
-                                    <p> <a href="https://cms311.cdmx.gob.mx/asesorias-especializadas/" class="underline-animate track-link" data-translate="lineap_link2">LOCATEL</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                 </label>
-                                 <div class="container-acordeon">
-                                     <p data-translate="lineap_content2">El servicio psicológico de LOCATEL es una línea de apoyo que orienta y acompaña a las personas para su bienestar emocional y social, a fin de ayudar a que se sientan mejor
-                                        y encuentren las habilidades que les fortalezcan.
-                                     </p>
-                                     <ul data-translate="ayuda4">
-                                         <li>Servicio por teléfono gratis *0311</li>
-                                         <li>Solicitud de servicio psicológico 55-5658-1111</li>
-                                     </ul>
-                                 </div>
-                            </div>
-            
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon3" class="btn-acordeon">
-            
-                                <label for="btn-acordeon3" class="acordeon-toggle">
-                                    <p> <a href="https://coordinaciongenero.unam.mx/2021/08/atencion-psicologica-unam/" class="underline-animate track-link" data-translate="lineap_link3"> Call Center UNAM</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                 </label>
-                                 <div class="container-acordeon">
-                                     <p data-translate="lineap_content3">Línea de Atención Psicológica Call Center especializada en salud mental de la UNAM es un servicio en el que profesionales de la Facultad de Psicología ofrecen asistencia 
-                                        de primer contacto en problemas de ansiedad, depresión, crisis de pánico, entre otros.
-                                     </p>
-                                     <ul data-translate="ayuda3">
-                                         <li>Teléfono: 55-5622-0127</li>
-                                         <li> Horario: Lunes a viernes de 8:00 a 18:00 horas</li>
-                                     </ul>
-                                 </div>
+                        <form id="formularioLogin">
+                            <!-- Campo oculto -->
+                            <input type="hidden" name="form_type" value="login" />
+
+                            <!-- Correo -->
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="user_email" placeholder="you@example.com" required />
+                            <small id="emailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                            <!-- Confirmar correo -->
+                            <label for="confirmEmail">Confirmar correo electrónico *</label>
+                            <input type="email" id="confirmEmail" placeholder="Repite tu correo" required />
+                            <small id="confirmEmailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                            <!-- Contraseña -->
+                            <div class="password-row">
+                                <label for="password">Contraseña *</label>
+                                <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar
+                                    sesión?</a>
                             </div>
 
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon4" class="btn-acordeon">
-            
-                                <label for="btn-acordeon4" class="acordeon-toggle">
-                                    <p> <a href="https://dmd.org.mx/?page_id=6166" class="underline-animate track-link" data-translate="lineap_link4"> Consejería SAPTEL</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                 </label>
-                                 <div class="container-acordeon">
-                                     <p data-translate="lineap_content4">El Sistema Nacional de Apoyo, Consejo Psicológico e Intervención en Crisis por Teléfono, 
-                                        ofrece un servicio de terapia psicológica gratuita facilitada por psicólogos certificados, 
-                                        según asegura la Universidad Pedagógica Nacional (UPN).
+                            <div class="password-container">
+                                <input type="password" id="password" name="user_password"
+                                    placeholder="Mínimo 8 caracteres" required autocomplete="new-password" />
 
-                                        Esta línea de teléfonos gratis funciona en México durante las 24 horas del día. “Su servicio es completamente 
-                                        gratuito al teléfono“, según la Organización Por El Derecho a Morir con Dignidad (DMD).
-                                     </p>
-                                     <ul data-translate="ayuda4">
-                                         <li>Número telefónico: (55) 5259-8121</li>
-                                         <li>Horario: De 8:00 a 20:00 horas</li>
-                                     </ul>
-                                 </div>
+                                <i class="fas fa-eye toggle-password" id="togglePassword" aria-hidden="true"></i>
                             </div>
 
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon5" class="btn-acordeon">
-            
-                                <label for="btn-acordeon5" class="acordeon-toggle">
-                                    <p> <a href="https://www.gob.mx/salud/acciones-y-programas/unidad-de-inteligencia-epidemiologica-y-sanitaria-uies" class="underline-animate track-link" data-translate="lineap_link5">Unidad de inteligencia Epidemiológica Sanitaria</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                 </label>
-                                 <div class="container-acordeon">
-                                     <p data-translate="lineap_content5">La Unidad de inteligencia Epidemiológica Sanitaria (UIES) cuenta con un centro de atención telefónica en salud. 
-                                        Además, brinda atención al público en general, atención en violencia, riesgo suicida, violencias.
-                                     </p>
-                                     <ul data-translate="ayuda5">
-                                         <li>Teléfono: 8000044800 (Marcación 4)</li>
-                                         <li>Horario: Lunes a domingo, las 24 horas</li>
-                                     </ul>
-                                 </div>
+                            <p id="passwordStrengthLabel" class="password-strength-label" style="display: none;">
+                                Fortaleza de la contraseña:</p>
+                            <div id="passwordStrength" class="password-strength"></div>
+                            <small id="passwordFeedback" class="input-feedback"></small>
+
+                            <!-- Confirmar contraseña -->
+                            <label for="confirmPassword">Confirmar contraseña *</label>
+                            <div class="password-container">
+                                <input type="password" id="confirmPassword" placeholder="Repite tu contraseña"
+                                    required />
+                            </div>
+                            <small id="confirmPasswordFeedback" class="input-feedback"></small>
+
+                            <!-- Recordarme -->
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember" />
+                                <label for="remember">Recordarme</label>
                             </div>
 
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon6" class="btn-acordeon">
-            
-                                <label for="btn-acordeon6" class="acordeon-toggle">
-                                    <p> <a href="https://www.injuve.cdmx.gob.mx/" class="underline-animate track-link" data-translate="lineap_link6">Instituto Nacional de la Juventud (INJUVE)</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                 </label>
-                                 <div class="container-acordeon">
-                                     <p data-translate="lineap_content6">El Instituto Nacional de la Juventud (INJUVE), a través del Hospital de las Emociones, apoya a personas jóvenes entre 12 y 29 años con consulta psicológica gratuita en casos de depresión y adicciones.
-
-                                        Aunque esta institución tiene un directorio completo de <a href="https://www.injuve.cdmx.gob.mx/storage/app/media/Banners/directoriodeatenciona-lasemociones.pdf"> "Institución de Atención a las Emociones“</a>, también tiene el servicio telefónico gratuito para jóvenes llamado “De Joven a Joven“.
-                                     </p>
-                                     <ul data-translate="ayuda6">
-                                         <li>Teléfono: 55-5658-1111</li>
-                                         <li>Horario: Lunes a domingo, las 24 horas</li>
-                                         <li>Locatel transfiere la llamada</li>
-                                     </ul>
-                                 </div>
-                            </div>
-
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon7" class="btn-acordeon">
-            
-                                <label for="btn-acordeon7" class="acordeon-toggle">
-                                    <p> <a href="https://www.semujeres.cdmx.gob.mx/servicios/servicio/lunas" class="underline-animate track-link" data-translate="lineap_link7">LUNAS</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                 </label>
-                                 <div class="container-acordeon">
-                                     <p data-translate="lineap_content7">La Secretaría de las Mujeres de la Ciudad de México ofrece las “LUNAS“, un servicio que brinda apoyo a víctimas de violencia proporcionan apoyo y 
-                                        acompañamiento psicológico a mujeres, vía telefónica.
-                                     </p>
-                                     <ul data-translate="ayuda7">
-                                         <li>Teléfono: 55 55122836 ext. 502</li>
-                                         <li>En toda la Ciudad de México existen 27 Lunas, atienden de lunes a viernes de 9:00 a 17:00 horas</li>
-                                         <li>Todos los servicios son gratuitos</li>
-                                     </ul>
-                                 </div>
-                            </div>
-
-                            <div class="acordeon">
-                                <input type="checkbox" id="btn-acordeon8" class="btn-acordeon">
-            
-                                <label for="btn-acordeon8" class="acordeon-toggle">
-                                    <p> <a href="https://www.gob.mx/tramites/ficha/centro-de-atencion-ciudadana-la-linea-de-la-vida/CONADIC3414" class="underline-animate track-link" data-translate="lineap_link8"> Línea de la Vida</a> <i class="fas fa-chevron-down chevron"></i></p>
-                                 </label>
-                                 <div class="container-acordeon">
-                                     <p data-translate="lineap_content8">La Línea de la Vida de la Comisión Nacional Contra las Adicciones existe para que las personas puedan solicitar 
-                                        asesoría especializada sobre prevención y atención en el consumo de sustancias adictivas, este servicio es gratuito y confidencial.
-
-                                        “Los especialistas te acompañan de manera personalizada dando seguimiento a tu necesidad hasta la conclusión de la misma”, dice la dependencia.
-                                     </p>
-                                     <ul data-translate="ayuda8">
-                                         <li>Comunícate al teléfono de atención al 800 911 2000, espera la atención del especialista, expresa tu necesidad, al final de la llamada 
-                                            te brindarán información sobre los centros especializados de tratamiento</li>
-                                         <li>Funciona las 24 horas de los 365 días del año a nivel nacional.</li>
-                                     </ul>
-                                 </div>
-                            </div>
-                        </div>
-                    </section>
-            
-            
-                    <!-- Sección de recursos recomendados -->
-                    <section class="recursos">
-                        <section id="Recursos">
-                            <h2 class="title" data-translate="recursos_recomendados">Recursos Recomendados</h2>
-                            <p data-translate="recursos_p"> En esta sección encontrarás una selección de videos, documentales y sitios web confiables que
-                                exploran la neurodivergencia desde una perspectiva profesional y científica. Estos materiales han
-                                sido elegidos para proporcionar información clara, accesible y basada en evidencia sobre el autismo,
-                                el TDAH, la dislexia y otras formas de neurodivergencia.
-                            </p>
-            
-            
-                            <ul id="tabs">
-                                <li><a href="#tab1" class="active" data-translate="neurodivergencia">Neurodivergencia</a></li>
-                                <!-- Pestaña activa por defecto -->
-                                <li><a href="#tab2" data-translate="autismo">Autismo</a></li>
-                                <li><a href="#tab3" data-translate="tdah">TDAH</a></li>
-                                <li><a href="#tab4" data-translate="dislexia">Dislexia</a></li>
-                                <li><a href="#tab5" data-translate="tourette">Tourette</a></li>
-                                <li><a href="#tab6" data-translate="dispraxia">Dispraxia</a></li>
-                                <li><a href="#tab7" data-translate="discalculia">Discalculia</a></li>
-                                <li><a href="#tab8" data-translate="ansiedad">Ansiedad</a></li>
-                            </ul>
-            
-                            <!-- Contenedor de los contenidos de cada pestaña -->
-                            <div id="tabs-container">
-            
-                                <div class="tab-content" id="tab1">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-                                            <div class="video">
-                                                <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">
-                                                    <img src="../img/Video1.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z" class="underline-animate track-link" data-translate="vid_neuro_1">
-                                                    Neurodivergencia: construyendo un concepto</a></h4>
-                                                    <p data-translate="vid_neuro_desc_1">Explora el concepto de neurodivergencia, explicando su importancia y
-                                                        cómo afecta a las personas. Se enfoca en la diversidad en el funcionamiento
-                                                        cerebral y el comportamiento humano.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">
-                                                    <img src="../img/Video2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt" class="underline-animate track-link" data-translate="vid_neuro_2">
-                                                    ¿Qué es la neurodivergencia?</a></h4>
-                                                    <p data-translate="vid_neuro_desc_2">Carmen Amezcua, psiquiatra enfocada en psiquiatría integrativa,
-                                                        habla sobre la neurodivergencia y los diferentes tipos que existen.
-                                                        Proporciona una visión general del tema y su relevancia en la sociedad
-                                                        actual.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">
-                                                    <img src="../img/Video3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR" class="underline-animate track-link" data-translate="vid_neuro_3">
-                                                    Los distintos tipos de neurodivergencia | Sana Mente</a></h4>
-                                                    <p data-translate="vid_neuro_desc_3">Aborda los diferentes tipos de neurodivergencia, explicando cómo cada
-                                                        uno afecta a las personas de manera única. Se enfoca en la importancia
-                                                        de comprender y aceptar estas diferencias para promover una sociedad más
-                                                        inclusiva.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy">
-                                                    <img src="../img/Video4.webp" alt="Video4"></a>
-                                                <h4> <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy" class="underline-animate track-link" data-translate="vid_neuro_4">NEURODIVERSIDAD y
-                                                        las
-                                                        DIFERENCIAS de PERCEPCIÓN Y APRENDIZAJE</a></h4>
-                                                    <p data-translate="vid_neuro_desc_4">En este video se explica como los problemas o los síntomas negativos son
-                                                        evidentes,
-                                                        pero una parte lo que los hace distintos también proporciona pasión por
-                                                        descubrir
-                                                        y virtudes por practicar.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6">
-                                                    <img src="../img/Video5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6" class="underline-animate track-link" data-translate="vid_neuro_5">What is
-                                                        Neurodiversity: A
-                                                        Video for Children</a></h4>
-                                                    <p data-translate="vid_neuro_desc_5">En este video se habla de la discalculia, como puede identificarse con los
-                                                        criterios
-                                                        actuales los trastornos del aprendizaje y del comportamiento.</p>
-                                            </div>
-            
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/1bHRaUai2GA?si=P_OsvGdrF3z5d3bK">
-                                                    <img src="../img/vid_neuro_6.webp" alt="Video7"></a>
-                                                <h4> <a href="https://youtu.be/1bHRaUai2GA?si=P_OsvGdrF3z5d3bK"  class="underline-animate track-link" data-translate="vid_neuro_6">
-                                                    Ser NEURODIVERGENTE en la sociedad moderna vs NEUROTÍPICOS 🎙️ Nuria Valera</a></h4>
-                                                    <p data-translate="vid_neuro_desc_6">Este podcast es una mirada profunda y empática hacia la neurodiversidad, destacando sus desafíos y su gran habilidad para 
-                                                        percibir lo que otros no ven. Si alguna vez te has sentido "fuera de lugar", este episodio es para ti.</p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-                                    </div>
-                                </div>
-            
-                                <div class="tab-content" id="tab2">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-                                            <div class="video">
-                                                <a href="https://youtu.be/FXDt0VRfGeY?si=7DcG2Qdr6n8lFked">
-                                                    <img src="../img/vid_autismo_1.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/FXDt0VRfGeY?si=7DcG2Qdr6n8lFked" class="underline-animate track-link" data-translate="vid_autismo_1">¿Qué es el Autismo?</a></h4>
-                                                    <p data-translate="vid_autismo_desc_1">Este video aborda el debate de si hay que considerar condiciones como el
-                                                        autismo
-                                                        como trastornos o como parte natural de la diversidad humana, dando la
-                                                        última opción
-                                                        como una respuesta que fomenta la sana convivencia.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/NY0ApnCq9pQ?si=B2chfFGQO3pX8oIT">
-                                                    <img src="../img/vid_autismo_2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/NY0ApnCq9pQ?si=B2chfFGQO3pX8oIT" class="underline-animate track-link" data-translate="vid_autismo_2">
-                                                    AUTISMO: Una Realidad Desconocida</a></h4>
-                                                    <p data-translate="vid_autismo_desc_2">Elaborado con el objetivo de conmemorar el día mundial del autismo el 02 de Abril se nos presenta el estreno de uno de los documentos 
-                                                        que desde @divulgaciondinamicaformacion hemos elaborado, con el objetivo de dar más visibilidad al TEA (Trastorno del Espectro Autista) 
-                                                        y sobre todo, a la lucha incansable de unas familias a las que un diagnóstico les cambio la vida..</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/_R4lWNpsmno?si=0GVAeXkGgrn4WjT2">
-                                                    <img src="../img/vid_autismo_3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/_R4lWNpsmno?si=0GVAeXkGgrn4WjT2" class="underline-animate track-link" data-translate="vid_autismo_3">
-                                                    10 rasgos del AUTISMO INFANTIL 🔵 Aprende a identificar los PRIMEROS SIGNOS de TEA en bebés y niños</a></h4>
-                                                    <p data-translate="vid_autismo_desc_3">¿Te has preguntado alguna vez si tu hijo puede ser autista? En el vídeo de hoy veremos las 
-                                                        características más comunes en el Trastorno del espectro autista (TEA), desde los primeros síntomas en bebés hasta los que presentan 
-                                                        niños y adultos de mayor edad. Se calcula que el autismo infantil afecta a 1 de cada 100 niños en Europa.</p>
-                                            </div>
-                                            
-                                            <div class="video">
-                                                <a href="https://youtu.be/c8R4SxhPsjk?si=GD1xBXEuGTr9_6GK">
-                                                    <img src="../img/vid_autismo_4.webp" alt="Video4"></a>
-                                                <h4> <a href="https://youtu.be/c8R4SxhPsjk?si=GD1xBXEuGTr9_6GK" class="underline-animate track-link" data-translate="vid_autismo_4">
-                                                    Autismo: Nuevos descubrimientos que debes conocer para 2025</a></h4>
-                                                    <p data-translate="vid_autismo_desc_4">En este vídeo se nos habla sobre los nuevos decubrimientos que se han observado dentro de el espectro autista (TEA)
-                                                        ¿Te has detenido a pensar en cómo procesamos el mundo que nos rodea?</p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/VrrPnGzOKe4?si=7C2LMgDdUxCn2Qsn">
-                                                    <img src="../img/vid_autismo_5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/VrrPnGzOKe4?si=7C2LMgDdUxCn2Qsn" class="underline-animate track-link" data-translate="vid_autismo_5">
-                                                    SER AUTISTA EN UN MUNDO SORDO DE EMPATÍA (CON: DIANA TORRES) Vos podés - EP 170</a></h4>
-                                                    <p data-translate="vid_autismo_desc_5">Hoy, en el Día Mundial de la Concienciación sobre el Autismo, Diana hace un llamado urgente a 
-                                                        la empatía. Su mensaje es claro: no debemos ser sordos ante las experiencias de los demás, especialmente cuando esas experiencias 
-                                                        son invisibles.</p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-            
-                                    </div>
-                                </div>
-            
-                                <div class="tab-content" id="tab3">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-                                            <div class="video">
-                                                <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX">
-                                                    <img src="../img/Video7.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX"  class="underline-animate track-link" data-translate="vid_tdah_1">¿Qué sabemos sobre TDAH?</a></h4>
-                                                    <p data-translate="vid_tdah_desc_1">En este video se habla de que es el TDAH y cómo puede tratarse.
-                                                        Se presentan los síntomas y características del TDAH, así como su diagnóstico y tratamiento.
-                                                        El Trastorno por Déficit de Atención e Hiperactividad parece afectar cada vez a más personas ¿Qué es el TDAH y cómo puede tratarse?
-                                                   </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/yWPFdDxJNw8?si=PWme9sp5pt8TyPWr">
-                                                    <img src="../img/vid_tdah_2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/yWPFdDxJNw8?si=PWme9sp5pt8TyPWr"  class="underline-animate track-link" data-translate="vid_tdah_2">
-                                                    Tu cerebro cuando tienes TDAH</a></h4>
-                                                    <p data-translate="vid_tdah_desc_2">En los adultos con TDAH, las dificultades atencionales y la disfunción ejecutiva se manifiestan por la dificultad para organizarse, 
-                                                        planificar tareas, establecer prioridades, estructurar el tiempo y terminar los proyectos o tareas asignadas.</p>
-                                            </div>
-    
-                                            <div class="video">
-                                                <a href="https://youtu.be/Dj64hbDd_f8?si=w1hoTHvvaE-P-yEN">
-                                                    <img src="../img/vid_tdah_3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/Dj64hbDd_f8?si=w1hoTHvvaE-P-yEN"  class="underline-animate track-link" data-translate="vid_tdah_3">
-                                                    El TDAH en ADULTOS. Las 11 claves que te abrirán los ojos. 😳</a></h4>
-                                                    <p data-translate="vid_tdah_desc_3">Los adultos también pueden presentar TDAH. Y no solo eso, es tan frecuente, 
-                                                        que hasta el 4,5% de los mayores de 18 años, cumplen criterios de TDAH del adulto. </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/uDsEhLCMw9A?si=HvRcP8g21x2pNKuH">
-                                                    <img src="../img/vid_tdah_4.webp" alt="Video4"></a>
-                                                <h4> <a href="https://youtu.be/uDsEhLCMw9A?si=HvRcP8g21x2pNKuH"  class="underline-animate track-link" data-translate="vid_tdah_4">
-                                                    ¿Qué pasa en el cerebro 🧠 cuando se tiene TDAH?</a></h4>
-                                                    <p data-translate="vid_tdah_desc_4">El Dr. Juan Carlos Pérez Castro nos da una plática muy didáctica sobre los procesos 
-                                                        neuronales que son afectados cuando se tiene TDAH y cómo se ven en la vida diaria.</p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/9fZurSe2hV4?si=QNa2_6vDgrOfsqtS">
-                                                    <img src="../img/vid_tdah_5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/9fZurSe2hV4?si=QNa2_6vDgrOfsqtS"  class="underline-animate track-link" data-translate="vid_tdah_5">
-                                                    El CEREBRO del TDAH 🧠 Así funciona la mente de tu hijo.</a></h4>
-                                                    <p data-translate="vid_tdah_desc_5">En este video, se nos explican los funcionamientos básicos del cerebro humano, para que entiendas, 
-                                                        en muy poquito tiempo, y sin dificultad, porque actuamos como actuamos todas las personas
-                                                        Las personas con TDAH, tienen formas de actuar, y comportarse, que habitualmente, 
-                                                        se salen de lo predecible, y que, en muchas ocasiones, desconciertan a cualquiera. </p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-            
-                                    </div>
-                                </div>
-            
-                                <div class="tab-content" id="tab4">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb">
-                                                    <img src="../img/Video6.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb" class="underline-animate track-link" data-translate="vid_dislexia_1">
-                                                    La dislexia es una dificultad de aprendizaje, no es una enfermedad. Luz Rello, investigadora </a></h4>
-                                                    <p data-translate="vid_dislexia_desc_1">Este video habla de la dislexia, como su porcentaje de diagnostico en quien la
-                                                        presenta es mínimo y que se puede superar, concientizándonos sobre la importancia de
-                                                        tratarla.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/6l7dWaPS4lo?si=L2G0iJpN10rIoKHS">
-                                                    <img src="../img/vid_dislexia_2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/6l7dWaPS4lo?si=L2G0iJpN10rIoKHS" class="underline-animate track-link" data-translate="vid_dislexia_2">
-                                                    Qué es la dislexia - Kelli Sandman-Hurley</a></h4>
-                                                    <p data-translate="vid_dislexia_desc_2">La dislexia afecta a una de cada cinco personas, pero la experiencia de la dislexia no es 
-                                                        siempre la misma. Esta dificultad para procesar el lenguaje existe en un espectro que no necesariamente encaja con etiquetas como 
-                                                        "normal" y "defectuosos". Kelli Sandman-Hurley nos insta a pensar de nuevo en la función del cerebro disléxico y a apreciar la neurodiversidad del cerebro humano.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/O27NZDT8kSE?si=OJyAIXlfXl6Y-TGC">
-                                                    <img src="../img/vid_dislexia_3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/O27NZDT8kSE?si=OJyAIXlfXl6Y-TGC" class="underline-animate track-link" data-translate="vid_dislexia_3">
-                                                    TEA: DISLEXIA, DISGRAFÍA, DISORTOGRAFÍA Y DISCALCULIA | #TELOEXPLICO</a></h4>
-                                                    <p data-translate="vid_dislexia_desc_3"> LOS TRASTORNOS ESPECÍFICOS DEL APRENDIZAJE: QUÉ SON Y CÓMO FUNCIONAN</p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/IfIIOuiXyU8?si=RyaMF18g3vODBDef">
-                                                    <img src="../img/vid_dislexia_4.webp" alt="Video4"></a>
-                                                <h4> <a href="https://youtu.be/IfIIOuiXyU8?si=RyaMF18g3vODBDef" class="underline-animate track-link" data-translate="vid_dislexia_4">
-                                                    ¿Cómo es vivir con dislexia? | Médico de familia | Dr. Jorge Tartaglione | Lucas Slevin</a></h4>
-                                                    <p data-translate="vid_dislexia_desc_4"> Vivir con dislexia: la historia de Lucas Slevin, sus tatuajes y el mensaje de inclusión.
-
-                                                        Lucas Slevin fue diagnosticado con dislexia y, en redes sociales, cuenta cómo es vivir con este tipo de trastorno del aprendizaje.
-                                                    </p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/9A5OorMtFjk?si=RSd8cb1yzXLpe6EA">
-                                                    <img src="../img/vid_dislexia_5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/9A5OorMtFjk?si=RSd8cb1yzXLpe6EA" class="underline-animate track-link" data-translate="vid_dislexia_5">
-                                                    📖 Dislexia Diagnóstico y signos de alarma Intro | Cursos ITK Academy</a></h4>
-                                                    <p data-translate="vid_dislexia_desc_5"> En este vídeo 
-                                                        En el siguiente vídeo se nos habla sobre la importancia de obtener un diagnóstico profesional sobre la dislexia, así como también que signos
-                                                        o señales pueden ser alertas para su detección.
-                                                    </p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/zVFdHfFdVac?si=QXFOmIrB6rV0E_yY">
-                                                    <img src="../img/VideoPendiente.jpg" alt="Video6"></a>
-                                                <h4> <a href="https://youtu.be/zVFdHfFdVac?si=QXFOmIrB6rV0E_yY" class="underline-animate track-link" data-translate="vid_dislexia_6">
-                                                    ¿De qué manera la dislexia afecta a los niños fuera de la escuela? | Child Mind Institute</a></h4>
-                                                    <p data-translate="vid_dislexia_desc_6"> En este vídeo 
-                                                        En este video, Karol Espejo, trabajadora social clínica del Child Mind Institute, aborda una preocupación común de los padres de niños con dislexia.
-                                                        Karol Espejo explica cómo la dislexia puede afectar la autoestima, especialmente cuando los niños tienen dificultades para leer o seguir instrucciones.
-                                                    </p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-            
-                                    </div>
-                                </div>
-            
-                                <div class="tab-content" id="tab5">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-                                            
-                                            <div class="video">
-                                                <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd">
-                                                    <img src="../img/Video9.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd" class="underline-animate track-link" data-translate="vid_toc_1">
-                                                    Tu cerebro cuando tienes TOC - Trastorno Obsesivo Compulsivo</a></h4>
-                                                    <p data-translate="vid_toc_desc_1">En este video se aborda de forma general el tratamiento del TOC, basado en el
-                                                        libro
-                                                        de Aaron T. Beck: Terapia cognitiva para trastornos de ansiedad.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/irlCibk2Bmw?si=jKpVvRUecWgg525E">
-                                                    <img src="../img/vid_tourette_2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/irlCibk2Bmw?si=jKpVvRUecWgg525E" class="underline-animate track-link" data-translate="vid_toc_2">
-                                                    Qué es el Síndrome de Tourette</a></h4>
-                                                    <p data-translate="vid_toc_desc_2">En este vídeo podrás conocer de manera breve que es el síndrome de Tourette, cuales son sus síntomas, maneras de detección y diagnosticos.</p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/Rl3nZwxM28w?si=Lq6H60I9XPPEtsCs">
-                                                    <img src="../img/vid_tourette_3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/Rl3nZwxM28w?si=Lq6H60I9XPPEtsCs" class="underline-animate track-link" data-translate="vid_toc_3">
-                                                    El peor caso de síndrome de Tourette</a></h4>
-                                                    <p data-translate="vid_toc_desc_3">El caso de Bianca Saez es uno de los de síndrome de Tourette más severos que se conocen en el mundo. Sin embargo, su historia es inspiradora.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/S2G631CzMII?si=pGApwaTabKii4Pre">
-                                                    <img src="../img/vid_tourette_4.webp" alt="Video4"></a>
-                                                <h4> <a href="https://youtu.be/S2G631CzMII?si=pGApwaTabKii4Pre" class="underline-animate track-link" data-translate="vid_toc_4">
-                                                    Síndrome de Tourette</a></h4>
-                                                    <p data-translate="vid_toc_desc_4">¿#SabíasQue el Síndrome de Tourette es un trastorno neuropsiquíatrico, crónico y genético, caracterizado por 
-                                                        la aparición de tics motores y sonoros involuntarios que perduran durante más de un año y se manifiesta antes de los 18 años? Mira esta información.
-                                                    </p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/XsP11-2nO_k?si=GAI-252LUNZGh-C2">
-                                                    <img src="../img/vid_tourette_5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/XsP11-2nO_k?si=GAI-252LUNZGh-C2" class="underline-animate track-link" data-translate="vid_toc_5">
-                                                    ¿QUÉ ES EL SÍNDROME DE TOURETTE? | Draw My Life</a></h4>
-                                                    <p data-translate="vid_toc_desc_5">¿Conocéis cuáles son sus síntomas? Hoy hablaremos de ello. ¡Recordad que la empatía es fundamental 
-                                                        para que todos vivamos felices!
-                                                    </p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-            
-                                    </div>
-                                </div>
-            
-                                <div class="tab-content" id="tab6">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-                                            <div class="video">
-                                                <a href="https://youtu.be/sWAMSK-dupI?si=fzzhu9o7S90GI77b">
-                                                    <img src="../img/vid_dispraxia_1.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/sWAMSK-dupI?si=fzzhu9o7S90GI77b" class="underline-animate track-link" data-translate="vid_dispraxia_1">
-                                                    #NeuroPhysioClub: DISPRAXIA</a></h4>
-                                                    <p data-translate="vid_dispraxia_desc_1">En esta ocasión, el neurofisioterapeuta Juan Anaya Ojeda [@juanayaojeda] charla 
-                                                        con la neuropsicóloga Paula Iglesias Rodríguez [@paula_igr] sobre dispraxia.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/bhP73xjz7GM?si=tsI5gznOSFPeUUIr">
-                                                    <img src="../img/vid_dispraxia_2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/bhP73xjz7GM?si=tsI5gznOSFPeUUIr" class="underline-animate track-link" data-translate="vid_dispraxia_2">
-                                                    Neurólogo Pediatra en Guadalajara Dra. Giselle/ DISPRAXIA EN NIÑOS ¿CÓMO LOS PUEDE AFECTAR?</a></h4>
-                                                    <p data-translate="vid_dispraxia_desc_2">Este video te guiará sobre algunos síntomas que puedes observar en niños 
-                                                        que presentar dispraxia y como ayudarlos.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/8n-iv8ljJyc?si=S0HFmCXRcnnPRVyT">
-                                                    <img src="../img/vid_dispraxia_3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/8n-iv8ljJyc?si=S0HFmCXRcnnPRVyT" class="underline-animate track-link" data-translate="vid_dispraxia_3">
-                                                    Dispraxia y Disgrafía | Causas, prevención y tratamiento</a></h4>
-                                                    <p data-translate="vid_dispraxia_desc_3">¡Hola! Hoy os traigo un video que me gusta mucho porque hablamos de dos trastornos muy desconocidos: 
-                                                        la disgrafía y la dispraxia. A menudo, estos dos trastornos se confunden y por ello, hoy os traigo este video donde vamos a comprender 
-                                                        mejor qué son cada uno de ellos, vamos a ver las diferencias y cómo podemos trabajarlos.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/XLAUPb3_UOc?si=6N5CTWZwIcDMttES">
-                                                    <img src="../img/vid_dispraxia_4.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/XLAUPb3_UOc?si=6N5CTWZwIcDMttES" class="underline-animate track-link" data-translate="vid_dispraxia_4">
-                                                    ¿Qué es la Dispraxia?</a></h4>
-                                                    <p data-translate="vid_dispraxia_desc_4">Te invitamos a ver este episodio donde hablaremos sobre la Dispraxia que es uno de los 
-                                                        trastornos del neurodesarrollo, en el que los niños y niñas que la sufren muestran una gran dificultad a la hora de realizar 
-                                                        actividades y movimientos coordinados.
-                                                    </p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/24pdMCzPR7U?si=j3a1abBzJy3bCkEl">
-                                                    <img src="../img/vid_dispraxia_5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/24pdMCzPR7U?si=j3a1abBzJy3bCkEl" class="underline-animate track-link" data-translate="vid_dispraxia_5">
-                                                    Qué es la dispraxia ?</a></h4>
-                                                    <p data-translate="vid_dispraxia_desc_5">Dificultades a nivel motriz en niños, ¿Qué es la dispraxia? síntomas en niños y su manera de detección temprana.
-                                                    </p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-            
-                                    </div>
-                                </div>
-            
-                                <div class="tab-content" id="tab7">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-                                           <div class="video">
-                                                <a href="https://youtu.be/fs19szj8L78?si=3UBl0KsiMwcrxCy4">
-                                                    <img src="../img/vid_discalculia_1.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/fs19szj8L78?si=3UBl0KsiMwcrxCy4" class="underline-animate track-link" data-translate="vid_discalculia_1">
-                                                    ¿Qué es la DISCALCULIA? Todo lo que necesitas saber 👆</a></h4>
-                                                    <p data-translate="vid_discalculia_desc_1">
-                                                        En este la especialista Hiwet Costa nos explica que es la discalculia en niños, 
-                                                    así como también nos comparte un test para la detección de la discalculia en niños.
-                                                </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/uaB1pouNHQM?si=ZMQno6bIFJ_HE5-v">
-                                                    <img src="../img/vid_discalculia_2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/uaB1pouNHQM?si=ZMQno6bIFJ_HE5-v" class="underline-animate track-link" data-translate="vid_discalculia_2">
-                                                   Clase magistral: Discalculia, qué es y cómo detectarla con Silvia Figiacone</a></h4>
-                                                    <p data-translate="vid_discalculia_desc_2">
-                                                        Se realizó una entrevista a Silvia Figiacone, Directora de la Maestría en Neuropsicología Aplicada del Inst. Universitario, 
-                                                         Hospital Italiano. Silvia nos explica qué es la discalculia y cómo se diagnostica.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/ZrG_fJ65CNE?si=8zvkZFCfDgRXCinv">
-                                                    <img src="../img/vid_discalculia_3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/ZrG_fJ65CNE?si=8zvkZFCfDgRXCinv" class="underline-animate track-link" data-translate="vid_discalculia_3">
-                                                    Señales de discalculia | Child Mind Institute</a></h4>
-                                                    <p data-translate="vid_discalculia_desc_3">
-                                                       En este video, Alnardo Martínez, consejero de salud mental con licencia del Child Mind Institute, explica qué es la discalculia 
-                                                       y cómo afecta la capacidad de los niños para aprender y comprender las matemáticas.
-                                                       Alnardo analiza los síntomas comunes, qué buscar en diferentes edades y por qué el reconocimiento y la intervención tempranos son fundamentales.
-                                                    </p>
-                                            </div>
-            
-                                             <div class="video">
-                                                <a href="https://youtu.be/mMX7iHtHUK8?si=anm_GYyhsRdaeCBW">
-                                                    <img src="../img/vid_discalculia_4.webp" alt="Video4"></a>
-                                                <h4> <a href="https://youtu.be/mMX7iHtHUK8?si=anm_GYyhsRdaeCBW" class="underline-animate track-link" data-translate="vid_discalculia_4">
-                                                   ¿Qué es la discalculia? | Child Mind Institute</a></h4>
-                                                    <p data-translate="vid_discalculia_desc_4">
-                                                       En este video, Alnardo Martinez, consejero de salud mental con licencia del Child Mind Institute, responde la pregunta de un padre cuyo 
-                                                       hijo tiene problemas con las matemáticas en la escuela y habla de las diferencias entre los problemas típicos con las matemáticas y el 
-                                                       trastorno del aprendizaje conocido como discalculia. 
-                                                    </p>
-                                            </div>
-
-                                             <div class="video">
-                                                <a href="https://www.youtube.com/live/-A7DZRS1nPY?si=rQUSx1p4F3QeT2cX">
-                                                    <img src="../img/vid_discalculia_5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://www.youtube.com/live/-A7DZRS1nPY?si=rQUSx1p4F3QeT2cX" class="underline-animate track-link" data-translate="vid_discalculia_5">
-                                                   Dislexia, Disgrafía y Discalculia</a></h4>
-                                                    <p data-translate="vid_discalculia_desc_5">
-                                                       Acompáñanos a la Plática Virtual "Dislexia, Disgrafía y Discalculia" con Giovanna Soto Salinas, 
-                                                       Harumi Paulina Lira Sánchez y Fabiola Guadalupe Ayala Rodríguez 👩‍⚕️🧠 de SAP S. Atención Psiquiátrica
-                                                    </p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-            
-                                    </div>
-                                </div>
-            
-                                <div class="tab-content" id="tab8">
-            
-                                    <h3>────── Videos ──────</h3>
-            
-                                    <div class="scroll-container">
-                                        <!-- Bóton de scrolling/desplazamiento izquierdo -->
-                                        <span class="scroll-btn left">&#10094;</span>
-            
-                                        <div class="scrolling-videos">
-                                            <!-- Cada "video" representa un recurso multimedia -->
-                                             <div class="video">
-                                                <a href="https://youtu.be/iEdv9X8JbsA?si=JT6WpCql-j2hRBMu">
-                                                    <img src="../img/vid_ansiedad_1.webp" alt="Video1"></a>
-                                                <h4> <a href="https://youtu.be/iEdv9X8JbsA?si=JT6WpCql-j2hRBMu" class="underline-animate track-link" data-translate="vid_ansiedad_1">
-                                                  ¿Qué es Ansiedad?</a></h4>
-                                                    <p data-translate="vid_ansiedad_desc_1">
-                                                       Aunque la ansiedad es una reacción común, aprenda sobre los síntomas y tipos de ansiedad y cómo puede 
-                                                       convertirse en un problema y cuando se diagnostica como un trastorno o desorden de salud mental.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/hAt6lgwC8cw?si=ZCYN7ll8QBOSlTAD">
-                                                    <img src="../img/vid_ansiedad_2.webp" alt="Video2"></a>
-                                                <h4> <a href="https://youtu.be/hAt6lgwC8cw?si=ZCYN7ll8QBOSlTAD" class="underline-animate track-link" data-translate="vid_ansiedad_2">
-                                                  Cómo sanar la ansiedad: estrategias y herramientas efectivas | Psicología al Desnudo - T1 E 14</a></h4>
-                                                    <p data-translate="vid_ansiedad_desc_2">En este podcast hablamos de emociones. De tus mecanismos internos: ¿Por qué hacés lo que hacés? 
-                                                        ¿Por qué no podés expresar ciertas emociones y otras sí? ¿Por qué te sentís mal a veces? ¿Por qué hay cosas que te angustian, que te 
-                                                        generan miedo, nostalgia, o que te dan placer? ¿Cómo regular tus emociones para sentirte equilibrado/a?
-                                                    </p>
-                                            </div>
-            
-                                             <div class="video">
-                                                <a href="https://youtu.be/2kUqVkYGI48?si=qxexAZz7L3TAwYw4">
-                                                    <img src="../img/vid_ansiedad_3.webp" alt="Video3"></a>
-                                                <h4> <a href="https://youtu.be/2kUqVkYGI48?si=qxexAZz7L3TAwYw4" class="underline-animate track-link" data-translate="vid_ansiedad_3">
-                                                  Así superé los Ataques de Pánico y de Ansiedad</a></h4>
-                                                    <p data-translate="vid_ansiedad_desc_3">A miles de personas les da y no saben lo que tienen: Los ataques de pánico y 
-                                                        ansiedad son más comunes de lo que crees. El problema de esto es que pueden caer en tratamientos equivocados o vivir sin el diagnóstico 
-                                                        correcto. Hoy te hablo como un paciente más que vivió esta incómoda situación y te cuento cómo logré superarlo. Hoy, te cuento mi 
-                                                        historia que espero que pueda ayudar al menos a una sola persona a sobrellevar este padecimiento.
-                                                    </p>
-                                            </div>
-            
-                                            <div class="video">
-                                                <a href="https://youtu.be/3iXjHf12ed4?si=kZx8U6rT4qNfsCD2">
-                                                    <img src="../img/vid_ansiedad_4.webp" alt="Video4"></a>
-                                                <h4> <a href="https://youtu.be/3iXjHf12ed4?si=kZx8U6rT4qNfsCD2" class="underline-animate track-link" data-translate="vid_ansiedad_4">
-                                                  ¿Qué es la ansiedad? | APA</a></h4>
-                                                    <p data-translate="vid_ansiedad_desc_4">En este vídeo podremos observas el que es la ansiedad, sus síntomas y como se puede tratar.
-                                                        La ansiedad es una reacción normal al estrés. Puede ayudar a las personas a afrontar situaciones difíciles, como una entrevista de trabajo o un examen.
-                                                        Pero la ansiedad puede convertirse en un problema cuando es excesiva o dura mucho tiempo.
-                                                    </p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/S1g1cQjUguI?si=HadGipryag-AXJGK">
-                                                    <img src="../img/vid_ansiedad_5.webp" alt="Video5"></a>
-                                                <h4> <a href="https://youtu.be/S1g1cQjUguI?si=HadGipryag-AXJGK" class="underline-animate track-link" data-translate="vid_ansiedad_5">
-                                                  TODO LO QUE NECESITAS SABER SOBRE LA ANSIEDAD | #TELOEXPLICO</a></h4>
-                                                    <p data-translate="vid_ansiedad_desc_5">Latidos rápidos del corazón, sudoración, preocupación creciente, tensión muscular...
-                                                        Si estás buscando estos síntomas en google y has encontrado este vídeo, no te preocupes, no te vas a morir, pero puede ser que sufras de ansiedad.
-                                                        Pero, ¿qué es realmente? ¿Y cuándo podemos hablar de un trastorno?
-                                                        TODO LO QUE NECESITAS SABER SOBRE LA ANSIEDAD
-                                                    </p>
-                                            </div>
-
-                                            <div class="video">
-                                                <a href="https://youtu.be/ZSuyJWlx8bc?si=tPW89F9pmA2UIeCC">
-                                                    <img src="../img/vid_ansiedad_6.webp" alt="Video6"></a>
-                                                <h4> <a href="https://youtu.be/ZSuyJWlx8bc?si=tPW89F9pmA2UIeCC" class="underline-animate track-link" data-translate="vid_ansiedad_6">
-                                                  ¿Qué es la ansiedad y cómo se manifiesta?</a></h4>
-                                                    <p data-translate="vid_ansiedad_desc_6">Latidos rápidos del corazón, sudoración, preocupación creciente, tensión muscular...
-                                                        En entrevista con el doctor Agustin Torres Cid, Psicogeriatra, nos dice qué es la ansiedad, cómo suele presentarse en una persona, 
-                                                        así como los síntomas que tiene una persona que está pasando por un ataque de ansiedad y cómo debe ser atendido. 
-                                                    </p>
-                                            </div>
-                                        </div>
-            
-                                        <!-- Bóton de scrolling/desplazamiento derecho -->
-                                        <span class="scroll-btn right">&#10095;</span>
-            
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </section>
+                            <!-- BOTÓN -->
+                            <button type="submit">Entrar</button>
+                            <p id="formStatus" style="color: green; margin-top: 10px;"></p>
+                        </form>
                     </div>
                 </div>
-            
-            
-            
-                <!-- Sección del Footer -->
-                <footer class="footer-container">
-                    <section id="Footer">
-            
-                        <!-- Sección superior con navegación inferior y logo-->
-                        <div class="footer-top">
-                            <div class="footer-logo">
-                                <a href="index.html">
-                                    <img src="../img/Logo.png" alt="Logo"></a>
+        </nav>
+    </header>
+
+
+    <!-- Submenú de navegación -->
+    <nav id="subMenu" class="submenu">
+        <ul class="table">
+            <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+            <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+            <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+            <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+            <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+            <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+            <li><a href="#Footer" data-translate="pie_de_página">Pie de página</a></li>
+        </ul>
+
+        <div class="translator">
+            <button id="translateBtn" onclick="toggleDropdown()">
+                <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
+            </button>
+            <div id="languageDropdown" class="language-dropdown hidden">
+                <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+                <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Overlay de Fondo  -->
+    <!-- Capa semitransparente que aparece cuando el menú está abierto -->
+    <!-- Al hacer clic en esta área, se cierra el menú -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+
+    <!-- Contenedor principal del menú hamburguesa que se desliza desde la izquierda -->
+    <nav class="sidebar" id="sidebar">
+
+        <!-- Botón de cierre para el sidebar -->
+        <button class="close-menu" id="close-menu">&times;</button>
+
+        <!-- Cabecera del menú lateral con título -->
+        <div class="sidebar-header">
+            Menú de Navegación
+        </div>
+
+        <!-- Contenido scrolleable del menú -->
+        <div class="sidebar-content">
+
+            <!-- ELEMENTO SIMPLE (SIN MENÚ): Elemento de menú básico que enlaza directamente a una página -->
+            <div class="menu-item">
+                <a href="index.html" class="menu-link" onclick="saveActiveLink('index.html')">
+                    <div class="menu-label">
+                        <i class="fas fa-house"></i>
+                        <span data-translate="menu-sec1">Inicio</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ELEMENTO SUBMENÚ DESPLEGABLE:  Elemento de menú con submenú desplegable vertical -->
+            <div class="menu-item">
+                <!-- Título clickeable -->
+                <div class="menu-link" onclick="toggleSubmenu('neuroSubmenu')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-brain"></i>
+                        <span id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
+                    </div>
+                    <!-- Flecha indicadora que rota cuando se abre el submenú -->
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+
+                <!-- Submenú desplegable con ID único para identificación en JavaScript -->
+                <div class="sidebar-dropdown" id="neuroSubmenu">
+                    <!-- Elementos individuales del submenú -->
+                    <a href="Autismo.html" class="submenu-item" data-translate="autismo">Autismo</a>
+                    <a href="TDAH.html" class="submenu-item" data-translate="tdah">TDAH</a>
+                    <a href="Dislexia.html" class="submenu-item" data-translate="dislexia">Dislexia</a>
+                    <a href="Tourette.html" class="submenu-item">Tourette</a>
+                    <a href="Dispraxia.html" class="submenu-item" data-translate="dispraxia">Dispraxia</a>
+                    <a href="Discalculia.html" class="submenu-item" data-translate="autismo">Discalculia</a>
+                    <a href="Ansiedad.html" class="submenu-item" data-translate="ansiedad">Ansiedad</a>
+                </div>
+            </div>
+
+            <!-- Elemento Simple -->
+            <div class="menu-item">
+                <a href="Encuestas.html" class="menu-link" onclick="saveActiveLink('Encuestas.html')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="menu-sec3">Encuestas</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Elemento Simple -->
+            <div class="menu-item">
+                <a href="Comunidad.html" class="menu-link" onclick="saveActiveLink('Comunidad.html')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-comments"></i>
+                        <span data-translate="menu-sec4">Comunidad</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Elemento Simple -->
+            <div class="menu-item">
+                <a href="Noticias.html" class="menu-link" onclick="saveActiveLink('Noticias.html')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-translate="menu-sec5">Noticias</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Elemento Desplegable -->
+            <div class="menu-item">
+                <!-- Título clickeable -->
+                <div class="menu-link" onclick="toggleSubmenu('extrasSubmenu')">
+                    <div class="menu-link-content menu-label">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span data-translate="menu-sec6">Extras</span>
+                    </div>
+
+                    <!-- Flecha indicadora que rota cuando se abre el submenú -->
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+
+                <div class="sidebar-dropdown" id="extrasSubmenu">
+                    <a href="Bitacora.html" class="submenu-item" data-translate="bitacora">Bitácora</a>
+                    <a href="Referencias.html" class="submenu-item" data-translate="referencias">Referencias</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
+    <a href="#Menu" class="scroll" id="scrollTop">
+        &#8679; <!-- Este código asigna un simbolo de flecha que servirá como e cuerpo del scroll-->
+    </a>
+
+
+    <!-- La etiqueta de sección nos permite determinar el contenido que formará parte de un esquema, como en este caso subsecciones -->
+
+    <!-- Sección de bienvenida/header -->
+    <section class="content header">
+        <section id="Inicio">
+
+            <div id="results"></div>
+            <!--Sirve para que las secciones del encabezado nos redirijan a esta parte de la página -->
+            <h2 class="title" data-translate="bienvenida">Mentes en armonía</h2>
+
+            <h6 data-translate="lema">"Una mente distinta no es motivo de discriminación"</h6>
+            <p data-translate="saludo">Buscamos visibilizar las acciones que, como sociedad, podemos tomar para promover
+                una interacción más empática entre todas las personas. Nuestro objetivo es facilitar entornos inclusivos
+                que fomenten una convivencia saludable, especialmente para quienes son neurodivergentes.
+            </p>
+        </section>
+    </section>
+
+    <!-- CLase que selacciona parte del contenido de la página para ajustar su tamaño a un 80% -->
+    <div class="container">
+        <div id="content" style="margin-top: 40px;">
+
+
+            <!-- Sección sobre nosotros -->
+            <section class="content about">
+                <section id="Acerca de" class="about-section">
+                    <!-- Video de fondo -->
+                    <video class="video-intro" autoplay muted loop playsinline>
+                        <source src="../video/Nosotros 2.0.mp4" type="video/mp4">
+                        Tu navegador no soporta HTML5 video.
+                    </video>
+
+                    <!-- Texto encima del video -->
+                    <div class="about-text">
+                        <h2 class="title" data-translate="nosotros">Nosotros</h2>
+                        <p data-translate="nosotros_p">
+                            Esta página tiene como propósito generar conciencia sobre los desafíos
+                            que enfrentan las personas que perciben y procesan el mundo de manera distinta. Es
+                            fundamental
+                            comprender que la inclusión no es un favor, sino un derecho que todos merecemos.
+                            Neurodivergentes o
+                            no, cada persona merece respeto y oportunidades para desarrollar su potencial.
+                        </p>
+                    </div>
+                </section>
+            </section>
+
+
+            <!-- Sección de definiciones -->
+            <section class="content Definiciones">
+                <article class="contain">
+                    <section id="Definiciones">
+
+                        <!-- Neurotipicidad-->
+                        <section class="neuro">
+                            <div class="defImg"> <!-- Imágen Neurotipicidad-->
+                                <img src="../img/Neurotipicidad.webp" alt="Neurotipicidad">
                             </div>
-            
-                            <!-- Barra de navegación inferior -->
-                            <ul class="footer-navbar">
-            
-                                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                                página de inicio -->
-                                <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
-                                <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
-                                <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
-                                <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
-                                <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
-                                <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
-                                <li><a href="#Footer">Footer</a></li>
+
+                            <div class="defText"> <!-- Definición Neurotipicidad-->
+                                <h3 data-translate="Def1">¿Qué es la Neurotipicidad?</h3>
+                                <p data-translate="Def1_p">La neurotipicidad se refiere a las personas cuyos procesos
+                                    neurológicos y patrones de
+                                    pensamiento se alinean con lo que se considera común o estándar en una sociedad
+                                    determinada. No significa que estas personas no enfrenten desafíos, sino que sus
+                                    formas
+                                    de percibir y procesar la información suelen encajar con las normas establecidas, lo
+                                    que
+                                    les permite desenvolverse en el mundo sin mayores dificultades relacionadas con la
+                                    comunicación, el procesamiento sensorial o la interacción social.</p>
+                            </div>
+                        </section>
+
+                        <!-- Neurodivergencia -->
+                        <section class="neuro">
+                            <div class="defText"> <!-- Definición Neurodivergencia-->
+                                <h3 data-translate="Def2">¿Qué es la Neurodivergencia?</h3>
+                                <p data-translate="Def2_p">La neurodivergencia se refiere a las diferencias naturales en
+                                    la
+                                    forma en que funciona el
+                                    cerebro humano. Este término engloba a personas cuyas estructuras neurológicas y
+                                    patrones de pensamiento pueden diferir del estándar socialmente establecido como
+                                    "típico". La neurodivergencia no es un defecto ni una enfermedad, sino una variación
+                                    en
+                                    la manera en que se percibe, procesa y responde al mundo. A continuación veremos
+                                    algunos
+                                    ejemplos que incluyen el autismo, el TDAH, la dislexia y la dispraxia, etc.</p>
+                            </div>
+
+                            <div class="defImg"> <!-- Imágen Neurodivergencia-->
+                                <img src="../img/Neurodivergencia.webp" alt="Neurodivergencia">
+                            </div>
+                        </section>
+
+                    </section>
+                </article>
+            </section>
+
+            <!-- Sección de tipos de neurodivergencia -->
+            <section class="content neurodivergencia">
+                <section id="Neurodivergencia">
+                    <h2 class="title" data-translate="tipos_de_neurodivergencia">Tipos de neurodivergencia</h2>
+                    <div class="box-container">
+
+
+                        <div class="box">
+                            <div class="front">
+                                <h3 data-translate="autismo">Autismo</h3>
+                                <img src="../img/autism.jpg" alt="Autismo">
+                            </div>
+                            <div class="back">
+                                <p data-translate="autismo_p"> El autismo es una condición del neurodesarrollo que
+                                    afecta la
+                                    comunicación, la interacción social y la forma en que se percibe el mundo. No es una
+                                    enfermedad, sino una forma distinta de procesar la realidad.
+                                </p>
+                                <a href="Autismo.html" class="enlace" data-translate="leer_mas">Leer más</a>
+                            </div>
+                        </div>
+
+
+                        <div class="box">
+                            <div class="front">
+                                <h3 data-translate="tdah">TDAH</h3>
+                                <img src="../img/tdah.jpg" alt="TDAH">
+                            </div>
+                            <div class="back">
+                                <p data-translate="tdah_p"> El TDAH es una condición que afecta la atención, el control
+                                    de
+                                    impulsos y los niveles de actividad. Puede dificultar la concentración, generar
+                                    impulsividad o hiperactividad, y varía mucho entre quienes lo presentan.
+                                </p>
+                                <a href="TDAH.html" class="enlace" data-translate="leer_mas">Leer más</a>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="front">
+                                <h3 data-translate="dislexia">Dislexia</h3>
+                                <img src="../img/dislexiaHeader.png" alt="TDAH">
+                            </div>
+                            <div class="back">
+                                <p data-translate="dislexia_p"> La dislexia es una dificultad de aprendizaje que afecta
+                                    la
+                                    lectura, la escritura y, a veces, el procesamiento del lenguaje. No tiene relación
+                                    con
+                                    la inteligencia de quien la presenta.
+                                </p>
+                                <a href="Dislexia.html" class="enlace" data-translate="leer_mas">Leer más</a>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="front">
+                                <h3 data-translate="sindrome_de_tourette">Síndrome de Tourette</h3>
+                                <img src="../img/Touretteheader.jpg" alt="TDAH">
+                            </div>
+                            <div class="back">
+                                <p data-translate="tourette_p"> El síndrome de Tourette es una condición neurológica
+                                    caracterizada por movimientos y sonidos involuntarios (tics). Puede variar en
+                                    intensidad, y no todas las personas presentan los mismos síntomas.
+                                </p>
+                                <a href="Tourette.html" class="enlace" data-translate="leer_mas">Leer más</a>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="front">
+                                <h3 data-translate="dispraxia">Dispraxia</h3>
+                                <img src="../img/Dyspraxia.jpg" alt="TDAH">
+                            </div>
+                            <div class="back">
+                                <p data-translate="dispraxia_p"> La dispraxia, también conocida como trastorno del
+                                    desarrollo de la coordinación, afecta la coordinación motora y la planificación de
+                                    movimientos, como escribir o vestirse.
+                                </p>
+                                <a href="Dispraxia.html" class="enlace" data-translate="leer_mas">Leer más</a>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="front">
+                                <h3 data-translate="discalculia">Discalculia</h3>
+                                <img src="../img/discalculia.jpg" alt="TDAH">
+                            </div>
+                            <div class="back">
+                                <p data-translate="discalculia_p"> La discalculia es una dificultad específica del
+                                    aprendizaje que afecta la comprensión y el manejo de conceptos numéricos y
+                                    operaciones
+                                    matemáticas básicas, como contar o calcular.
+                                </p>
+                                <a href="Discalculia.html" class="enlace" data-translate="leer_mas">Leer más</a>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="front">
+                                <h3 data-translate="trastornos_de_ansiedad">Trastornos de ansiedad</h3>
+                                <img src="../img/ansiedad.jpg" alt="TDAH">
+                            </div>
+                            <div class="back">
+                                <p data-translate="ansiedad_p"> La ansiedad es una respuesta emocional intensa ante
+                                    situaciones de estrés, incertidumbre o miedo. Cuando es persistente o
+                                    desproporcionada,
+                                    puede interferir con las actividades diarias.
+                                </p>
+                                <a href="Ansiedad.html" class="enlace" data-translate="leer_mas">Leer más</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </section>
+
+
+            <!-- Sección de líneas de apoyo -->
+            <section id="Lineap">
+                <h2 class="title" data-translate="lineas_de_apoyo">Líneas de apoyo</h2>
+                <p data-translate="lineap_p">A lo largo del tiempo se han presentado casos de bullying hacia personas
+                    neurodivergentes por su condición. <br>
+                    Si tú eres una de estas no dudes en llamar a algúnas de estas líneas de apoyo. <br>
+                </p>
+                <div class="container-lineap">
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
+
+                        <label for="btn-acordeon1" class="acordeon-toggle">
+                            <p> <a href="https://www.consejociudadanomx.org/index.php"
+                                    class="underline-animate track-link" data-translate="lineap_link1">
+                                    Consejo Ciudadano para la Seguridad y Justicia de la Ciudad de México</a> <i
+                                    class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content1">A través del Consejo Ciudadano para la Seguridad y
+                                Justicia de la Ciudad de México se brindan primeros auxilios psicológicos las 24 horas
+                                todos los días.
+                                El primero de estos tres teléfonos gratuitos es de atención psicológico, y se ofrece
+                                otros dos servicios telefónicos a los que también se puede mandar mensaje de WhatsApp:
+                            </p>
+                            <ul data-translate="ayuda1">
+                                <li>Línea de Seguridad y Chat de Confianza: 55-5533-5533</li>
+                                <li>Línea Nacional vs la Trata de Personas: 800-5533-000</li>
+                                <li>Línea Nacional Diversidad Segura: 800-000-5428</li>
                             </ul>
                         </div>
-            
-                        <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
-                        <div class="footer-bottom">
-                            <p>© 2025 Mentes en armonía</p>
-            
-                            <div class="socials">
-                                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
-                                    <i class="fab fa-youtube"></i>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
+
+                        <label for="btn-acordeon2" class="acordeon-toggle">
+                            <p> <a href="https://cms311.cdmx.gob.mx/asesorias-especializadas/"
+                                    class="underline-animate track-link" data-translate="lineap_link2">LOCATEL</a> <i
+                                    class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content2">El servicio psicológico de LOCATEL es una línea de apoyo
+                                que orienta y acompaña a las personas para su bienestar emocional y social, a fin de
+                                ayudar a que se sientan mejor y encuentren las habilidades que les fortalezcan.
+                            </p>
+                            <ul data-translate="ayuda4">
+                                <li>Servicio por teléfono gratis *0311</li>
+                                <li>Solicitud de servicio psicológico 55-5658-1111</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon3" class="btn-acordeon">
+
+                        <label for="btn-acordeon3" class="acordeon-toggle">
+                            <p> <a href="https://coordinaciongenero.unam.mx/2021/08/atencion-psicologica-unam/"
+                                    class="underline-animate track-link" data-translate="lineap_link3"> Call Center
+                                    UNAM</a> <i class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content3">Línea de Atención Psicológica Call Center especializada
+                                en salud mental de la UNAM es un servicio en el que profesionales de la Facultad de
+                                Psicología ofrecen asistencia
+                                de primer contacto en problemas de ansiedad, depresión, crisis de pánico, entre otros.
+                            </p>
+                            <ul data-translate="ayuda3">
+                                <li>Teléfono: 55-5622-0127</li>
+                                <li> Horario: Lunes a viernes de 8:00 a 18:00 horas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon4" class="btn-acordeon">
+
+                        <label for="btn-acordeon4" class="acordeon-toggle">
+                            <p> <a href="https://dmd.org.mx/?page_id=6166" class="underline-animate track-link"
+                                    data-translate="lineap_link4"> Consejería SAPTEL</a> <i
+                                    class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content4">El Sistema Nacional de Apoyo, Consejo Psicológico e
+                                Intervención en Crisis por Teléfono,
+                                ofrece un servicio de terapia psicológica gratuita facilitada por psicólogos
+                                certificados,
+                                según asegura la Universidad Pedagógica Nacional (UPN).
+
+                                Esta línea de teléfonos gratis funciona en México durante las 24 horas del día. “Su
+                                servicio es completamente
+                                gratuito al teléfono“, según la Organización Por El Derecho a Morir con Dignidad (DMD).
+                            </p>
+                            <ul data-translate="ayuda4">
+                                <li>Número telefónico: (55) 5259-8121</li>
+                                <li>Horario: De 8:00 a 20:00 horas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon5" class="btn-acordeon">
+
+                        <label for="btn-acordeon5" class="acordeon-toggle">
+                            <p> <a href="https://www.gob.mx/salud/acciones-y-programas/unidad-de-inteligencia-epidemiologica-y-sanitaria-uies"
+                                    class="underline-animate track-link" data-translate="lineap_link5">Unidad de
+                                    inteligencia Epidemiológica Sanitaria</a> <i
+                                    class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content5">La Unidad de inteligencia Epidemiológica Sanitaria
+                                (UIES) cuenta con un centro de atención telefónica en salud.
+                                Además, brinda atención al público en general, atención en violencia, riesgo suicida,
+                                violencias.
+                            </p>
+                            <ul data-translate="ayuda5">
+                                <li>Teléfono: 8000044800 (Marcación 4)</li>
+                                <li>Horario: Lunes a domingo, las 24 horas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon6" class="btn-acordeon">
+
+                        <label for="btn-acordeon6" class="acordeon-toggle">
+                            <p> <a href="https://www.injuve.cdmx.gob.mx/" class="underline-animate track-link"
+                                    data-translate="lineap_link6">Instituto Nacional de la Juventud (INJUVE)</a> <i
+                                    class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content6">El Instituto Nacional de la Juventud (INJUVE), a través
+                                del Hospital de las Emociones, apoya a personas jóvenes entre 12 y 29 años con consulta
+                                psicológica gratuita en casos de depresión y adicciones.
+
+                                Aunque esta institución tiene un directorio completo de <a
+                                    href="https://www.injuve.cdmx.gob.mx/storage/app/media/Banners/directoriodeatenciona-lasemociones.pdf">
+                                    "Institución de Atención a las Emociones“</a>, también tiene el servicio telefónico
+                                gratuito para jóvenes llamado “De Joven a Joven“.
+                            </p>
+                            <ul data-translate="ayuda6">
+                                <li>Teléfono: 55-5658-1111</li>
+                                <li>Horario: Lunes a domingo, las 24 horas</li>
+                                <li>Locatel transfiere la llamada</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon7" class="btn-acordeon">
+
+                        <label for="btn-acordeon7" class="acordeon-toggle">
+                            <p> <a href="https://www.semujeres.cdmx.gob.mx/servicios/servicio/lunas"
+                                    class="underline-animate track-link" data-translate="lineap_link7">LUNAS</a> <i
+                                    class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content7">La Secretaría de las Mujeres de la Ciudad de México
+                                ofrece las “LUNAS“, un servicio que brinda apoyo a víctimas de violencia proporcionan
+                                apoyo y
+                                acompañamiento psicológico a mujeres, vía telefónica.
+                            </p>
+                            <ul data-translate="ayuda7">
+                                <li>Teléfono: 55 55122836 ext. 502</li>
+                                <li>En toda la Ciudad de México existen 27 Lunas, atienden de lunes a viernes de 9:00 a
+                                    17:00 horas</li>
+                                <li>Todos los servicios son gratuitos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon8" class="btn-acordeon">
+
+                        <label for="btn-acordeon8" class="acordeon-toggle">
+                            <p> <a href="https://www.gob.mx/tramites/ficha/centro-de-atencion-ciudadana-la-linea-de-la-vida/CONADIC3414"
+                                    class="underline-animate track-link" data-translate="lineap_link8"> Línea de la
+                                    Vida</a> <i class="fas fa-chevron-down chevron"></i></p>
+                        </label>
+                        <div class="container-acordeon">
+                            <p data-translate="lineap_content8">La Línea de la Vida de la Comisión Nacional Contra las
+                                Adicciones existe para que las personas puedan solicitar
+                                asesoría especializada sobre prevención y atención en el consumo de sustancias
+                                adictivas, este servicio es gratuito y confidencial.
+
+                                “Los especialistas te acompañan de manera personalizada dando seguimiento a tu necesidad
+                                hasta la conclusión de la misma”, dice la dependencia.
+                            </p>
+                            <ul data-translate="ayuda8">
+                                <li>Comunícate al teléfono de atención al 800 911 2000, espera la atención del
+                                    especialista, expresa tu necesidad, al final de la llamada
+                                    te brindarán información sobre los centros especializados de tratamiento</li>
+                                <li>Funciona las 24 horas de los 365 días del año a nivel nacional.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Sección de recursos recomendados -->
+            <section class="recursos" id="Recursos">
+                <h2 class="title" data-translate="recursos_recomendados">Recursos Recomendados</h2>
+                <p data-translate="recursos_p"> En esta sección encontrarás una selección de videos, documentales y
+                    sitios web confiables que exploran la neurodivergencia desde una perspectiva profesional y
+                    científica. Estos materiales han sido elegidos para proporcionar información clara, accesible y
+                    basada en evidencia sobre el autismo, el TDAH, la dislexia y otras formas de neurodivergencia.
+                </p>
+
+
+                <ul id="tabs">
+                    <li><a href="#tab1" class="active" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                    <!-- Pestaña activa por defecto -->
+                    <li><a href="#tab2" data-translate="autismo">Autismo</a></li>
+                    <li><a href="#tab3" data-translate="tdah">TDAH</a></li>
+                    <li><a href="#tab4" data-translate="dislexia">Dislexia</a></li>
+                    <li><a href="#tab5" data-translate="tourette">Tourette</a></li>
+                    <li><a href="#tab6" data-translate="dispraxia">Dispraxia</a></li>
+                    <li><a href="#tab7" data-translate="discalculia">Discalculia</a></li>
+                    <li><a href="#tab8" data-translate="ansiedad">Ansiedad</a></li>
+                </ul>
+
+                <!-- Contenedor de los contenidos de cada pestaña -->
+                <div id="tabs-container">
+
+                    <div class="tab-content" id="tab1">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z">
+                                        <img src="../img/Video1.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/-Oxgf0Y4B6c?si=BDFJGjfHfUqQ-k3z"
+                                            class="underline-animate track-link" data-translate="vid_neuro_1">
+                                            Neurodivergencia: construyendo un concepto</a></h4>
+                                    <p data-translate="vid_neuro_desc_1">Explora el concepto de neurodivergencia,
+                                        explicando su importancia y
+                                        cómo afecta a las personas. Se enfoca en la diversidad en el funcionamiento
+                                        cerebral y el comportamiento humano.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt">
+                                        <img src="../img/Video2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/YvNVozvOV2E?si=ZxKxRUQ6Ypk5LmBt"
+                                            class="underline-animate track-link" data-translate="vid_neuro_2">
+                                            ¿Qué es la neurodivergencia?</a></h4>
+                                    <p data-translate="vid_neuro_desc_2">Carmen Amezcua, psiquiatra enfocada en
+                                        psiquiatría integrativa,
+                                        habla sobre la neurodivergencia y los diferentes tipos que existen.
+                                        Proporciona una visión general del tema y su relevancia en la sociedad
+                                        actual.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR">
+                                        <img src="../img/Video3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/uPEGVIESwcU?si=KvyxQiF6m7bqzuVR"
+                                            class="underline-animate track-link" data-translate="vid_neuro_3">
+                                            Los distintos tipos de neurodivergencia | Sana Mente</a></h4>
+                                    <p data-translate="vid_neuro_desc_3">Aborda los diferentes tipos de
+                                        neurodivergencia, explicando cómo cada
+                                        uno afecta a las personas de manera única. Se enfoca en la importancia
+                                        de comprender y aceptar estas diferencias para promover una sociedad más
+                                        inclusiva.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy">
+                                        <img src="../img/Video4.webp" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/p7nER_3lJbo?si=IO1QVKLV5XU0yPQy"
+                                            class="underline-animate track-link"
+                                            data-translate="vid_neuro_4">NEURODIVERSIDAD y
+                                            las
+                                            DIFERENCIAS de PERCEPCIÓN Y APRENDIZAJE</a></h4>
+                                    <p data-translate="vid_neuro_desc_4">En este video se explica como los problemas
+                                        o los síntomas negativos son
+                                        evidentes,
+                                        pero una parte lo que los hace distintos también proporciona pasión por
+                                        descubrir
+                                        y virtudes por practicar.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6">
+                                        <img src="../img/Video5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/V-vUCPDwCB4?si=Rr6_izn5O4DBkco6"
+                                            class="underline-animate track-link" data-translate="vid_neuro_5">What
+                                            is
+                                            Neurodiversity: A
+                                            Video for Children</a></h4>
+                                    <p data-translate="vid_neuro_desc_5">En este video se habla de la discalculia,
+                                        como puede identificarse con los
+                                        criterios
+                                        actuales los trastornos del aprendizaje y del comportamiento.</p>
+                                </div>
+
+
+                                <div class="video">
+                                    <a href="https://youtu.be/1bHRaUai2GA?si=P_OsvGdrF3z5d3bK">
+                                        <img src="../img/vid_neuro_6.webp" alt="Video7"></a>
+                                    <h4> <a href="https://youtu.be/1bHRaUai2GA?si=P_OsvGdrF3z5d3bK"
+                                            class="underline-animate track-link" data-translate="vid_neuro_6">
+                                            Ser NEURODIVERGENTE en la sociedad moderna vs NEUROTÍPICOS 🎙️ Nuria
+                                            Valera</a></h4>
+                                    <p data-translate="vid_neuro_desc_6">Este podcast es una mirada profunda y
+                                        empática hacia la neurodiversidad, destacando sus desafíos y su gran
+                                        habilidad para
+                                        percibir lo que otros no ven. Si alguna vez te has sentido "fuera de lugar",
+                                        este episodio es para ti.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+                        </div>
+
+                        <h3>────── Sitios Web ──────</h3>
+
+                        <div class="resource-list">
+                            <div class="resource-item">
+                                <a href="https://neurodiversi.org/comprender-la-neurodivergencia/" target="_blank" 
+                                class="underline-animate track-link">
+                                NeurodiverSí – Comprender la neurodivergencia
                                 </a>
-                                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
-                                    <i class="fab fa-facebook-f"></i>
+                                <p class="resource-description">
+                                Explica de forma clara qué es la neurodivergencia, sus orígenes y cómo fomentar la inclusión.
+                                </p>
+                            </div>
+
+                            <div class="resource-item">
+                                <a href="https://andaconmigo.com/tipos-de-neurodivergencia/" target="_blank" 
+                                class="underline-animate track-link">
+                                Anda CONMiGO – Tipos de neurodivergencia
                                 </a>
-                                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
+                                <p class="resource-description">
+                                Desglose de las principales formas de neurodivergencia (autismo, TDAH, dislexia…) con orientación educativa.
+                                </p>
+                            </div>
+
+                            <div class="resource-item">
+                                <a href="https://neurodivergencias.es/" target="_blank" 
+                                class="underline-animate track-link">
+                                Neurodivergencias.es – Diagnóstico y psicoterapia
                                 </a>
-                                <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
-                                    <i class="fab fa-twitter"></i>
+                                <p class="resource-description">
+                                Centro especializado que ofrece información clínica y terapéutica para neurodivergentes.
+                                </p>
+                            </div>
+
+                            <div class="resource-item">
+                                <a href="https://divershines.com/es/soy-neurodivergente-como-saberlo-y-que-hacer-despues/" target="_blank" 
+                                class="underline-animate track-link">
+                                Divershines.com – ¿Soy neurodivergente?
                                 </a>
+                                <p class="resource-description">
+                                Orientada a autodiagnóstico, explicaciones y pasos a seguir tras identificarse como neurodivergente.
+                                </p>
+                            </div>
+
+                            <div class="resource-item">
+                                <a href="https://www.magellanhealthcare.com/media/10960/embracing-neurodiversity_sp.pdf" target="_blank" 
+                                class="underline-animate track-link">
+                                Magellan Healthcare – Abrazar la neurodiversidad (PDF)
+                                </a>
+                                <p class="resource-description">
+                                Documento con enfoque organizacional sobre inclusión de personas neurodivergentes, eventos y recursos educativos.
+                                </p>
                             </div>
                         </div>
-                    </section>
-                </footer>
-            
-                <!-- Enlace al archivo Json -->
-                <script src="../javascript/Language.js"></script>
 
-                <!-- Enlace al archivo JavaScript -->
-                <script src="../javascript/Javascript.js"></script>
+                    </div>
 
-                <!-- Enlace al archivo JavaScript del buscador -->
-                <script src="../javascript/Buscador.js"></script>
-            
-    </body>          
+                    <div class="tab-content" id="tab2">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="https://youtu.be/FXDt0VRfGeY?si=7DcG2Qdr6n8lFked">
+                                        <img src="../img/vid_autismo_1.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/FXDt0VRfGeY?si=7DcG2Qdr6n8lFked"
+                                            class="underline-animate track-link" data-translate="vid_autismo_1">¿Qué
+                                            es el Autismo?</a></h4>
+                                    <p data-translate="vid_autismo_desc_1">Este video aborda el debate de si hay que
+                                        considerar condiciones como el
+                                        autismo
+                                        como trastornos o como parte natural de la diversidad humana, dando la
+                                        última opción
+                                        como una respuesta que fomenta la sana convivencia.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/NY0ApnCq9pQ?si=B2chfFGQO3pX8oIT">
+                                        <img src="../img/vid_autismo_2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/NY0ApnCq9pQ?si=B2chfFGQO3pX8oIT"
+                                            class="underline-animate track-link" data-translate="vid_autismo_2">
+                                            AUTISMO: Una Realidad Desconocida</a></h4>
+                                    <p data-translate="vid_autismo_desc_2">Elaborado con el objetivo de conmemorar
+                                        el día mundial del autismo el 02 de Abril se nos presenta el estreno de uno
+                                        de los documentos
+                                        que desde @divulgaciondinamicaformacion hemos elaborado, con el objetivo de
+                                        dar más visibilidad al TEA (Trastorno del Espectro Autista)
+                                        y sobre todo, a la lucha incansable de unas familias a las que un
+                                        diagnóstico les cambio la vida..</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/_R4lWNpsmno?si=0GVAeXkGgrn4WjT2">
+                                        <img src="../img/vid_autismo_3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/_R4lWNpsmno?si=0GVAeXkGgrn4WjT2"
+                                            class="underline-animate track-link" data-translate="vid_autismo_3">
+                                            10 rasgos del AUTISMO INFANTIL 🔵 Aprende a identificar los PRIMEROS
+                                            SIGNOS de TEA en bebés y niños</a></h4>
+                                    <p data-translate="vid_autismo_desc_3">¿Te has preguntado alguna vez si tu hijo
+                                        puede ser autista? En el vídeo de hoy veremos las
+                                        características más comunes en el Trastorno del espectro autista (TEA),
+                                        desde los primeros síntomas en bebés hasta los que presentan
+                                        niños y adultos de mayor edad. Se calcula que el autismo infantil afecta a 1
+                                        de cada 100 niños en Europa.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/c8R4SxhPsjk?si=GD1xBXEuGTr9_6GK">
+                                        <img src="../img/vid_autismo_4.webp" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/c8R4SxhPsjk?si=GD1xBXEuGTr9_6GK"
+                                            class="underline-animate track-link" data-translate="vid_autismo_4">
+                                            Autismo: Nuevos descubrimientos que debes conocer para 2025</a></h4>
+                                    <p data-translate="vid_autismo_desc_4">En este vídeo se nos habla sobre los
+                                        nuevos decubrimientos que se han observado dentro de el espectro autista
+                                        (TEA)
+                                        ¿Te has detenido a pensar en cómo procesamos el mundo que nos rodea?</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/VrrPnGzOKe4?si=7C2LMgDdUxCn2Qsn">
+                                        <img src="../img/vid_autismo_5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/VrrPnGzOKe4?si=7C2LMgDdUxCn2Qsn"
+                                            class="underline-animate track-link" data-translate="vid_autismo_5">
+                                            SER AUTISTA EN UN MUNDO SORDO DE EMPATÍA (CON: DIANA TORRES) Vos podés -
+                                            EP 170</a></h4>
+                                    <p data-translate="vid_autismo_desc_5">Hoy, en el Día Mundial de la
+                                        Concienciación sobre el Autismo, Diana hace un llamado urgente a
+                                        la empatía. Su mensaje es claro: no debemos ser sordos ante las experiencias
+                                        de los demás, especialmente cuando esas experiencias
+                                        son invisibles.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab3">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX">
+                                        <img src="../img/Video7.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/FGQ_Gt7UHp8?si=j_dsRCQR1PJhMGXX"
+                                            class="underline-animate track-link" data-translate="vid_tdah_1">¿Qué
+                                            sabemos sobre TDAH?</a></h4>
+                                    <p data-translate="vid_tdah_desc_1">En este video se habla de que es el TDAH y
+                                        cómo puede tratarse.
+                                        Se presentan los síntomas y características del TDAH, así como su
+                                        diagnóstico y tratamiento.
+                                        El Trastorno por Déficit de Atención e Hiperactividad parece afectar cada
+                                        vez a más personas ¿Qué es el TDAH y cómo puede tratarse?
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/yWPFdDxJNw8?si=PWme9sp5pt8TyPWr">
+                                        <img src="../img/vid_tdah_2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/yWPFdDxJNw8?si=PWme9sp5pt8TyPWr"
+                                            class="underline-animate track-link" data-translate="vid_tdah_2">
+                                            Tu cerebro cuando tienes TDAH</a></h4>
+                                    <p data-translate="vid_tdah_desc_2">En los adultos con TDAH, las dificultades
+                                        atencionales y la disfunción ejecutiva se manifiestan por la dificultad para
+                                        organizarse,
+                                        planificar tareas, establecer prioridades, estructurar el tiempo y terminar
+                                        los proyectos o tareas asignadas.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/Dj64hbDd_f8?si=w1hoTHvvaE-P-yEN">
+                                        <img src="../img/vid_tdah_3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/Dj64hbDd_f8?si=w1hoTHvvaE-P-yEN"
+                                            class="underline-animate track-link" data-translate="vid_tdah_3">
+                                            El TDAH en ADULTOS. Las 11 claves que te abrirán los ojos. 😳</a></h4>
+                                    <p data-translate="vid_tdah_desc_3">Los adultos también pueden presentar TDAH. Y
+                                        no solo eso, es tan frecuente,
+                                        que hasta el 4,5% de los mayores de 18 años, cumplen criterios de TDAH del
+                                        adulto. </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/uDsEhLCMw9A?si=HvRcP8g21x2pNKuH">
+                                        <img src="../img/vid_tdah_4.webp" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/uDsEhLCMw9A?si=HvRcP8g21x2pNKuH"
+                                            class="underline-animate track-link" data-translate="vid_tdah_4">
+                                            ¿Qué pasa en el cerebro 🧠 cuando se tiene TDAH?</a></h4>
+                                    <p data-translate="vid_tdah_desc_4">El Dr. Juan Carlos Pérez Castro nos da una
+                                        plática muy didáctica sobre los procesos
+                                        neuronales que son afectados cuando se tiene TDAH y cómo se ven en la vida
+                                        diaria.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/9fZurSe2hV4?si=QNa2_6vDgrOfsqtS">
+                                        <img src="../img/vid_tdah_5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/9fZurSe2hV4?si=QNa2_6vDgrOfsqtS"
+                                            class="underline-animate track-link" data-translate="vid_tdah_5">
+                                            El CEREBRO del TDAH 🧠 Así funciona la mente de tu hijo.</a></h4>
+                                    <p data-translate="vid_tdah_desc_5">En este video, se nos explican los
+                                        funcionamientos básicos del cerebro humano, para que entiendas,
+                                        en muy poquito tiempo, y sin dificultad, porque actuamos como actuamos todas
+                                        las personas
+                                        Las personas con TDAH, tienen formas de actuar, y comportarse, que
+                                        habitualmente,
+                                        se salen de lo predecible, y que, en muchas ocasiones, desconciertan a
+                                        cualquiera. </p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab4">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+
+                                <div class="video">
+                                    <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb">
+                                        <img src="../img/Video6.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/bNjr9Y1k0SI?si=tewOri7dyKiF5Xdb"
+                                            class="underline-animate track-link" data-translate="vid_dislexia_1">
+                                            La dislexia es una dificultad de aprendizaje, no es una enfermedad. Luz
+                                            Rello, investigadora </a></h4>
+                                    <p data-translate="vid_dislexia_desc_1">Este video habla de la dislexia, como su
+                                        porcentaje de diagnostico en quien la
+                                        presenta es mínimo y que se puede superar, concientizándonos sobre la
+                                        importancia de
+                                        tratarla.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/6l7dWaPS4lo?si=L2G0iJpN10rIoKHS">
+                                        <img src="../img/vid_dislexia_2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/6l7dWaPS4lo?si=L2G0iJpN10rIoKHS"
+                                            class="underline-animate track-link" data-translate="vid_dislexia_2">
+                                            Qué es la dislexia - Kelli Sandman-Hurley</a></h4>
+                                    <p data-translate="vid_dislexia_desc_2">La dislexia afecta a una de cada cinco
+                                        personas, pero la experiencia de la dislexia no es
+                                        siempre la misma. Esta dificultad para procesar el lenguaje existe en un
+                                        espectro que no necesariamente encaja con etiquetas como
+                                        "normal" y "defectuosos". Kelli Sandman-Hurley nos insta a pensar de nuevo
+                                        en la función del cerebro disléxico y a apreciar la neurodiversidad del
+                                        cerebro humano.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/O27NZDT8kSE?si=OJyAIXlfXl6Y-TGC">
+                                        <img src="../img/vid_dislexia_3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/O27NZDT8kSE?si=OJyAIXlfXl6Y-TGC"
+                                            class="underline-animate track-link" data-translate="vid_dislexia_3">
+                                            TEA: DISLEXIA, DISGRAFÍA, DISORTOGRAFÍA Y DISCALCULIA | #TELOEXPLICO</a>
+                                    </h4>
+                                    <p data-translate="vid_dislexia_desc_3"> LOS TRASTORNOS ESPECÍFICOS DEL
+                                        APRENDIZAJE: QUÉ SON Y CÓMO FUNCIONAN</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/IfIIOuiXyU8?si=RyaMF18g3vODBDef">
+                                        <img src="../img/vid_dislexia_4.webp" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/IfIIOuiXyU8?si=RyaMF18g3vODBDef"
+                                            class="underline-animate track-link" data-translate="vid_dislexia_4">
+                                            ¿Cómo es vivir con dislexia? | Médico de familia | Dr. Jorge Tartaglione
+                                            | Lucas Slevin</a></h4>
+                                    <p data-translate="vid_dislexia_desc_4"> Vivir con dislexia: la historia de
+                                        Lucas Slevin, sus tatuajes y el mensaje de inclusión.
+
+                                        Lucas Slevin fue diagnosticado con dislexia y, en redes sociales, cuenta
+                                        cómo es vivir con este tipo de trastorno del aprendizaje.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/9A5OorMtFjk?si=RSd8cb1yzXLpe6EA">
+                                        <img src="../img/vid_dislexia_5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/9A5OorMtFjk?si=RSd8cb1yzXLpe6EA"
+                                            class="underline-animate track-link" data-translate="vid_dislexia_5">
+                                            📖 Dislexia Diagnóstico y signos de alarma Intro | Cursos ITK
+                                            Academy</a></h4>
+                                    <p data-translate="vid_dislexia_desc_5"> En este vídeo
+                                        En el siguiente vídeo se nos habla sobre la importancia de obtener un
+                                        diagnóstico profesional sobre la dislexia, así como también que signos
+                                        o señales pueden ser alertas para su detección.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/zVFdHfFdVac?si=QXFOmIrB6rV0E_yY">
+                                        <img src="../img/VideoPendiente.jpg" alt="Video6"></a>
+                                    <h4> <a href="https://youtu.be/zVFdHfFdVac?si=QXFOmIrB6rV0E_yY"
+                                            class="underline-animate track-link" data-translate="vid_dislexia_6">
+                                            ¿De qué manera la dislexia afecta a los niños fuera de la escuela? |
+                                            Child Mind Institute</a></h4>
+                                    <p data-translate="vid_dislexia_desc_6"> En este vídeo
+                                        En este video, Karol Espejo, trabajadora social clínica del Child Mind
+                                        Institute, aborda una preocupación común de los padres de niños con
+                                        dislexia.
+                                        Karol Espejo explica cómo la dislexia puede afectar la autoestima,
+                                        especialmente cuando los niños tienen dificultades para leer o seguir
+                                        instrucciones.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab5">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+
+                                <div class="video">
+                                    <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd">
+                                        <img src="../img/Video9.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/sKT-6GTQSUE?si=bdKcXV0JMq31YDkd"
+                                            class="underline-animate track-link" data-translate="vid_toc_1">
+                                            Tu cerebro cuando tienes TOC - Trastorno Obsesivo Compulsivo</a></h4>
+                                    <p data-translate="vid_toc_desc_1">En este video se aborda de forma general el
+                                        tratamiento del TOC, basado en el
+                                        libro
+                                        de Aaron T. Beck: Terapia cognitiva para trastornos de ansiedad.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/irlCibk2Bmw?si=jKpVvRUecWgg525E">
+                                        <img src="../img/vid_tourette_2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/irlCibk2Bmw?si=jKpVvRUecWgg525E"
+                                            class="underline-animate track-link" data-translate="vid_toc_2">
+                                            Qué es el Síndrome de Tourette</a></h4>
+                                    <p data-translate="vid_toc_desc_2">En este vídeo podrás conocer de manera breve
+                                        que es el síndrome de Tourette, cuales son sus síntomas, maneras de
+                                        detección y diagnosticos.</p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/Rl3nZwxM28w?si=Lq6H60I9XPPEtsCs">
+                                        <img src="../img/vid_tourette_3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/Rl3nZwxM28w?si=Lq6H60I9XPPEtsCs"
+                                            class="underline-animate track-link" data-translate="vid_toc_3">
+                                            El peor caso de síndrome de Tourette</a></h4>
+                                    <p data-translate="vid_toc_desc_3">El caso de Bianca Saez es uno de los de
+                                        síndrome de Tourette más severos que se conocen en el mundo. Sin embargo, su
+                                        historia es inspiradora.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/S2G631CzMII?si=pGApwaTabKii4Pre">
+                                        <img src="../img/vid_tourette_4.webp" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/S2G631CzMII?si=pGApwaTabKii4Pre"
+                                            class="underline-animate track-link" data-translate="vid_toc_4">
+                                            Síndrome de Tourette</a></h4>
+                                    <p data-translate="vid_toc_desc_4">¿#SabíasQue el Síndrome de Tourette es un
+                                        trastorno neuropsiquíatrico, crónico y genético, caracterizado por
+                                        la aparición de tics motores y sonoros involuntarios que perduran durante
+                                        más de un año y se manifiesta antes de los 18 años? Mira esta información.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/XsP11-2nO_k?si=GAI-252LUNZGh-C2">
+                                        <img src="../img/vid_tourette_5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/XsP11-2nO_k?si=GAI-252LUNZGh-C2"
+                                            class="underline-animate track-link" data-translate="vid_toc_5">
+                                            ¿QUÉ ES EL SÍNDROME DE TOURETTE? | Draw My Life</a></h4>
+                                    <p data-translate="vid_toc_desc_5">¿Conocéis cuáles son sus síntomas? Hoy
+                                        hablaremos de ello. ¡Recordad que la empatía es fundamental
+                                        para que todos vivamos felices!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab6">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="https://youtu.be/sWAMSK-dupI?si=fzzhu9o7S90GI77b">
+                                        <img src="../img/vid_dispraxia_1.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/sWAMSK-dupI?si=fzzhu9o7S90GI77b"
+                                            class="underline-animate track-link" data-translate="vid_dispraxia_1">
+                                            #NeuroPhysioClub: DISPRAXIA</a></h4>
+                                    <p data-translate="vid_dispraxia_desc_1">En esta ocasión, el neurofisioterapeuta
+                                        Juan Anaya Ojeda [@juanayaojeda] charla
+                                        con la neuropsicóloga Paula Iglesias Rodríguez [@paula_igr] sobre dispraxia.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/bhP73xjz7GM?si=tsI5gznOSFPeUUIr">
+                                        <img src="../img/vid_dispraxia_2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/bhP73xjz7GM?si=tsI5gznOSFPeUUIr"
+                                            class="underline-animate track-link" data-translate="vid_dispraxia_2">
+                                            Neurólogo Pediatra en Guadalajara Dra. Giselle/ DISPRAXIA EN NIÑOS ¿CÓMO
+                                            LOS PUEDE AFECTAR?</a></h4>
+                                    <p data-translate="vid_dispraxia_desc_2">Este video te guiará sobre algunos
+                                        síntomas que puedes observar en niños
+                                        que presentar dispraxia y como ayudarlos.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/8n-iv8ljJyc?si=S0HFmCXRcnnPRVyT">
+                                        <img src="../img/vid_dispraxia_3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/8n-iv8ljJyc?si=S0HFmCXRcnnPRVyT"
+                                            class="underline-animate track-link" data-translate="vid_dispraxia_3">
+                                            Dispraxia y Disgrafía | Causas, prevención y tratamiento</a></h4>
+                                    <p data-translate="vid_dispraxia_desc_3">¡Hola! Hoy os traigo un video que me
+                                        gusta mucho porque hablamos de dos trastornos muy desconocidos:
+                                        la disgrafía y la dispraxia. A menudo, estos dos trastornos se confunden y
+                                        por ello, hoy os traigo este video donde vamos a comprender
+                                        mejor qué son cada uno de ellos, vamos a ver las diferencias y cómo podemos
+                                        trabajarlos.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/XLAUPb3_UOc?si=6N5CTWZwIcDMttES">
+                                        <img src="../img/vid_dispraxia_4.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/XLAUPb3_UOc?si=6N5CTWZwIcDMttES"
+                                            class="underline-animate track-link" data-translate="vid_dispraxia_4">
+                                            ¿Qué es la Dispraxia?</a></h4>
+                                    <p data-translate="vid_dispraxia_desc_4">Te invitamos a ver este episodio donde
+                                        hablaremos sobre la Dispraxia que es uno de los
+                                        trastornos del neurodesarrollo, en el que los niños y niñas que la sufren
+                                        muestran una gran dificultad a la hora de realizar
+                                        actividades y movimientos coordinados.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/24pdMCzPR7U?si=j3a1abBzJy3bCkEl">
+                                        <img src="../img/vid_dispraxia_5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/24pdMCzPR7U?si=j3a1abBzJy3bCkEl"
+                                            class="underline-animate track-link" data-translate="vid_dispraxia_5">
+                                            Qué es la dispraxia ?</a></h4>
+                                    <p data-translate="vid_dispraxia_desc_5">Dificultades a nivel motriz en niños,
+                                        ¿Qué es la dispraxia? síntomas en niños y su manera de detección temprana.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab7">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="https://youtu.be/fs19szj8L78?si=3UBl0KsiMwcrxCy4">
+                                        <img src="../img/vid_discalculia_1.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/fs19szj8L78?si=3UBl0KsiMwcrxCy4"
+                                            class="underline-animate track-link" data-translate="vid_discalculia_1">
+                                            ¿Qué es la DISCALCULIA? Todo lo que necesitas saber 👆</a></h4>
+                                    <p data-translate="vid_discalculia_desc_1">
+                                        En este la especialista Hiwet Costa nos explica que es la discalculia en
+                                        niños,
+                                        así como también nos comparte un test para la detección de la discalculia en
+                                        niños.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/uaB1pouNHQM?si=ZMQno6bIFJ_HE5-v">
+                                        <img src="../img/vid_discalculia_2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/uaB1pouNHQM?si=ZMQno6bIFJ_HE5-v"
+                                            class="underline-animate track-link" data-translate="vid_discalculia_2">
+                                            Clase magistral: Discalculia, qué es y cómo detectarla con Silvia
+                                            Figiacone</a></h4>
+                                    <p data-translate="vid_discalculia_desc_2">
+                                        Se realizó una entrevista a Silvia Figiacone, Directora de la Maestría en
+                                        Neuropsicología Aplicada del Inst. Universitario,
+                                        Hospital Italiano. Silvia nos explica qué es la discalculia y cómo se
+                                        diagnostica.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/ZrG_fJ65CNE?si=8zvkZFCfDgRXCinv">
+                                        <img src="../img/vid_discalculia_3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/ZrG_fJ65CNE?si=8zvkZFCfDgRXCinv"
+                                            class="underline-animate track-link" data-translate="vid_discalculia_3">
+                                            Señales de discalculia | Child Mind Institute</a></h4>
+                                    <p data-translate="vid_discalculia_desc_3">
+                                        En este video, Alnardo Martínez, consejero de salud mental con licencia del
+                                        Child Mind Institute, explica qué es la discalculia
+                                        y cómo afecta la capacidad de los niños para aprender y comprender las
+                                        matemáticas.
+                                        Alnardo analiza los síntomas comunes, qué buscar en diferentes edades y por
+                                        qué el reconocimiento y la intervención tempranos son fundamentales.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/mMX7iHtHUK8?si=anm_GYyhsRdaeCBW">
+                                        <img src="../img/vid_discalculia_4.webp" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/mMX7iHtHUK8?si=anm_GYyhsRdaeCBW"
+                                            class="underline-animate track-link" data-translate="vid_discalculia_4">
+                                            ¿Qué es la discalculia? | Child Mind Institute</a></h4>
+                                    <p data-translate="vid_discalculia_desc_4">
+                                        En este video, Alnardo Martinez, consejero de salud mental con licencia del
+                                        Child Mind Institute, responde la pregunta de un padre cuyo
+                                        hijo tiene problemas con las matemáticas en la escuela y habla de las
+                                        diferencias entre los problemas típicos con las matemáticas y el
+                                        trastorno del aprendizaje conocido como discalculia.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://www.youtube.com/live/-A7DZRS1nPY?si=rQUSx1p4F3QeT2cX">
+                                        <img src="../img/vid_discalculia_5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://www.youtube.com/live/-A7DZRS1nPY?si=rQUSx1p4F3QeT2cX"
+                                            class="underline-animate track-link" data-translate="vid_discalculia_5">
+                                            Dislexia, Disgrafía y Discalculia</a></h4>
+                                    <p data-translate="vid_discalculia_desc_5">
+                                        Acompáñanos a la Plática Virtual "Dislexia, Disgrafía y Discalculia" con
+                                        Giovanna Soto Salinas,
+                                        Harumi Paulina Lira Sánchez y Fabiola Guadalupe Ayala Rodríguez 👩‍⚕️🧠 de
+                                        SAP S. Atención Psiquiátrica
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab8">
+
+                        <h3>────── Videos ──────</h3>
+
+                        <div class="scroll-container">
+                            <!-- Bóton de scrolling/desplazamiento izquierdo -->
+                            <span class="scroll-btn left">&#10094;</span>
+
+                            <div class="scrolling-videos">
+                                <!-- Cada "video" representa un recurso multimedia -->
+                                <div class="video">
+                                    <a href="https://youtu.be/iEdv9X8JbsA?si=JT6WpCql-j2hRBMu">
+                                        <img src="../img/vid_ansiedad_1.webp" alt="Video1"></a>
+                                    <h4> <a href="https://youtu.be/iEdv9X8JbsA?si=JT6WpCql-j2hRBMu"
+                                            class="underline-animate track-link" data-translate="vid_ansiedad_1">
+                                            ¿Qué es Ansiedad?</a></h4>
+                                    <p data-translate="vid_ansiedad_desc_1">
+                                        Aunque la ansiedad es una reacción común, aprenda sobre los síntomas y tipos
+                                        de ansiedad y cómo puede
+                                        convertirse en un problema y cuando se diagnostica como un trastorno o
+                                        desorden de salud mental.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/hAt6lgwC8cw?si=ZCYN7ll8QBOSlTAD">
+                                        <img src="../img/vid_ansiedad_2.webp" alt="Video2"></a>
+                                    <h4> <a href="https://youtu.be/hAt6lgwC8cw?si=ZCYN7ll8QBOSlTAD"
+                                            class="underline-animate track-link" data-translate="vid_ansiedad_2">
+                                            Cómo sanar la ansiedad: estrategias y herramientas efectivas |
+                                            Psicología al Desnudo - T1 E 14</a></h4>
+                                    <p data-translate="vid_ansiedad_desc_2">En este podcast hablamos de emociones.
+                                        De tus mecanismos internos: ¿Por qué hacés lo que hacés?
+                                        ¿Por qué no podés expresar ciertas emociones y otras sí? ¿Por qué te sentís
+                                        mal a veces? ¿Por qué hay cosas que te angustian, que te
+                                        generan miedo, nostalgia, o que te dan placer? ¿Cómo regular tus emociones
+                                        para sentirte equilibrado/a?
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/2kUqVkYGI48?si=qxexAZz7L3TAwYw4">
+                                        <img src="../img/vid_ansiedad_3.webp" alt="Video3"></a>
+                                    <h4> <a href="https://youtu.be/2kUqVkYGI48?si=qxexAZz7L3TAwYw4"
+                                            class="underline-animate track-link" data-translate="vid_ansiedad_3">
+                                            Así superé los Ataques de Pánico y de Ansiedad</a></h4>
+                                    <p data-translate="vid_ansiedad_desc_3">A miles de personas les da y no saben lo
+                                        que tienen: Los ataques de pánico y
+                                        ansiedad son más comunes de lo que crees. El problema de esto es que pueden
+                                        caer en tratamientos equivocados o vivir sin el diagnóstico
+                                        correcto. Hoy te hablo como un paciente más que vivió esta incómoda
+                                        situación y te cuento cómo logré superarlo. Hoy, te cuento mi
+                                        historia que espero que pueda ayudar al menos a una sola persona a
+                                        sobrellevar este padecimiento.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/3iXjHf12ed4?si=kZx8U6rT4qNfsCD2">
+                                        <img src="../img/vid_ansiedad_4.webp" alt="Video4"></a>
+                                    <h4> <a href="https://youtu.be/3iXjHf12ed4?si=kZx8U6rT4qNfsCD2"
+                                            class="underline-animate track-link" data-translate="vid_ansiedad_4">
+                                            ¿Qué es la ansiedad? | APA</a></h4>
+                                    <p data-translate="vid_ansiedad_desc_4">En este vídeo podremos observas el que
+                                        es la ansiedad, sus síntomas y como se puede tratar.
+                                        La ansiedad es una reacción normal al estrés. Puede ayudar a las personas a
+                                        afrontar situaciones difíciles, como una entrevista de trabajo o un examen.
+                                        Pero la ansiedad puede convertirse en un problema cuando es excesiva o dura
+                                        mucho tiempo.
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/S1g1cQjUguI?si=HadGipryag-AXJGK">
+                                        <img src="../img/vid_ansiedad_5.webp" alt="Video5"></a>
+                                    <h4> <a href="https://youtu.be/S1g1cQjUguI?si=HadGipryag-AXJGK"
+                                            class="underline-animate track-link" data-translate="vid_ansiedad_5">
+                                            TODO LO QUE NECESITAS SABER SOBRE LA ANSIEDAD | #TELOEXPLICO</a></h4>
+                                    <p data-translate="vid_ansiedad_desc_5">Latidos rápidos del corazón, sudoración,
+                                        preocupación creciente, tensión muscular...
+                                        Si estás buscando estos síntomas en google y has encontrado este vídeo, no
+                                        te preocupes, no te vas a morir, pero puede ser que sufras de ansiedad.
+                                        Pero, ¿qué es realmente? ¿Y cuándo podemos hablar de un trastorno?
+                                        TODO LO QUE NECESITAS SABER SOBRE LA ANSIEDAD
+                                    </p>
+                                </div>
+
+                                <div class="video">
+                                    <a href="https://youtu.be/ZSuyJWlx8bc?si=tPW89F9pmA2UIeCC">
+                                        <img src="../img/vid_ansiedad_6.webp" alt="Video6"></a>
+                                    <h4> <a href="https://youtu.be/ZSuyJWlx8bc?si=tPW89F9pmA2UIeCC"
+                                            class="underline-animate track-link" data-translate="vid_ansiedad_6">
+                                            ¿Qué es la ansiedad y cómo se manifiesta?</a></h4>
+                                    <p data-translate="vid_ansiedad_desc_6">Latidos rápidos del corazón, sudoración,
+                                        preocupación creciente, tensión muscular...
+                                        En entrevista con el doctor Agustin Torres Cid, Psicogeriatra, nos dice qué
+                                        es la ansiedad, cómo suele presentarse en una persona,
+                                        así como los síntomas que tiene una persona que está pasando por un ataque
+                                        de ansiedad y cómo debe ser atendido.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Bóton de scrolling/desplazamiento derecho -->
+                            <span class="scroll-btn right">&#10095;</span>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <!-- Sección del Footer -->
+    <footer class="footer-container">
+        <section id="Footer">
+
+            <!-- Sección superior con navegación inferior y logo-->
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="../img/Logo.png" alt="Logo"></a>
+                </div>
+
+                <!-- Barra de navegación inferior -->
+                <ul class="footer-navbar">
+
+                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                                página de inicio -->
+                    <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+                    <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+                    <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+                    <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                    <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+                    <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+                    <li><a href="#Footer">Footer</a></li>
+                </ul>
+            </div>
+
+            <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+            <div class="footer-bottom">
+                <p>© 2025 Mentes en armonía</p>
+
+                <div class="socials">
+                    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mentesen.armonia?igsh=MTJrejVhbDk1eHNtdg==" target="_blank"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- Enlace al archivo Json -->
+    <script src="../javascript/Language.js"></script>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="../javascript/Javascript.js"></script>
+
+    <!-- Enlace al archivo JavaScript del buscador -->
+    <script src="../javascript/Buscador.js"></script>
+
+    <!-- Enlace a EmailJS SDK - Biblioteca para envío de emails sin backend -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+</body>
+
 </html>
