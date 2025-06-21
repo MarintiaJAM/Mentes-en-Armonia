@@ -1453,7 +1453,298 @@ hr{
     text-align: center; /*Centra el texto*/
 }
 
+
+
  /* Responsividad */
+ /*CONTENEDOR EN DISPOSITIVOS*/
+ /* 📱 Móviles (menos de 576px) */
+@media screen and (max-width: 575px) {
+    .container {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 0; /* Sin márgenes */
+        box-shadow: none; /* Opcional: elimina sombra en móvil */
+        border-radius: 0; /* Opcional: elimina bordes redondeados si los agregas */
+    }
+}
+
+/* 📲 Tablets pequeñas (576px a 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .container {
+        width: 95%; /* Márgenes más pequeños */
+    }
+}
+
+/* 💻 Tablets grandes y pequeñas laptops (768px a 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 90%; /* Similar a por defecto */
+    }
+}
+
+/* 🖥 Escritorio grande (992px en adelante) */
+@media screen and (min-width: 992px) {
+    .container {
+        width: 90%; /* Más estrecho en pantallas grandes si lo deseas */
+    }
+}
+
+/*VÍDEO DE INTRODUCCIÓN*/
+@media screen and (max-width: 575px) {
+    .about {
+        margin: 5px;
+        padding: 10px 0;
+    }
+
+    .about p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+
+    .about h2 {
+        font-size: 20px;
+    }
+
+    .about-text {
+        padding: 30px 10px;
+    }
+
+    .about-section{
+        height: auto;
+    }
+
+    .video-intro {
+        height: 100%; /* O ajusta a 80% si se ve demasiado grande */
+    }
+}
+
+
+/*HEADER*/
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .header p{
+        font-size: 18px;
+    }
+}
+
+
+/*VÍDEO DE INTRODUCCIÓN*/
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .about {
+        margin: 5px;
+        padding: 10px 0;
+    }
+
+    .about p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .about h2 {
+        font-size: 20px;
+    }
+
+    .about-text {
+        padding: 30px 10px;
+    }
+
+    .about-section{
+        height: auto;
+    }
+
+    .video-intro {
+        height: 100%; /* O ajusta a 80% si se ve demasiado grande */
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px)
+{
+    .about {
+        margin: 5px;
+        padding: 10px 0;
+    }
+
+    .about p {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+
+    .about h2 {
+        font-size: 20px;
+    }
+
+    .about-text {
+        padding: 30px 10px;
+    }
+
+    .about-section{
+        height: 40hv;
+    }
+
+    .video-intro {
+        height: 90%; /* O ajusta a 80% si se ve demasiado grande */
+    }
+}
+
+
+/*SECCIÓN DE DEFINICIONES*/
+@media screen and (max-width: 768px) {
+    .neuro {
+        flex-direction: column; /* Apila imagen y texto */
+        text-align: center;
+        padding: 10px;
+    }
+
+    .defImg img {
+        width: 90%; /* Hace que la imagen se adapte al ancho del contenedor */
+        max-width: 300px; /* Opcional: limita el tamaño máximo */
+        margin: 10px auto; /* Centra la imagen */
+    }
+
+    .defText h3 {
+        font-size: 22px; /* Reduce el tamaño del título */
+        margin: 10px 0;
+    }
+
+    .defText p {
+        padding: 0 10px;
+        font-size: 18px;
+        text-align: justify;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .neuro {
+        flex-direction: column; /* Apila imagen y texto */
+        text-align: center;
+        padding: 10px;
+    }
+
+    .defImg img {
+        width: 80%; /* Hace que la imagen se adapte al ancho del contenedor */
+        max-width: 300px; /* Opcional: limita el tamaño máximo */
+        margin: 10px auto; /* Centra la imagen */
+    }
+
+    .defText h3 {
+        font-size: 22px; /* Reduce el tamaño del título */
+        margin: 10px 0;
+    }
+
+    .defText p {
+        padding: 0 10px;
+        font-size: 18px;
+        text-align: justify;
+    }
+}
+
+
+/*LÍNEAS DE APOYO*/
+/* Responsive (ajustes extra para pantallas pequeñas) */
+@media (max-width: 600px) {
+    .container-lineap {
+        max-width: 90%; /* Más ancho en móvil */
+        padding: 0 10px;
+    }
+
+    .acordeon ul {
+        font-size: 20px; /* Más pequeño pero legible */
+    }
+
+    .acordeon li p {
+        padding-left: 28px;
+        font-size: 18px;
+    }
+
+    .acordeon li::before {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-lineap {
+        max-width: 95%;
+    }
+
+    .acordeon .container-acordeon {
+        margin: 0px 10px;
+        font-size: 16px;
+    }
+
+    .acordeon ul {
+        font-size: 16px;
+        padding-left: 15px;
+        margin: 5px 10px;
+    }
+}
+
+
+/*CONTENEDOR DE PESTAÑAS*/
+@media screen and (max-width: 768px) {
+  #tabs {
+    flex-wrap: wrap;          /* Permite que se ajusten a varias líneas */
+    justify-content: center;  /* Centra las pestañas en cada línea */
+    gap: 5px;                 /* Espacio entre pestañas */
+  }
+
+  #tabs li a {
+    padding: 8px 10px;        /* Reduce padding */
+    font-size: 13px;          /* Reduce texto */
+  }
+
+  .tabs-container {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    #tabs {
+    flex-wrap: wrap;          /* Permite que se ajusten a varias líneas */
+    justify-content: center;  /* Centra las pestañas en cada línea */
+    gap: 6px;                 /* Espacio entre pestañas */
+  }
+
+  #tabs li a {
+    padding: 8px 10px;        /* Reduce padding */
+    font-size: 13px;          /* Reduce texto */
+  }
+
+  .tabs-container {
+    padding: 18px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  #tabs li a {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .tabs-container {
+    padding: 18px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+  }
+
+  #tabs li a {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .tabs-container {
+    padding: 18px;
+  }
+}
 @media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
     
     .title{
