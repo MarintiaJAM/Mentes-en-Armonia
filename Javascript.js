@@ -32,6 +32,25 @@ document.querySelectorAll('.acordeon-toggle').forEach(toggle => {
 });
 
 
+/*SECCIÓN VÍDEO ANIMACIÓN SSOBRE NOSOTROS*/
+document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, {
+            threshold: 0.4 // Puedes ajustar este valor para mayor o menor sensibilidad
+        });
+
+        const aboutSection = document.querySelector('.about-section');
+        observer.observe(aboutSection);
+    });
+
+
 //"MENÚ HAMBURGUESA PARA MÓVILES"
 
 // Referencias principales del DOM
