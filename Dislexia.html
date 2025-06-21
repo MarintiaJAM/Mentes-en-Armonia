@@ -13,7 +13,7 @@
      <!-- Enlace a Font Awesome para íconos -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
      <!-- Enlace al css -->
-    <link rel="stylesheet" href="../css/Dislexia.css">
+    <link rel="stylesheet" href="../css/Autismo.css">
 </head>
 
 <body>
@@ -23,27 +23,32 @@
         <nav class="menu" id="Menu">
             <div class="logo"> <!-- Contenedor del logo -->
                 <a href="index.html">
-                    <img src="../img/Logo.png" alt="Logo"></a>
+                <img src="../img/Logo.png" alt="Logo"></a>
             </div>
 
-        <!-- Botón de menú para móviles -->
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
+            <!-- Botón de menú para móviles -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
-
-    <!-- Barra de navegación principal-->
+            <!-- Barra de navegación principal-->
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-         página de inicio -->
-                <li><a href="index.html" data-translate="menu-sec1"><i class="fas fa-house"></i>Inicio</a></li>
-                <li><a href="Nosotros.html" data-translate="menu-sec2"><i class="fas fa-users"></i>Nosotros</a></li>
+                página de inicio -->
+                <li>
+                    <a href="index.html" onclick="saveActiveLink('index.html')">
+                        <i class="fas fa-house"></i>
+                        <span data-translate="menu-sec1">Inicio</span>
+                    </a>
+                </li>
+                
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec3">
+                    <span id="neuroToggle" class="dropdown-toggle">
                         <i class="fas fa-brain icon-left"></i>
-                        Neurodivergencia
+                        <span class="dropdown-label" id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
                         <i class="fas fa-chevron-down chevron"></i>
-                    </span>                         
+                    </span>
+
                     <ul class="dropdown-content">
                         <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
                         <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
@@ -54,71 +59,123 @@
                         <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
-                <li><a href="Comunidad.html" data-translate="menu-sec4"><i class="fas fa-comments"></i>Comunidad</a></li>
-                <li><a href="Noticias.html" data-translate="menu-sec5"><i class="fas fa-newspaper"></i>Noticias</a></li>
+
+                <li>
+                    <a href="Encuestas.html" onclick="saveActiveLink('Nosotros.html')">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="menu-sec3">Encuestas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Comunidad.html" onclick="saveActiveLink('Comunidad.html')">
+                        <i class="fas fa-comments"></i>
+                        <span data-translate="menu-sec4">Comunidad</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Noticias.html" onclick="saveActiveLink('Noticias.html')">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-translate="menu-sec5">Noticias</span>
+                    </a>
+                </li>
+
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec6">
+                    <span id="extrasToggle" class="dropdown-toggle">
                         <i class="fas fa-puzzle-piece icon-left"></i>
-                        Extras
+                            <span data-translate="menu-sec6">Extras</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="Bitacora">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="Referencias">Referencias</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora" onclick="saveDropdownState('extrasToggle', 'Bitácora')">Bitácora</a></li>
+                        <li><a href="Referencias.html" data-translate="referencias" onclick="saveDropdownState('extrasToggle', 'Referencias')">Referencias</a></li>
                     </ul>
                 </li>                                                
             </ul>
 
-        <!-- Barra de búsqueda en la esquina superior izquierda -->
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
-                data-translate-attr="placeholder">
-                <button type="button" id="searchButton"><i class="fas fa-search"></i>
-                </button>
-        </div>
+                        <!-- Barra de búsqueda en la esquina superior derecha -->
+                        <div class="search-bar"> 
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                                data-translate-attr="placeholder" autocomplete="off">
+                                <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                                <div class="search-suggestions" id="searchSuggestions"></div>
+                            </div>
+                        </div>
+                       
+                    
+                        <!-- Botón de Inicio de Sesión -->
+                        <div class="Login">
+                            <a href="#" class="login-button" onclick="toggleLoginModal()">
+                                <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
+                            </a>
+                        </div>          
 
-            <!-- Botón de Inicio de Sesión -->
-            <div class="Login">
-                <a href="#" class="login-button" onclick="toggleLoginModal()">
-                    <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
-                </a>
-            </div>   
-
-            <!-- Formulario de inicio de sesión -->
+                        <!-- Formulario de inicio de sesión -->
                         <div id="loginModal" class="login-modal">
                             <div class="login-form">
+                                <div class="login-form-scroll">
                                 <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
-            
                                 <h2>INICIO DE SESIÓN</h2>
-                                <p class="no-account"> ¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
-                            
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="you@example.com" required>
-                            
-                                <div class="password-row">
-                                    <label for="password">Contraseña</label>
-                                    <a href="#" class="forgot-password underline-animate">¿Olvidaste tu contraseña?</a>
-                                </div>
-            
-                                <div class="password-container">
-                                    <input type="password" id="password" placeholder="Mínimo 5 caracteres" required>
-                                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                                  </div>                      
-                            
-                                <div class="remember-me">
-                                    <input type="checkbox" id="remember">
+                                <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
+
+                                <form id="formularioLogin">
+                                    <!-- Campo oculto -->
+                                    <input type="hidden" name="form_type" value="login" />
+
+                                    <!-- Correo -->
+                                    <label for="email">Correo electrónico *</label>
+                                    <input type="email" id="email" name="user_email" placeholder="you@example.com" required />
+                                    <small id="emailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Confirmar correo -->
+                                    <label for="confirmEmail">Confirmar correo electrónico *</label>
+                                    <input type="email" id="confirmEmail" placeholder="Repite tu correo" required />
+                                    <small id="confirmEmailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Contraseña -->
+                                    <div class="password-row">
+                                    <label for="password">Contraseña *</label>
+                                    <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar sesión?</a>
+                                    </div>
+
+                                    <div class="password-container">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="user_password"
+                                        placeholder="Mínimo 8 caracteres"
+                                        required
+                                        autocomplete="new-password"
+                                    />
+                                    <i class="fas fa-eye toggle-password" id="togglePassword" aria-hidden="true"></i>
+                                    </div>
+
+                                    <p id="passwordStrengthLabel" class="password-strength-label" style="display: none;">Fortaleza de la contraseña:</p>
+                                    <div id="passwordStrength" class="password-strength"></div>
+                                    <small id="passwordFeedback" class="input-feedback"></small>
+
+                                    <!-- Confirmar contraseña -->
+                                    <label for="confirmPassword">Confirmar contraseña *</label>
+                                    <div class="password-container">
+                                    <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required />
+                                    <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                                    </div>
+                                    <small id="confirmPasswordFeedback" class="input-feedback"></small>
+
+                                    <!-- Recordarme -->
+                                    <div class="remember-me">
+                                    <input type="checkbox" id="remember" />
                                     <label for="remember">Recordarme</label>
-                                </div>
-                            
-                                <button type="submit">Entrar</button>
-                            
-                                <div class="divider">────── o inicia sesión con ──────</div>
-                                <div class="social-buttons">
-                                    <button class="google"><i class="fab fa-google"></i> Google</button>
-                                    <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                                    </div>
+
+                                    <!-- BOTÓN -->
+                                    <button type="submit">Entrar</button>
+                                    <p id="formStatus" style="color: green; margin-top: 10px;"></p>
+                                </form>
                                 </div>
                             </div>
-                        </div> 
+                        </div>                     
+                    
 </nav>
 </header>
 
@@ -132,10 +189,14 @@
             <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
             <li><a href="#Footer">Footer</a></li>
         </ul>
-        <div class="traductor">
-            <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
-            <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
-            <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
+        <div class="translator">
+                        <button id="translateBtn" onclick="toggleDropdown()">
+                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
+                        </button>
+                        <div id="languageDropdown" class="language-dropdown hidden">
+                            <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+                            <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+                        </div>
         </div>
 </nav>
 
@@ -148,7 +209,7 @@
 
 <body>
   
-        <div class="content header">
+        <div class="content headerDislexia">
             <h1 class="title">Dislexia</h1>
             <!-- Añadir una breve información de cada tipo deneurotipicidad -->
             <p><h6>"La dislexia no es un obstáculo insuperable, es solo una oportunidad para descubrir mi verdadera fuerza y ​​resiliencia."<br> - Tom Cruise</h6></p>
@@ -156,11 +217,11 @@
 
         <div class="container">
         <section id="Introduction">
-            <div class="content about">
+            <div class="content aboutDislexia">
                 <div class="aboutimg">
-                    <img src="../img/TDAH.jpeg" alt="que es">
+                    <img src="../img/dislexia.jpeg" alt="que es">
                 </div>
-                <div class="aboutext">
+                <div class="aboutextDislexia">
                     <h2 class="title">¿Qué es la dislexia?</h2>
                     <p>
                         La dislexia es un trastorno del aprendizaje que afecta la capacidad de una persona para leer, escribir y, 
@@ -171,7 +232,7 @@
                     </p>
                 </div>
             </div>
-
+            
 <!-- Sección sobre la historia de la dislexia -->
             <div class="content history">
                 <h2 class="title">Historia y evolución</h2>
@@ -183,8 +244,12 @@
                     hemisférica en el cerebro, aportando nuevas perspectivas al estudio del trastorno.
                 </p>
 
-                <h2 class="subtitle">Samuel T. Orton</h2>
-                <img src="../img/sammy.jpg" alt="Samuel">
+                <section class="Hist">
+                    <div class="histimg">
+                        <img src="../img/sammy.jpg" alt="Samuel">
+                    </div>
+                    <div class="histext">
+                        <h2 class="subtitle">Samuel T. Orton</h2>
                 <p> 
                     Fue un neuropsiquiatra estadounidense que, en la década de 1920, investigó las dificultades de lectura 
                     en niños, centrándose en lo que hoy conocemos como dislexia. Observó que algunos niños con inteligencia
@@ -192,7 +257,18 @@
                     dificultades se debían a una falta de dominancia hemisférica en el cerebro, lo que causaba confusión 
                     en la percepción y reproducción de símbolos escritos
                 </p>
+                <p>
+                    En 1925, Orton estableció una clínica móvil de 2 semanas en el condado de Greene, Iowa, para evaluar a los estudiantes referidos por los maestros porque "eran retrasados o fallaban en su trabajo escolar". Orton encontró que 14 de los estudiantes que fueron referidos principalmente porque tenían grandes dificultades para aprender a leer, de hecho tenían puntajes de coeficiente intelectual cercanos, promedio o superiores al promedio.
+                    El estudio de Orton sobre las dificultades de lectura en los niños lo llevó a plantear la hipótesis de que estos individuos no han logrado establecer una organización cerebral adecuada para apoyar la asociación de palabras visuales con sus formas habladas. Llamó a esta dificultad strephosymbolia, que significa "símbolos retorcidos".
+                </p>
+                    </div>
+                </section>
 
+                <h2 class="subtitle">Detalles de su investigación</h2>
+               <p>
+                Muchos de los niños estudiados por Orton también eran ambidiestros o tenían una mano mixta. Esto llevó a Orton a teorizar que los problemas de lectura de los niños se derivaban del fracaso del hemisferio izquierdo para convertirse en dominante sobre el derecho. Algunas de las teorías de Orton sobre la estructura y organización del cerebro serían confirmadas más tarde por investigadores modernos del cerebro, como Albert Galaburda, quien comparó los cerebros de adultos disléxicos y no disléxicos fallecidos a finales de la década de 1970.
+                 En los años transcurridos desde la muerte del Dr. Orton en 1948, su nombre ha llegado a estar fuertemente asociado con el método de enseñanza Orton-Gillingham, que sigue siendo la base de la forma más frecuente de remediación y tutoría para niños con dislexia, o síntomas similares a la dislexia, como discapacidades de lectura.
+               </p>
                 <h2 class="subtitle">Errores cometidos en su investigación</h2>
                 <p>
                     Aunque la hipótesis de Samuel T. Orton sobre la falta de dominancia hemisférica como causa de la dislexia 
@@ -200,10 +276,40 @@
                     ha perdurado y se ha convertido en una práctica efectiva para abordar las dificultades lectoras. 
                 </p>
 
-                <h2 class="subtitle">Anna Gillingham</h2>
-                <img src="../img/Gill.jpg" alt="Anna Gillingham">
-                <h2 class="subtitle">Virginia Douglas</h2>
-                <img src="../img/ambos.jpg" alt="Orton-Gillingham">
+
+                <section class="Hist">
+                    <div class="histimg">
+                         <img src="../img/Gill.jpg" alt="Anna Gillingham">
+                    </div>
+                    <div class="histext">
+                        <h2 class="subtitle">Anna Gillingham</h2>
+                
+                        <p> 
+                            Trabajando con el Dr. Samuel Orton, capacitó a maestros y publicó materiales de instrucción sobre la enseñanza de la lectura, produciendo el enfoque de Orton-Gillingham para la enseñanza de la lectura. Con Bessie Stillman, escribió lo que se ha convertido en el manual Orton-Gillingham: Capacitación correctiva para niños con discapacidad específica en lectura, ortografía y caligrafía. Publicado por primera vez en 1935
+                        </p>
+
+                        <p>
+                            Publicó en The Lancet un artículo en el que describe el patrón conductual de 43 niños que había observado y que presentaban las siguientes características:
+
+                            - Falta de atención
+                            - Búsqueda de gratificación inmediata y poco control voluntario para inhibir su búsqueda
+                            - Poca preocupación por la consecuencia de sus acciones
+                            - La conducta no estaba vinculada a patrones de crianza
+
+                            Denominó a este cuadro `Defecto del Control Moral`.
+
+                            George F. Still es el primer profesor de pediatría del Reino Unido, su trabajo fue presentado como una serie de conferencias impartidas el 4, 6 y 11 de marzo de 1902 en el Real Colegio de Médicos de Londres.
+                        </p>
+                    </div>
+                </section>
+
+                <h2 class="subtitle">Detalles de su investigación</h2>
+                <p>
+                    unto con la ayuda de Stillman, Gillingham desarrolló un "programa multisensorial secuencial, alfabético-fonético" como una herramienta con la que los estudiantes podían crear fácilmente sílabas significativas.
+                    Este enfoque eliminó la necesidad de que un niño memorizara casi todas las palabras del lenguaje, limitándolo a aquellas que no eran fonéticas. Este manual didáctico del "método alfabético" de las teorías de Orton combinó técnicas multisensoriales con la enseñanza de la estructura del inglés escrito, incluidos los sonidos (fonemas), las unidades de significado (morfemas como prefijos, sufijos y raíces) y las reglas ortográficas comunes.
+                </p>
+
+                <h2 class="subtitle">Método Orton-Gillingham</h2>
                 <p> 
                     La educadora Anna Gillingham junto con Orton, desarrolló el método Orton-Gillingham, para mejorar las 
                     habilidades lectoras en personas con dislexia usando metodos de aprendizaje visuales, auditivas y kinestésicas 
@@ -224,13 +330,18 @@
         </section>
 
 <!-- Sección sobre la identificación de dislexia en distintas edades -->
-        <section id="Identification">
-            <div class="identificadores">
-                <h2 class="title"> Cómo se identifica en niños, adolescentes y adultos</h2>
-                <div class="kids">
-                    <h2 class="subtitle">En niños</h2>
-                    <p>
-                        Se relaificultades para reconocer letras y palabras, leer con fluidez, comprender
+<section id="Identification">
+                <div class="identificadores">
+                    <h2 class="title"> Cómo se identifica en niños, adolescentes y adultos</h2>
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon1" class="btn-acordeon">
+
+                        <label for="btn-acordeon1">
+                            <p>En niños <i class="fas fa-chevron-down chevron"></i>  </p>
+                        </label>
+                        <div class="content-acordeon">
+                           <p>
+                        Se caracteriza por las dificultades para reconocer letras y palabras, leer con fluidez, comprender
                         textos escritos y, en ocasiones, problemas en la escritura y ortografía. 
                         Estas dificultades pueden manifestarse desde los primeros años escolares:
 
@@ -242,12 +353,17 @@
                         <li>Dificultades para seguir instrucciones con varios pasos.</li>
                         <li>Baja autoestima y frustración relacionadas con el aprendizaje.</li>
                     </p>
-                </div>
+                        </div>
+                    </div>
 
-                <div class="adults">
-                <h2 class="subtitle">En adultos</h2>
-                <p> 
-                    <p>
+                    <div class="acordeon">
+                        <input type="checkbox" id="btn-acordeon2" class="btn-acordeon">
+
+                        <label for="btn-acordeon2">
+                            <p>En adultos <i class="fas fa-chevron-down chevron"></i> </p> 
+                        </label>
+                        <div class="content-acordeon">
+                            <p>
                     1.Dificultades con tareas que requieren habilidades de lectura,<br>
                     </p>
 
@@ -256,16 +372,33 @@
                     <li>Problemas con la toma de notas o recordar información escrita.</li>
                     <li>Dificultad para organizar ideas de manera coherente al escribir o hablar.</li>
                 </p>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-        </section>
-
         <!-- Sección sobre síntomas comunes -->
-        <h2 class="title"> Síntomas o rasgos más comunes</h2>
-        <p>Los síntomas más comunes de la dislexia incluyen dificultad para leer rápidamente, errores de ortografía, inversión 
-           de letras y números, problemas para asociar sonidos con letras, y dificultades en la comprensión lectora. También 
-           tienen problemas para seguir secuencias y pueden sentirse frustrados o tener baja autoestima debido a estas dificultades.</p>
+         <div class="rasgosDislexia">
+                <div class="rasgos-content">
+                    <h2 class="title"> Síntomas o rasgos más comunes</h2>
+                    <p>Los síntomas más comunes de la dislexia incluyen dificultad para leer rápidamente, errores de ortografía, inversión 
+                    de letras y números, problemas para asociar sonidos con letras, y dificultades en la comprensión lectora. También 
+                    tienen problemas para seguir secuencias y pueden sentirse frustrados o tener baja autoestima debido a estas dificultades.
+                </p>
+                <p>
+                    El principal síntoma que caracteriza, generalmente y a grandes rasgos, a la dislexia es una gran dificultad durante el aprendizaje y la adquisición de la lectura, que es una dificultad inesperada en relación a otras habilidades que muestra la persona y sus circunstancias educacionales.
+                </p> 
+                <p>
+                    El segundo síntoma más común entre las personas que sufren dislexia es el bajo rendimiento escolar en todas aquellas asignaturas que requieren la lectura como base de aprendizaje, puesto que tener dificultades en la lectura y la escritura implica mayor dificultad en el proceso de aprendizaje de ciertas asignaturas o conceptos. Por ejemplo, se pueden dar problemas en el ritmo y velocidad del aprendizaje del lenguaje escrito, dificultades para el copiado de la pizarra al cuaderno, entre otros. Además, se tiene que tener en cuenta que la lectura y la escritura son esenciales en la mayoría de las asignaturas, ya sea al leer libros o al leer las preguntas y escribir las respuestas en un examen.
+                </p>
+                <p>
+                    <strong>Déficit fonológico:</strong> la gran mayoría de personas que sufren dislexia, padecen al mismo tiempo un déficit fonológico, es decir un déficit en algún aspecto de la representación y procesamiento de los sonidos del lenguaje. Este puede ser debido a una habilidad débil para poder atender y manipular conscientemente los sonidos de la lengua, a una memoria verbal a corto plazo que limite la capacidad de mantener activa momentáneamente las representaciones fonológicas, y/o a una habilidad lenta para recuperar las formas fonológicas de las palabras con el objetivo de emprender la articulación del habla.
+                </p>
+                <p>
+                    <strong>Dificultades</strong> en la lectura, escritura, ortografía, visión, coordinación motora, matemáticas, <strong>comprensión del tiempo, situación en el espacio</strong> y limitación de la capacidad para integrar información que entienden por separado. Es decir, confunden letras, cambian sílabas, suprimen o añaden letras o palabras, presentan dificultad para memorizar reglas ortográficas y presentan dificultad en la motricidad fina y gruesa.
+                </p>
+                </div>
+         </div>
+</section>
 
 <!-- Sección sobre dificultades e impacto en la vida cotidiana -->
         <section id="seccion3">
@@ -277,13 +410,36 @@
                palabras y recordar información escrita, aunque pueden destacar en otras áreas. La intervención temprana con 
                métodos como el Orton-Gillingham puede ser clave para mejorar estas áreas.</p>
 
-            <h2 class="title">Impacto en la vida cotidiana</h2>
-            <p>
-                Los desafíos pueden extenderse al ámbito académico, donde enfrentan dificultades en la lectura, escritura y 
-                comprensión de textos, afectando su rendimiento escolar y, en consecuencia, su autoestima. La frustración 
-                derivada de estas dificultades puede llevar al aislamiento social y a una percepción negativa de sus propias
-                habilidades.
-            </p>
+
+            <div class="vida-cotidiana">
+                <div class="vida-cotidiana-content">
+                    <h2 class="title">Impacto en la vida cotidiana</h2>
+                    <p>
+                        Existe la idea errónea de que la Dislexia solo afecta la capacidad de leer y escribir. En realidad, la Dislexia puede afectar la memoria, la organización, el cálculo del tiempo, la concentración, la realización de múltiples tareas a la vez y la comunicación. Todo puede impactar en la vida cotidiana.
+
+                        Los desafíos pueden extenderse al ámbito académico, donde enfrentan dificultades en la lectura, escritura y 
+                        comprensión de textos, afectando su rendimiento escolar y, en consecuencia, su autoestima. La frustración 
+                        derivada de estas dificultades puede llevar al aislamiento social y a una percepción negativa de sus propias
+                        habilidades.
+                    </p>
+
+                    <p>
+                        <strong>Organización:</strong> A la persona con Dislexia le puede resultar difícil recordar citas o reuniones, o juzgar cuánto tiempo puede llevar una tarea en particular. Puede resultar útil configurar recordatorios en el teléfono móvil para fechas o citas importantes, o usar un calendario en un lugar destacado del hogar o empleo. Pedirle al médico, al dentista o al hospital que le envíen recordatorios por mensaje de texto para las citas.
+                    </p>
+                    <p>
+                        <strong>Cansancio:</strong> Las personas con Dislexia suelen trabajan más horas para superar los desafíos diarios. Cuando están cansados puede suceder que tengan menos energía para poner en práctica estrategias habituales de afrontamiento. Se vuelve importante que el entorno trate de ser más paciente y comprensivo con ellos.
+                    </p>
+                    <p>
+                        <strong>Memoria:</strong> Las personas con Dislexia pueden tener dificultades para recordar información, como nombres, fechas o instrucciones. Pueden beneficiarse de técnicas de memorización, como la repetición, el uso de mnemotecnias o la creación de asociaciones visuales.
+                    </p>
+                    <p>
+                        <strong>Comunicación:</strong> La Dislexia puede afectar la capacidad de una persona para expresarse verbalmente. Pueden tener dificultades para encontrar las palabras adecuadas o para organizar sus pensamientos de manera coherente. La práctica y el uso de herramientas de apoyo, como aplicaciones de dictado, pueden ser útiles.
+                    </p>
+                    <p> 
+                        <strong>Leer y/o escribir</strong> : Las tareas que implican leer o escribir pueden ser complicadas, tales como: hacer una lista de compras o escribir un mensaje telefónico.
+                    </p>
+                </div>
+            </div>
 
             <h2 class="title">Mitos y prejuicios</h2>
             <p>
@@ -301,78 +457,77 @@
 
         <!-- Sección sobre terapias y estrategias -->
         <section id="seccion4">
-            <h2 class="title">Terapias y acompañamiento profesional</h2>
-            <p>La dislexia se puede tratar eficazmente mediante terapias especializadas, como el ya mencionado método 
-                Orton-Gillingham, que utiliza un enfoque multisensorial para enseñar lectura y escritura. La detección
-                temprana es clave para intervenir a tiempo, mejorando el rendimiento y la autoestima del niño. Además,
-                la tecnología educativa, como plataformas adaptadas a las necesidades de los estudiantes con dislexia,
-                puede ser una herramienta útil. El acompañamiento profesional, junto con estrategias personalizadas, 
-                es fundamental para ayudar a las personas con dislexia a superar sus desafíos y alcanzar su máximo potencial.
-            </p>
-
-            <h2 class="title">Estrategias educativas y laborales</h2>
-            <p>
-                Las personas neurotípicas pueden aplicar varias estrategias para apoyar a individuos con dislexia en 
-                los entornos educativos y laborales. En la educación, adaptar los contenidos a los intereses del 
-                estudiante mejora la motivación y el aprendizaje. En el ámbito laboral, crear un entorno inclusivo
-                que valore las habilidades únicas de las personas con dislexia, como la atención al detalle, 
-                puede aumentar la productividad. Fomentar la colaboración y ofrecer formación continua sobre 
-                métodos inclusivos también es esencial para asegurar que todos reciban el apoyo necesario y 
-                logren su máximo potencial.
-            </p>
-
+            <div class="terapias">
+                <h2 class="title">Terapias y acompañamiento profesional</h2>
+                <p>La dislexia se puede tratar eficazmente mediante terapias especializadas, como el ya mencionado método 
+                    Orton-Gillingham, que utiliza un enfoque multisensorial para enseñar lectura y escritura. La detección
+                    temprana es clave para intervenir a tiempo, mejorando el rendimiento y la autoestima del niño. Además,
+                    la tecnología educativa, como plataformas adaptadas a las necesidades de los estudiantes con dislexia,
+                    puede ser una herramienta útil. El acompañamiento profesional, junto con estrategias personalizadas, 
+                    es fundamental para ayudar a las personas con dislexia a superar sus desafíos y alcanzar su máximo potencial.
+                </p>
+            </div>
         </section>
 
-        <!-- Sección de testimonios -->
-        <section id="seccion5">
-            <h2 class="title">Testimonios o historias</h2>
-        </section>
-
-        <script src="../javascript/javascript.js"></script>
-
+       
     </div>
 
-    <footer class="footer-container">
-        <section id="Footer">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <a href="index.html">
-                        <div class="logo">
-                            <img src="../img/Logo.png" alt="Logo">
-                    </a>
-                </div>
-            </div>
+           <footer class="footer-container">
+                    <section id="Footer">
+            
+                        <!-- Sección superior con navegación inferior y logo-->
+                        <div class="footer-top">
+                            <div class="footer-logo">
+                                <a href="index.html">
+                                    <img src="../img/Logo.png" alt="Logo"></a>
+                            </div>
+            
+                            <!-- Barra de navegación inferior -->
+                            <ul class="footer-navbar">
+            
+                                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                                página de inicio -->
+                                <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+                                <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+                                <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+                                <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                                <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+                                <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+                                <li><a href="#Footer">Footer</a></li>
+                            </ul>
+                        </div>
+            
+                        <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+                        <div class="footer-bottom">
+                            <p>© 2025 Mentes en armonía</p>
+            
+                            <div class="socials">
+                                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mentesen.armonia/" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+            </footer>
 
 
-            <!-- Esta es la barra de navegación inferior -->
-            <ul class="footer-navbar">
+                <!-- Enlace al archivo Json -->
+                <script src="../javascript/Languaje.js"></script>
 
-                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                    página de inicio -->
-                    <li><a href="#Introduction">Introducción al tema</a></li>
-                    <li><a href="#Identification">Diagnóstico y características principales</a></li>
-                    <li><a href="#Dificults">Desafíos y fortalezas</a></li>
-                    <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
-            </ul>
-            </div>
+                <!-- Enlace al archivo JavaScript -->
+                <script src="../javascript/Javascript.js"></script>
 
-            <div class="footer-bottom">
-                <p>© 2025 Mentes en armonía</p>
-
-                <div class="socials">
-                    <a href="https://www.youtube.com/">
-                        <img src="../img/youtube.png" alt="Youtube"></a>
-                    <a href="https://www.facebook.com/?locale=es_LA">
-                        <img src="../img/facebook.png" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/">
-                        <img src="../img/instagram.png" alt="Instagram"></a>
-                    <a href="https://x.com/?lang=es&mx=2">
-                        <img src="../img/twitter.png" alt="Twitter/X"></a>
-                </div>
-            </div>
-        </section>
-    </footer>
-
+                <!-- Enlace al archivo JavaScript del buscador -->
+                <script src="../javascript/Buscador.js"></script>
 </body>
 
 </html>

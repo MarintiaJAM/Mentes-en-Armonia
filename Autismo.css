@@ -23,13 +23,13 @@ html {
 body{
     text-align: justify; /*Justifica el texto en todo el cuerpo del documento*/
     font-family: 'Ubuntu', sans-serif; /*Usa la fuente Ubuntu y, en caso de no estar disponible, una fuente genérica sans-serif*/
-    background: url('../img/fondobody.jpg') repeat; /*Aplica una imagen con patrón al fondo en los laterales (10%) de la página*/
+   background: url('../img/fondobody.jpg') repeat; /* Aplica una imagen con patrón al fondo en los laterales (10%) de la página*/
 }
 
 
 /*"LETRA GENERAL" Estilos predeterminados para la letra y los párrafos*/
 p{
-    margin-bottom: 30px; /*Agrega un espacio de 40 píxeles entre párrafos*/
+    margin-bottom: 30px; /*Agrega un espacio de 30 píxeles entre párrafos*/
     font-size: 20px; /*Indica que el tamaño de la letra será de 18 pixeles*/
     color: #453c5c; /*Usa el color de texto predeterminado en tono morado oscuro*/
     padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
@@ -38,17 +38,20 @@ p{
 
 /*"TÍTULO" Con este bloque se le da estilo a todos los bloques marcados dentro de la clase "title" en el html*/
 .title{
-    margin: 20px;
-     font-size: 30px;
+    margin: 15px;
+     font-size: 38px;
      font-weight: 600;
      text-transform: uppercase;
      text-align: center;
      color:#453c5c;
+    margin-top: 40px; /*Margen exterior superior*/
+    margin-bottom: 40px; /*Margen exterior superior*/
+
  }
  
  
  .subtitle{
-     margin: 20px;
+     margin: 10px;
      font-size: 25px;
      font-weight: 600;
      text-transform: uppercase;
@@ -117,7 +120,7 @@ a.track-link:active {
     justify-content: flex-start; /*Distribuye los elementos con espacio entre ellos*/
     width: 100%; /*Ocupa todo el ancho disponible*/
     max-width: 100%; /*Evita que el menú supere el ancho de la pantalla con un máximo del 100%*/
-    background-color: #2d938e; /*Color de fondo azul verdoso*/
+    background-color: #339895; /*Color de fondo azul verdoso*/
     padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
     flex-wrap: nowrap; /*Evita que los elementos se desborden en otra línea*/
@@ -183,6 +186,11 @@ a.track-link:active {
     font-size: 14px;
     cursor: pointer;
     transition: transform 0.25s ease-in-out;
+}
+
+/*Color del nombre de las secciones*/
+.navbar li span{
+    color: #fff; /*Color blanco*/
 }
 
 /*Efecto de hover y focus en los enlaces de la barra de navegación*/
@@ -262,11 +270,13 @@ a.track-link:active {
 
 
 /*"BARRA DE BÚSQUEDA"*/
+/*"BARRA DE BÚSQUEDA"*/
 .search-bar {
     display: flex; /*Alinea los elementos en una fila*/
     align-items: center; /*Centra los elementos verticalmente*/
     margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
     flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
+    position: relative;
 }
 
 /*Campo de entrada de texto de la barra de búsqueda*/
@@ -280,14 +290,21 @@ a.track-link:active {
 }
 
 .search-bar input:focus { /*El focus se activa solo cuando el búscador este activo*/
-    width: 275px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
+    width: 230px; /*Al darle click a la barra de búsqueda, esta se ampliará hacia la derecha
     en un ancho de 275px*/
+}
+
+/* Contenedor específico para input y sugerencias */
+.search-container {
+    position: relative;            /* Contexto de posicionamiento para dropdown */
+    display: flex;                 /* Layout flexbox */
+    align-items: center;           /* Centra verticalmente */
 }
 
 /*Estilos para el botón de búsqueda*/
 .search-bar button { 
     padding: 8px 10px; /*Espaciado interno del botón de búsqueda*/
-    background-color: #ff6b6b; /*Color coral al recuadro donde se encuentra el icono de búsqueda*/
+    background-color: #de7272; /*Color coral al recuadro donde se encuentra el icono de búsqueda*/
     color: white; /*Color blanco al icono de búsqueda*/
     border-radius: 0 15px 15px 0; /*Esquinas redondeadas en el lado derecho*/
     cursor: pointer; /*Convierte el cursor en un pointer indicar que es un elemento clickeable*/
@@ -298,48 +315,124 @@ a.track-link:active {
     background-color: #e55b5b; /*Le da una ligera sombra al botón del buscador al pasar el cursor sobre este*/
 }
 
+
+/*DROPDOWN SUGERENCIAS DE BÚSQUEDA*/
+/* Contenedor principal de las sugerencias */
+.search-suggestions {
+    position: absolute;/* Posicionamiento absoluto respecto al contenedor padre */
+    top: 100%;/* Posicionado justo debajo del campo de búsqueda */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Se extiende hasta la derecha */
+    background-color: white; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave para profundidad */
+    max-height: 300px; /* Altura máxima de 300px */
+    overflow-y: auto; /* Scroll vertical si el contenido excede la altura */
+    z-index: 2000; /* Índice muy alto para aparecer sobre todo */
+    display: none; /* Oculto por defecto */
+    margin-top: 5px; /* Pequeño espacio entre input y dropdown */
+}
+
+/* Clase para mostrar las sugerencias con animación */
+.search-suggestions.show {
+    display: block; /* Hace visible el dropdown */
+    animation: fadeInDown 0.3s ease-out; /* Aplica animación de entrada */
+}
+
+
+/* Elementos individuales de sugerencia */
+.suggestion-item {
+    padding: 12px 15px;           /* Espaciado interno generoso */
+    cursor: pointer;               /* Cursor de puntero */
+    border-bottom: 1px solid #f0f0f0; /* Línea separadora sutil */
+    color: #333;                   /* Texto en gris oscuro */
+    transition: background-color 0.2s ease; /* Transición suave para hover */
+    display: flex;                 /* Layout flexbox para alinear contenido */
+    align-items: center;           /* Centra verticalmente el contenido */
+}
+
+/* Elimina el borde del último elemento */
+.suggestion-item:last-child {
+    border-bottom: none;           /* Sin borde en el último elemento */
+}
+
+/* Estados hover y selected para sugerencias */
+.suggestion-item:hover,
+.suggestion-item.selected {
+    background-color: #f8f9fa;     /* Fondo gris muy claro */
+    color: #d21026;                /* Texto en color rojo corporativo */
+}
+
+/* Iconos dentro de las sugerencias */
+.suggestion-item i {
+    margin-right: 10px;            /* Espacio de 10px a la derecha del icono */
+    color: #666;                   /* Color gris medio para los iconos */
+    width: 16px;                   /* Ancho fijo para alineación consistente */
+}
+
+/* Texto principal de la sugerencia */
+.suggestion-text {
+    flex: 1;                       /* Ocupa el espacio disponible restante */
+}
+
+/* Categoría de la sugerencia */
+.suggestion-category {
+    font-size: 0.8em;             /* Tamaño de fuente más pequeño */
+    color: #888;                   /* Color gris claro */
+    margin-left: auto;             /* Empuja hacia la derecha */
+}
+
+/* Mensaje cuando no hay sugerencias */
+.no-suggestions {
+    padding: 15px;                 /* Espaciado interno */
+    text-align: center;            /* Texto centrado */
+    color: #666;                   /* Color gris medio */
+    font-style: italic;            /* Texto en cursiva */
+}
+
 /*Resaltado de búsqueda. El resaltado nos ayuda a identificar el resultado de la búsqueda que se acaba de realizar*/
-.highlight { 
+.highlight mark { 
     background-color: #f68f9b; /*Fondo resaltado cuando se encuentra un término de búsqueda*/
+    border-radius: 2px;  /* Esquinas ligeramente redondeadas */
+    font-weight: bold;  /*Texto en negrita para hacer énfasis en el resultado*/
 }
 
 
 /*"LOGIN/INICIO DE SESIÓN"*/
+
 .Login {
-    margin-left: 20px; /*Separación entre la barra de búsqueda y el botón de inicio de sesión*/
-    display: flex; /*Organiza los elementos en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
-/*Botón de Inicio de Sesión*/
 .login-button {
-    display: flex; /*Alinea el ícono y el texto en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
-    color: white; /*Color blanco para el texto*/
-    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
-    font-size: 14px; /*Tamaño de fuente*/
-    background-color: #ff6b6b; /*Color rosa coral para el fondo*/
-    padding: 8px 14px; /*Margen interno para definir la extensión del fondo*/
-    border-radius: 20px; /*Bordes redondeados*/
-    transition:0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #de7272;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: 0.2s ease-in-out;
 }
 
-/*Estilos del ícono del búsqueda*/
 .login-button i {
-    margin-right: 8px; /*Margen exterior derecho para separar el ícono y el texto del botón*/
+    margin-right: 8px;
 }
 
-/*Efecto al pasar el cursor sobre el botón*/
 .login-button:hover {
-    background-color: #e55b5b; /*Cambio de color de fondo al pasar el cursor*/
+    background-color: #e55b5b;
 }
 
 
-/*"FORMULARIO DE INICIO DE SESIÓN"*/
+/*FORMULARIO DE INICIO DE SESIÓN*/
 
 /*Modal general*/
 .login-modal {
-    display: none; /*Oculto al cargar*/
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -350,18 +443,53 @@ a.track-link:active {
     align-items: center;
     z-index: 1000;
 }
-  
-/*Caja del formulario*/
+
 .login-form {
     position: relative;
     background: white;
     padding: 30px;
+    padding-right: 15px;
     border-radius: 8px;
-    width: 425px;
+    width: 480px; /* AUMENTADO desde 425px */
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-/*Botón para cerrar*/
+.login-form-scroll {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 18px;
+}
+
+/*Scroll para Firefox*/
+.login-form-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+}
+
+/*Scroll personalizado dentro del modal*/
+.login-form-scroll::-webkit-scrollbar {
+    width: 5px; /*Grosor del scroll*/
+}
+
+.login-form-scroll::-webkit-scrollbar-track {
+    background: transparent; /* Fondo de la pista */
+}
+
+.login-form-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.4); /* Color del "pulgar" (scroll) */
+    border-radius: 4px;
+}
+
+.login-form-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100, 100, 100, 0.6); /* Al pasar el mouse */
+}
+
+/* Elimina flechas de scroll (solo Chrome/Safari) */
+.login-form-scroll::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Botón para cerrar */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -375,7 +503,7 @@ a.track-link:active {
     color: #333;
 }
 
-/*Títulos y enlaces*/
+/* Titular y subtítulo */
 .login-form h2 {
     font-size: 20px;
     margin-bottom: 8px;
@@ -387,16 +515,15 @@ a.track-link:active {
     color: #777;
     text-align: left;
     margin-bottom: 10px;
-    width: 100%;
     white-space: nowrap;
 }
 
 .login-form a {
-    color: rgb(0, 153, 255); /*Color azul cielo*/
+    color: rgb(0, 153, 255);
     text-decoration: none;
 }
-  
-/*Inputs y etiquetas*/
+
+/* Inputs y etiquetas */
 .login-form label {
     display: block;
     margin: 15px 0 5px;
@@ -411,29 +538,47 @@ a.track-link:active {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-  
-/*Contraseña y link al mismo nivel*/
+
+.input-error {
+    border: 2px solid red !important;
+}
+
+.input-feedback {
+    color: red;
+    font-size: 0.85em;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Contraseña y link alineados */
 .password-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/*Contenedor de contraseña*/
+/* Contenedor de contraseña + ícono */
 .password-container {
     position: relative;
     width: 100%;
+    height: 44px; /* Altura constante del input */
+    margin-bottom: 8px; /* Espacio con lo de abajo */
 }
-  
+
+/* Input dentro del contenedor */
 .password-container input {
     width: 100%;
+    height: 100%;
     padding: 10px;
-    padding-right: 40px; /*deja espacio para el ícono*/
+    padding-right: 40px; /* Espacio para el icono */
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.4;
 }
-  
+
+/* Icono de mostrar/ocultar */
 .toggle-password {
     position: absolute;
     top: 50%;
@@ -441,15 +586,49 @@ a.track-link:active {
     transform: translateY(-50%);
     cursor: pointer;
     color: #888;
+
+    width: 24px;
+    height: 24px;
     font-size: 18px;
-    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: all;
 }
-  
-/*Recordarme*/
+
+/* Medidor de fortaleza de contraseña */
+.password-strength {
+    height: 6px;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.password-strength-label {
+    text-align: left;
+    font-size: 14px;
+    margin: 10px 0 2px;
+    color: #777777;
+}
+
+.password-strength > div {
+    height: 100%;
+    width: 0%;
+    background-color: transparent;
+    border-radius: 3px;
+    transition: width 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+
+/* Recordarme */
 .remember-me {
     display: flex;
     align-items: center;
-    gap: 5px; /*Espacio entre el checkbox y el texto*/
+    gap: 5px;
     margin-bottom: 15px;
 }
 
@@ -457,8 +636,8 @@ a.track-link:active {
     margin-left: 5px;
     font-weight: normal;
 }
-  
-/*Botón principal*/
+
+/* Botón de envío */
 .login-form button[type="submit"] {
     text-align: center;
     align-items: center;
@@ -470,37 +649,6 @@ a.track-link:active {
     border-radius: 5px;
     cursor: pointer;
 }
-  
-/*Línea divisoria*/
-.divider {
-    text-align: center;
-    margin: 33px 0;
-    color: #777;
-}
-  
-/*Botones redes sociales*/
-.social-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.social-buttons button {
-    width: 48%;
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: white;
-    cursor: pointer;
-}
-
-.social-buttons .google i {
-    color: #DB4437;
-}
-
-.social-buttons .facebook i {
-    color: #4267B2;
-}  
 
 
 /*"SUBMENÚ"*/
@@ -512,7 +660,7 @@ a.track-link:active {
     width: 100%; /*Ocupa todo el ancho disponible*/
     max-height: 100%;
     max-width: 100%; /*Evita que sobrepase el ancho del viewport*/
-    background-color: #075f61; /*Color turquesa para el fondo*/
+    background-color: #017678; /*Color turquesa para el fondo*/
     /*padding: 20px 25px; Agrega espacio a los lados para que no pegue al borde*/
     padding: 5px 25px 5px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
@@ -565,25 +713,62 @@ a.track-link:active {
 
 
 /*"ICONO TRADUCTOR"*/
-.traductor{
-    margin-left: auto; /*Separa al icono de traductor del contenido de la lista del submenú*/
-    font-size: 35px; /*Tamaño del icono*/
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /*Hace que el cambio de escala sea suave*/
+
+/*Traductor con bandera circular*/
+.translator {
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
 }
 
-.traductor:hover{
-    transform: scale(1.1);
-    filter: drop-shadow(6px 8px 0px rgba(4, 46, 33, 0.7));
-}
-
-/*Estilo del icono de traducción*/
-.traductor i{
-    color: #93ebf7; /*Color azul claro para el ícono de traductor*/
-    cursor: pointer;
-}
-
+/*Botón sin fondo*/
 #translateBtn {
-    background-color: transparent;  /* Quita el fondo blanco que se le coloca al icono del traductor */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/*Círculo con imagen de bandera*/
+.flag-rectangle-img {
+    width: 45px;
+    height: auto;
+    border-radius: 4px; /* esquinas ligeramente redondeadas */
+    transition: transform 0.3s ease-in-out;
+}
+
+.flag-rectangle-img:hover {
+    transform: scale(1.1);
+}
+
+/*Lista desplegable de idiomas*/
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.language-dropdown div {
+    padding: 10px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.language-dropdown div:hover {
+    background-color: #f0f0f0;
+}
+
+/*Ocultar elementos*/
+.hidden {
+    display: none;
 }
 
 
@@ -592,9 +777,10 @@ a.track-link:active {
     width: 90%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
     margin: 0 auto; /*Centra el contenedo horizontalmente*/
     padding: 5px 0 0 0; /*Agrega un margen interior superior*/
-    background-color: #faf8e1; /*Color amarillo muy claro para el fondo general*/
+    background-color: #fcfbe9; /*Color amarillo muy claro para el fondo general*/
+    border-radius: 10px;
     min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
 }
 
 
@@ -632,12 +818,13 @@ a.track-link:active {
 
 
 /*"HEADER"*/
-.header{ 
+.headerAutism{ 
     height: 45vh; /* Define la altura del header como el 45% de la altura de la ventana del navegador */
     justify-content: center; /* Centra el contenido del header horizontalmente */
     align-items: center; /* Centra el contenido del header verticalmente */
     background-image: url(../img/autismo.jpg); /*Imagen que se encuentra de fondo en el header*/
     filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    filter:saturate(0.8); /*Reduce la saturación de la imagen de fondo*/;
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
     background-repeat:no-repeat center; /* Evita que la imagen de fondo se repita y la centra */
     background-size: cover; /* Hace que la imagen de fondo cubra toda el área del header */
@@ -645,8 +832,86 @@ a.track-link:active {
 }
 
 
+.headerTDAH{ 
+    height: 45vh; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/tdah.jpg); /*Imagen que se encuentra de fondo en el header*/
+    filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    filter:saturate(0.8); /*Reduce la saturación de la imagen de fondo*/;
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
+    background-repeat:no-repeat center;
+    background-size: cover;
+    padding-top: 20px;
+}
+
+
+.headerDislexia{ 
+    height: 45vh; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/dislexiaHeader.png); /*Imagen que se encuentra de fondo en el header*/
+    filter: brightness(60%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    filter:saturate(0.6); /*Reduce la saturación de la imagen de fondo*/;
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
+    background-repeat:no-repeat center;
+    background-size: cover;
+    padding-top: 20px;
+}
+
+.headerTourette{
+    height: 45vh; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/headerTourette.jpg); /*Imagen que se encuentra de fondo en el header*/
+    filter: brightness(55%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    filter:saturate(0.5); /*Reduce la saturación de la imagen de fondo*/
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
+    background-repeat:no-repeat center;
+    background-size: cover;
+    padding-top: 20px;
+}
+
+.headerDispraxia{ 
+    height: 45vh; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/headerDispraxia.jpg); /*Imagen que se encuentra de fondo en el header*/
+    filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro */
+    filter:saturate(0.5); /*Reduce la saturación de la imagen de fondo*/
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
+    background-repeat:no-repeat center;
+    background-size: cover;
+    padding-top: 20px;
+}
+
+.headerDiscalculia{
+    height: 45vh; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/headerDiscalculia.jpg); /*Imagen que se encuentra de fondo en el header*/
+    filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
+    filter:saturate(0.5); /*Reduce la saturación de la imagen de fondo*/
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
+    background-repeat:no-repeat center;
+    background-size: cover;
+    padding-top: 20px;
+}
+
+.headerAnsiedad{
+    height: 45vh; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/headerAnsiedad.jpg); /*Imagen que se encuentra de fondo en el header*/
+    filter:saturate(0.5); /*Reduce la saturación de la imagen de fondo*/
+    background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
+    background-repeat:no-repeat center;
+    background-size: cover;
+    padding-top: 20px;
+}
+
 /*"LETRA HEADER"*/
-.header h6{
+.headerAutism h6{
     font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
     color: #fff; /* Establece el color del texto en blanco */
     text-align: center; /* Alinea el texto al centro */
@@ -654,31 +919,170 @@ a.track-link:active {
 }
 
 
-
-/*"CONTENIDO PRINCIPAL DE PÁGINA"*/
-.container {
-    width: 90%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
-    margin: 0 auto; /*Centra el contenedo horizontalmente*/
-    padding: 5px 0 0 0; /*Agrega un margen interior superior*/
-    background-color: #faf8e1; /*Color amarillo muy claro para el fondo general*/
-    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Añadé sombra al fonfo haciendo que tenga un ligero efecto 3D*/
+.headerTDAH h6{
+    font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
+    color: #fff; /* Establece el color del texto en blanco */
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 24px; /*Tamaño del parrafo dentro del header*/
 }
 
 
+.headerDislexia h6{
+    font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
+    color: #453c5c; /* Establece el color del texto en blanco */
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 28px; /*Tamaño del parrafo dentro del header*/
+}
+
+.headerTourette h6{
+    font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
+    color: #453c5c; /* Establece el color del texto en blanco */
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 24px; /*Tamaño del parrafo dentro del header*/
+}
+
+.headerDispraxia h6{
+    font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
+    color: #fff; /* Establece el color del texto en blanco */
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 24px; /*Tamaño del parrafo dentro del header*/
+}
+
+.headerDiscalculia h6{
+    font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
+    color: #453c5c; /* Establece el color del texto en blanco */
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 24px; /*Tamaño del parrafo dentro del header*/
+}
+.headerAnsiedad h6{
+    font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
+    color: #fff; /* Establece el color del texto en blanco */
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 24px; /*Tamaño del parrafo dentro del header*/
+}
+
+.headerAutism h1{
+    color: #fff; /*Color del título dentro del header*/
+}
+
+.headerTDAH h1{
+    color:#fff;
+}
+
+.headerDislexia h1{
+    color: #453c5c;
+}
+
+.headerTourette h1{
+    color: #fff;
+}
+
+.headerDispraxia h1{
+    color: #fff; /*Color del título dentro del header*/
+}
+
+.headerDiscalculia h1{
+    color: #453c5c; /*Color del título dentro del header*/
+}
+
+.headerAnsiedad h1{
+    color:#fff;
+}
+
 /*INTRODUCCIÓN*/
-.about {
+.aboutAutism {
     display: flex; /* Organiza los elementos en fila utilizando flexbox */
     align-items: center; /*Alinea verticalmente*/
-    margin: 10px 35px; /* Agrega un margen de 10px alrededor de la sección */
-    background-color: #e55b5b; /* Establece un color de fondo verde-azulado para la sección */
+    margin: 40px 35px 30px 35px; /* Agrega un margen de 10px alrededor de la sección */
+    background-color: #2d938e; /* Establece un color de fondo verde-azulado para la sección */
     border-radius: 5px; /* Agrega bordes redondeados a la sección */
 }
 
-.aboutext h2{
+.aboutTdah {
+    display: flex;
+    align-items: center; /*Alinea verticalmente*/
+    margin: 10px;
+    background-color: #f3e1a1;
+    border-radius: 5px;
+}
+
+
+.aboutDislexia{
+    display: flex;
+    align-items: center; /*Alinea verticalmente*/
+    margin: 10px;
+    background-color: #b5a2ee;
+    border-radius: 5px;
+}
+
+.aboutTourette{
+    display: flex;
+    align-items: center; /*Alinea verticalmente*/
+    margin: 10px;
+    background-color:  #82b5ec;
+    border-radius: 5px;
+}
+
+.aboutDispraxia{
+    display: flex;
+    align-items: center; /*Alinea verticalmente*/
+    margin: 10px;
+    background-color: #5fb5b1;
+    border-radius: 5px;
+}
+
+.aboutDiscalculia{
+    display: flex;
+    align-items: center; /*Alinea verticalmente*/
+    margin: 10px;
+    background-color: #f3e1a1;
+    border-radius: 5px;
+}
+
+.aboutAnsiedad{
+    display: flex;
+    align-items: center; /*Alinea verticalmente*/
+    margin: 10px;
+    background-color: #88aaca;
+    border-radius: 5px;
+}
+
+.aboutextAutism h2{
+   text-align: center; /* Centra el texto del encabezado */
+    font-size: 30px; /* Establece un tamaño de fuente de 30px para el encabezado */
+    margin-bottom: 20px; /* Agrega un margen inferior de 20px para separar el encabezado del contenido siguiente */
+    color: #fff;
+}
+
+.aboutextTdah h2{
     text-align: center; /* Centra el texto del encabezado */
     font-size: 30px; /* Establece un tamaño de fuente de 30px para el encabezado */
     margin-bottom: 20px; /* Agrega un margen inferior de 20px para separar el encabezado del contenido siguiente */
+    color: #453c5c;
+}
+
+.aboutDislexia h2{
+   text-align: center; /* Centra el texto del encabezado */
+    font-size: 30px; /* Establece un tamaño de fuente de 30px para el encabezado */
+    margin-bottom: 20px; /* Agrega un margen inferior de 20px para separar el encabezado del contenido siguiente */
+    color: #453c5c;
+}
+
+.aboutDiscalculia h2{
+    text-align: center; /* Centra el texto del encabezado */
+    font-size: 30px; /* Establece un tamaño de fuente de 30px para el encabezado */
+    margin-bottom: 20px; /* Agrega un margen inferior de 20px para separar el encabezado del contenido siguiente */
+    color: #453c5c;
+}
+
+.aboutextTdah p{
+    color:#453c5c;
+    font-weight: 250;
+}
+
+.aboutextAutism p{
+    color: #fff;
+    font-weight: 200;
 }
 
 .aboutimg img{
@@ -689,59 +1093,67 @@ a.track-link:active {
     border-radius: 5px; /* Redondea las esquinas de la imagen */
 }
 
+.Tipos li{
+    margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-right: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-bottom: 10px; /*Separa los elementos de la lista entre sí*/
+    font-size: 20px;
+}
 
 /*HISTORIA Y EVOLUCIÓN*/
 .history{
-    display: flex;/*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
-    flex-direction: column; /*Organiza los elementos en columna*/
-    align-items: center; /*Centra los elementos horizontalmente*/
-    background-color: #2d938e; /*Color de fondo*/
-    padding: 0px 50px; /*Espaciado con margen interno*/
-    margin: 35px; /*Espaciado con margen externo*/
-    margin-bottom: 20px; /*Espaciado con margen externo*/
-    border-radius: 10px; /*Bordes ligeramente redondeados*/
-    text-align: justify;
-    width: 1300px;
-    height: 600px;
+    display: flex;
+    flex-direction: column; /*Permite que el orden del contenido vaya hacia abajo tipo columnas*/
+    align-items: center; /*Centra el texto*/
+    padding: 20px 0 30px 0;
+    margin:30px 10px 10px 10px;
+    border-radius: 5px;
 }
 
-.scroll-div{
-    padding: 20px 20px;
-    width: 1300px;
-    height: 600px;
-    overflow:hidden;
-    overflow-y: scroll;
+/*Estilos de cada bloque dentro de la sección*/
+.Hist {
+    display: flex;
+    align-items: center; /*Centra el contenido verticalmente*/
+    margin: 20px; /*Margen exterior*/
+    border-radius: 10px; /*Bordes redondeados*/
 }
 
-.scroll-object{
-    font-size: 20px;
-    background: #faf8e1;
-    border-radius: 10px;
-    padding: 15px;
+/* Estilos para los títulos dentro de elementos con la clase .defText */
+.histext h2{
+    text-align: center; /*Centra el texto*/
+    font-size: 30px; /*Tamaño del título*/
 }
 
-/*Ajusta las imagenes que se encuentran dentro de la clase de hisrory*/
-.scroll-object .hisimg img{
-    width: 300px; /*Le asigna un ancho de 300px*/
-    height:auto; /*Le asigna una altura proporcional al ancho*/
-    align-items: center; /*Centra las imagenes*/
-    margin: 10px 0 20px 0; /*Le da un margen inferior y superior para darle una mejor estética*/
-    border-radius: 5px; /*Le otorga un margen a la imagen*/
+.hiatimg{
+    display: flex; /* Usa flexbox para organizar las imágenes */
+}
+
+.histimg img{
+    width: 290px; /* Ancho fijo para las imágenes */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 5px; /*Redondea los bordes de las imágenes*/
+    margin: 10px 5px 10px 70px; /* Espaciado entre imágenes */
 }
 
 
 /*IDENTIFICADORES*/
 .identificadores{
-    padding: 10px;
+    padding: 50px;
     background-color: #2d938e;
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados */
     width:100%; /*Ancho general al que se adaptan los contenedores*/
     max-width: 95%; /*Este ancho extiende el contenido*/
     margin: auto; /*Establece automáticamente el margen según el ancho previamente establecido*/
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .identificadores i{
     color: #fff;
+}
+
+.identificadores h2{
+    color:#fff;
 }
 
 .identificadores p{
@@ -755,7 +1167,7 @@ a.track-link:active {
 }
 
 .acordeon label{
-    border-radius: 10px; /*Bordes redondeados*/
+    border-radius: 1px;
     display: block; /*Permite que el elemento ocupe todo el ancho disponible*/
     padding: 15px; /*Espaciado interno*/
     font-size: 20px; /*Tamaño de fuente*/
@@ -777,8 +1189,7 @@ label p{
 
 .acordeon .content-acordeon {
     color: #fff;
-    padding: 0px; /* cambia de 10px a 0 */
-    margin: 0.5px;
+    margin: 1px;
     max-height: 0px;
     overflow: hidden;
     transition: all 300ms ease;
@@ -800,10 +1211,39 @@ label p{
 } 
 
 
-.rasgos{
-    margin:0px 35px;
+.rasgosAutism{
+    margin:0px 35px 50px 35px;
     padding: 20px;
-    background-color: #e55b5b;
+    background-color: #de7272;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.rasgosTdah{
+    margin:0px 35px 50px 35px;
+    padding: 20px;
+    background-color: #f3e1a1;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.rasgosDislexia{
+    margin:0px 35px 50px 35px;
+    padding: 20px;
+    background-color: #b5a2ee;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+
+.rasgosTourette{
+    margin:0px 35px 50px 35px;
+    padding: 20px;
+    background-color: #82b5ec;
+    border-radius: 5px; 
+}
+
+.rasgosDispraxia{
+    margin:0px 35px 50px 35px;
+    padding: 20px;
+    background-color: #5fb5b1;
     border-radius: 5px; /* Bordes redondeados */
 }
 
@@ -812,6 +1252,19 @@ label p{
     padding: 10px;
 }
 
+.rasgosDispraxia li{
+    margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-right: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-bottom: 10px; /*Separa los elementos de la lista entre sí*/
+    font-size: 20px;
+}
+
+#Dificults li{
+    margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-right: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-bottom: 10px; /*Separa los elementos de la lista entre sí*/
+    font-size: 20px;
+}
 
 /*SUBTIPOS*/
 .types{
@@ -820,7 +1273,7 @@ label p{
     align-items: center; /* Centra los elementos */
     background-color: #2d938e; /* Color de fondo azul oscuro */
     padding: 10px 0 30px 0; /* Relleno interior */
-    margin:35px; /* Márgenes alrededor */
+    margin:100px 35px 50px 35px; /* Márgenes alrededor */
     border-radius: 5px; /* Bordes redondeados */
 }
 
@@ -876,86 +1329,110 @@ label p{
     border-radius: 5px; /* Bordes redondeados */
 }
 
+.ayuda li{
+    margin-left: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-right: 100px; /*Separa a la lista del borde de la página y la centra*/
+    margin-bottom: 10px; /*Separa los elementos de la lista entre sí*/
+    font-size: 20px;
+}
+
 
 /*FOOTER*/
 
 /*"FOOTER SUPERIOR"*/
 .footer-container{
-    margin: 0; /* Elimina los márgenes */
-    width: 100%; /* Ancho completo del contenedor */
-    box-sizing: border-box; /* Incluye el padding y los bordes en el cálculo del tamaño total */
+    margin: 0; /*Margen externo de 0px*/
+    width: 100%; /*Anchura que abarcará el 100% de la pantalla*/
+    box-sizing: border-box; /*Define cómo se calculan el ancho (width) y la altura (height)*/ 
 }
 
 .footer-top{
-    background-color: #0f7d7e; /* Color de fondo verde oscuro */
-    display: flex; /* Usa flexbox para organizar los elementos */
-    justify-content: space-between; /* Espacio entre los elementos */
-    align-items: center; /* Centra los elementos */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
-    max-width: 100%; /* Ancho máximo del contenedor */
-    padding-bottom: 15px; /* Relleno en la parte inferior */
-    margin: 0 auto; /* Centra el contenedor */
+    background-color: #0f7d7e; /*Establece un color azul verdoso claro*/
+    display: flex; /*Permite que el contenido dentro de el footer superior sea modificado a gusto*/
+    justify-content: space-between;/*Establece un espacio entre el contenido dentro del footer superiorr*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    flex-wrap: wrap;/*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
+    max-width: 100%; /*Su máxima anchura abarcará el tamaño del 100% de la pantalla del dispositico donde se este viendo*/
+    padding-bottom: 15px; /*Asigna un margen interior inferior de 15px, de modo que añadira un espacio entre el contenido de este y el footer inferior*/
+    margin: 0 auto;/*Permite centrar los elemnetos de manera horizontal dentro del footer superior*/
 }
 
 .footer-logo img{
-    margin: 5px 0 0 15px; /* Márgenes alrededor del logo */
-    width: 80px; /* Ancho del logo */
+    margin: 5px 0 0 15px; /*Asigna un margen externo superior de 5px, uno inferior y lateral derecho de 0px y uno inferior de 15px*/
+    width: 80px; /*Le asigna una anchura de 80px a la imagen del logo*/
+    height: auto; /*Permite que la altura se modifique de manera automatica según se el tamaño de la anchura para no distorcionar la imagen y simplemento modificar su tamaño*/
 }  
 
 .footer-navbar{
-    display: flex; /* Usa flexbox para organizar los elementos */
-    align-items: center; /* Centra los elementos verticalmente */
-    list-style: none; /* Elimina los estilos de lista */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten si es necesario */
-    margin: 0;  /* Elimina los márgenes */
-    padding: 0; /* Elimina el relleno */
+    display: flex; /*Permite que el contenido dentro de el footer-navbar sea modificado a gusto*/
+    align-items: center; /*Centra verticalmente los elementos*/
+    list-style: none; /*Elimina el tipo de lista con el que puede aparecer el texto dentro de nuestro navbar*/
+    flex-wrap: wrap; /*Permite que los elementos se acomoden en múltiples líneas si no caben en una sola fila dentro del contenedor*/
+    margin: 0; /*No asigna ningún tamaño de margen exterior*/
+    padding: 0; /*No asigna ningún tipo de margen interior*/
 }
 
 .footer-navbar li{
-    margin: 0 10px; /* Espacio entre los elementos de la lista */
+    margin: 0 10px; /*Establece un margen lateral izquierdo y derecho de 10px para mantener separados los elementos dentro de li*/
 }
 
 .footer-navbar li a{
-    color: #fff; /* Color blanco para los enlaces */
+    color: #fff; /*Cambia el color de los enlaces de la lista a uno de color blanco*/
     padding: 0 10px; /*Margen interior*/
     text-decoration: none; /*Sirve para quitar la línea de enlace que aparece debajo cada enlace*/
     text-transform: uppercase; /*Aquí se transforma la letra en mayúsculas*/
-    font-size: 13px; /* Tamaño de fuente para los enlaces */
+    font-size: 13px; /*Asigan el tamaño de su fuente a una de 13px*/
 }
 
 .footer-navbar li a:hover {
-    color: #fffb00; /* Cambia el color a amarillo al pasar el ratón */
+    color: #f7ac0a; /*Al colocar el cursor sobre el texto dentro del elemnto lista, este va a cambiar su color inical a uno naranjado*/
 }
 
 
 /*"FOOTER INFERIOR"*/
 .footer-bottom{
-    background-color: #075f61; /* Color de fondo verde oscuro */
-    font-size: 14px; /* Tamaño de fuente para los elementos del footer inferior */
-    display: flex; /* Usa flexbox para organizar los elementos */
-    justify-content: space-between; /* Espacio entre los elementos */
-    align-items: center; /* Centra los elementos */
-    max-width: 100%; /* Ancho máximo del contenedor */
-    padding-top: 15px; /* Relleno en la parte superior */
-    margin: 0 auto; /* Centra el contenedor */
+    background-color: #075f61; /*El color del footer inferior será de uno más oscuro que el superior*/
+    font-size: 14px; /*El tamaño de la fuente que no este dentro de las etiquetas p dentro del footer-bottom tendrá un tamaño de 14px*/
+    display: flex; /*Permite que el contenido dentro de el footer-bottom sea modificado a gusto*/
+    justify-content: space-between; /*Establece un espacio entre el contenido dentro del footer inferior*/
+    align-items: center; /*Centra los elementos de manera vertical en la pantalla*/
+    max-width: 100%; /*Su máxima anchura abarcará el tamaño del 100% de la pantalla del dispositico donde se este viendo*/
+    padding-top: 15px; /*Asigna un margen interior superior de 15px, de modo que añadira un espacio entre el contenido de este y el footer superior*/
+    margin: 0 auto; /*Permite centrar los elemnetos de manera horizontal dentro del footer inferior*/
 }
 
 .footer-bottom p {
-    padding-left: 15px; /* Relleno a la izquierda */
-     color: #fff; /* Color blanco para el texto */
-     font-size: 16.5px;/* Tamaño de fuente para el texto */
+    padding-left: 15px; /*Los parrafos del footer inferior tendrás un margen interior izqierdo de 15 px, brindando un espaciado entre ellos*/
+    color: #fff; /*Le da un color blanco a la fuente*/
+    font-size: 16.5px; /*Le asigna un tamaño de fuente de 16.5px*/
 }
 
-.socials img{
-    padding: 0px 5px 5px 0px; /* Relleno alrededor de las imágenes */
-    display: inline-block; /* Hace que las imágenes estén en línea */
-    margin-left: 10px; /* Márgenes a la izquierda */
-    width: 25px; /* Ancho de las imágenes */
-    height: auto; /*Mantiene la proporción de las imágenes al ajustar su tamaño*/
+.socials {
+    display: flex;
+    gap: 13px;
+    padding: 10px 0;
+    margin: 0 18px 8px 0;
 }
 
-.socials img:hover {
-    content: url("nueva-imagen.jpg"); /*Reemplaza la imagen de los íconos de las redes sociales*/
-    transform: scale(1.2); /* Aumenta el tamaño de la imagen */
+.socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.socials i{
+    color: #fff;
+}
+
+.socials a:hover {
+    transform: scale(1.15);
 }
 

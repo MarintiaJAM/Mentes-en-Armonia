@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <!-- Logo y título que se verá en la pestaña -->
     <title>Mentes en armonía</title>
-    <link rel="icon" type="image/jpg" href="../img/Logo.png">
+    <link rel="icon" type="image/png" href="../img/Logo.png">
 
      <!-- Enlaces a fuentes y estilos -->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
      <!-- Enlace a Font Awesome para íconos -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
      <!-- Enlace al css -->
-    <link rel="stylesheet" href="../css/Tourette.css">
-
+    <link rel="stylesheet" href="../css/Autismo.css">
 </head>
-
 
 <body>
 
-    <header>
-    <!-- Ménu de navegación principal-->
+<header>
+<!-- Ménu de navegación principal-->
         <nav class="menu" id="Menu">
             <div class="logo"> <!-- Contenedor del logo -->
                 <a href="index.html">
-                    <img src="../img/Logo.png" alt="Logo"></a>
+                <img src="../img/Logo.png" alt="Logo"></a>
             </div>
 
-        <!-- Botón de menú para móviles -->
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
+            <!-- Botón de menú para móviles -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
-
-    <!-- Barra de navegación principal-->
+            <!-- Barra de navegación principal-->
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-         página de inicio -->
-                <li><a href="index.html" data-translate="menu-sec1"><i class="fas fa-house"></i>Inicio</a></li>
-                <li><a href="Nosotros.html" data-translate="menu-sec2"><i class="fas fa-users"></i>Nosotros</a></li>
+                página de inicio -->
+                <li>
+                    <a href="index.html" onclick="saveActiveLink('index.html')">
+                        <i class="fas fa-house"></i>
+                        <span data-translate="menu-sec1">Inicio</span>
+                    </a>
+                </li>
+                
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec3">
+                    <span id="neuroToggle" class="dropdown-toggle">
                         <i class="fas fa-brain icon-left"></i>
-                        Neurodivergencia
+                        <span class="dropdown-label" id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
                         <i class="fas fa-chevron-down chevron"></i>
-                    </span>                         
+                    </span>
+
                     <ul class="dropdown-content">
                         <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
                         <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
@@ -57,80 +59,125 @@
                         <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
-                <li><a href="Comunidad.html" data-translate="menu-sec4"><i class="fas fa-comments"></i>Comunidad</a></li>
-                <li><a href="Noticias.html" data-translate="menu-sec5"><i class="fas fa-newspaper"></i>Noticias</a></li>
+
+                <li>
+                    <a href="Encuestas.html" onclick="saveActiveLink('Nosotros.html')">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="menu-sec3">Encuestas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Comunidad.html" onclick="saveActiveLink('Comunidad.html')">
+                        <i class="fas fa-comments"></i>
+                        <span data-translate="menu-sec4">Comunidad</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Noticias.html" onclick="saveActiveLink('Noticias.html')">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-translate="menu-sec5">Noticias</span>
+                    </a>
+                </li>
+
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec6">
+                    <span id="extrasToggle" class="dropdown-toggle">
                         <i class="fas fa-puzzle-piece icon-left"></i>
-                        Extras
+                            <span data-translate="menu-sec6">Extras</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="Bitacora">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="Referencias">Referencias</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora" onclick="saveDropdownState('extrasToggle', 'Bitácora')">Bitácora</a></li>
+                        <li><a href="Referencias.html" data-translate="referencias" onclick="saveDropdownState('extrasToggle', 'Referencias')">Referencias</a></li>
                     </ul>
                 </li>                                                
             </ul>
 
-        <!-- Barra de búsqueda en la esquina superior izquierda -->
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
-                data-translate-attr="placeholder">
-                <button type="button" id="searchButton"><i class="fas fa-search"></i>
-                </button>
-        </div>
+                        <!-- Barra de búsqueda en la esquina superior derecha -->
+                        <div class="search-bar"> 
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                                data-translate-attr="placeholder" autocomplete="off">
+                                <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                                <div class="search-suggestions" id="searchSuggestions"></div>
+                            </div>
+                        </div>
+                       
+                    
+                        <!-- Botón de Inicio de Sesión -->
+                        <div class="Login">
+                            <a href="#" class="login-button" onclick="toggleLoginModal()">
+                                <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
+                            </a>
+                        </div>          
 
-            <!-- Botón de Inicio de Sesión -->
-            <div class="Login">
-                <a href="#" class="login-button" onclick="toggleLoginModal()">
-                    <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
-                </a>
-            </div>   
-
-            <!-- Formulario de inicio de sesión -->
+                        <!-- Formulario de inicio de sesión -->
                         <div id="loginModal" class="login-modal">
                             <div class="login-form">
+                                <div class="login-form-scroll">
                                 <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
-            
                                 <h2>INICIO DE SESIÓN</h2>
-                                <p class="no-account"> ¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
-                            
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="you@example.com" required>
-                            
-                                <div class="password-row">
-                                    <label for="password">Contraseña</label>
-                                    <a href="#" class="forgot-password underline-animate">¿Olvidaste tu contraseña?</a>
-                                </div>
-            
-                                <div class="password-container">
-                                    <input type="password" id="password" placeholder="Mínimo 5 caracteres" required>
-                                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                                  </div>                      
-                            
-                                <div class="remember-me">
-                                    <input type="checkbox" id="remember">
+                                <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
+
+                                <form id="formularioLogin">
+                                    <!-- Campo oculto -->
+                                    <input type="hidden" name="form_type" value="login" />
+
+                                    <!-- Correo -->
+                                    <label for="email">Correo electrónico *</label>
+                                    <input type="email" id="email" name="user_email" placeholder="you@example.com" required />
+                                    <small id="emailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Confirmar correo -->
+                                    <label for="confirmEmail">Confirmar correo electrónico *</label>
+                                    <input type="email" id="confirmEmail" placeholder="Repite tu correo" required />
+                                    <small id="confirmEmailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Contraseña -->
+                                    <div class="password-row">
+                                    <label for="password">Contraseña *</label>
+                                    <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar sesión?</a>
+                                    </div>
+
+                                    <div class="password-container">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="user_password"
+                                        placeholder="Mínimo 8 caracteres"
+                                        required
+                                        autocomplete="new-password"
+                                    />
+                                    <i class="fas fa-eye toggle-password" id="togglePassword" aria-hidden="true"></i>
+                                    </div>
+
+                                    <p id="passwordStrengthLabel" class="password-strength-label" style="display: none;">Fortaleza de la contraseña:</p>
+                                    <div id="passwordStrength" class="password-strength"></div>
+                                    <small id="passwordFeedback" class="input-feedback"></small>
+
+                                    <!-- Confirmar contraseña -->
+                                    <label for="confirmPassword">Confirmar contraseña *</label>
+                                    <div class="password-container">
+                                    <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required />
+                                    <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                                    </div>
+                                    <small id="confirmPasswordFeedback" class="input-feedback"></small>
+
+                                    <!-- Recordarme -->
+                                    <div class="remember-me">
+                                    <input type="checkbox" id="remember" />
                                     <label for="remember">Recordarme</label>
-                                </div>
-                            
-                                <button type="submit">Entrar</button>
-                            
-                                <div class="divider">────── o inicia sesión con ──────</div>
-                                <div class="social-buttons">
-                                    <button class="google"><i class="fab fa-google"></i> Google</button>
-                                    <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                                    </div>
+
+                                    <!-- BOTÓN -->
+                                    <button type="submit">Entrar</button>
+                                    <p id="formStatus" style="color: green; margin-top: 10px;"></p>
+                                </form>
                                 </div>
                             </div>
-                        </div> 
-</nav>
+                        </div>                     
+                    
+        </nav>
 </header>
-
-
-<!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
-<a href="#Menu" class="scroll" id="scrollTop">
-    &#8679; <!-- Para ráido agregaré este comando/código, el cual es un simbolo de flecha -->
-</a>
-
 
 <nav class="submenu">
     <!-- <h3 class="title">Tabla de contenido</h3> -->
@@ -141,341 +188,281 @@
             <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
             <li><a href="#Footer">Footer</a></li>
         </ul>
-        <div class="traductor">
-            <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
-            <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
-            <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
+       <div class="translator">
+                        <button id="translateBtn" onclick="toggleDropdown()">
+                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
+                        </button>
+                        <div id="languageDropdown" class="language-dropdown hidden">
+                            <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+                            <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+                        </div>
         </div>
 </nav>
 
 
-        <div class="content header">
+<!-- Está es la flecha de scroll que nos ayudará a volver a la sección de inicio cuando bajemos por la página -->
+<a href="#Menu" class="scroll" id="scrollTop">
+    &#8679; <!-- Para ráido agregaré este comando/código, el cual es un simbolo de flecha -->
+</a>
+
+
+<body>
+  
+        <div class="content headerTourette">
             <h1 class="title">SÍNDROME DE TOURETTE</h1>
             <!-- Añadir una breve información de cada tipo deneurotipicidad -->
             <h6>"El mundo necesita todo tipo de mentes."</h6> <br> <h6>- Dr. Temple Grandin.</h6>
         </div>
 
-
-        <div class="container">
+       <div class="container">
         <section id="Introduction">
-            <div class="content about">
+            <div class="content aboutTourette">
                 <div class="aboutimg">
                 <img src="../img/niñotourette.webp" alt="que es">
                 </div>
-                <div class="aboutext">
+                <div class="aboutextTourette">
                     <h2 class="title">¿Qué es el síndrome de tourette?</h2>
                     <p> Es una condición del neurodesarrollo que afecta a la configuración del sistema nervioso y al funcionamiento cerebral.
                         Se caracteriza por dar lugar a dificultades para la comunicación e interacción social y para la flexibilidad del
                         pensamiento y de la conducta de la persona que lo presenta.
+                        Los estudios neuroanatómicos y neurofisiológicos sugieren una afectación de los circuitos corticoestriado–talamo-corticales (CETC). Numerosos estudios de neuroimagen hacen que muchos investigadores enfaticen el componente estriatal. 
+
+                        Los neurotransmisores de los circuitos CETC son el factor patológico primario en la génesis de la sintomatología. Entre los neurotransmisores la DOPAMINA es la responsable principal, siendo también importantes la serotonina, noradrenalina, acetilcolina, GABA y opiáceos.
+                        Se manifiesta igual en todas las culturas, países, grupos raciales y clases sociales y es 3 o 4 veces más común en varones que en mujeres. 
                     </p>
                 </div>
             </div>
 
-
+<!-- Sección sobre la historia del TDAH -->
             <div class="content history">
-                <h2 class="title">Historia y evolución</h2>
-                <p>Las primeras investigaciones se comenzaron a realizar en 1908 por el psiquiatra Eugen Bleuler, quien en 1911 fue el primero que utilizó 
-                    el término con el que se conoce este trastorno en la actualidad. Se refería principalmente a los pacientes que tenían esquizofrenia. <br>
-                    Bleuler no investigó directamente sobre este síndrome, pero es un psiquiatra importante que se debe tomar en cuenta, pues fue el primero que utilizó este término. <br>
-                    Leo Kanner y Hans Asperger contribuyeron significativamente al conocimiento actual del autismo. Sus estudios y observaciones 
-                    forman parte de los pilares sobre los cuales se apoya nuestra comprensión moderna del trastorno del espectro autista (TEA). <br>
-                    </p>
-                    
-                    <h2 class="subtitle">Leo Kanner</h2>
-                    <div class="hisimg">
-                    <img src="../img/LeoKanner.jpg" alt="Leo Kanner">
+                
+
+                    <h2 class="title">Historia y evolución</h2>
+                    <p>La primera descripción médica se remonta a 1825 con el caso de la marquesa de Dampierre, estudiada por Jean Marc Gaspard Itard y que llevó una vida de reclusión hasta su muerte a los 85 años y de quien se consideró que sus síntomas eran lesiones cerebrales. En 1885 el neurólogo francés Georges Gilles de la Tourette publicó de nuevo el anterior caso y otros ocho de familias con pacientes con tics y trastornos de conducta (histeria principalmente) y ánimo y pensó que en el proceso participaba también la herencia.
+
+                        Hasta la década 1960-1970 gran parte de los neurocientíficos habían perdido el interés por este tema, incluso se encasillaba en los trastornos mentales cuya psicopatología era consecuencia de los trastornos vividos en la infancia.
+
+                        Todavía en la actualidad existen profesionales médicos y psicólogos que prefieren abordar los síntomas del ST desde el punto de vista del psicoanálisis lo cual es un gran error y una tortura para el paciente.
+                    </p>   
+                <section class="Hist">
+                    <div class="histimg">
+                         <img src="../img/George Gilles.jpg" alt="George Gilles de la Tourette">
                     </div>
-                    <p>
-                    El científico que descubrió e investigó por primera este síndrome,  publicando los resultados de su investigación en un artículo en 1943, fue el psiquiatra 
-                    Leo Kanner. Hacía referencia al estudio de once niños que presentaban esta condición, donde resaltaba que poseían ciertas peculiaridades y tenían características
-                    muy similares entre ellos.
-                    </p>
+                    <div class="histext">
+                        <h2 class="subtitle">George Gilles de la Tourette</h2>
+                
+                        <p> 
+                            Georges Gilles de la Tourette nació en Saint-Gervais-les-Trois-Clochers, cerca de Loudun, el 30 de octubre de 1857. Perteneció a una familia en la que había varios médicos y, desde muy temprano, se sintió atraído por la profesión. Fue alumno del colegio de Châtellerault.
+                        </p>
 
-                    <h2 class="subtitle"> Errores cometidos en su investigación</h2>
-                    <p>
-                    Se debe resaltar que este científico realizó algunas afirmaciones que hoy en día son consideradas erróneas. Estas afirmaciones acerca
-                    del autismo fueron las siguientes:
+                        <p>
+                            Comenzó los estudios de medicina en Poitiers a los dieciséis años de edad. Pensó su madre que, siendo tan joven, en esta ciudad se concentraría más en el trabajo y apenas tendría oportunidad de perder tiempo en distracciones. No obstante, en 1877 se trasladó a París para completarlos. En 1882 comenzó el internado en los hospitales. Presentó una nota a la Société de Biologie sobre las inyecciones subcutaneas de yoduro potásico.
+                        </p>
+                    </div>
+                </section>
 
-                    Era producido por la forma como los padres trataban a los niños, con la frialdad afectiva y en la forma como los criaban.
-                    Solo se presentaba en los hijos de aquellos padres que tienen un nivel socioeconómico alto, que eran las familias que acudían a su consulta. Siendo una afirmación
-                    errónea.
-                    Él, terminó admitiendo qué esa afirmación era un error, y que no se debía culpar a los padres como causantes de esta condición. Reconoció que le había hecho mucho daño 
-                    a estos padres porque generó un sentimiento de culpa.<br>
-
-                    Después de reconocer su error, este científico se dió cuenta que el origen de este síndrome era biológico, y que había un factor genético. Pero siguió manteniendo su 
-                    teoría, de que había un factor ambiental que influenciaba la aparición de los síntomas del autismo en los niños.
-                </p>
-
-                <h2 class="subtitle">Hans Asperger</h2>
-                <div class="hisimg">
-                <img src="../img/HansAsperger.jpg" alt="Hans Asperger">
-                </div>
+                <h2 class="subtitle">Detalles de su investigación</h2>
                 <p>
-                    Este científico estudió cuatro casos de niños, utilizando el término del autismo para identificar la condición que estos pacientes tenían. Los infantes presentaban 
-                    características comunes entre ellos. Los síntomas detectados en su investigación eran los siguientes:
+                    Durante un tiempo revisó abundante literatura sobre el tema y le llamó la atención un artículo del americano George Beard que publicó en el Journal of Nervous and Mental Disease. Fue traducido al francés al año siguiente por él. Se describía a un grupo de canadienses franceses que vivían en Maine. Sufrían contracciones, ecolalia y ecopraxia. Ningún síntoma de histeria y dificultad de controlar los “tics”. Tourette se dedicó a buscar trabajos que describieran síntomas parecidos. Encontró un artículo en una revista no médica (1883) en la que H. A. O'Brian hablaba del síndrome de latah en Malasia. Latah significaba algo así como “comportamiento raro o aberrante” y entre los casos que se mencionan, en algunos aparecen los signos anteriormente descritos.
                 </p>
                 <p>
-                    1.Tenían ausencia de empatía. <br>
-                    2.Presentaban la incapacidad para relacionarse socialmente. <br>
-                    3.Tenían dificultad para mantener el contacto visual con otras personas.<br>
-                    4.Utilizaban mucho los gestos y la mímica para comunicarse, también se les podía observar conversando solos. <br>
-                    5.Y resaltaban su dedicación exclusiva en áreas específicas y concretas. <br>
-                    </p>
-                    <p>
-                    Hans Asperger, publicó sus estudios en Alemania cuando se desarrollaba la Segunda Guerra Mundial y fue ignorado por la comunidad científica mundial de aquella época,
-                    solo fue tomado en cuenta cuando Lorna Wing tradujo todos sus artículos al inglés.
-                    
-                    Este científico realizó estudios sobre el trastorno, el cual tiempo después lleva su nombre. Estos hacen diferencias muy importantes sobre las condiciones que 
-                    presentan los niños con autismo y Asperger.</p>
-        
-        
-                <h2 class="subtitle">¿Cuándo se utilizó el término de autismo por primera vez?</h2>
-                    <p>En la historia del autismo, se debe destacar cuándo fue usado por primera vez esta palabra, para determinar los avances que se han logrado en su estudio  hasta la época actual.
+                    Tourette revisó entonces las historias clínicas de su servicio de la Salpêtrière. No tardó en encontrar algún caso. El primero que halló correspondía a un chico de quince años de edad de inteligencia normal, buena constitución, motivado, pero que en ocasiones presentaba una hiperexcitabilidad extrema, tics, movimientos convulsivos de la cabeza y cintura, y después pronunciaba la palabra “mierda”. Además, cuando hablaba con otra persona, solía repetir las dos o tres últimas palabras que había dicho su interlocutor.
+                </p>    
+                <p>
+                    Tourette llegó a la conclusión de que todos los casos podían ser el mismo transtorno. En 1884 publicó en los Archives de Neurologie el trabajo: “Étude sur une affection nerveuse caractérisée par de l’incoordination motrice accompagnée d’écholalie et de coprolalia (jumping, latah, and myriachit)”. Hace referencia a que existen coreas diferentes con síntomas que no son característicos. Pone el ejemplo de un caso que reportó Jean Itard, médico jefe de la Institution Royale des Sourds-muets de Paris, en 1825 en su trabajo “Mémoire sur vuelques fonctions involontaires des appareils de la locomotion, de la prehénsion et de la voix”, que publicó en Archives génerales de médecine en 1825. Este mismo fue presentado íntegramente por Roth en 1850 (Histoire de la musculation irrésistible ou de la chorée anormale).
+                </p>
 
-                    Se resalta lo dicho por la terapeuta Ángela Patiño, profesora del «Centro Hacer para Ser»,  experta en el tratamiento de esta condición con muchos años de experiencia. Ella indica
-                    que «el  concepto de esta condición como lo conocemos hoy, es relativamente nuevo, tiene alrededor de 50 años, y es la definición más cercana a lo que se conoce hoy en día»
-                    </p> 
-                </div>
-        </section>
-
-
-        <section id="Identification">
-            <div class="identificadores">
-                <h2 class="title"> Cómo se identifica en niños, adolescentes y adultos</h2>
-                <div class="kids">
-                    <h2 class="subtitle">En niños</h2>
-                <p> 1.Desconexión con los demás :<br>
-                    Los niños con autismo suelen mostrarse distantes o desconectados con lo seres queridos (padres, hermanos,etc.). Por ejemplo, puede parecer que no presentan conexión emocional a estas
-                    personas y no entienden la diferencia entre señales faciales. En otras palabras, los niños con autismo a menudo no reaccionan de manera diferente frente a un un ceño fruncido o una
-                    sonrisa de otra persona.</p>
+                <h2 class="subtitle">Errores cometidos en su investigación</h2>
+                <p>
+                    Tourette dejó claro que las funciones cognitivas de los afectados eran normales y no sufrían ningún tipo de histeria. También se percató de otros detalles que siguen vigentes: afecta más a hombres que a mujeres, aparece antes de los dieciocho años y tiene carácter fluctuante. Sólo se equivocó en el hecho de que tanto la ecolalia como la coprolalia no están siempre presentes. La última aparece sólo en el 20 por cien de los casos, y la ecolalia es todavía menos frecuente. También pensó, como Charcot, que la enfermedad se debía a una especie de degeneración y que era incurable.
+                </p>
 
                 
-                    <p>2. La aparente falta de empatía: <br>
-                    Otra característica común de los niños con autismo y que también tiene que ver con la teoría de la mente, es que tienen dificultades empatizando con los demás. A pesar de que la falta de empatía
-                    puede ser difícil de detectar y evaluar en los bebés y niños pequeños con eficacia, hay señales específicas que muestran la falta de capacidad para empatizar.
-
-                    Los niños autistas parecen tener dificultad para comprender o apreciar las situaciones desde la perspectiva de otras personas. Esto se debe a que piensan que todo el mundo entiende el mundo como lo hacen, lo que puede causar confusión o la imposibilidad de prever o comprender las acciones de los demás.
-                    </p>
-
-                
-                    <p>3. Se muestran indiferentes ante las interacciones sociables: <br>
-                    La gran mayoría de niños son muy sociables de manera natural. Sin embargo, los niños con autismo no pasan tiempo mirando las caras de los demás, respondiendo al oír su nombre, imitando las expresiones faciales de otros, o cogiendo las manos de otros durante el juego. En cambio, los niños con autismo a menudo no parecen muy interesados en participar en juegos y actividades normales del desarrollo infantil, incluyendo la socialización e imitación de otras personas.
-
-                    Estas señales comienzan a manifestarse a los 18 meses de edad, y a medida que la socialización con los demás continúa, los síntomas pueden ser más notables. Por ejemplo, a los 3 años de edad, los niños normales suelen querer jugar con juguetes con otros niños. Los niños autistas, en cambio, prefieren jugar solos.
-                    </p>
-                </div>
-                    <div class="adults">
-                    <h2 class="subtitle">En adultos</h2>
-                    <p>Una lista de los síntomas más habituales en los adultos con autismo es la siguiente:</p>
-
-                    <li>Dificultad para iniciar y mantener una conversación</li>
-                    <li>Evitación del contacto visual</li>
-                    <li>Dificultad para expresar necesidades y deseos</li>
-                    <li>Necesidad de mantener una rutina clara y estructurada</li>
-                    <li>Preferencia en mantener siempre un orden claro y lógico para él o ella</li>
-                    <li>Dificultad para comprender las emociones y las intenciones de los demás</li>
-                    <li>Dificultades para generar y mantener las amistades</li>
-                    <li>Suelen tener unos intereses y gustos muy restringidos y repetitivos</li>
-                    <li>Se pueden pasar largas horas realizando la misma actividad</li>
-                    <li>Dificultad para comprender las normas sociales y el lenguaje no verbal</li>
-                    <li>Les puede costar comprender las bromas y la ironía</li>
-                    <li>Si no siguen tratamiento psicológico suelen desarrollar cuadros de ansiedad, depresión o estrés</li>
+                <section class="Hist">
+                    <div class="histimg">
+                         <img src="../img/Jean-Martin Charcot.webp" alt="Jean-Martin Charcot">
                     </div>
-            </div>
+                    <div class="histext">
+                        <h2 class="subtitle">Jean-Martin Charcot</h2>
+                        <p> El neurólogo y anatomopatólogo Jean-Martin Charcot nació en París en 1825. Estudió con Guillaume Duchenne de Boulogne, que realizó grandes aportaciones a los campos de la neurología y la electrofisiología. Se suele considerar a Charcot el padre de la neurología, pero su obra se debió en buena parte a las enseñanzas de Duchenne.
+                        </p>
+                        <p>
+                            Durante más de 30 años Charcot trabajó como médico, investigador y profesor en la Escuela de la Salpêtrière, que en aquella época funcionaba como un centro psiquiátrico y albergaba a 5 mil pacientes aproximadamente. Sigmund Freud fue uno de los muchos estudiantes que aprendieron de Charcot, que había alcanzado la fama en toda Europa.
+                        </p>
+                    </div>
+                </section>
 
-
-            <h2 class="title"> Síntomas o rasgos más comunes</h2>
-                <p> Algunos niños presentan signos del trastorno del espectro autista en la primera infancia, como menor contacto visual, 
-                    falta de respuesta cuando los llaman por su nombre o indiferencia ante las personas responsables del cuidado. Otros niños pueden 
-                    desarrollarse normalmente durante los primeros meses o años de vida, pero luego repentinamente se vuelven introvertidos o agresivos o pierden 
-                    habilidades del lenguaje que habían adquirido. En general, los signos se observan a los 2 años. <br>
-                </p>
+                <h2 class="subtitle">Aportaciones de Jean-Martin Charcot</h2>
                 <p>
-                    Es probable que los trastornos del espectro autista tengan un patrón de comportamiento y un nivel de gravedad únicos en cada niño, desde un funcionamiento
-                    bajo hasta uno alto. <br>
-                    
-                    Algunos niños con trastornos del espectro autista tienen dificultades de aprendizaje y algunos presentan signos de inteligencia inferiores a lo normal. 
-                    Otros niños con este trastorno tienen una inteligencia entre normal y alta, aprenden rápido, aunque tienen problemas para comunicarse, aplicar lo que saben
-                    en la vida diaria y adaptarse a situaciones sociales. <br>
-                    
-                    Debido a la combinación única de síntomas que presenta cada niño, a veces, puede ser difícil determinar la gravedad. En general, se basa en el nivel de deterioro
-                    y en cómo afecta la capacidad de desenvolverse.</p>
-
-                    
-                    <h2 class="subtitle">Comunicación e interacción social</h2>
-                    <p>
-                    Un niño o un adulto con trastorno del espectro autista puede tener problemas con la interacción social y las habilidades de comunicación, incluso presentar cualquiera de los siguientes signos:
-
-                    No responde a su nombre o, en ocasiones, parece no escucharte
-                    Se resiste a los abrazos y las caricias; además, parece que prefiere jugar solo y se abstrae en su propio mundo
-                    No suele hacer contacto visual y carece de expresión facial
-                    No habla o tiene un desarrollo tardío del habla, o bien pierde la capacidad que tenía para decir palabras u oraciones
-                    No puede mantener ni iniciar una conversación o, tal vez, inicia una solamente para pedir algo o nombrar elementos
-                    Habla con tono o ritmo anormal y es posible que utilice una voz cantarina o que hable como un robot
-                    Repite palabras o frases textuales, pero no comprende cómo usarlas
-                    No parece entender preguntas o indicaciones simples
-                    No expresa emociones ni sentimientos y parece no ser consciente de los sentimientos de los demás
-                    No señala ni trae objetos para compartir sus intereses
-                    Aborda interacciones sociales de forma inadecuada comportándose de manera pasiva, agresiva o perturbadora
-                    Tiene dificultad para reconocer señales no verbales, como la interpretación de las expresiones faciales de otras personas, las posturas corporales o el tono de voz
-                    </p>
-                    <h2 class="subtitle">Patrones de comportamiento</h2>
-                    <p>
-                    Un niño o un adulto con trastorno del espectro autista puede tener intereses, actividades o patrones de comportamiento repetitivos y limitados, e incluso presentar cualquiera de los siguientes signos: <br> <br>
-
-                    - Realiza movimientos repetitivos, como balancearse, girar o aletear con las manos. <br>
-                    - Realiza actividades que podrían causarle daño, como morderse o golpearse la cabeza.<br>
-                    - Desarrolla rutinas o rituales específicos y se altera con el mínimo cambio.<br>
-                    - Tiene problemas con la coordinación o muestra patrones de movimientos extraños, como ser torpe o caminar en puntas de pie, y muestra un lenguaje corporal extraño, rígido o exagerado. <br>
-                    - Se deslumbra con los detalles de un objeto, como las ruedas que giran en un auto de juguete, pero no entiende el propósito general o el funcionamiento del objeto.<br>
-                    - Es más sensible que lo habitual a la luz, el sonido o el contacto físico, pero puede ser indiferente al dolor o la temperatura.<br>
-                    - No participa en juegos de imitación o de simulación.<br>
-                    - Se obsesiona con un objeto o una actividad con una intensidad o concentración anormales.<br>
-                    - Tiene preferencias específicas con respecto a los alimentos, como comer solamente unos pocos alimentos o no comer alimentos con una determinada textura.<br>
-                    </p>
-        </section>
-
-        <section id="Dificults">
-            <h2 class="title">Impacto en la vida cotidiana</h2>
-                <p>No solo afecta a la persona diagnosticada, sino que tiene profundas repercusiones en la familia y la comunidad. Los cuidadores y familiares a menudo 
-                    enfrentan altos niveles de estrés y pueden experimentar sentimientos de aislamiento. Es vital que las familias tengan acceso a recursos y apoyo emocional
-                    para sobrellevar los desafíos cotidianos que implica cuidar a una persona con TEA.
-
-                    Las comunidades también juegan un papel crucial, y es necesario crear espacios inclusivos que favorezcan la plena participación de las personas con autismo. 
-                    La sensibilización y la educación son claves para desmitificar el autismo y fomentar un ambiente más comprensivo y solidario. Es fundamental que tanto la sociedad 
-                    como las instituciones públicas y privadas colaboren para garantizar que las personas con TEA reciban el apoyo necesario en todos los ámbitos de sus vidas.
+                    Identificación y clasificación de lo que hoy conocemos como el Síndrome de Tourette, un trastorno neurológico caracterizado por tics motores y vocales. Charcot apoyó a su alumno, Georges Gilles de la Tourette, en la identificación de este síndrome. Esto demostró nuevamente el compromiso de Charcot con el estudio riguroso y empírico de los trastornos neurológicos, ayudando a establecer una clasificación más clara de diversas enfermedades.
                 </p>
-
-            <h2 class="title">Mitos y prejuicios</h2>
-                <p>Existen muchos mitos sobre el trastorno del espectro autista que pueden perpetuar la desinformación y estigmatización de las personas afectadas. Un mito común, 
-                    por ejemplo, es que las personas con autismo carecen de empatía. Sin embargo, muchas personas con TEA pueden experimentar y mostrar empatía, aunque su forma de 
-                    expresarla puede ser diferente. Esto es crucial para desarticular prejuicios y fomentar un entendimiento más profundo del autismo.
-
-                    Otro mito importante es la idea de que el autismo es una condición única, estática y no cambia a lo largo de la vida. La realidad es que las personas con TEA 
-                    pueden desarrollar nuevas habilidades y mejorar sus capacidades a lo largo del tiempo, especialmente con la intervención adecuada. La concientización sobre estos
-                    mitos es esencial para promover la aceptación y el apoyo hacia personas con TEA en la sociedad.
-                </p>
+                
+                <h2 class="subtitle">¿Cuándo se utilizó el término de Tourette por primera vez?</h2>
+                        <p> 
+                            Un médico francés, Jean Marc Gaspard Itard, reportó el primer caso de síndrome de Tourette en 1825, describiendo a Mme de D (la marquesa de Dampierre) una importante mujer de la nobleza en su tiempo, cuyos episodios luego se entendieron como coprolalia "obviamente estaban en marcado contraste con la formación, el intelecto y los modales refinados de la dama".
+                        </p>
         </section>
 
+<!-- Sección sobre la identificación del TDAH en distintas edades -->
+ <section id="Identification">
+            <div class="rasgosTourette">
+                <div class="rasgos-content">
+                    <h2 class="title"> Síntomas o rasgos más comunes</h2>
+                        <p> El trastorno se manifiesta a través de tics motores y verbales demasiado evidentes como para que pasen desapercibidos por el resto de los niños. Esto les puede ocasionar problemas de adaptación social, baja autoestima y retraso en el aprendizaje, aunque sus cociente intelectual no sea más bajo, sino que a menudo poseen una inteligencia más alta de la habitual.
+                            El Síndrome de Tourette puede ocasionar también problemas de comportamiento por la incomprensión que genera este trastorno tanto en niños como en adultos. Hay que tener en cuenta la especial protección emocional que necesitan los niños que sufren alguna enfermedad rara para garantizarles una mejor calidad de vida también en el ámbito de las relaciones.
+                        </p>
+                        <p>
+                        El Síndrome de Tourette puede ocasionar también problemas de comportamiento por la incomprensión que genera este trastorno tanto en niños como en adultos. Hay que tener en cuenta la especial protección emocional que necesitan los niños que sufren alguna enfermedad rara para garantizarles una mejor calidad de vida también en el ámbito de las relaciones.
+                        </p>
+                        <p> 
+                           Los síntomas característicos que presentan las personas con síndrome de Tourette son las emisiones de tics motores y de tics vocales. Generalmente, la persona comienza con los tics motores faciales y después suelen aparecer también los tics vocales.
+                            </p>
+                            <p>
+                            <strong>Tics motores:</strong> 
+                            Los tics motores que presentan las personas con este padecimiento se clasifican en 2 grupos como son los siguientes:
+                            </p>
+                            <p>
+                                <strong>Simples:</strong> son movimientos repentinos, repetitivos y de corta duración que implican solo a un grupo muscular. Algunos ejemplos de ellos es el parpadeo, el movimiento de los hombros de arriba hacia abajo, las sacudidas de cuello, entre otros que hacen alusión a una cantidad pequeña de músculos.
+                            </p>
+                            <p>
+                                <strong>Complejos:</strong> se trata de movimientos repentinos y repetitivos más complejos y coordinados. Algunos ejemplos de este tipo de tics serían, por ejemplo, arreglarse el cabello o la ropa de una determinada manera, tocar a una persona o cosa, entre otros.
+                            </p>
 
-        <section id="sectiontypes">
-            <div class="types">
-                <h2 class="title">Sub-tipos</h2>
-            <div class="contenedor">
-                <div class="chart">
-                    <img src="../img/kanner.jpg" alt="Imagen 1">
-                    <div class="titulo">Autismo o síndrome de Kanner</div>
-                    <div class="desc">Es un trastorno del neurodesarrollo que se suele detectar durante los primeros años de vida de un niño y le acompañará durante todo
-                        su ciclo vital, pues no tiene cura. Habitualmente se suele detectar en la escuela ya que es donde pasa la mayor parte del tiempo. Está demostrado 
-                        que hay una mayor efectividad en su diagnóstico si hay una implicación de la familia, pues hay veces que no se quiere reconocer que su hijo sufre 
-                        un trastorno.</div>
-                </div>
-        
-                <div class="chart">
-                    <img src="../img/asperger.jpg" alt="Imagen 2">
-                    <div class="titulo">Síndrome de Asperger</div>
-                    <div class="desc">El síndrome de Asperger es una forma de trastorno del espectro autista (TEA) que se caracteriza por diferencias en la comunicación social
-                        y patrones de comportamiento repetitivos e intensos. En otras palabras, según la Asperger/Autism Network (AANE), quienes tengan esta afección "no podría 
-                        percibir los indicadores sociales o el lenguaje corporal de otras personas o no notar claramente los sentimientos de otros a su alrededor".</div>
-                </div>
+                            <p>
+                                <strong>Tics vocales:</strong>
+                            </p>
+                            <p>
+                                <strong>Simples:</strong>  se trata de la emisión continuada y repetida de sonidos. Algunos ejemplos de este tipo de tics vocales sería el toser, hacer sonidos con la garganta, hacer sonidos con las fosas nasales al inspirar, entre otros.
+                            </p>
+                            <p>
+                                <strong>Complejos:</strong> se trata de la emisión de palabras o frases de manera constante y repetitiva. Algunos ejemplos de este tipo de tics son decir palabras o frases fuera de contexto, insultar, repetir lo que dicen los demás o lo que dice uno mismo, cambiar el tono de volumen de voz repentinamente, entre otros.
+                            </p>
+                    
+                    <p>
+                            Todos estos síntomas del síndrome de Tourette pueden variar de intensidad dependiendo de su gravedad. Cuando los síntomas que presenta la persona son muy graves, esto puede interferir considerablemente en su relación con los demás debido a que la comunicación con ellos se hace cada vez más limitada. 
+                    </p>
 
-                <div class="chart">
-                    <img src="../img/rett.jpg" alt="Imagen 3">
-                    <div class="titulo">Síndrome de Rett</div>
-                    <div class="desc">El síndrome de Rett, aunque durante mucho tiempo ha sido incluido dentro de los trastornos del espectro autista, en la nueva actualización
-                        del DSM5, ya no aparece como tal. Se diferencia de los demás trastornos, ya que tiene un origen genético, el trastorno está originado en el cromosoma X y,
-                        por eso, se presenta comúnmente en niñas y mujeres. <br>
-                        El estadio de más deterioro suele empezar a suceder hacia los 10 años de edad.</div>
-                </div>
-        
-                <div class="chart">
-                    <img src="../img/heller.jpg" alt="Imagen 4">
-                    <div class="titulo">Síndrome de Heller o trastorno desintegrativo</div>
-                    <div class="desc">El síndrome de Heller, también conocido como trastorno desintegrativo infantil, es un trastorno del desarrollo generalizado poco frecuente 
-                        que implica una alteración de la capacidad del desarrollo del lenguaje, las habilidades sociales y las capacidades motoras. Desafortunadamente, a día de hoy
-                        se desconocen las causas que lo provocan.</div>
-                </div>
-
-                <div class="chart">
-                    <img src="../img/desarrollo.webp" alt="Imagen 5">
-                    <div class="titulo">Trastorno generalizado del desarrollo no especificado</div>
-                    <div class="desc">El trastorno del desarrollo no especificado (TGD no especificado) se refiere a un grupo de trastornos que muestran unas características
-                        semejantes a los bien conocidos Síndrome Autista o Síndrome de Asperger pero que no cumplen con todos los criterios para el diagnóstico.
-
-                        Se engloban dentro de estas etiquetas debido a que sí suponen ciertas dificultades en las interacciones con los otros. Podemos ver afectado el lenguaje 
-                        verbal y no verbal</div>
-                    </div>
-                </div>
-            </div>
-       </div>
-    </div>
-        </section>
+                        <h2 class="subtitle">Patrones de comportamiento</h2>
+                        <p>
+                            Los tics pueden:
+                            Varían en tipo, frecuencia y gravedad, empeoran si estás enfermo, estresado, ansioso, cansado o emocionado, ocurren durante el sueño, cambian con el tiempo, empeoran en la adolescencia temprana y mejoran durante la transición a la edad adulta
+                        </p>
+                </div> 
+            </div>   
+    </section>
 
 
-        <section id="Apoyo"> 
-            <div class="ayuda">
+    <section id="Dificults">
+        <h2 class="title">Impacto en la vida cotidiana</h2>
+        <p>
+            En este sentido, el malestar derivado del ST no proviene del trastorno en sí, sino de la repercusión de sus síntomas en el entorno, lo cual puede provocar ansiedad, depresión, falta de autoestima y, sobre todo, dificultad para desarrollar adecuadamente habilidades relacionales lo que se traduce, en definitiva, en un deterioro evidente de la calidad de vida.
+        </p>
+            <p>
+                El ST, a diferencia de otros trastornos, es evidentemente visible. Esto puede provocar un rechazo social e interferir negativamente en las relaciones sociales de las personas que padecen ST.
+            </p>
+            <p>
+                Dado que las habilidades relacionales no son innatas, es decir, que no se nace con ellas, y que se desarrollan a lo largo de la vida, las posibles interferencias negativas del ST con respecto a la socialización repercute, a su vez, en la posibilidad de que éstas se desarrollen adecuadamente, ya que las oportunidades de socialización pueden verse mermadas.
+            </p>
+            <p>
+                Los problemas para relacionarse con los demás son frecuentes, y un gran porcentaje de la población presenta este tipo de dificultades. Las habilidades relacionales se aprenden a lo largo de la vida, pero este aprendizaje es significativo durante la infancia y la adolescencia. Si durante estas etapas vitales el niño ha experimentado un déficit de socialización, es probable que sus habilidades sociales no estén adecuadamente desarrolladas.
+                De este modo, nos encontramos con un círculo vicioso que retroalimenta la socialización en el ST: El rechazo provoca que haya menos interacciones sociales, lo que provoca que se tengan menos habilidades relacionales, lo que provoca a su vez rechazo de nuevo.
+            </p>
+
+        <h2 class="title">Mitos y prejuicios</h2>
+            
+            <li><strong>“Los movimientos y sonidos pueden ser controlados”</strong>. Por supuesto que no. Los tics son consecuencia de la función y de una estructura cerebral alterada. Por tanto, son completamente involuntarios e incontrolables.</li>
+            <li><strong>“Solo dicen palabras obscenas”</strong>. No es cierto. Esto se da sólo en un 15% o 19% de las personas diagnosticadas con el síndrome. Es un mito que ha sido retratado habitualmente en los medios de comunicación, no obstante, es fundamental rectificar ya que, genera prejuicios contra estas personas.</li>
+            <li><strong>“Una infancia infeliz es la causa”</strong>. El estrés es capaz de agravar toda la sintomatología, no obstante, esta afirmación no es cierta. Como comentábamos al principio, se desconocen las causas y se asume un componente multifactorial.</li>
+            <li><strong>“Son personas peligrosas”</strong>. Es un trastorno neurobiológico, no están locos ni son peligrosos. Aunque pueda haber una comorbilidad psiquiátrica con ansiedad o depresión, no estamos hablando de una enfermedad mental.</li>
+            <li><strong>“Tienen un retraso mental”</strong>. Todo lo contrario. Tienen un nivel de inteligencia normal e incluso en muchas ocasiones superior a la media de la población.</li>
+            <li><strong>“Es contagioso y te puedes morir”</strong>. Es una condición que se hereda y en algún momento del desarrollo se manifiesta. No hablamos de un virus que se pueda contagiar por la tos ni por la saliva. Además no causa la muerte ni se necesita tratamiento de por vida.</li>
+            <li><strong>“Manifiesta los mismos síntomas todo el tiempo”</strong>. No es cierto. En la mayoría de los casos (80%), el trastorno mejora. El resto continúa igual y de ellos sólo un pequeño porcentaje empeora a lo largo del tiempo. Yendo un paso más allá, incluso los tics cambian en cantidad y forma.</li>
+            <li><strong>“Si no tiene tics, está bien”</strong>. Los tics se pueden disminuir temporalmente, algunos síntomas van y vienen pero no nos confundamos, esto no significa que no existan. Esa afirmación es completamente falsa.</li>
+            <li><strong>“Tienen tics porque son nerviosos”</strong>. Si bien es cierto que los tics se agravan cuando estos individuos se ponen nerviosos, es su condición genética y neurológica los que originan los mismos.</li>
+            <li><strong>“Es más común en algunos grupos étnicos”</strong>. Completamente erróneo. No se presenta en ningún grupo étnico o racial en especial.</li>
+            <li><strong>“No permite llevar una vida con normalidad”</strong>. Para los casos extremos, esto es cierto. No obstante, muchos logran vivir su vida satisfactoriamente y llena de plenitud. De hecho, consiguen ser excelentes estudiantes llegando a convertirse en grandes profesionales.</li>
+    </section>
+
+
+    <section id="Apoyo"> 
+        <div class="ayuda">
             <h2 class="title">Terapias y acompañamiento profesional</h2>
-                <p>
-                    El apoyo emocional en el entorno de personas con autismo es fundamental para promover su bienestar y desarrollo. En un mundo que a usual no comprende
-                    las necesidades únicas de estas personas, el acompañamiento adecuado puede marcar la diferencia en su vida diaria. Este artículo explora la 
-                    importancia de ofrecer un entorno emocionalmente seguro y cómo pequeñas acciones pueden transformar la experiencia de quienes viven con autismo,
-                    potenciando su autoconfianza y habilidades sociales.
-                </p>
-
-            <h2 class="title">Estrategias educativas y laborales</h2>
-                <p>
-                </p>
-        </div>
-        </section>
-<!--  Mejorar para ver si añadimos esto en forma de vídeos, enlaces a otras páginas, o ver si mejor lo nerfeamos
-        <section id="seccion5">
-            <h2 class="title">Testimonios o historias</h2>
-        </section> -->
-</div>
-
-
-<footer class="footer-container">
-    <section id="Footer">
-        <div class="footer-top">
-            <div class="footer-logo">
-                <a href="index.html">
-            <div class="logo">
-                <img src="../img/Logo.png" alt="Logo"></a> 
-            </div>
-            </div> 
-                  
-
-            <!-- Esta es la barra de navegación inferior -->
-                <ul class="footer-navbar">
-
-                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                    página de inicio -->
-                    <li><a href="#Introduction">Introducción al tema</a></li>
-                    <li><a href="#Identification">Diagnóstico y características principales</a></li>
-                    <li><a href="#Dificults">Desafíos y fortalezas</a></li>
-                    <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
-                </ul>               
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2025 Mentes en armonía</p>
-
-            <div class="socials">
-                <a href="https://www.youtube.com/">
-                    <img src="../img/youtube.png" alt="Youtube"></a>
-                <a href="https://www.facebook.com/?locale=es_LA">
-                    <img src="../img/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/">
-                    <img src="../img/instagram.png" alt="Instagram"></a>
-                <a href="https://x.com/?lang=es&mx=2">
-                    <img src="../img/twitter.png" alt="Twitter/X"></a>
-            </div>  
+                <li> <strong>Terapia cognitivo-conductual:</strong> Esta terapia se enfoca en ayudar al paciente a identificar los pensamientos y comportamientos que desencadenan los tics, y a desarrollar estrategias para controlarlos.</li>
+                <li> <strong>Medicamentos:</strong> Los medicamentos antipsicóticos pueden ser recetados para reducir la frecuencia e intensidad de los tics en personas con síndrome de Tourette.</li>
+                <li> <strong>Terapias complementarias:</strong> Algunas terapias alternativas, como la acupuntura o la terapia ocupacional, pueden ser útiles como complemento al tratamiento tradicional.</li>
+                <li> <strong>Educación y apoyo familiar:</strong> Es fundamental que las familias de las personas con síndrome de Tourette reciban información y apoyo para entender la condición y aprender a manejar los síntomas.</li>
+                <li> <strong>Educación y concienciación:</strong> Es fundamental que tanto el paciente como su entorno cercano comprendan la naturaleza del trastorno. La educación sobre el síndrome de Tourette puede ayudar a reducir el estigma y mejorar la aceptación.</li>
+                <li> <strong>Terapia conductual:</strong> La terapia cognitivo-conductual puede ser muy beneficiosa para aprender a manejar los tics y reducir su frecuencia e intensidad. Se centra en identificar los factores desencadenantes y desarrollar estrategias para controlarlos.</li>
+                <li> <strong>Apoyo psicológico:</strong> Contar con el apoyo de un psicólogo o terapeuta especializado en trastornos neurológicos puede proporcionar herramientas emocionales para afrontar los desafíos asociados al síndrome de Tourette.</li>
+                <li> <strong>Medicación:</strong> En algunos casos, el tratamiento farmacológico puede ser necesario para controlar los síntomas más graves del trastorno. Es importante consultar con un médico especialista para determinar la mejor opción.</li>
+                <li> <strong>Ejercicio físico:</strong> La actividad física regular no solo contribuye a mejorar la salud general, sino que también puede ayudar a reducir la ansiedad y el estrés, factores que pueden exacerbar los tics.</li>
+                <li> <strong>Estrategias de relajación:</strong> Prácticas como la meditación, la respiración profunda o el yoga pueden ser útiles para controlar la ansiedad y mejorar el bienestar emocional de los pacientes con síndrome de Tourette.</li>
+                <li> <strong>Apoyo familiar:</strong> El respaldo de la familia es fundamental para el paciente. Crear un entorno seguro, comprensivo y libre de juicios puede marcar la diferencia en la gestión del trastorno.</li>
+                <li> <strong>Educación escolar:</strong> Es importante que los docentes y el personal educativo estén informados sobre el síndrome de Tourette para proporcionar el apoyo adecuado en el entorno escolar y facilitar la adaptación del niño.</li>
+                <li> <strong>Establecer rutinas:</strong> Mantener una rutina estructurada puede ayudar a reducir la ansiedad y mejorar la predictibilidad en la vida diaria del paciente, lo que puede contribuir a controlar los tics.</li>
+                <li> <strong>Red de apoyo:</strong> Formar parte de grupos de apoyo o comunidades online con personas que también experimentan el síndrome de Tourette puede brindar un espacio seguro para compartir experiencias, consejos y sentirse comprendido.</li>
         </div>
     </section>
-</footer>
+
+    </div>
+
+    <footer class="footer-container">
+                    <section id="Footer">
+            
+                        <!-- Sección superior con navegación inferior y logo-->
+                        <div class="footer-top">
+                            <div class="footer-logo">
+                                <a href="index.html">
+                                    <img src="../img/Logo.png" alt="Logo"></a>
+                            </div>
+            
+                            <!-- Barra de navegación inferior -->
+                            <ul class="footer-navbar">
+            
+                                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                                página de inicio -->
+                                <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+                                <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+                                <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+                                <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                                <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+                                <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+                                <li><a href="#Footer">Footer</a></li>
+                            </ul>
+                        </div>
+            
+                        <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+                        <div class="footer-bottom">
+                            <p>© 2025 Mentes en armonía</p>
+            
+                            <div class="socials">
+                                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mentesen.armonia/" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </footer>
 
 
- <!-- Enlace al archivo JavaScript externo -->
- <script src="../javascript/javascript.js"></script>
+                <!-- Enlace al archivo Json -->
+                <script src="../javascript/Languaje.js"></script>
+
+                <!-- Enlace al archivo JavaScript -->
+                <script src="../javascript/Javascript.js"></script>
+
+                <!-- Enlace al archivo JavaScript del buscador -->
+                <script src="../javascript/Buscador.js"></script>
+
 </body>
+
 </html>

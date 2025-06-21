@@ -22,34 +22,36 @@
 <body>
 
     <header>
-    <!-- Barra de navegación principal -->
-    <nav class="menu" id="Menu">
+    <!-- Ménu de navegación principal-->
+        <nav class="menu" id="Menu">
+            <div class="logo"> <!-- Contenedor del logo -->
+                <a href="index.html">
+                <img src="../img/Logo.png" alt="Logo"></a>
+            </div>
 
-    <div class="logo">  <!-- Este div se encargá de seccionar el aréa del logo y las clases asignadas nos van a permitir
-                         darle estilos por medio de css más delante -->
-        <a href="index.html">
-        <img src="../img/Logo.png" alt="Logo"></a>
-    </div>
+            <!-- Botón de menú para móviles -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
-
-        <!-- Botón de menú para móviles -->
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-
-
-    <!-- Barra de navegación principal-->
+            <!-- Barra de navegación principal-->
             <ul class="navbar">
                 <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-         página de inicio -->
-                <li><a href="index.html" data-translate="menu-sec1"><i class="fas fa-house"></i>Inicio</a></li>
-                <li><a href="Nosotros.html" data-translate="menu-sec2"><i class="fas fa-users"></i>Nosotros</a></li>
+                página de inicio -->
+                <li>
+                    <a href="index.html" onclick="saveActiveLink('index.html')">
+                        <i class="fas fa-house"></i>
+                        <span data-translate="menu-sec1">Inicio</span>
+                    </a>
+                </li>
+                
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec3">
+                    <span id="neuroToggle" class="dropdown-toggle">
                         <i class="fas fa-brain icon-left"></i>
-                        Neurodivergencia
+                        <span class="dropdown-label" id="neuroToggleText" data-translate="menu-sec2">Neurodivergencia</span>
                         <i class="fas fa-chevron-down chevron"></i>
-                    </span>                         
+                    </span>
+
                     <ul class="dropdown-content">
                         <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
                         <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
@@ -60,71 +62,123 @@
                         <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
                     </ul>
                 </li>
-                <li><a href="Comunidad.html" data-translate="menu-sec4"><i class="fas fa-comments"></i>Comunidad</a></li>
-                <li><a href="Noticias.html" data-translate="menu-sec5"><i class="fas fa-newspaper"></i>Noticias</a></li>
+
+                <li>
+                    <a href="Encuestas.html" onclick="saveActiveLink('Nosotros.html')">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="menu-sec3">Encuestas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Comunidad.html" onclick="saveActiveLink('Comunidad.html')">
+                        <i class="fas fa-comments"></i>
+                        <span data-translate="menu-sec4">Comunidad</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Noticias.html" onclick="saveActiveLink('Noticias.html')">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-translate="menu-sec5">Noticias</span>
+                    </a>
+                </li>
+
                 <li class="dropdown">
-                    <span class="dropdown-toggle" data-translate="menu-sec6">
+                    <span id="extrasToggle" class="dropdown-toggle">
                         <i class="fas fa-puzzle-piece icon-left"></i>
-                        Extras
+                            <span data-translate="menu-sec6">Extras</span>
                         <i class="fas fa-chevron-down chevron"></i>
                     </span>
                     <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="Bitacora">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="Referencias">Referencias</a></li>
+                        <li><a href="Bitacora.html" data-translate="bitacora" onclick="saveDropdownState('extrasToggle', 'Bitácora')">Bitácora</a></li>
+                        <li><a href="Referencias.html" data-translate="referencias" onclick="saveDropdownState('extrasToggle', 'Referencias')">Referencias</a></li>
                     </ul>
                 </li>                                                
             </ul>
- 
-        <!-- Barra de búsqueda en la esquina superior izquierda -->
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar...">
-            <button type="button" id="searchButton"><i class="fas fa-search"></i>
-            </button>
-        </div>
 
-        <!-- Botón de Inicio de Sesión -->
-        <div class="Login">
-             <a href="#" class="login-button" onclick="toggleLoginModal()">
-                <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
-            </a>
-        </div>     
-    
-        <!-- Formulario de inicio de sesión -->
+                        <!-- Barra de búsqueda en la esquina superior derecha -->
+                        <div class="search-bar"> 
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                                data-translate-attr="placeholder" autocomplete="off">
+                                <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                                <div class="search-suggestions" id="searchSuggestions"></div>
+                            </div>
+                        </div>
+                       
+                    
+                        <!-- Botón de Inicio de Sesión -->
+                        <div class="Login">
+                            <a href="#" class="login-button" onclick="toggleLoginModal()">
+                                <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
+                            </a>
+                        </div>          
+
+                        <!-- Formulario de inicio de sesión -->
                         <div id="loginModal" class="login-modal">
                             <div class="login-form">
+                                <div class="login-form-scroll">
                                 <span class="close-btn" onclick="toggleLoginModal()">&times;</span>
-            
                                 <h2>INICIO DE SESIÓN</h2>
-                                <p class="no-account"> ¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
-                            
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="you@example.com" required>
-                            
-                                <div class="password-row">
-                                    <label for="password">Contraseña</label>
-                                    <a href="#" class="forgot-password underline-animate">¿Olvidaste tu contraseña?</a>
-                                </div>
-            
-                                <div class="password-container">
-                                    <input type="password" id="password" placeholder="Mínimo 5 caracteres" required>
-                                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                                  </div>                      
-                            
-                                <div class="remember-me">
-                                    <input type="checkbox" id="remember">
+                                <p class="no-account">¿No tienes cuenta? <a href="#" class="underline-animate">Regístrate</a></p>
+
+                                <form id="formularioLogin">
+                                    <!-- Campo oculto -->
+                                    <input type="hidden" name="form_type" value="login" />
+
+                                    <!-- Correo -->
+                                    <label for="email">Correo electrónico *</label>
+                                    <input type="email" id="email" name="user_email" placeholder="you@example.com" required />
+                                    <small id="emailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Confirmar correo -->
+                                    <label for="confirmEmail">Confirmar correo electrónico *</label>
+                                    <input type="email" id="confirmEmail" placeholder="Repite tu correo" required />
+                                    <small id="confirmEmailFeedback" class="input-feedback" aria-live="polite"></small>
+
+                                    <!-- Contraseña -->
+                                    <div class="password-row">
+                                    <label for="password">Contraseña *</label>
+                                    <a href="#" class="forgot-password underline-animate">¿Tienes problemas para iniciar sesión?</a>
+                                    </div>
+
+                                    <div class="password-container">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="user_password"
+                                        placeholder="Mínimo 8 caracteres"
+                                        required
+                                        autocomplete="new-password"
+                                    />
+                                    <i class="fas fa-eye toggle-password" id="togglePassword" aria-hidden="true"></i>
+                                    </div>
+
+                                    <p id="passwordStrengthLabel" class="password-strength-label" style="display: none;">Fortaleza de la contraseña:</p>
+                                    <div id="passwordStrength" class="password-strength"></div>
+                                    <small id="passwordFeedback" class="input-feedback"></small>
+
+                                    <!-- Confirmar contraseña -->
+                                    <label for="confirmPassword">Confirmar contraseña *</label>
+                                    <div class="password-container">
+                                    <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required />
+                                    <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                                    </div>
+                                    <small id="confirmPasswordFeedback" class="input-feedback"></small>
+
+                                    <!-- Recordarme -->
+                                    <div class="remember-me">
+                                    <input type="checkbox" id="remember" />
                                     <label for="remember">Recordarme</label>
-                                </div>
-                            
-                                <button type="submit">Entrar</button>
-                            
-                                <div class="divider">────── o inicia sesión con ──────</div>
-                                <div class="social-buttons">
-                                    <button class="google"><i class="fab fa-google"></i> Google</button>
-                                    <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                                    </div>
+
+                                    <!-- BOTÓN -->
+                                    <button type="submit">Entrar</button>
+                                    <p id="formStatus" style="color: green; margin-top: 10px;"></p>
+                                </form>
                                 </div>
                             </div>
-                        </div>   
-</nav>
+                        </div>                     
+                    </nav>
 </header>
 
 
@@ -144,15 +198,19 @@
             <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
             <li><a href="#Footer">Footer</a></li>
         </ul>
-        <div class="traductor">
-            <!-- id="translateBtn" para poder acceder a él desde JavaScript (y cambiar su texto). -->
-            <button id="translateBtn" onclick="toggleLanguage()"><i class="fas fa-language"></i></button>
-            <!-- El atributo onclick="toggleLanguage()" le dice al navegador: cuando hagan clic en este botón, ejecuta la función toggleLanguage(). -->
+        <div class="translator">
+                        <button id="translateBtn" onclick="toggleDropdown()">
+                            <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
+                        </button>
+                        <div id="languageDropdown" class="language-dropdown hidden">
+                            <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+                            <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+                        </div>
         </div>
 </nav>
 
 
-        <div class="content header">
+        <div class="content headerAutism">
             <h1 class="title">Autismo</h1>
             <!-- Añadir una breve información de cada tipo deneurotipicidad -->
             <h6>"El mundo necesita todo tipo de mentes."</h6> <br> <h6>- Dr. Temple Grandin.</h6>
@@ -161,11 +219,11 @@
 
         <div class="container">
             <section id="Introduction">
-                <div class="content about">
+                <div class="content aboutAutism">
                     <div class="aboutimg">
                     <img src="../img/autism.jpg" alt="que es">
                     </div>
-                    <div class="aboutext">
+                    <div class="aboutextAutism">
                         <h2 class="title">¿Qué es el autismo?</h2>
                         <p> Es una condición del neurodesarrollo que afecta a la configuración del sistema nervioso y al funcionamiento cerebral.
                             Se caracteriza por dar lugar a dificultades para la comunicación e interacción social y para la flexibilidad del
@@ -176,8 +234,6 @@
 
 
                 <div class="content history">
-                    <div class="scroll-div">
-                        <div class="scroll-object">
                             <h2 class="title">Historia y evolución</h2>
                     <p>Las primeras investigaciones se comenzaron a realizar en 1908 por el psiquiatra Eugen Bleuler, quien en 1911 fue el primero que utilizó 
                         el término con el que se conoce este trastorno en la actualidad. Se refería principalmente a los pacientes que tenían esquizofrenia. <br>
@@ -185,18 +241,32 @@
                         Leo Kanner y Hans Asperger contribuyeron significativamente al conocimiento actual del autismo. Sus estudios y observaciones 
                         forman parte de los pilares sobre los cuales se apoya nuestra comprensión moderna del trastorno del espectro autista (TEA). <br>
                         </p>
-                        
+
+                        <section class="Hist">
+                    <div class="histimg">
+                         <img src="../img/LeoKanner.jpg" alt="Leo Kanner">
+                    </div>
+                    <div class="histext">
                         <h2 class="subtitle">Leo Kanner</h2>
-                        <div class="hisimg">
-                        <img src="../img/LeoKanner.jpg" alt="Leo Kanner">
-                        </div>
                         <p>
                         El científico que descubrió e investigó por primera este síndrome,  publicando los resultados de su investigación en un artículo en 1943, fue el psiquiatra 
                         Leo Kanner. Hacía referencia al estudio de once niños que presentaban esta condición, donde resaltaba que poseían ciertas peculiaridades y tenían características
                         muy similares entre ellos.
                         </p>
 
-                        <h2 class="subtitle"> Errores cometidos en su investigación</h2>
+                        <p>
+                            La palabra autismo deriva del griego autt(o), que significa que actúa sobre uno mismo; este, sumado al sufijo –ismo, que quiere decir pro­ceso patológico, indica el proceso patológico que actúa sobre uno mismo.
+
+Este término fue empleado por primera vez en 1908 por Eugen Bleuler en su monografía Dementia praecox oder Gruppe der Schizophrenien, en la descripción de algunos de sus pacientes con esquizofrenia.
+                        </p>
+                    </div>
+                </section>
+                <p>
+                    Ahora bien, quién fue uno de los primeros profesionales que nos ofreció un destello de esclarecimiento en ese silencio que brota de los pensamientos ausentes y distantes como de quien grita sin voz, pero se hace escuchar de una forma distinta a la conocida en sus principios. 
+                    Esas primeras descripciones, consolidadas como relevantes, sobre lo que actualmente denominamos trastornos del espectro autista (TEA) nos las entregó Leo Kanner.
+                </p>
+
+                 <h2 class="subtitle"> Errores cometidos en su investigación</h2>
                         <p>
                         Se debe resaltar que este científico realizó algunas afirmaciones que hoy en día son consideradas erróneas. Estas afirmaciones acerca
                         del autismo fueron las siguientes:
@@ -211,11 +281,18 @@
                         teoría, de que había un factor ambiental que influenciaba la aparición de los síntomas del autismo en los niños.
                     </p>
 
-                    <h2 class="subtitle">Hans Asperger</h2>
-                    <div class="hisimg">
-                    <img src="../img/HansAsperger.jpg" alt="Hans Asperger">
+                <h2 class="subtitle">Síntomas del autismo precoz según Kanner</h2>
+                <p>
+                    Aislamiento profundo para el contacto con las personas, deseo obsesivo de preservar la identidad, relación intensa con los objetos, conservación de una fisonomía inteligente y pensativa, alteración en la comunicación verbal manifestada por un mutismo o por un tipo de lenguaje desprovisto de intención comunicativa
+                </p>
+
+                 <section class="Hist">
+                    <div class="histimg">
+                         <img src="../img/HansAsperger.jpg" alt="Hans Asperger">
                     </div>
-                        <p>
+                    <div class="histext">
+                        <h2 class="subtitle">Hans Asperger</h2>
+                       <p>
                         Este científico estudió cuatro casos de niños, utilizando el término del autismo para identificar la condición que estos pacientes tenían. Los infantes presentaban 
                         características comunes entre ellos. Los síntomas detectados en su investigación eran los siguientes:
                         </p>
@@ -226,22 +303,22 @@
                         4.Utilizaban mucho los gestos y la mímica para comunicarse, también se les podía observar conversando solos. <br>
                         5.Y resaltaban su dedicación exclusiva en áreas específicas y concretas. <br>
                         </p>
-                        <p>
+                    </div>
+                </section>
+
+                <p>
                         Hans Asperger, publicó sus estudios en Alemania cuando se desarrollaba la Segunda Guerra Mundial y fue ignorado por la comunidad científica mundial de aquella época,
                         solo fue tomado en cuenta cuando Lorna Wing tradujo todos sus artículos al inglés.
                         
                         Este científico realizó estudios sobre el trastorno, el cual tiempo después lleva su nombre. Estos hacen diferencias muy importantes sobre las condiciones que 
                         presentan los niños con autismo y Asperger.</p>
-            
-            
-                        <h2 class="subtitle">¿Cuándo se utilizó el término de autismo por primera vez?</h2>
+                        
+                    <h2 class="subtitle">¿Cuándo se utilizó el término de autismo por primera vez?</h2>
                         <p>En la historia del autismo, se debe destacar cuándo fue usado por primera vez esta palabra, para determinar los avances que se han logrado en su estudio  hasta la época actual.
 
                         Se resalta lo dicho por la terapeuta Ángela Patiño, profesora del «Centro Hacer para Ser»,  experta en el tratamiento de esta condición con muchos años de experiencia. Ella indica
                         que «el  concepto de esta condición como lo conocemos hoy, es relativamente nuevo, tiene alrededor de 50 años, y es la definición más cercana a lo que se conoce hoy en día»
-                        </p> 
-                        </div>
-                    </div>
+                        </p>
                 </div>
             </section>
 
@@ -303,7 +380,7 @@
                     </div>
                 </div>
 
-                <div class="rasgos">  
+                <div class="rasgosAutism">  
                     <div class="rasgos-content"> 
                         <h2 class="title"> Síntomas o rasgos más comunes</h2>
                                 <p> Algunos niños presentan signos del trastorno del espectro autista en la primera infancia, como menor contacto visual, 
@@ -437,19 +514,28 @@
                 <div class="ayuda">
                 <h2 class="title">Terapias y acompañamiento profesional</h2>
                     <p>
-                        El apoyo emocional en el entorno de personas con autismo es fundamental para promover su bienestar y desarrollo. En un mundo que a usual no comprende
-                        las necesidades únicas de estas personas, el acompañamiento adecuado puede marcar la diferencia en su vida diaria. Este artículo explora la 
-                        importancia de ofrecer un entorno emocionalmente seguro y cómo pequeñas acciones pueden transformar la experiencia de quienes viven con autismo,
-                        potenciando su autoconfianza y habilidades sociales.
+                        Las terapias para las personas con autismo deben partir desde una perspectiva psicoeducativa.
+
+Esto significa que estas terapias deben tener como objetivo la enseñanza de las habilidades sociales, comunicativas o de cualquier otra índole donde la persona con autismo presenta dificultades.
+
+Existen una serie de modelos y programas terapéuticos especialmente diseñados para la intervención en personas con autismo que han demostrado ser efectivos.
                     </p>
-    
-                <h2 class="title">Estrategias educativas y laborales</h2>
+                    <h2 class="subtitle">Adaptación del entorno</h2>
                     <p>
+                        Las personas con autismo necesitan un entorno estructurado, predecible y tranquilo, y muchas veces este entorno debe adaptarse a las características de la persona con autismo.
+                    </p>
+                    <p>
+Cuando hablamos de la adaptación del entorno nos referimos a todas aquellas medidas que aplicamos para que el entorno y el día a día de la persona autista sea más claro y donde esta se desenvuelva más facilmente.
+                    </p>
+                    <p>
+Por lo tanto aparte de desarrollar y estimular las habilidades de la persona con TEA la intervención también tendrá que centrarse en valorar como adaptar el entorno a las características de la persona en cuestión.
                     </p>
             </div>
             </section>
 
-
+<section>
+    .
+</section>
 
     </div>
 <!-- 
@@ -475,49 +561,63 @@
 </div>
 
 
-<footer class="footer-container">
-    <section id="Footer">
-        <div class="footer-top">
-            <div class="footer-logo">
-                <a href="index.html">
-            <div class="logo">
-                <img src="../img/Logo.png" alt="Logo"></a> 
-            </div>
-            </div> 
-                  
+<!-- Sección del Footer -->
+                <footer class="footer-container">
+                    <section id="Footer">
+            
+                        <!-- Sección superior con navegación inferior y logo-->
+                        <div class="footer-top">
+                            <div class="footer-logo">
+                                <a href="index.html">
+                                    <img src="../img/Logo.png" alt="Logo"></a>
+                            </div>
+            
+                            <!-- Barra de navegación inferior -->
+                            <ul class="footer-navbar">
+            
+                                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                                página de inicio -->
+                                <li><a href="#Menu" data-translate="inicio">Inicio</a></li>
+                                <li><a href="#Acerca de" data-translate="acerca_de">Acerca de</a></li>
+                                <li><a href="#Definiciones" data-translate="definiciones">Definiciones</a></li>
+                                <li><a href="#Neurodivergencia" data-translate="neurodivergencia">Neurodivergencia</a></li>
+                                <li><a href="#Lineap" data-translate="lineas_de_apoyo">Líneas de apoyo</a></li>
+                                <li><a href="#Recursos" data-translate="centro_de_recursos">Centro de recursos</a></li>
+                                <li><a href="#Footer">Footer</a></li>
+                            </ul>
+                        </div>
+            
+                        <!-- Sección inferior con derechos de autor y enlaces a redes sociales -->
+                        <div class="footer-bottom">
+                            <p>© 2025 Mentes en armonía</p>
+            
+                            <div class="socials">
+                                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mentesen.armonia/" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://x.com/?lang=es&mx=2" target="_blank" aria-label="Twitter/X">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </footer>
 
-            <!-- Esta es la barra de navegación inferior -->
-                <ul class="footer-navbar">
 
-                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                    página de inicio -->
-                    <li><a href="#Introduction">Introducción al tema</a></li>
-                    <li><a href="#Identification">Diagnóstico y características principales</a></li>
-                    <li><a href="#Dificults">Desafíos y fortalezas</a></li>
-                    <li><a href="#sectiontypes">Tipos de Autismo</a></li>
-                    <li><a href="#Apoyo">Estrategias de apoyo y tratamiento</a></li>
-                </ul>               
-        </div>
+                <!-- Enlace al archivo Json -->
+                <script src="../javascript/Languaje.js"></script>
 
-        <div class="footer-bottom">
-            <p>© 2025 Mentes en armonía</p>
+                <!-- Enlace al archivo JavaScript -->
+                <script src="../javascript/Javascript.js"></script>
 
-            <div class="socials">
-                <a href="https://www.youtube.com/">
-                    <img src="../img/youtube.png" alt="Youtube"></a>
-                <a href="https://www.facebook.com/?locale=es_LA">
-                    <img src="../img/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/">
-                    <img src="../img/instagram.png" alt="Instagram"></a>
-                <a href="https://x.com/?lang=es&mx=2">
-                    <img src="../img/twitter.png" alt="Twitter/X"></a>
-            </div>  
-        </div>
-    </section>
-</footer>
+                <!-- Enlace al archivo JavaScript del buscador -->
+                <script src="../javascript/Buscador.js"></script>
 
-
- <!-- Enlace al archivo JavaScript externo -->
- <script src="../javascript/javascript.js"></script>
 </body>
 </html>
