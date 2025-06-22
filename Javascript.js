@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //"MENÚ HAMBURGUESA PARA MÓVILES"
-
 // Referencias principales del DOM
 const hamburgerBtn = document.getElementById('hamburgerBtn');   // Botón hamburguesa
 const sidebar = document.getElementById('sidebar');             // Menú lateral

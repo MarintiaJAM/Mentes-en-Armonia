@@ -107,8 +107,9 @@ a.track-link:active {
 
 /*"LOGO"*/
 .logo{
+    z-index: 999;
+    position: relative;
     margin-right: auto; /*Empuja el logo hacia la izquierda y permite que los demás elementos ocupen el espacio restante*/
-    margin-top: 3px 0; /*Margen exterior superior e inferior*/
 }
 
 /*Ajustes de la imagen del logo*/
@@ -267,12 +268,6 @@ a.track-link:active {
     color: #fff;
 }
 
-@media screen and (max-width: 768px) {
-    .hamburger-btn {
-        display: block; /*Muestra el botón de menú hamburguesa solo en dispositivos móviles*/
-    }
-}
-
 /*"Botón para cerrar el menú"*/
 .close-menu{
     font-size: 20px;
@@ -326,7 +321,7 @@ a.track-link:active {
     width: 350px; /*Ancho del menú*/
     height: 100%; /*Alto completo de la ventana*/
     background: #faf8e1; /*Fondo color amarillo muy claro*/
-    z-index: 999; /*Capa alta para estar sobre el overlay*/
+    z-index: 9999; /*Capa alta para estar sobre el overlay*/
     transition: left 0.3s ease; /*Animación de deslizamiento horizontal suave*/
 }
 
@@ -578,7 +573,7 @@ a.track-link:active {
     text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
     font-size: 14px; /*Tamaño de fuente*/
     background-color: #ff6b6b; /*Color rosa coral para el fondo*/
-    padding: 8px 14px; /*Margen interno para definir la extensión del fondo*/
+    padding: 9px 14px; /*Margen interno para definir la extensión del fondo*/
     border-radius: 20px; /*Bordes redondeados*/
     transition:0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
 }
@@ -586,6 +581,10 @@ a.track-link:active {
 /*Estilos del ícono del búsqueda*/
 .login-button i {
     margin-right: 8px; /*Margen exterior derecho para separar el ícono y el texto del botón*/
+}
+
+.login-button span{
+    text-align: center;
 }
 
 /*Efecto al pasar el cursor sobre el botón*/
@@ -625,6 +624,7 @@ a.track-link:active {
     max-height: 500px;
     overflow-y: auto;
     padding-right: 18px;
+    margin-top: 15px;
 }
 
 /*Scroll para Firefox*/
@@ -673,7 +673,7 @@ a.track-link:active {
 /* Titular y subtítulo */
 .login-form h2 {
     font-size: 20px;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     color: #333;
 }
 
@@ -770,7 +770,7 @@ a.track-link:active {
     width: 100%;
     background-color: #eee;
     border-radius: 3px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 5px;
     overflow: hidden;
     position: relative;
@@ -791,21 +791,9 @@ a.track-link:active {
     transition: width 0.35s ease-in-out, background-color 0.35s ease-in-out;
 }
 
-/* Recordarme */
-.remember-me {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 15px;
-}
-
-.remember-me label {
-    margin-left: 5px;
-    font-weight: normal;
-}
-
 /* Botón de envío */
 .login-form button[type="submit"] {
+    margin-top: 20px;
     text-align: center;
     align-items: center;
     width: 100%;
@@ -815,6 +803,15 @@ a.track-link:active {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+/*"TOP-BAR" fila horizontal que permite tener el icono de hamburguesa, barra de búsqueda, etc. en una sola fila*/
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 
@@ -939,6 +936,21 @@ a.track-link:active {
 }
 
 
+/*"TRADUCTOR PARA RESPONSIVE"*/
+.translator-responsive {
+    background-color: transparent;
+    display: none;
+}
+
+/*Botón sin fondo*/
+#responsiveTranslateBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+
 /*"CONTENIDO PRINCIPAL DE PÁGINA"*/
 .container {
     width: 90%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
@@ -991,9 +1003,8 @@ a.track-link:active {
     display: flex; /*Este permite que mediante las demás especificaciones, la clase sea fácil y flexible de modificar*/
     justify-content: center; /*Centra los elementos horizontalmente*/
     align-items: center; /*Centra los elementos verticalmente*/
-    background-image: url(../img/header.png); /*Imagen de fondo para el header*/
+    background-image: url(../img/header.webp); /*Imagen de fondo para el header*/
     filter: brightness(85%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
-    filter:saturate(0.8); /*Reduce la saturación de la imagen de fondo*/;
     background-attachment: fixed; /*La imagen de fondo permanece fija al hacer scroll*/    
     background-repeat:no-repeat center; /*Evita que la imagen de fondo se repita*/
     background-size: cover; /*Ajusta la imagen para cubrir todo el encabezado*/
@@ -1705,8 +1716,7 @@ hr{
 
 
  /*"RESPONSIVIDAD"*/
-@media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
-    
+ @media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/   
     .title{
         margin-bottom: 0;
         font-size: 27px;
@@ -1745,33 +1755,154 @@ hr{
     }
 }
 
-/*VÍDEO DE INTRODUCCIÓN*/
-@media screen and (max-width: 575px) {
-    .about {
-        margin: 5px;
-        padding: 10px 0;
-    }
 
-    .about p {
-        font-size: 15px;
-        padding: 0 10px;
-    }
+@media (max-width: 768px) {
 
-    .about h2 {
-        font-size: 20px;
-    }
+    /* Oculta el menú principal y submenú */
+  .navbar,
+  #subMenu {
+    display: none;
+  }
 
-    .about-text {
-        padding: 30px 10px;
-    }
+  /* Reorganiza contenedor general */
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 
-    .about-section{
-        height: auto;
-    }
+  /* Logo centrado y solo */
+  .menu .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 
-    .video-intro {
-        height: 100%; /* O ajusta a 80% si se ve demasiado grande */
-    }
+  .menu .logo img {
+    width: 90px;
+    height: auto;
+  }
+
+  /* Barra superior horizontal con botones visibles */
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;;
+  }
+
+  /* Botón hamburguesa visible */
+  .hamburger-btn {
+    margin-left: 5px;
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    max-width: fit-content;
+  }
+
+  .search-bar {
+    flex: 1;
+    min-width: 100px;
+    max-width: fit-content;
+  }
+
+  .search-bar input{
+    min-width: 250px;
+    max-width: 100%;
+  }
+
+  .Login,
+  .translator-responsive {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+  }
+
+  .navbar {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Oculta submenús desplegables */
+  .dropdown-content {
+    display: none !important;
+  }
+}
+
+
+/*INICIO DE SESIÓN SIMPLIFICADO*/
+@media (max-width: 600px) {
+  /* Quita el margen lateral del contenedor */
+  .Login {
+    margin: 0px;
+  }
+
+  /* Oculta SOLO el texto del botón */
+  .login-button span {
+    display: none !important;
+  }
+
+  /* Deja el botón con padding cuadrado para el icono */
+  .login-button {
+    padding: 10px !important;
+    width: 35px;
+    justify-content: center;
+  }
+
+  /* Quita el margen que separa icono-texto (aunque ya no haya texto) */
+  .login-button i {
+    margin: 0;
+  }
+}
+
+
+/*TRADUCTOR ORIGINAL Y TRADUCTOR RESPONSIVE*/
+@media (max-width: 768px) {
+  .translator {
+    display: none; /*Oculta el traductor de escritorio*/
+  }
+
+  .translator-responsive {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .translator-responsive .flag-rectangle-img {
+    width: 45px;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .translator-responsive .flag-rectangle-img:hover {
+    transform: scale(1.1);
+  }
+
+  .language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    width: 140px;
+    z-index: 999;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .hidden {
+    display: none !important;
+  }
 }
 
 
@@ -1810,7 +1941,6 @@ hr{
     font-size: 16px;
   }
 }
-
 
 /*VÍDEO DE INTRODUCCIÓN*/
 @media screen and (min-width: 576px) and (max-width: 767px) {

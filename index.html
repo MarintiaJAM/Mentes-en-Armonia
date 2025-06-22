@@ -19,7 +19,6 @@
 
 <body>
 
-
     <header>
 
         <!-- Ménu de navegación principal-->
@@ -29,93 +28,107 @@
                     <img src="../img/Logo.png" alt="Logo"></a>
             </div>
 
-            <!-- Botón hamburguesa "☰" animado con 3 líneas que se transforma en "X" -->
-            <button class="hamburger-btn" id="hamburgerBtn">
-                <i class="fas fa-bars"></i>
-            </button>
+            <!-- Fila horizontal que nos servirá para alinear el botoón hamburguesa, 
+            la barra de búsqueda y el inicio de sesión con el responsive-->
+            <div class="top-bar">
+
+                <!-- Botón hamburguesa "☰" animado con 3 líneas que se transforma en "X" -->
+                <button class="hamburger-btn" id="hamburgerBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
 
 
-            <!-- Barra de navegación principal-->
-            <nav class="navbar">
+                <!-- Barra de navegación principal-->
+                <nav class="navbar">
 
-                <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
-                página de inicio -->
-                <li>
-                    <a href="index.html" onclick="saveActiveLink('index.html')">
-                        <i class="fas fa-house"></i>
-                        <span data-translate="menu-sec1">Inicio</span>
-                    </a>
-                </li>
+                    <!-- Estos enlaces funcionan como botones en nuestra página web, nos serviran para enlazar hacia partes de la misma
+                    página de inicio -->
+                    <li>
+                        <a href="index.html" onclick="saveActiveLink('index.html')">
+                            <i class="fas fa-house"></i>
+                            <span data-translate="menu-sec1">Inicio</span>
+                        </a>
+                    </li>
 
-                <li class="dropdown">
-                    <span id="neuroToggle" class="dropdown-toggle">
-                        <i class="fas fa-brain icon-left"></i>
-                        <span class="dropdown-label" id="neuroToggleText"
-                            data-translate="menu-sec2">Neurodivergencia</span>
-                        <i class="fas fa-chevron-down chevron"></i>
-                    </span>
+                    <li class="dropdown">
+                        <span id="neuroToggle" class="dropdown-toggle">
+                            <i class="fas fa-brain icon-left"></i>
+                            <span class="dropdown-label" id="neuroToggleText"
+                                data-translate="menu-sec2">Neurodivergencia</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </span>
 
-                    <ul class="dropdown-content">
-                        <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
-                        <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
-                        <li><a href="Dislexia.html" data-translate="dislexia">Dislexia</a></li>
-                        <li><a href="Tourette.html">Tourette</a></li>
-                        <li><a href="Dispraxia.html" data-translate="dispraxia">Dispraxia</a></li>
-                        <li><a href="Discalculia.html" data-translate="discalculia">Discalculia</a></li>
-                        <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
-                    </ul>
-                </li>
+                        <ul class="dropdown-content">
+                            <li><a href="Autismo.html" data-translate="autismo">Autismo</a></li>
+                            <li><a href="TDAH.html" data-translate="tdah">TDAH</a></li>
+                            <li><a href="Dislexia.html" data-translate="dislexia">Dislexia</a></li>
+                            <li><a href="Tourette.html">Tourette</a></li>
+                            <li><a href="Dispraxia.html" data-translate="dispraxia">Dispraxia</a></li>
+                            <li><a href="Discalculia.html" data-translate="discalculia">Discalculia</a></li>
+                            <li><a href="Ansiedad.html" data-translate="ansiedad">Ansiedad</a></li>
+                        </ul>
+                    </li>
 
-                <li>
-                    <a href="Encuestas.html" onclick="saveActiveLink('Encuestas.html')">
-                        <i class="fas fa-users"></i>
-                        <span data-translate="menu-sec3">Encuestas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Comunidad.html" onclick="saveActiveLink('Comunidad.html')">
-                        <i class="fas fa-comments"></i>
-                        <span data-translate="menu-sec4">Comunidad</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Noticias.html" onclick="saveActiveLink('Noticias.html')">
-                        <i class="fas fa-newspaper"></i>
-                        <span data-translate="menu-sec5">Noticias</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="Encuestas.html" onclick="saveActiveLink('Encuestas.html')">
+                            <i class="fas fa-users"></i>
+                            <span data-translate="menu-sec3">Encuestas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Comunidad.html" onclick="saveActiveLink('Comunidad.html')">
+                            <i class="fas fa-comments"></i>
+                            <span data-translate="menu-sec4">Comunidad</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Noticias.html" onclick="saveActiveLink('Noticias.html')">
+                            <i class="fas fa-newspaper"></i>
+                            <span data-translate="menu-sec5">Noticias</span>
+                        </a>
+                    </li>
 
-                <li class="dropdown">
-                    <span id="extrasToggle" class="dropdown-toggle">
-                        <i class="fas fa-puzzle-piece icon-left"></i>
-                        <span data-translate="menu-sec6">Extras</span>
-                        <i class="fas fa-chevron-down chevron"></i>
-                    </span>
+                    <li class="dropdown">
+                        <span id="extrasToggle" class="dropdown-toggle">
+                            <i class="fas fa-puzzle-piece icon-left"></i>
+                            <span data-translate="menu-sec6">Extras</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </span>
 
-                    <ul class="dropdown-content">
-                        <li><a href="Bitacora.html" data-translate="bitacora">Bitácora</a></li>
-                        <li><a href="Referencias.html" data-translate="referencias">Referencias</a></li>
-                    </ul>
-                </li>
-            </nav>
+                        <ul class="dropdown-content">
+                            <li><a href="Bitacora.html" data-translate="bitacora">Bitácora</a></li>
+                            <li><a href="Referencias.html" data-translate="referencias">Referencias</a></li>
+                        </ul>
+                    </li>
+                </nav>
 
 
-            <!-- Barra de búsqueda en la esquina superior derecha -->
-            <div class="search-bar">
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
-                        data-translate-attr="placeholder" autocomplete="off">
-                    <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
-                    <div class="search-suggestions" id="searchSuggestions"></div>
+                <!-- Barra de búsqueda en la esquina superior derecha -->
+                <div class="search-bar">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Buscar..." data-translate="buscar"
+                            data-translate-attr="placeholder" autocomplete="off">
+                        <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
                 </div>
-            </div>
 
 
-            <!-- Botón de Inicio de Sesión -->
-            <div class="Login">
-                <a href="#" class="login-button" onclick="toggleLoginModal()">
-                    <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
-                </a>
+                <!-- Botón de Inicio de Sesión -->
+                <div class="Login">
+                    <a href="#" class="login-button" onclick="toggleLoginModal()">
+                        <i class="fas fa-user"></i> <span data-translate="login">Iniciar sesión</span>
+                    </a>
+                </div>
+            
+
+                <!-- Traductor clonado para responsive -->
+                <div class="translator-responsive">
+                    <button id="responsiveTranslateBtn" onclick="toggleDropdown()">
+                        <img id="responsiveFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
+                    </button>
+                </div>
+
             </div>
 
             <!-- Formulario de inicio de sesión -->
@@ -168,18 +181,14 @@
                             </div>
                             <small id="confirmPasswordFeedback" class="input-feedback"></small>
 
-                            <!-- Recordarme -->
-                            <div class="remember-me">
-                                <input type="checkbox" id="remember" />
-                                <label for="remember">Recordarme</label>
-                            </div>
-
                             <!-- BOTÓN -->
                             <button type="submit">Entrar</button>
                             <p id="formStatus" style="color: green; margin-top: 10px;"></p>
                         </form>
                     </div>
                 </div>
+            </div>
+
         </nav>
     </header>
 
@@ -200,12 +209,17 @@
             <button id="translateBtn" onclick="toggleDropdown()">
                 <img id="currentFlag" class="flag-rectangle-img" src="../img/Bandera_Espana.webp" alt="Idioma actual">
             </button>
-            <div id="languageDropdown" class="language-dropdown hidden">
-                <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
-                <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
-            </div>
-        </div>
+        </div> 
     </nav>
+
+
+    <!-- Lista desplegable de idiomas para los traductores  -->
+    <!-- Esta ubicado aquí para evitar cerrarse en algún div o nav no deseado que obtruya 
+    su funcionamiento en ambos traductores-->
+    <div id="languageDropdown" class="language-dropdown hidden">
+        <div onclick="setLanguage('es')">🇪🇸 ESP/SPA</div>
+         <div onclick="setLanguage('en')">🇺🇸 ING/ENG</div>
+    </div>
 
 
     <!-- Overlay de Fondo  -->
