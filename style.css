@@ -1704,7 +1704,14 @@ hr{
 
 
 
- /*"RESPONSIVIDAD"/
+ /*"RESPONSIVIDAD"*/
+@media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
+    
+    .title{
+        margin-bottom: 0;
+        font-size: 27px;
+    }
+}
 
  /*CONTENEDOR EN DISPOSITIVOS*/
  /* 📱 Móviles (menos de 576px) */
@@ -1769,10 +1776,39 @@ hr{
 
 
 /*HEADER*/
-@media screen and (min-width: 576px) and (max-width: 767px){
-    .header p{
-        font-size: 18px;
-    }
+@media screen and (max-width: 767px) {
+  .header {
+    height: 40vh; /* Reduce altura para móviles */
+    background-attachment: scroll; /* Evita errores de scroll en móviles */
+    background-position: center;
+    padding: 10px;
+  }
+
+  .header h6 {
+    font-size: 18px;
+    padding: 0 15px;
+  }
+
+  .header p {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    height: 50vh;
+    background-attachment: scroll;
+    padding: 20px;
+  }
+
+  .header h6 {
+    font-size: 22px;
+  }
+
+  .header p {
+    font-size: 16px;
+  }
 }
 
 
@@ -1892,7 +1928,11 @@ hr{
 @media (max-width: 600px) {
     .container-lineap {
         max-width: 90%; /* Más ancho en móvil */
-        padding: 0 10px;
+        padding: 0 5px;
+    }
+
+    .container-lineap p{
+        font-size: 18px;
     }
 
     .acordeon ul {
@@ -1914,6 +1954,10 @@ hr{
         max-width: 95%;
     }
 
+    .container-lineap p{
+        font-size: 18px;
+    }
+
     .acordeon .container-acordeon {
         margin: 0px 10px;
         font-size: 16px;
@@ -1924,6 +1968,32 @@ hr{
         padding-left: 15px;
         margin: 5px 10px;
     }
+}
+
+
+/*RECURSOS RECOMENADOS*/
+@media screen and (max-width: 767px) {
+  .recursos h3 {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .recursos p{
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .recursos h3 {
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+  }
+
+  .recursos p{
+    font-size: 18px;
+  }
 }
 
 
@@ -1995,87 +2065,3 @@ hr{
     padding: 18px;
   }
 }
-
-
-@media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
-    
-    .title{
-        margin-bottom: 0;
-        font-size: 20px;
-    }
-
-    .menu {
-        flex-wrap: wrap;
-    }
-
-    /* Centrar logo en móviles */
-    .menu .logo {
-        flex: 1 1 100%;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    /* Mostrar el botón de menú hamburguesa */
-    .menu .menu-toggle {
-        display: block;
-    }
-
-    /* Ocultar enlaces del menú en móviles y mostrarlos solo cuando el menú está activo */
-    .menu .menu-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .menu.active .menu-links {
-        display: flex;
-    }
-
-    /* Hacer que cada elemento del menú ocupe todo el ancho */
-    .menu .menu-links li {
-        width: 100%;
-    }
-
-    /* Centrar enlaces */
-    .menu .menu-links a {
-        padding: 10px;
-        text-align: center;
-    }
-
-    /* Ajustes para el submenú en móviles */
-    .submenu {
-        position: static;
-        background-color: #1b1b1b; /* Mantiene el fondo oscuro */
-        box-shadow: none;
-    }
-
-    /* Aumentar la sangría de los elementos del submenú */
-    .submenu a {
-        padding-left: 30px;
-    }
-
-    /* Centrar la barra de búsqueda */
-    .menu .search-bar {
-        flex: 1 1 100%;
-        margin: 10px 0;
-        justify-content: center;
-    }
-
-    .header p{
-        font-size: 15px;
-    }
-
-    body {
-        font-size: 14px;
-        padding: 10px;
-      }
-    
-
-      .container{
-        width: 100%; /* 100% del ancho de la ventana */
-        margin: auto;
-        margin-top: 0%;
-        margin-bottom: 0%;
-        background-color: #fffdd1;
-      }
- }
