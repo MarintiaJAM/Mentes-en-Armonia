@@ -32,7 +32,7 @@ p{
     margin-bottom: 30px; /*Agrega un espacio de 30 píxeles entre párrafos*/
     font-size: 20px; /*Indica que el tamaño de la letra será de 18 pixeles*/
     color: #453c5c; /*Usa el color de texto predeterminado en tono morado oscuro*/
-    padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
+    padding: 0 50px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
 }
 
 
@@ -836,7 +836,7 @@ a.track-link:active {
     height: 45vh; 
     justify-content: center;
     align-items: center;
-    background-image: url(../img/tdah.jpg); /*Imagen que se encuentra de fondo en el header*/
+    background-image: url(../img/vid_tdah_2.jpg); /*Imagen que se encuentra de fondo en el header*/
     filter: brightness(75%); /*Reduce el brillo del fondo para que se vea un poco más opaco y oscuro*/
     filter:saturate(0.8); /*Reduce la saturación de la imagen de fondo*/;
     background-attachment: fixed; /*La imagen se quedará inmovil y se desplazará*/    
@@ -921,7 +921,7 @@ a.track-link:active {
 
 .headerTDAH h6{
     font-family: 'Dancing Script', cursive; /* Define la fuente para el texto dentro del header */
-    color: #fff; /* Establece el color del texto en blanco */
+    color: #453c5c; /* Establece el color del texto en blanco */
     text-align: center; /* Alinea el texto al centro */
     font-size: 24px; /*Tamaño del parrafo dentro del header*/
 }
@@ -966,7 +966,7 @@ a.track-link:active {
 }
 
 .headerTDAH h1{
-    color:#fff;
+    color:#453c5c;
 }
 
 .headerDislexia h1{
@@ -1124,7 +1124,7 @@ a.track-link:active {
     font-size: 30px; /*Tamaño del título*/
 }
 
-.hiatimg{
+.histimg{
     display: flex; /* Usa flexbox para organizar las imágenes */
 }
 
@@ -1212,10 +1212,10 @@ label p{
 
 
 .rasgosAutism{
-    margin:0px 35px 50px 35px;
+    margin: 0 35px 50px 35px; /* Centrado horizontalmente */
     padding: 20px;
     background-color: #de7272;
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 5px;
 }
 
 .rasgosTdah{
@@ -1248,8 +1248,18 @@ label p{
 }
 
 .rasgos-content{
-    background: #faf8e1;
-    padding: 10px;
+   background: #faf8e1;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.rasgos-content p {
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: justify;
+  padding: 10px;
 }
 
 .rasgosDispraxia li{
@@ -1436,3 +1446,847 @@ label p{
     transform: scale(1.15);
 }
 
+
+/*RESPONSIVIDAD PARA TODO TIPO DE PANTALLAS*/
+@media screen and (min-width:320px) and (max-width:645px) { /*Es una "media query", usada para hacer que los estilos cambien en pantallas pequeñas*/
+    
+    .title{
+        margin-bottom: 10px;
+        font-size: 27px;
+    }
+}
+
+/*CONTENEDOR EN DISPOSITIVOS*/
+ /* 📱 Móviles (menos de 576px) */
+@media screen and (max-width: 575px) {
+    .container {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 0; /* Sin márgenes */
+        box-shadow: none; /* Opcional: elimina sombra en móvil */
+        border-radius: 0; /* Opcional: elimina bordes redondeados si los agregas */
+    }
+
+    .p{
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+/* 📲 Tablets pequeñas (576px a 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .container {
+        width: 95%; /* Márgenes más pequeños */
+    }
+
+    .p{
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+/* 💻 Tablets grandes y pequeñas laptops (768px a 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 90%; /* Similar a por defecto */
+    }
+
+    .p{
+        padding: 10px;
+    }
+}
+
+/* 🖥 Escritorio grande (992px en adelante) */
+@media screen and (min-width: 992px) {
+    .container {
+        width: 90%; /* Más estrecho en pantallas grandes si lo deseas */
+    }
+
+    .p{
+        padding: 0px;
+    }
+}
+
+
+/*PÁGINA DE AUTISMO*/
+/*HEADER*/
+@media screen and (max-width: 767px) {
+  .headerAutism {
+    height: 35vh; /* Reducimos un poco el alto para móviles */
+    background-attachment: scroll; /* En móviles, desactivamos fixed para evitar errores de parpadeo */
+    padding-top: 10px;
+    background-position: center center;
+  }
+
+  .headerAutism h1 {
+    font-size: 26px; /* Ajustamos el tamaño del título */
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .headerAutism h6 {
+    font-size: 20px; /* Reducimos el tamaño del subtítulo */
+    padding: 0 10px;
+  }
+}
+
+/*CONTENT ABOUT*/
+@media screen and (max-width: 768px) {
+  .aboutAutism {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 90%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextAutism h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextAutism p {
+    font-size: 18px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .aboutAutism {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 70%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextAutism h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextAutism p {
+    font-size: 16px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+
+/*SECCIÓN DE HISTORIA. ACOMODO DE TEXTO E IMAGENES*/
+@media screen and (max-width: 768px) {
+  .history {
+    margin: 20px 10px;
+    padding: 20px 15px;
+  }
+
+  .history h2.title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .history p {
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 0 10px;
+    text-align: justify;
+  }
+
+  .Hist {
+    flex-direction: column;         /* Apila imagen y texto verticalmente */
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+  }
+
+  .histimg {
+    justify-content: center;        /* Centra imagen en contenedor */
+  }
+
+  .histimg img {
+    width: 90%;                     /* Imagen más adaptable */
+    margin: 10px auto;              /* Centra automáticamente */
+    display: block;
+  }
+
+  .histext h2.subtitle {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .histext p {
+    font-size: 18px;
+    padding: 10px;
+    line-height: 1.6;
+    text-align: justify;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .history {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .history h2.title {
+    font-size: 28px;
+  }
+
+  .history p {
+    font-size: 18px;
+    line-height: 1.7;
+    padding: 0 15px;
+  }
+
+  .Hist {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .histimg img {
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 15px;
+  }
+
+  .histext h2.subtitle {
+    font-size: 26px;
+  }
+
+  .histext p {
+    font-size: 18px;
+    padding: 10px 20px;
+    line-height: 1.7;
+  }
+}
+
+/*IDENTIFICADORES*/
+@media screen and (max-width: 767px) {
+  .identificadores {
+    padding: 20px 15px;
+    max-width: 100%;
+    margin: 20px auto;
+  }
+
+  .identificadores h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .identificadores p {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .acordeon label {
+    font-size: 18px;
+    padding: 20pxpx;
+  }
+
+  .acordeon .content-acordeon {
+    padding: 0px;
+  }
+
+  .acordeon .content-acordeon li {
+    margin-left: 20px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .identificadores {
+    padding: 40px;
+    max-width: 95%;
+  }
+
+  .identificadores h2 {
+    font-size: 26px;
+  }
+
+  .identificadores p {
+    font-size: 18px;
+  }
+
+  .acordeon label {
+    font-size: 19px;
+    padding: 13px;
+  }
+
+  .acordeon .content-acordeon li {
+    margin-left: 40px;
+    font-size: 18px;
+  }
+}
+
+
+/*RASGOS CONTENT*/
+@media screen and (max-width: 768px) {
+  .rasgosAutism {
+    margin: 0 0px 50px 0px;
+    padding: 24px;
+  }
+
+  .rasgos-content{
+    background: #faf8e1;
+    padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  }
+
+  .rasgos-content h2 {
+    font-size: 28px;
+  }
+
+  .rasgos-content p {
+    font-size: 18px;
+  }
+}
+
+
+
+/*PÁGINA TDAH*/
+/*HEADER*/
+@media screen and (max-width: 767px) {
+  .headerTDAH {
+    height: 35vh; /* Reducimos un poco el alto para móviles */
+    background-attachment: scroll; /* En móviles, desactivamos fixed para evitar errores de parpadeo */
+    padding-top: 10px;
+    background-position: center center;
+  }
+
+  .headerTDAH h1 {
+    font-size: 26px; /* Ajustamos el tamaño del título */
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .headerTDAH h6 {
+    font-size: 20px; /* Reducimos el tamaño del subtítulo */
+    padding: 0 10px;
+  }
+}
+
+/*CONTENT ABOUT*/
+@media screen and (max-width: 768px) {
+  .aboutTdah {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 90%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextTdah h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextTdah p {
+    font-size: 18px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .aboutTdah {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 70%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextTdah h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextTdah p {
+    font-size: 16px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+
+/*RASGOS CONTENT*/
+@media screen and (max-width: 768px) {
+  .rasgosTdah {
+    margin: 0 0px 50px 0px;
+    padding: 24px;
+  }
+
+  .rasgos-content{
+    background: #faf8e1;
+    padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  }
+
+  .rasgos-content h2 {
+    font-size: 28px;
+  }
+
+  .rasgos-content p {
+    font-size: 18px;
+  }
+}
+
+
+
+/*PÁGINA DISLEXIA*/
+/*HEADER*/
+@media screen and (max-width: 767px) {
+  .headerDislexia {
+    height: 35vh; /* Reducimos un poco el alto para móviles */
+    background-attachment: scroll; /* En móviles, desactivamos fixed para evitar errores de parpadeo */
+    padding-top: 10px;
+    background-position: center center;
+  }
+
+  .headerDislexia h1 {
+    font-size: 26px; /* Ajustamos el tamaño del título */
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .headerDislexia h6 {
+    font-size: 20px; /* Reducimos el tamaño del subtítulo */
+    padding: 0 10px;
+  }
+}
+
+/*CONTENT ABOUT*/
+@media screen and (max-width: 768px) {
+  .aboutDislexia {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 90%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextDislexia h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextDislexia p {
+    font-size: 18px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .aboutDislexia {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 70%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextDislexia h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextDislexia p {
+    font-size: 16px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+
+/*RASGOS CONTENT*/
+@media screen and (max-width: 768px) {
+  .rasgosDislexia {
+    margin: 0 0px 50px 0px;
+    padding: 24px;
+  }
+
+  .rasgos-content{
+    background: #faf8e1;
+    padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  }
+
+  .rasgos-content h2 {
+    font-size: 28px;
+  }
+
+  .rasgos-content p {
+    font-size: 18px;
+  }
+}
+
+
+
+/*PÁGINA TOURETTE*/
+/*HEADER*/
+@media screen and (max-width: 767px) {
+  .headerTourette {
+    height: 35vh; /* Reducimos un poco el alto para móviles */
+    background-attachment: scroll; /* En móviles, desactivamos fixed para evitar errores de parpadeo */
+    padding-top: 10px;
+    background-position: center center;
+  }
+
+  .headerTourette h1 {
+    font-size: 26px; /* Ajustamos el tamaño del título */
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .headerTourette h6 {
+    font-size: 20px; /* Reducimos el tamaño del subtítulo */
+    padding: 0 10px;
+  }
+}
+
+/*CONTENT ABOUT*/
+@media screen and (max-width: 768px) {
+  .aboutTourette {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 90%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextTourette h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextTourette p {
+    font-size: 18px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .aboutTourette {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 70%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextTourette h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextTourette p {
+    font-size: 16px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+
+/*RASGOS CONTENT*/
+@media screen and (max-width: 768px) {
+  .rasgosTourette {
+    margin: 0 0px 50px 0px;
+    padding: 24px;
+  }
+
+  .rasgos-content{
+    background: #faf8e1;
+    padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  }
+
+  .rasgos-content h2 {
+    font-size: 28px;
+  }
+
+  .rasgos-content p {
+    font-size: 18px;
+  }
+}
+
+
+
+/*PÁGINA DISPRAXIA*/
+/*HEADER*/
+@media screen and (max-width: 767px) {
+  .headerDispraxia {
+    height: 35vh; /* Reducimos un poco el alto para móviles */
+    background-attachment: scroll; /* En móviles, desactivamos fixed para evitar errores de parpadeo */
+    padding-top: 10px;
+    background-position: center center;
+  }
+
+  .headerDispraxia h1 {
+    font-size: 26px; /* Ajustamos el tamaño del título */
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .headerDispraxia h6 {
+    font-size: 20px; /* Reducimos el tamaño del subtítulo */
+    padding: 0 10px;
+    color: #453c5c;
+  }
+}
+
+/*CONTENT ABOUT*/
+@media screen and (max-width: 768px) {
+  .aboutDispraxia {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 90%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextDispraxia h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextDispraxia p {
+    font-size: 18px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .aboutDispraxia {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 70%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextDispraxia h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextDispraxia p {
+    font-size: 16px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+
+/*RASGOS CONTENT*/
+@media screen and (max-width: 768px) {
+  .rasgosDispraxia {
+    margin: 0 0px 50px 0px;
+    padding: 24px;
+  }
+
+  .rasgos-content{
+    background: #faf8e1;
+    padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  }
+
+  .rasgos-content h2 {
+    font-size: 28px;
+  }
+
+  .rasgos-content p {
+    font-size: 18px;
+  }
+}
+
+
+
+/*PÁGINA DISCALCULIA*/
+/*HEADER*/
+@media screen and (max-width: 767px) {
+  .headerDiscalculia {
+    height: 35vh; /* Reducimos un poco el alto para móviles */
+    background-attachment: scroll; /* En móviles, desactivamos fixed para evitar errores de parpadeo */
+    padding-top: 10px;
+    background-position: center center;
+  }
+
+  .headerDiscalculia h1 {
+    font-size: 26px; /* Ajustamos el tamaño del título */
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .headerDiscalculia h6 {
+    font-size: 20px; /* Reducimos el tamaño del subtítulo */
+    padding: 0 10px;
+    color: #453c5c;
+  }
+}
+
+/*CONTENT ABOUT*/
+@media screen and (max-width: 768px) {
+  .aboutDiscalculia {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 90%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextDiscalculia h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextDiscalculia p {
+    font-size: 18px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .aboutDiscalculia {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 70%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextDiscalculia h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextDiscalculia p {
+    font-size: 16px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+
+
+/*PÁGINA ANSIEDAD*/
+/*HEADER*/
+@media screen and (max-width: 767px) {
+  .headerAnsiedad {
+    height: 35vh; /* Reducimos un poco el alto para móviles */
+    background-attachment: scroll; /* En móviles, desactivamos fixed para evitar errores de parpadeo */
+    padding-top: 10px;
+    background-position: center center;
+  }
+
+  .headerAnsiedad h1 {
+    font-size: 26px; /* Ajustamos el tamaño del título */
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .headerAnsiedad h6 {
+    font-size: 20px; /* Reducimos el tamaño del subtítulo */
+    padding: 0 10px;
+    color: #453c5c;
+  }
+}
+
+/*CONTENT ABOUT*/
+@media screen and (max-width: 768px) {
+  .aboutAnsiedad {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 90%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextAnsiedad h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextAnsiedad p {
+    font-size: 18px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .aboutAnsiedad {
+    flex-direction: column;      /* Cambia la dirección del flexbox: de fila a columna */
+    padding: 20px;               /* Añade espacio interior para que no quede tan justo */
+    margin: 20px;                /* Reduce el margen exterior */
+    text-align: center;          /* Centra el texto */
+  }
+
+  .aboutimg img {
+    width: 70%;                  /* Imagen ocupa el 90% del ancho disponible */
+    margin: 10px auto;           /* Centra la imagen horizontalmente */
+    display: block;              /* Asegura que se trate como bloque */
+  }
+
+  .aboutextAnsiedad h2 {
+    font-size: 24px;             /* Ajusta el tamaño del título */
+  }
+
+  .aboutextAnsiedad p {
+    font-size: 16px;             /* Ajusta el tamaño del párrafo */
+    padding: 10px;
+  }
+}
