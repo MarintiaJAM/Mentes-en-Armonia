@@ -23,16 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-//"ROTACIÓN DE CHEVRON AL DAR CLIC"
-document.querySelectorAll('.acordeon-toggle').forEach(toggle => {
-  toggle.addEventListener('click', () => {
-    const chevron = toggle.querySelector('.chevron');
-    chevron.classList.toggle('rotate');
-  });
-});
-
-
-/*SECCIÓN VÍDEO ANIMACIÓN SSOBRE NOSOTROS*/
+  /*SECCIÓN VÍDEO ANIMACIÓN SSOBRE NOSOTROS*/
 document.addEventListener("DOMContentLoaded", function () {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -49,6 +40,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const aboutSection = document.querySelector('.about-section');
         observer.observe(aboutSection);
     });
+
+
+//"ROTACIÓN DE CHEVRON AL DAR CLIC"
+document.querySelectorAll('.acordeon-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const chevron = toggle.querySelector('.chevron');
+    chevron.classList.toggle('rotate');
+  });
+});
 
 
 //"MENÚ HAMBURGUESA PARA MÓVILES"
@@ -141,202 +141,198 @@ window.addEventListener("scroll", function () {
 
 //"FORMULARIO DE INICIO DE SESIÓN Y FUNCIONALIDADES"
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Elementos
-    const emailInput = document.getElementById("email");
-    const emailFeedback = document.getElementById("emailFeedback");
-    const confirmEmail = document.getElementById("confirmEmail");
-    const confirmEmailFeedback = document.getElementById("confirmEmailFeedback");
-    const passwordFeedback = document.getElementById("passwordFeedback");
-    const confirmPassword = document.getElementById("confirmPassword");
-    const confirmPasswordFeedback = document.getElementById("confirmPasswordFeedback");
-    const togglePassword = document.getElementById("togglePassword");
-    const passwordInput = document.getElementById("password");
+document.addEventListener("DOMContentLoaded", () => {
 
-    togglePassword.addEventListener("click", () => {
-    const isPassword = passwordInput.type === "password";
-    passwordInput.type = isPassword ? "text" : "password";
-    
-    // Cambiar solo un icono, de forma segura
-    togglePassword.classList.remove("fa-eye", "fa-eye-slash");
-    togglePassword.classList.add(isPassword ? "fa-eye-slash" : "fa-eye");
-});
+// ——— Inicializa EmailJS ———
+emailjs.init("18FxYJbGOd0jKHoWy");
 
+// ——— Referencias a elementos ———
+const usernameInput           = document.getElementById("username");
+const usernameFeedback        = document.getElementById("usernameFeedback");
+const emailInput              = document.getElementById("email");
+const emailFeedback           = document.getElementById("emailFeedback");
+const confirmEmail            = document.getElementById("confirmEmail");
+const confirmEmailFeedback    = document.getElementById("confirmEmailFeedback");
+const passwordInput           = document.getElementById("password");
+const passwordFeedback        = document.getElementById("passwordFeedback");
+const confirmPassword         = document.getElementById("confirmPassword");
+const confirmPasswordFeedback = document.getElementById("confirmPasswordFeedback");
+const togglePassword          = document.getElementById("togglePassword");
+const form                    = document.getElementById("formularioLogin");
+const formStatus              = document.getElementById("formStatus");
+const strengthLabel           = document.getElementById("passwordStrengthLabel");
+const strengthBar             = document.getElementById("passwordStrength");
 
-    // Abrir/cerrar modal
-    window.toggleLoginModal = function () {
-        const modal = document.getElementById("loginModal");
-        modal.style.display = modal.style.display === "flex" ? "none" : "flex";
-        if (modal.style.display === "flex") limpiarFormulario();
-    };
-
-    // Validación email
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    emailInput.addEventListener("input", () => {
-        const valor = emailInput.value.trim();
-        if (valor === "") {
-            emailInput.classList.remove("input-error");
-            emailFeedback.textContent = "";
-        } else if (!regexEmail.test(valor)) {
-            emailInput.classList.add("input-error");
-            emailFeedback.textContent = "Correo electrónico no válido.";
-        } else {
-            emailInput.classList.remove("input-error");
-            emailFeedback.textContent = "";
-        }
-    });
-
-    // Medidor de contraseña
-    passwordInput.addEventListener("input", () => {
-        const value = passwordInput.value;
-        const nivel = evaluarFortaleza(value);
-        actualizarBarraFortaleza(nivel);
-    });
-
-    function evaluarFortaleza(pass) {
-        let nivel = 0;
-        if (pass.length >= 5) nivel++;
-        if (/[a-z]/.test(pass)) nivel++;
-        if (/[A-Z]/.test(pass)) nivel++;
-        if (/\d/.test(pass)) nivel++;
-        if (/[\W_]/.test(pass)) nivel++;
-        return Math.min(nivel, 5);
-    }
-
-    function actualizarBarraFortaleza(nivel) {
-    const realBar = document.getElementById("passwordStrength");
-    const feedback = document.getElementById("passwordFeedback");
-    const label = document.getElementById("passwordStrengthLabel");
-    const password = document.getElementById("password").value;
-
-    if (!realBar || !feedback || !label) return;
-
-    // Mostrar solo si hay algo escrito
-    if (password.length === 0) {
-        label.style.display = "none";
-        feedback.style.display = "none";
-        realBar.style.display = "none";
-        return;
-    }
-
-    label.style.display = "block";
-    feedback.style.display = "block";
-    realBar.style.display = "block";
-
-    // Crear barra interna si no existe
-    let inner = realBar.querySelector("div");
-    if (!inner) {
-        inner = document.createElement("div");
-        realBar.appendChild(inner);
-    }
-
-    // Determinar color y mensaje
-    let color = "#ccc";
-    let mensaje = "";
-
-    switch (nivel) {
-        case 0:
-        case 1:
-            color = "#e55b5b";
-            mensaje = "Débil - Necesita mejoras";
-            break;
-        case 2:
-            color = "#f1c40f";
-            mensaje = "Regular - Puede mejorar";
-            break;
-        case 3:
-        case 4:
-            color = "#2ecc71";
-            mensaje = "Buena - Bastante segura";
-            break;
-        case 5:
-            color = "#27ae60";
-            mensaje = "Excelente - Muy segura";
-            break;
-    }
-
-    inner.style.width = `${(nivel / 5) * 100}%`;
-    inner.style.backgroundColor = color;
-
-    feedback.textContent = mensaje;
-    feedback.style.color = color;
+// ——— Helpers de validación ———
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function mostrarError(input, feedbackEl, msg) {
+  input.classList.add("input-error");
+  feedbackEl.textContent = msg;
+}
+function limpiarErrores() {
+  document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+  document.querySelectorAll(".input-feedback").forEach(el => el.textContent = "");
+  formStatus.textContent = "";
 }
 
-    // Validar formulario
-    window.validarFormulario = function () {
-        limpiarErrores();
+// ——— Abrir/cerrar modal ———
+window.toggleLoginModal = function () {
+  const modal = document.getElementById("loginModal");
+  modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+  if (modal.style.display === "flex") limpiarFormulario();
+};
 
-        let valido = true;
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
+function limpiarFormulario() {
+  form.reset();
+  limpiarErrores();
+  actualizarBarraFortaleza(0);
+  passwordInput.type = "password";
+  togglePassword.classList.remove("fa-eye-slash");
+  togglePassword.classList.add("fa-eye");
+}
 
-        if (email === "") {
-            mostrarError(emailInput, emailFeedback, "Este campo es obligatorio.");
-            valido = false;
-        } else if (!regexEmail.test(email)) {
-            mostrarError(emailInput, emailFeedback, "Formato de correo inválido.");
-            valido = false;
-        }
+// ——— Toggle ver/ocultar contraseña ———
+togglePassword.addEventListener("click", () => {
+  const isPwd = passwordInput.type === "password";
+  passwordInput.type = isPwd ? "text" : "password";
+  togglePassword.classList.toggle("fa-eye-slash", isPwd);
+  togglePassword.classList.toggle("fa-eye", !isPwd);
+});
 
-        if (password === "") {
-            mostrarError(passwordInput, passwordFeedback, "Este campo es obligatorio.");
-            valido = false;
-        } else if (password.length < 5) {
-            mostrarError(passwordInput, passwordFeedback, "Debe tener al menos 5 caracteres.");
-            valido = false;
-        }
+// ——— Validaciones en tiempo real ———
+usernameInput.addEventListener("input", () => {
+  if (!usernameInput.value.trim()) {
+    mostrarError(usernameInput, usernameFeedback, "Obligatorio.");
+  } else {
+    usernameInput.classList.remove("input-error");
+    usernameFeedback.textContent = "";
+  }
+});
 
-        if (!valido) return false;
+emailInput.addEventListener("input", () => {
+  const v = emailInput.value.trim();
+  if (!v) {
+    emailInput.classList.remove("input-error");
+    emailFeedback.textContent = "";
+  } else if (!regexEmail.test(v)) {
+    mostrarError(emailInput, emailFeedback, "Correo inválido.");
+  } else {
+    emailInput.classList.remove("input-error");
+    emailFeedback.textContent = "";
+  }
+});
 
-        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-        const encontrado = usuarios.find(u => u.correo === email && u.password === password);
+passwordInput.addEventListener("input", () => {
+  const lvl = evaluarFortaleza(passwordInput.value);
+  actualizarBarraFortaleza(lvl);
+});
 
-        if (!encontrado) {
-            mostrarError(emailInput, emailFeedback, "Correo o contraseña incorrectos.");
-            mostrarError(passwordInput, passwordFeedback, "");
-            return false;
-        }
+// ——— Barra de fortaleza de contraseña ———
+function evaluarFortaleza(pass) {
+  let lvl = 0;
+  if (pass.length >= 5) lvl++;
+  if (/[a-z]/.test(pass)) lvl++;
+  if (/[A-Z]/.test(pass)) lvl++;
+  if (/\d/.test(pass)) lvl++;
+  if (/[\W_]/.test(pass)) lvl++;
+  return Math.min(lvl, 5);
+}
 
-        enviarNotificacionLogin(email);
-        alert("¡Inicio de sesión exitoso!");
-        toggleLoginModal();
-        return false;
-    };
+function actualizarBarraFortaleza(n) {
+  if (!passwordInput.value) {
+    strengthLabel.style.display = strengthBar.style.display = passwordFeedback.style.display = "none";
+    strengthBar.innerHTML = "";
+    return;
+  }
+  strengthLabel.style.display = strengthBar.style.display = passwordFeedback.style.display = "block";
 
-    function mostrarError(input, feedbackEl, mensaje) {
-        input.classList.add("input-error");
-        feedbackEl.textContent = mensaje;
-    }
+  let inner = strengthBar.querySelector("div");
+  if (!inner) {
+    inner = document.createElement("div");
+    strengthBar.appendChild(inner);
+  }
 
-    function limpiarErrores() {
-        document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
-        document.querySelectorAll(".input-feedback").forEach(el => el.textContent = "");
-    }
+  let color = "#ccc", msg = "";
+  switch (n) {
+    case 0: case 1: color = "#e55b5b"; msg = "Débil"; break;
+    case 2: color = "#f1c40f"; msg = "Regular"; break;
+    case 3: case 4: color = "#2ecc71"; msg = "Buena"; break;
+    case 5: color = "#27ae60"; msg = "Excelente"; break;
+  }
 
-    function limpiarFormulario() {
-        document.getElementById("formulario").reset();
-        limpiarErrores();
-        actualizarBarraFortaleza(0);
-        passwordInput.type = "password";
-        togglePassword.classList.remove("fa-eye-slash");
-        togglePassword.classList.add("fa-eye");
-    }
+  inner.style.width = `${(n/5)*100}%`;
+  inner.style.backgroundColor = color;
+  passwordFeedback.textContent = msg;
+  passwordFeedback.style.color = color;
+}
 
-    // EmailJS (enviar notificación de inicio de sesión exitoso)
-    emailjs.init("18FxYJbGOd0jKHoWy"); // ← Reemplaza con tu User ID (lo ves en Dashboard de EmailJS)
+// ——— Validación completa ———
+function validarFormulario() {
+  limpiarErrores();
+  let ok = true;
 
-    function enviarNotificacionLogin(email) {
-        emailjs.send("service_frdvytj", "template_jwbzdh8", {
-            user_email: email
-        })
-        .then(() => {
-            console.log("Notificación de inicio de sesión enviada.");
-        })
-        .catch((error) => {
-            console.error("Error al enviar el correo de notificación:", error);
-        });
-    }
+  const name = usernameInput.value.trim();
+  const e    = emailInput.value.trim();
+  const ce   = confirmEmail.value.trim();
+  const p    = passwordInput.value;
+  const cp   = confirmPassword.value;
+
+  if (!name) {
+    mostrarError(usernameInput, usernameFeedback, "Obligatorio.");
+    ok = false;
+  }
+  if (!e) {
+    mostrarError(emailInput, emailFeedback, "Obligatorio.");
+    ok = false;
+  } else if (!regexEmail.test(e)) {
+    mostrarError(emailInput, emailFeedback, "Formato inválido.");
+    ok = false;
+  }
+  if (e && ce !== e) {
+    mostrarError(confirmEmail, confirmEmailFeedback, "No coincide.");
+    ok = false;
+  }
+  if (!p) {
+    mostrarError(passwordInput, passwordFeedback, "Obligatorio.");
+    ok = false;
+  } else if (p.length < 5) {
+    mostrarError(passwordInput, passwordFeedback, "Mínimo 5 caracteres.");
+    ok = false;
+  }
+  if (p && cp !== p) {
+    mostrarError(confirmPassword, confirmPasswordFeedback, "No coincide.");
+    ok = false;
+  }
+
+  return ok;
+}
+
+// ——— Envío del formulario ———
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  if (!validarFormulario()) return;
+
+  // Hora del dispositivo
+  const now = new Date().toLocaleString();
+
+  // Envío EmailJS
+  emailjs.send("service_frdvytj", "template_jwbzdh8", {
+    name:       usernameInput.value.trim(),
+    user_email: emailInput.value.trim(),
+    time:       now
+  })
+  .then(() => {
+    formStatus.style.color = "green";
+    formStatus.textContent = "¡Correo enviado con éxito!";
+    toggleLoginModal();  // cierra el modal al enviar
+  })
+  .catch(err => {
+    console.error("Error EmailJS:", err);
+    formStatus.style.color = "red";
+    formStatus.textContent = "No se pudo enviar el correo.";
+  });
+});
+
 });
 
 
@@ -683,7 +679,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //"UBICACIÓN DE SECCIONES Y SUBSECCIONES"
 
 document.addEventListener('DOMContentLoaded', function () {
-    const currentPath = window.location.pathname.split('/').pop(); // ej: "TDAH.html"
+    const currentPath = window.location.pathname.split('/').pop();
 
 
     //"RESALTADO DEL SIDEBAR"
@@ -742,34 +738,45 @@ function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
 
-    //Actualiza la bandera
-    const flagImg = document.getElementById('currentFlag');
-    if (flagImg) {
-        flagImg.src = lang === 'en'
-            ? '../img/Bandera_Estados_Unidos.webp'
-            : '../img/Bandera_Espana.webp';
-    }
+    // Actualiza las banderas (ambas)
+    const flags = [document.getElementById('currentFlag'), document.getElementById('responsiveFlag')];
+    flags.forEach(flagImg => {
+        if (flagImg) {
+            flagImg.src = lang === 'en'
+                ? '../img/Bandera_Estados_Unidos.webp'
+                : '../img/Bandera_Espana.webp';
+        }
+    });
 
-    //Aplica traducción
+    // Aplica traducción
     translatePage(lang);
 
-    //Cierra el menú desplegable
-    const dropdown = document.getElementById('languageDropdown');
-    if (dropdown) dropdown.classList.add('hidden');
+    // Cierra ambos dropdowns si están abiertos
+    const dropdowns = [document.getElementById('languageDropdown'), document.getElementById('responsiveLanguageDropdown')];
+    dropdowns.forEach(dd => {
+        if (dd) dd.classList.add('hidden');
+    });
 }
 
 //Mostrar/ocultar selector
-function toggleDropdown() {
-    const dropdown = document.getElementById('languageDropdown');
-    dropdown.classList.toggle('hidden');
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    if (dropdown) dropdown.classList.toggle('hidden');
 }
 
 //Cerrar menú si haces clic fuera
 document.addEventListener('click', function (e) {
-    const dropdown = document.getElementById('languageDropdown');
-    const btn = document.getElementById('translateBtn');
-    if (dropdown && !dropdown.contains(e.target) && !btn.contains(e.target)) {
-        dropdown.classList.add('hidden');
+    const desktopDropdown = document.getElementById('languageDropdown');
+    const desktopBtn      = document.getElementById('translateBtn');
+    const respDropdown    = document.getElementById('responsiveLanguageDropdown');
+    const respBtn         = document.getElementById('responsiveTranslateBtn');
+
+    // Si el clic no fue ni en el botón ni dentro del dropdown correspondiente, ciérralo
+    if (desktopDropdown && !desktopDropdown.contains(e.target) && !desktopBtn.contains(e.target)) {
+        desktopDropdown.classList.add('hidden');
+    }
+    if (respDropdown && !respDropdown.contains(e.target) && !respBtn.contains(e.target)) {
+        respDropdown.classList.add('hidden');
     }
 });
 

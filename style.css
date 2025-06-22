@@ -99,8 +99,8 @@ a.track-link:active {
     max-width: 100%; /*Evita que el menú supere el ancho de la pantalla con un máximo del 100%*/
     background-color: #2d938e; /*Color de fondo azul verdoso*/
     padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
-    box-sizing: border-box; /*Evita que el padding afecte el tamaño total del elemento*/
-    flex-wrap: nowrap; /*Evita que los elementos se desborden en otra línea*/
+    /*box-sizing: border-box; Evita que el padding afecte el tamaño total del elemento*/
+    /*flex-wrap: nowrap; Evita que los elementos se desborden en otra línea*/
     z-index: 1000; /*Asegura que el menú permanezca por encima de otros elementos*/
 }
 
@@ -110,6 +110,7 @@ a.track-link:active {
     z-index: 999;
     position: relative;
     margin-right: auto; /*Empuja el logo hacia la izquierda y permite que los demás elementos ocupen el espacio restante*/
+
 }
 
 /*Ajustes de la imagen del logo*/
@@ -124,6 +125,14 @@ a.track-link:active {
     color: #fff; /*Color blanco para el texto*/
     text-transform: uppercase; /*Convierte el texto en máyusculas*/
     font-size: 20px; /*Tamaño del texto del logo*/
+}
+
+.logo h2{
+    display: none;
+    font-size: 35px;
+    color: #fff;
+    margin-left: 15px;
+    align-items: center;
 }
 
 
@@ -337,13 +346,21 @@ a.track-link:active {
     overflow-y: auto; /*Scroll vertical si es necesario*/
 }
 
-.sidebar-content a.active span{
+.sidebar a.active span{
     font-weight: bold;
     color: #06494b;
 }
 
-.sidebar-content a.active i{
+.sidebar a.active i{
     color: #06494b;
+}
+
+.sidebar-content .sidebar-submenu {
+    background: #ff9898 !important;
+}
+
+.sidebar-submenu .menu-item {
+    background: #ff9898; /* Aplica el mismo fondo a los elementos internos */
 }
 
 
@@ -381,6 +398,15 @@ a.track-link:active {
 .menu-link:hover {
     background: #f1eaca; /*Fondo gris claro al pasar el mouse*/
     padding-left: 40px; /*Desplaza el contenido hacia la derecha*/
+}
+
+/* Links internos para diferenciar secciones del submenu*/
+.menu-item.internal .menu-link {
+    background-color: #ffe8b5;
+}
+
+.menu-item.internal .menu-link:hover {
+    background-color: #ecce8d; 
 }
 
 .menu-label{
@@ -697,6 +723,7 @@ a.track-link:active {
     font-weight: bold;
 }
 
+.login-form input[type="text"],
 .login-form input[type="email"],
 .login-form input[type="password"] {
     width: 100%;
@@ -705,6 +732,7 @@ a.track-link:active {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
 
 .input-error {
     border: 2px solid red !important;
@@ -1781,7 +1809,7 @@ hr{
   }
 
   .menu .logo img {
-    width: 90px;
+    width: 80px;
     height: auto;
   }
 

@@ -179,7 +179,6 @@ a.track-link:active {
     height: 85px;
     line-height: 85px;
     padding: 0 16px;
-    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
@@ -193,6 +192,11 @@ a.track-link:active {
     color: #fff; /*Color blanco*/
 }
 
+.navbar i{
+    color: #fff;
+    margin-right: 8px;
+}
+
 /*Efecto de hover y focus en los enlaces de la barra de navegación*/
 .navbar a:hover,
 .navbar a:focus,
@@ -200,12 +204,13 @@ a.track-link:active {
 .dropdown-toggle:focus {
     background: #207185;
     transform: scale(1.08);
-    color: #fffdd1;
+    color: #fffee7;
 }
 
-.navbar i{
-    color: #fff;
-    margin-right: 8px;
+/* Enlace activo en el navbar principal */
+.navbar a.active {
+    border-bottom: 4px solid #fff; /* Puedes personalizar el color */
+    font-weight: bold;
 }
 
 
@@ -245,31 +250,223 @@ a.track-link:active {
 
 /*"CHEVRON" Flecha indicadora en el menú desplegable*/
 .chevron {
-    margin-left: 8px; /*Espacio entre el texto y la flecha*/
-    transition: transform 0.3s ease; /*Animación suave al girar*/
-  }
-  
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+/*Chevron especial al dar clic*/
+.chevron.rotated {
+    transform: rotate(90deg); /* o 180deg según diseño */
+    transition: transform 0.3s ease;
+}
+
 /*Rotación del Chevron al mostrar el submenú cuando el cursor se pone sobre este*/
 .dropdown:hover .chevron {
     transform: rotate(180deg); /*Rota el icono 180 grados cuando el submenú se muestra*/
 }
 
 
-/*"ADAPTADOR DEL MENÚ PARA CELULARES"*/
-.menu-toggle {
-    display: none; /*Oculto por defecto en pantallas grandes*/
-    cursor: pointer; /*Cambia el cursor a una manita para indicar que es clickeable*/
-    margin-left: auto; /*Empuja el resto del contenido hacia la izquierda*/
+/*"MENÚ HAMBURGUESA" menú para dispositivos móviles*/
+
+.container-hamburger{
+    position: relative; /*Define un contexto de posicionamiento para los elementos internos*/
 }
 
-/*Estilos del ícono del menú hamburguesa*/
-.menu-toggle i {
-    font-size: 24px; /*Tamaño del ícono*/
-    color: #fff; /*Color del ícono*/
+/*Estilos para el botón de menú hamburguesa*/
+.hamburger-btn {
+    width: 40px; /*Ancho del botón*/
+    height: 40px; /*Alto del botón*/
+    background: none; /*Elimina el fondo del botón*/
+    border: none; /*Elimina el borde del botón*/
+    display: none; /*Layout flexbox*/
+    cursor: pointer; /*Cambia el cursor a una mano al pasar el cursor*/
+    flex-direction: column; /*Apila las líneas verticalmente*/
+    justify-content: center; /*Centra verticalmente*/
+    align-items: center; /*Centra horizontalmente*/
+    transition: all 0.3s ease; /*Transición suave para todas las propiedades*/
+}
+
+.hamburger-btn i{
+    color: #fff;
+}
+
+/*"Botón para cerrar el menú"*/
+.close-menu{
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    position: absolute; /*Se posiciona de manera absoluta dentro del contenedor*/
+    top: 10px; /*Se ubica a 20 píxeles desde la parte superior*/
+    right: 20px; /*Se ubica a 20 píxeles desde la derecha*/
+    cursor: pointer; /*Cambia el cursor a una mano al pasar el cursor*/
 }
 
 
-/*"BARRA DE BÚSQUEDA"*/
+/*"OVERLAY" Capa que oscurece el fondo cuando el menú está abierto*/
+.menu-overlay {
+    position: fixed; /*Posición fija en la ventana*/
+    top: 0; /*Cubre desde arriba*/
+    left: 0; /*Cubre desde la izquierda*/
+    width: 100%; /*Ancho completo*/
+    height: 100%; /*Alto completo*/
+    background: rgba(11, 2, 17, 0.404); /*Fondo morado oscuro semitransparente*/
+    opacity: 0; /*Inicialmente invisible*/
+    visibility: hidden; /*Inicialmente oculto*/
+    transition: all 0.3s ease; /*Transición suave*/
+    z-index: 998; /*Debajo del menú pero sobre el contenido*/
+}
+
+/*Estado activo del overlay*/
+.menu-overlay.active {
+    opacity: 1; /*Se vuelve visible*/
+    visibility: visible; /*Se muestra*/
+}
+
+/*"ENCABEZADO DEL SIDEBAR"*/
+.sidebar-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    background: linear-gradient(135deg, #2d938e 0%, #0c919b 100%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*"SIDEBAR" Contenedor principal del menú lateral*/
+.sidebar {
+    position: fixed; /*Posición fija en la ventana*/
+    top: 0; /*Desde la parte superior*/
+    left: -350px; /*Inicialmente oculto a la izquierda*/
+    width: 350px; /*Ancho del menú*/
+    height: 100%; /*Alto completo de la ventana*/
+    background: #faf8e1; /*Fondo color amarillo muy claro*/
+    z-index: 9999; /*Capa alta para estar sobre el overlay*/
+    transition: left 0.3s ease; /*Animación de deslizamiento horizontal suave*/
+}
+
+/*Estado activo del menú lateral*/
+.sidebar.active {
+    left: 0; /*Se desliza hacia la posición visible*/
+}
+
+/*Contenido scrolleable del menú*/
+.sidebar-content {
+    padding: 0; /*Sin relleno*/
+    height: calc(100% - 70px); /*Alto total menos la cabecera*/
+    overflow-y: auto; /*Scroll vertical si es necesario*/
+}
+
+.sidebar a.active span{
+    font-weight: bold;
+    color: #06494b;
+}
+
+.sidebar a.active i{
+    color: #06494b;
+}
+
+.sidebar-content .sidebar-submenu {
+    background: #ff9898 !important;
+}
+
+.sidebar-submenu .menu-item {
+    background: #ff9898; /* Aplica el mismo fondo a los elementos internos */
+}
+
+
+/*"ELEMENTOS DEL MENÚ PRINCIPAL"*/
+
+/*Contenedor de cada elemento del menú*/
+.menu-item {
+    border-bottom: 1px solid #f0f0f0; /*Línea separadora entre elementos*/
+}
+
+.menu-item span{
+    color: #453c5c;
+}
+
+.menu-item i{
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    fill: currentColor;
+}
+
+/* Enlaces y elementos clickeables del menú */
+.menu-link {
+    display: flex; /*Layout flexbox */
+    align-items: center; /*Centra verticalmente el contenido */
+    justify-content: space-between; /*Espacia el contenido entre extremos */
+    padding: 18px 30px; /*Relleno interno generoso */
+    text-decoration: none; /*Sin subrayado */
+    font-size: 16px; /*Tamaño de fuente */
+    transition: all 0.3s ease; /*Transición suave para efectos hover */
+    cursor: pointer; /*Cursor de mano */
+}
+
+/* Efecto hover en los enlaces del menú */
+.menu-link:hover {
+    background: #f1eaca; /*Fondo gris claro al pasar el mouse*/
+    padding-left: 40px; /*Desplaza el contenido hacia la derecha*/
+}
+
+/* Links internos para diferenciar secciones del submenu*/
+.menu-item.internal .menu-link {
+    background-color: #ffe8b5;
+}
+
+.menu-item.internal .menu-link:hover {
+    background-color: #ecce8d; 
+}
+
+.menu-label{
+    display: flex; 
+    align-items: center;
+}
+
+
+/*"SUBMENÚS DESPLEGABLES VERTICALES"*/
+
+/*Contenedor de los submenús desplegables*/
+.sidebar-dropdown {
+    display: none;
+    flex-direction: column;
+    max-height: 0; /*Inicialmente colapsado (altura 0)*/
+    overflow: hidden; /*Oculta el contenido que sobresale*/
+    background: #faf8e1; /*Fondo color amarillo muy claro*/
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); /*Animación suave de expansión*/
+}
+
+/*Estado activo de los submenús (cuando están abiertos)*/
+.sidebar-dropdown.active {
+    max-height: 500px; /*Altura máxima cuando está expandido*/
+    display: flex;
+}
+
+/*Elementos individuales dentro de los submenús*/
+.submenu-item {
+    padding: 15px 30px 15px 70px; /*Relleno con indentación mayor a la izquierda*/
+    color: #666; /*Color de texto más tenue*/
+    text-decoration: none; /*Sin subrayado*/
+    display: block; /*Elemento de bloque para ocupar todo el ancho */
+    font-size: 14px; /*Tamaño de fuente menor que el menú principal */
+    transition: all 0.3s ease; /*Transición suave para efectos hover */
+    border-bottom: 1px solid #e9ecef; /*Línea separadora entre elementos del submenú */
+}
+
+.submenu-item:hover {
+    padding-left: 80px;
+}
+
+/* Elimina la línea separadora del último elemento del submenú */
+.submenu-item:last-child {
+    border-bottom: none; /*Sin borde inferior*/
+}
+
+
 /*"BARRA DE BÚSQUEDA"*/
 .search-bar {
     display: flex; /*Alinea los elementos en una fila*/
@@ -304,7 +501,7 @@ a.track-link:active {
 /*Estilos para el botón de búsqueda*/
 .search-bar button { 
     padding: 8px 10px; /*Espaciado interno del botón de búsqueda*/
-    background-color: #de7272; /*Color coral al recuadro donde se encuentra el icono de búsqueda*/
+    background-color: #ff6b6b; /*Color coral al recuadro donde se encuentra el icono de búsqueda*/
     color: white; /*Color blanco al icono de búsqueda*/
     border-radius: 0 15px 15px 0; /*Esquinas redondeadas en el lado derecho*/
     cursor: pointer; /*Convierte el cursor en un pointer indicar que es un elemento clickeable*/
@@ -402,29 +599,36 @@ a.track-link:active {
 /*"LOGIN/INICIO DE SESIÓN"*/
 
 .Login {
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
+    margin-left: 20px; /*Separación entre la barra de búsqueda y el botón de inicio de sesión*/
+    display: flex; /*Organiza los elementos en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
 }
 
+/*Botón de Inicio de Sesión*/
 .login-button {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #de7272;
-    padding: 8px 14px;
-    border-radius: 20px;
-    transition: 0.2s ease-in-out;
+    display: flex; /*Alinea el ícono y el texto en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+    color: #fff; /*Color blanco para el texto*/
+    text-decoration: none; /*Elimina el subrayado predeterminado de los enlaces*/
+    font-size: 14px; /*Tamaño de fuente*/
+    background-color: #ff6b6b; /*Color rosa coral para el fondo*/
+    padding: 9px 14px; /*Margen interno para definir la extensión del fondo*/
+    border-radius: 20px; /*Bordes redondeados*/
+    transition:0.2s ease-in-out; /*Transición suave de inicio y final para el fondo*/
 }
 
+/*Estilos del ícono del búsqueda*/
 .login-button i {
-    margin-right: 8px;
+    margin-right: 8px; /*Margen exterior derecho para separar el ícono y el texto del botón*/
 }
 
+.login-button span{
+    text-align: center;
+}
+
+/*Efecto al pasar el cursor sobre el botón*/
 .login-button:hover {
-    background-color: #e55b5b;
+    background-color: #e55b5b; /*Cambio de color de fondo al pasar el cursor*/
 }
 
 
@@ -444,6 +648,7 @@ a.track-link:active {
     z-index: 1000;
 }
 
+/*Caja de formulario*/
 .login-form {
     position: relative;
     background: white;
@@ -458,6 +663,7 @@ a.track-link:active {
     max-height: 500px;
     overflow-y: auto;
     padding-right: 18px;
+    margin-top: 15px;
 }
 
 /*Scroll para Firefox*/
@@ -506,7 +712,7 @@ a.track-link:active {
 /* Titular y subtítulo */
 .login-form h2 {
     font-size: 20px;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     color: #333;
 }
 
@@ -530,6 +736,7 @@ a.track-link:active {
     font-weight: bold;
 }
 
+.login-form input[type="text"],
 .login-form input[type="email"],
 .login-form input[type="password"] {
     width: 100%;
@@ -538,6 +745,7 @@ a.track-link:active {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
 
 .input-error {
     border: 2px solid red !important;
@@ -603,7 +811,7 @@ a.track-link:active {
     width: 100%;
     background-color: #eee;
     border-radius: 3px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 5px;
     overflow: hidden;
     position: relative;
@@ -624,21 +832,9 @@ a.track-link:active {
     transition: width 0.35s ease-in-out, background-color 0.35s ease-in-out;
 }
 
-/* Recordarme */
-.remember-me {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 15px;
-}
-
-.remember-me label {
-    margin-left: 5px;
-    font-weight: normal;
-}
-
 /* Botón de envío */
 .login-form button[type="submit"] {
+    margin-top: 20px;
     text-align: center;
     align-items: center;
     width: 100%;
@@ -651,6 +847,15 @@ a.track-link:active {
 }
 
 
+/*"TOP-BAR" fila horizontal que permite tener el icono de hamburguesa, barra de búsqueda, etc. en una sola fila*/
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
 /*"SUBMENÚ"*/
 .submenu{
     position: sticky; /* Hace que el elemento se fije en la parte superior del viewport cuando se hace scroll */   
@@ -660,7 +865,7 @@ a.track-link:active {
     width: 100%; /*Ocupa todo el ancho disponible*/
     max-height: 100%;
     max-width: 100%; /*Evita que sobrepase el ancho del viewport*/
-    background-color: #017678; /*Color turquesa para el fondo*/
+    background-color: #075f61; /*Color turquesa para el fondo*/
     /*padding: 20px 25px; Agrega espacio a los lados para que no pegue al borde*/
     padding: 5px 25px 5px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
     box-sizing: border-box; /*Evita que el padding afecte el tamaño total*/
@@ -769,6 +974,21 @@ a.track-link:active {
 /*Ocultar elementos*/
 .hidden {
     display: none;
+}
+
+
+/*"TRADUCTOR PARA RESPONSIVE"*/
+.translator-responsive {
+    background-color: transparent;
+    display: none;
+}
+
+/*Botón sin fondo*/
+#responsiveTranslateBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 
