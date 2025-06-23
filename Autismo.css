@@ -1727,6 +1727,156 @@ label p{
 }
 
 
+@media (max-width: 768px) {
+
+    /* Oculta el menú principal y submenú */
+  .navbar,
+  #subMenu {
+    display: none;
+  }
+
+  /* Reorganiza contenedor general */
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  /* Logo centrado y solo */
+  .menu .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .menu .logo img {
+    width: 80px;
+    height: auto;
+  }
+
+  /* Barra superior horizontal con botones visibles */
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;;
+  }
+
+  /* Botón hamburguesa visible */
+  .hamburger-btn {
+    margin-left: 5px;
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    max-width: fit-content;
+  }
+
+  .search-bar {
+    flex: 1;
+    min-width: 100px;
+    max-width: fit-content;
+  }
+
+  .search-bar input{
+    min-width: 250px;
+    max-width: 100%;
+  }
+
+  .Login,
+  .translator-responsive {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+  }
+
+  .navbar {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Oculta submenús desplegables */
+  .dropdown-content {
+    display: none !important;
+  }
+}
+
+
+/*INICIO DE SESIÓN SIMPLIFICADO*/
+@media (max-width: 600px) {
+  /* Quita el margen lateral del contenedor */
+  .Login {
+    margin: 0px;
+  }
+
+  /* Oculta SOLO el texto del botón */
+  .login-button span {
+    display: none !important;
+  }
+
+  /* Deja el botón con padding cuadrado para el icono */
+  .login-button {
+    padding: 10px !important;
+    width: 35px;
+    justify-content: center;
+  }
+
+  /* Quita el margen que separa icono-texto (aunque ya no haya texto) */
+  .login-button i {
+    margin: 0;
+  }
+}
+
+
+/*TRADUCTOR ORIGINAL Y TRADUCTOR RESPONSIVE*/
+@media (max-width: 768px) {
+  .translator {
+    display: none; /*Oculta el traductor de escritorio*/
+  }
+
+  .translator-responsive {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .translator-responsive .flag-rectangle-img {
+    width: 45px;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .translator-responsive .flag-rectangle-img:hover {
+    transform: scale(1.1);
+  }
+
+  .language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    width: 140px;
+    z-index: 999;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+}
+
+
 /*PÁGINA DE AUTISMO*/
 /*HEADER*/
 @media screen and (max-width: 767px) {
