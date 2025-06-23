@@ -516,6 +516,8 @@ a.track-link:active {
     z-index: 2000; /* Índice muy alto para aparecer sobre todo */
     display: none; /* Oculto por defecto */
     margin-top: 5px; /* Pequeño espacio entre input y dropdown */
+    scrollbar-width: thin; /*Firefox: grosor delgada*/
+    scrollbar-color: rgba(100,100,100,0.4) transparent; /*Firefox: color del thumb y track*/
 }
 
 /* Clase para mostrar las sugerencias con animación */
@@ -580,6 +582,27 @@ a.track-link:active {
     background-color: #f68f9b; /*Fondo resaltado cuando se encuentra un término de búsqueda*/
     border-radius: 2px;  /* Esquinas ligeramente redondeadas */
     font-weight: bold;  /*Texto en negrita para hacer énfasis en el resultado*/
+}
+
+/*Barra de scroll personalizada para las sugerencias de búsqueda*/
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+.search-suggestions::-webkit-scrollbar {
+    width: 5px;            /* grosor del scroll */
+}
+.search-suggestions::-webkit-scrollbar-track {
+    background: transparent; /*pista transparente*/
+}
+.search-suggestions::-webkit-scrollbar-thumb {
+    background-color: rgba(100,100,100,0.4); /*color del pulgar*/
+    border-radius: 4px;                     /* esquinas redondeadas */
+}
+.search-suggestions::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100,100,100,0.6); /* al pasar el mouse */
+}
+/* opcional: quitar flechas en WebKit */
+.search-suggestions::-webkit-scrollbar-button {
+    display: none;
 }
 
 
